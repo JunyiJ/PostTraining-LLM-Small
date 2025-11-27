@@ -1,3 +1,4 @@
+# Script to generate evaluation data for math reasoning to test base model and model after post-training
 import json
 import random
 from datasets import load_dataset
