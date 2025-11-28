@@ -8,14 +8,23 @@ MODEL_PATH = "./models/gemma-2-2b"
 TEST_FILE = "./data/test_math.jsonl"
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 128
+TOL = 1e-6
 
 def extract_answer(text):
-    # find last integer in the output
-    nums = re.findall(r"-?\d+", text)
-    if not nums:
+    if text is None:
         return None
-    # Cast to int and back to str to ensure the prediction is a clean numeric string
-    return str(int(nums[-1]))
+    # Find all numeric spans and pick the last one (closest to the end of the output)
+    # Matches numbers like: 3, -2, 3.1415, 0.00001, .5, -0.25
+    matches = list(re.finditer(r"[-+]?\d*\.?\d+", text))
+    if not matches:
+        return None
+
+    last_match = matches[-1].group(0)
+    try:
+        cleaned = last_match.replace(",", "")
+        return float(cleaned)
+    except Exception:
+        return None
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
 model = AutoModelForCausalLM.from_pretrained(
@@ -60,10 +69,18 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
 
     for out, gold in zip(outputs, golds):
         text = tokenizer.decode(out, skip_special_tokens=True)
+        try:
+            gold_val = float(gold.replace(",", ""))
+        except Exception:
+            continue
         pred = extract_answer(text)
-        if pred == gold:
+        if pred is None:
+            continue
+        print("pred is {} and gold is {}".format(pred, gold))
+        if abs(pred - gold_val) <= TOL:
             correct += 1
         total += 1
+    print("total questions processed is {} and correct answer is {}".format(total, correct))
 
 accuracy = correct / total * 100
 
