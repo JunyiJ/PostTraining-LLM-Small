@@ -9,16 +9,18 @@ from tqdm import tqdm
 from grpo.utils import load_model
 from grpo.sampler import sample_k
 from grpo.advantage import compute_advantage
+from grpo.reward import compute_reward
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 NUM_SAMPLES_PER_PROMPT = 2
 NUM_TRAINING_DATA = 1
 SAMPLING_TEMPERATURE = 0.7
+DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
-model.eval()  # disable dropout for deterministic logprobs
+model.to(DEVICE)
 
 prompts = ["Hello world", "1+1=?"]
 
@@ -78,6 +80,9 @@ for each batch:
 with open(TRAIN_FILE) as f:
     test_data = [json.loads(line) for line in f]
 
+# TODO load model with Lora and only enable Lora params for optimizer
+# optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
+
 for line in tqdm(test_data[:NUM_TRAINING_DATA]):
     question = line['question']
     print(f"question is {question}")
@@ -86,6 +91,7 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
     print("start sampling passes")
     # Generate K initial answers and get each answer token's logprob and old_logprob
     # for the answer.
+    model.eval()    # disable dropout
     with torch.no_grad():
         samples = sample_k(
             model,
@@ -95,6 +101,12 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             temperature=SAMPLING_TEMPERATURE,
             max_new_tokens=100,
         )
+    # Second pass to get each answer token's logprob and new_logprob
+    model.train()
+    with torch.enable_grad():
+        rewards = []
+        new_logprobs = []
+        old_logprobs = []
         for i, r in enumerate(samples, start=1):
             print(f"\nSample {i}: {r['text']}")
             print(f"prompt token id length: {r['prompt_id_length']}")
@@ -102,8 +114,8 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             print(f"sum answer token logprobs: {r['sum_token_logprobs']}")
             print(f"token logprobs shape: {r['token_logprobs'].shape}")
             print('second pass')
-            # Second pass to get each answer token's logprob and new_logprob
-            tokens = r["tokens"].to("mps")
+            
+            tokens = r["tokens"].to(DEVICE)
             attention_mask = torch.ones_like(tokens)
             out = model(input_ids=tokens, attention_mask=attention_mask)
             logits = out.logits  # [batch, seq_length, vocab]
@@ -116,7 +128,25 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             print(f'shape of answer_log_probs: {answer_log_probs.shape}')
             sum_token_logprobs_new = answer_log_probs.sum(dim=1)
             print(f"sum answer token logprobs new: {sum_token_logprobs_new}")
-            
 
+            # Start to prepare for the GRPO loss
+            reward = compute_reward(question, r['text'], gold_answer)
+            rewards.append(reward)
+            new_logprobs.append(sum_token_logprobs_new.squeeze(0))
+            old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
 
-    print("==")
+        advantages = torch.tensor(
+            compute_advantage(rewards),
+            device=DEVICE,
+            dtype=new_logprobs[0].dtype if new_logprobs else torch.float32,
+        )
+        old_logprobs_t = torch.stack(old_logprobs)
+        new_logprobs_t = torch.stack(new_logprobs)
+        print(f"new_logprobs_t shape: {new_logprobs_t.shape}")
+        log_prob_ratio = new_logprobs_t - old_logprobs_t
+        loss = -(advantages * log_prob_ratio.exp()).mean()
+        print(f"loss: {loss.item()}")
+        # optimizer.zero_grad()
+        # loss.backward()
+        # optimizer.step()
+    print("==end-of-training-sample==")
