@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 import torch
+import torch.nn.functional as F
 from tqdm import tqdm
 
 from grpo.utils import load_model
@@ -13,9 +14,11 @@ MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 NUM_SAMPLES_PER_PROMPT = 2
 NUM_TRAINING_DATA = 1
+SAMPLING_TEMPERATURE = 0.7
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
+model.eval()  # disable dropout for deterministic logprobs
 
 prompts = ["Hello world", "1+1=?"]
 
@@ -80,20 +83,40 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
     print(f"question is {question}")
     gold_answer = str(line["gold_answer"]).strip()
     print(f"gold_answer is {gold_answer}")
+    print("start sampling passes")
+    # Generate K initial answers and get each answer token's logprob and old_logprob
+    # for the answer.
     with torch.no_grad():
         samples = sample_k(
             model,
             tokenizer,
             question,
             k=NUM_SAMPLES_PER_PROMPT,
-            temperature=0.7,
+            temperature=SAMPLING_TEMPERATURE,
             max_new_tokens=100,
         )
         for i, r in enumerate(samples, start=1):
             print(f"\nSample {i}: {r['text']}")
             print(f"prompt token id length: {r['prompt_id_length']}")
             print(f"tokens size: {r['tokens'].shape}")
-            print(f"sum token logprobs: {r['sum_token_logprobs']}")
+            print(f"sum answer token logprobs: {r['sum_token_logprobs']}")
             print(f"token logprobs shape: {r['token_logprobs'].shape}")
+            print('second pass')
+            # Second pass to get each answer token's logprob and new_logprob
+            tokens = r["tokens"].to("mps")
+            attention_mask = torch.ones_like(tokens)
+            out = model(input_ids=tokens, attention_mask=attention_mask)
+            logits = out.logits  # [batch, seq_length, vocab]
+            # Shift logits vs targets: logits at t predict token at t+1
+            shifted_log_probs = F.log_softmax(logits / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+            targets = tokens[:, 1:].unsqueeze(-1)
+            log_probs = shifted_log_probs.gather(-1, targets).squeeze(-1)  # [batch, seq_length-1]
+            print(f'shape of log_probs: {log_probs.shape}')
+            answer_log_probs = log_probs[:, r['prompt_id_length'] - 1:]
+            print(f'shape of answer_log_probs: {answer_log_probs.shape}')
+            sum_token_logprobs_new = answer_log_probs.sum(dim=1)
+            print(f"sum answer token logprobs new: {sum_token_logprobs_new}")
+            
+
 
     print("==")
