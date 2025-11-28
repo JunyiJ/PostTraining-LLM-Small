@@ -10,6 +10,7 @@ from grpo.utils import load_model
 from grpo.sampler import sample_k
 from grpo.advantage import compute_advantage
 from grpo.reward import compute_reward
+from grpo.lora import apply_lora_to_model, get_lora_parameters
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
@@ -81,7 +82,8 @@ with open(TRAIN_FILE) as f:
     test_data = [json.loads(line) for line in f]
 
 # TODO load model with Lora and only enable Lora params for optimizer
-# optimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)
+lora_parms = get_lora_parameters(model)
+optimizer = torch.optim.AdamW(lora_parms, lr=1e-4)
 
 for line in tqdm(test_data[:NUM_TRAINING_DATA]):
     question = line['question']
