@@ -1,4 +1,9 @@
+import json
+import re
 from pathlib import Path
+
+import torch
+from tqdm import tqdm
 
 from grpo.utils import load_model
 from grpo.sampler import sample_k
@@ -12,40 +17,30 @@ NUM_TRAINING_DATA = 1
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
 
-prompts = ["Hello world", "how many r in strawberry"]
+prompts = ["Hello world", "1+1=?"]
 
 # Sample multiple completions per prompt for demonstration
 for prompt in prompts:
-    samples = sample_k(
-        model,
-        tokenizer,
+    inputs = tokenizer(
         prompt,
-        k=NUM_SAMPLES_PER_PROMPT,
-        max_new_tokens=50,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+    ).to("mps")
+    outputs = model.generate(
+        **inputs,
+        max_new_tokens=100,
+        do_sample=True,
+        temperature=1.0
     )
-    for idx, sample in enumerate(samples, start=1):
-        print(f"\nPrompt: {prompt} (sample {idx}/{NUM_SAMPLES_PER_PROMPT})")
-        print(f"Sample: {sample}")
+    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
 # Example advantage computation over dummy rewards
 dummy_rewards = [1.0, 0.5, 0.0]
 print(f"Advantages for {dummy_rewards}: {compute_advantage(dummy_rewards)}")
 
 
-"""
-load data
-load model (with LoRA enabled)
-for each batch:
-    generate k initial answers
-    generate k refined answers
-    compute rewards
-    compute advantages
-    recompute logprobs with grad
-    compute GRPO loss
-    backprop
-    step optimizer
-    periodically evaluate
-"""
+
 def extract_answer(text):
     if text is None:
         return None
@@ -62,9 +57,39 @@ def extract_answer(text):
     except Exception:
         return None
 
+"""
+load data
+load model (with LoRA enabled)
+for each batch:
+    generate k initial answers
+    generate k refined answers
+    compute rewards
+    compute advantages
+    recompute logprobs with grad
+    compute GRPO loss
+    backprop
+    step optimizer
+    periodically evaluate
+"""
 # Load training data
 with open(TRAIN_FILE) as f:
     test_data = [json.loads(line) for line in f]
 
 for line in tqdm(test_data[:NUM_TRAINING_DATA]):
-    
+    question = line['question']
+    print(f"question is {question}")
+    gold_answer = str(line["gold_answer"]).strip()
+    print(f"gold_answer is {gold_answer}")
+    with torch.no_grad():
+        samples = sample_k(
+            model,
+            tokenizer,
+            question,
+            k=NUM_SAMPLES_PER_PROMPT,
+            temperature=0.2,
+            max_new_tokens=50,
+        )
+        for i, r in enumerate(samples, start=1):
+            print(f"\nSample {i}: {r['text']}")
+            print(f"logits size : {len(r['logits'])}")
+            print(f"probs size : {len(r['probs'])}")

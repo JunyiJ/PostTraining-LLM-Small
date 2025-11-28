@@ -1,3 +1,4 @@
+{"question": "1+1=?", "gold_answer": "2"}
 {"question": "A car travels at 47 km/h for 1 hours, then twice that speed for 1 hours. Compute total distance in km.", "gold_answer": "141.000000"}
 {"question": "A car travels at 39 km/h for 2 hours, then twice that speed for 2 hours. Compute total distance in km.", "gold_answer": "234.000000"}
 {"question": "A car travels at 65 km/h for 5 hours, then twice that speed for 5 hours. Compute total distance in km.", "gold_answer": "975.000000"}
