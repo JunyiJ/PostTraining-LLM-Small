@@ -86,10 +86,14 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             tokenizer,
             question,
             k=NUM_SAMPLES_PER_PROMPT,
-            temperature=0.2,
-            max_new_tokens=50,
+            temperature=0.7,
+            max_new_tokens=100,
         )
         for i, r in enumerate(samples, start=1):
             print(f"\nSample {i}: {r['text']}")
-            print(f"logits size : {len(r['logits'])}")
-            print(f"probs size : {len(r['probs'])}")
+            print(f"prompt token id length: {r['prompt_id_length']}")
+            print(f"tokens size: {r['tokens'].shape}")
+            print(f"sum token logprobs: {r['sum_token_logprobs']}")
+            print(f"token logprobs shape: {r['token_logprobs'].shape}")
+
+    print("==")
