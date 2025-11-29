@@ -22,13 +22,6 @@ DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
-# Frozen reference model for old logprobs (no LoRA, no grads)
-_, ref_model = load_model(str(MODEL_PATH))
-ref_model.to(DEVICE)
-for p in ref_model.parameters():
-    p.requires_grad = False
-ref_model.eval()
-
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
@@ -124,20 +117,12 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             answer_log_probs_new = log_probs_new[:, r['prompt_id_length'] - 1:]
             sum_token_logprobs_new = answer_log_probs_new.sum(dim=1)
 
-            # Old logprobs from frozen reference model
-            with torch.no_grad():
-                out_old = ref_model(input_ids=tokens, attention_mask=attention_mask)
-                logits_old = out_old.logits
-                shifted_log_probs_old = F.log_softmax(logits_old / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
-                log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)
-                answer_log_probs_old = log_probs_old[:, r['prompt_id_length'] - 1:]
-                sum_token_logprobs_old = answer_log_probs_old.sum(dim=1)
-
             # Start to prepare for the GRPO loss
             reward = compute_reward(question, r['text'], gold_answer)
             rewards.append(reward)
             new_logprobs.append(sum_token_logprobs_new.squeeze(0))
-            old_logprobs.append(sum_token_logprobs_old.squeeze(0))
+            # Old logprobs are from the policy at sampling time (stored in sample_k output)
+            old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
         # Compute advantages
         advantages = torch.tensor(
             compute_advantage(rewards),
