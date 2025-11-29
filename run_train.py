@@ -10,18 +10,39 @@ from grpo.utils import load_model
 from grpo.sampler import sample_k
 from grpo.advantage import compute_advantage
 from grpo.reward import compute_reward
-from grpo.lora import apply_lora_to_model, get_lora_parameters
+from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 NUM_SAMPLES_PER_PROMPT = 2
 NUM_TRAINING_DATA = 1
+EVAL_EVERY = 50
 SAMPLING_TEMPERATURE = 0.7
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
+# Wrap target linear layers with LoRA adapters
+model = apply_lora_to_model(
+    model,
+    r=8,
+    alpha=16,
+    target_modules=("q_proj", "v_proj"),
+    dropout=0.0,
+)
+freeze_non_lora_params(model)
 model.to(DEVICE)
+lora_params = get_lora_parameters(model)
+optimizer = torch.optim.AdamW(lora_params, lr=1e-4)
+
+# # Test only LoRA params are trainable
+# for name, p in model.named_parameters():
+#     if p.requires_grad:
+#         print(name, p.shape)
+global_step = 0
+running_loss = 0.0
+running_correct = 0
+running_total = 0
 
 prompts = ["Hello world", "1+1=?"]
 
@@ -80,10 +101,6 @@ for each batch:
 # Load training data
 with open(TRAIN_FILE) as f:
     test_data = [json.loads(line) for line in f]
-
-# TODO load model with Lora and only enable Lora params for optimizer
-lora_parms = get_lora_parameters(model)
-optimizer = torch.optim.AdamW(lora_parms, lr=1e-4)
 
 for line in tqdm(test_data[:NUM_TRAINING_DATA]):
     question = line['question']
@@ -148,7 +165,30 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
         log_prob_ratio = new_logprobs_t - old_logprobs_t
         loss = -(advantages * log_prob_ratio.exp()).mean()
         print(f"loss: {loss.item()}")
-        # optimizer.zero_grad()
-        # loss.backward()
-        # optimizer.step()
+        running_loss += loss.item()
+        running_correct += sum(1 for r in rewards if r > 0)
+        running_total += len(rewards)
+        global_step += 1
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+        if global_step % EVAL_EVERY == 0:
+            avg_loss = running_loss / max(global_step, 1)
+            acc = running_correct / max(running_total, 1)
+            print(f"[step {global_step}] avg_loss={avg_loss:.4f} acc={acc:.4f}")
+            running_loss = 0.0
+            running_correct = 0
+            running_total = 0
+
+            eval_prompt = "11+123=?"
+            eval_inputs = tokenizer(eval_prompt, return_tensors="pt").to(DEVICE)
+            model.eval()
+            with torch.no_grad():
+                out = model.generate(
+                    **eval_inputs,
+                    max_new_tokens=8,
+                    do_sample=False,
+                )
+                print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
+            model.train()
     print("==end-of-training-sample==")
