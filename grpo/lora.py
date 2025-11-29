@@ -14,13 +14,24 @@ class LoRALinear(nn.Module):
         super().__init__()
 
         self.base = base_layer
-        for p in self.base.parameters():
-            p.requires_grad = False  # freeze base weights/bias
+        self.in_features = base_layer.in_features
+        self.out_features = base_layer.out_features
 
         self.r = r
         self.alpha = alpha
         self.scaling = alpha / float(r)
         self.dropout = nn.Dropout(dropout)
+
+        self.weight = nn.Parameter(
+            base_layer.weight.detach().clone(),
+            requires_grad=False
+        )
+        self.bias = None
+        if base_layer.bias is not None:
+            self.bias = nn.Parameter(
+                base_layer.bias.detach().clone(),
+                requires_grad=False
+            )
 
         # Low-rank adapters
         self.A = nn.Linear(self.base.in_features, r, bias=False)
@@ -29,8 +40,10 @@ class LoRALinear(nn.Module):
         init.zeros_(self.B.weight)
         
     def forward(self, x):
-        base_out = self.base(x)
+        base_out = x @ self.weight.T
         lora_out = self.B(self.dropout(self.A(x))) * self.scaling
+        if self.bias is not None:
+            return self.bias + base_out +lora_out
         return base_out + lora_out
 
 
@@ -38,21 +51,33 @@ def apply_lora_to_model(
     model: nn.Module,
     r: int = 8,
     alpha: int = 16,
-    target_modules: Iterable[str] = ("q_proj", "v_proj"),
+    target_modules=("q_proj", "v_proj"),
     dropout: float = 0.0,
 ) -> nn.Module:
-    """Recursively wrap target linear submodules with LoRALinear."""
+    """
+    Recursively replace target Linear layers with LoRALinear.
+    Works properly with Gemma, Llama, Mistral, Qwen, etc.
+    """
 
-    def _replace(module: nn.Module, parents: Tuple[str, ...] = ()) -> None:
-        for child_name, child in list(module.named_children()):
-            if isinstance(child, LoRALinear):
+    # Convert to tuple of strings
+    target_modules = tuple(target_modules)
+
+    # ---- recursive function ----
+    def replace_recursive(module: nn.Module):
+
+        for name, child in list(module.named_children()):
+
+            # ---- CASE 1: child is a Linear that should be LoRA-wrapped ----
+            if isinstance(child, nn.Linear) and any(t in name for t in target_modules):
+                setattr(module, name,
+                        LoRALinear(child, r=r, alpha=alpha, dropout=dropout))
                 continue
-            if isinstance(child, nn.Linear) and child_name in target_modules:
-                setattr(module, child_name, LoRALinear(child, r=r, alpha=alpha, dropout=dropout))
-            else:
-                _replace(child, (*parents, child_name))
 
-    _replace(model, ())
+            # ---- CASE 2: recursively search deeper ----
+            replace_recursive(child)
+
+    # start recursion
+    replace_recursive(model)
     return model
 
 
