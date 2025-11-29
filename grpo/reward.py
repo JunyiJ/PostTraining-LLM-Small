@@ -3,14 +3,14 @@ import re
 def extract_answer(text):
     if text is None:
         return None
-    # find last integer in the output
-    # match numbers like: 3, -2, 3.1415, 0.00001, .5, -0.25
-    match = re.search(r"[-+]?\d*\.?\d+", text)
-    if not match:
+    # Find all numeric spans and pick the last one (closest to the end of the output)
+    # Matches numbers like: 3, -2, 3.1415, 0.00001, .5, -0.25
+    matches = list(re.finditer(r"[-+]?\d*\.?\d+", text))
+    if not matches:
         return None
     
     try:
-        cleaned = match.group(0).replace(",", "")
+        cleaned = matches[-1].group(0).replace(",", "")
         return float(cleaned)
     except:
         return None

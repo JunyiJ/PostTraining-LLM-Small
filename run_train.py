@@ -14,8 +14,8 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_para
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
-NUM_SAMPLES_PER_PROMPT = 2
-NUM_TRAINING_DATA = 1
+NUM_SAMPLES_PER_PROMPT = 3
+NUM_TRAINING_DATA = 10
 EVAL_EVERY = 50
 SAMPLING_TEMPERATURE = 0.7
 DEVICE = torch.device("mps")
@@ -35,38 +35,10 @@ model.to(DEVICE)
 lora_params = get_lora_parameters(model)
 optimizer = torch.optim.AdamW(lora_params, lr=1e-4)
 
-# # Test only LoRA params are trainable
-# for name, p in model.named_parameters():
-#     if p.requires_grad:
-#         print(name, p.shape)
 global_step = 0
 running_loss = 0.0
 running_correct = 0
 running_total = 0
-
-prompts = ["Hello world", "1+1=?"]
-
-# Sample multiple completions per prompt for demonstration
-for prompt in prompts:
-    inputs = tokenizer(
-        prompt,
-        return_tensors="pt",
-        padding=True,
-        truncation=True,
-    ).to("mps")
-    outputs = model.generate(
-        **inputs,
-        max_new_tokens=100,
-        do_sample=True,
-        temperature=1.0
-    )
-    print(tokenizer.decode(outputs[0], skip_special_tokens=True))
-
-# Example advantage computation over dummy rewards
-dummy_rewards = [1.0, 0.5, 0.0]
-print(f"Advantages for {dummy_rewards}: {compute_advantage(dummy_rewards)}")
-
-
 
 def extract_answer(text):
     if text is None:
@@ -118,9 +90,10 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             question,
             k=NUM_SAMPLES_PER_PROMPT,
             temperature=SAMPLING_TEMPERATURE,
-            max_new_tokens=100,
+            max_new_tokens=500,
         )
-    # Second pass to get each answer token's logprob and new_logprob
+    # Second pass (enable gradient) to get each answer token's logprob and new_logprob
+    # and collect rewards
     model.train()
     with torch.enable_grad():
         rewards = []
@@ -132,7 +105,6 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             print(f"tokens size: {r['tokens'].shape}")
             print(f"sum answer token logprobs: {r['sum_token_logprobs']}")
             print(f"token logprobs shape: {r['token_logprobs'].shape}")
-            print('second pass')
             
             tokens = r["tokens"].to(DEVICE)
             attention_mask = torch.ones_like(tokens)
@@ -153,25 +125,31 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             rewards.append(reward)
             new_logprobs.append(sum_token_logprobs_new.squeeze(0))
             old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
-
+        # Compute advantages
         advantages = torch.tensor(
             compute_advantage(rewards),
             device=DEVICE,
             dtype=new_logprobs[0].dtype if new_logprobs else torch.float32,
         )
+        print(f"rewards: {rewards}")
+        print(f"advantages: {advantages.tolist()}")
+        # Compute GRPO loss
         old_logprobs_t = torch.stack(old_logprobs)
         new_logprobs_t = torch.stack(new_logprobs)
         print(f"new_logprobs_t shape: {new_logprobs_t.shape}")
         log_prob_ratio = new_logprobs_t - old_logprobs_t
-        loss = -(advantages * log_prob_ratio.exp()).mean()
+        # Use unclipped ratio (no exp) to avoid degenerate zero-loss when old==new
+        loss = -(advantages * log_prob_ratio).mean()
         print(f"loss: {loss.item()}")
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
         running_total += len(rewards)
         global_step += 1
+        # Backprop
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
+        # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)
             acc = running_correct / max(running_total, 1)
