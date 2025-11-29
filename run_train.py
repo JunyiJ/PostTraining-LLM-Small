@@ -22,6 +22,13 @@ DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
+# Frozen reference model for old logprobs (no LoRA, no grads)
+_, ref_model = load_model(str(MODEL_PATH))
+ref_model.to(DEVICE)
+for p in ref_model.parameters():
+    p.requires_grad = False
+ref_model.eval()
+
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
@@ -108,23 +115,29 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
             
             tokens = r["tokens"].to(DEVICE)
             attention_mask = torch.ones_like(tokens)
-            out = model(input_ids=tokens, attention_mask=attention_mask)
-            logits = out.logits  # [batch, seq_length, vocab]
-            # Shift logits vs targets: logits at t predict token at t+1
-            shifted_log_probs = F.log_softmax(logits / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+            # New logprobs from trainable model (with LoRA)
+            out_new = model(input_ids=tokens, attention_mask=attention_mask)
+            logits_new = out_new.logits  # [batch, seq_length, vocab]
+            shifted_log_probs_new = F.log_softmax(logits_new / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
             targets = tokens[:, 1:].unsqueeze(-1)
-            log_probs = shifted_log_probs.gather(-1, targets).squeeze(-1)  # [batch, seq_length-1]
-            print(f'shape of log_probs: {log_probs.shape}')
-            answer_log_probs = log_probs[:, r['prompt_id_length'] - 1:]
-            print(f'shape of answer_log_probs: {answer_log_probs.shape}')
-            sum_token_logprobs_new = answer_log_probs.sum(dim=1)
-            print(f"sum answer token logprobs new: {sum_token_logprobs_new}")
+            log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)  # [batch, seq_length-1]
+            answer_log_probs_new = log_probs_new[:, r['prompt_id_length'] - 1:]
+            sum_token_logprobs_new = answer_log_probs_new.sum(dim=1)
+
+            # Old logprobs from frozen reference model
+            with torch.no_grad():
+                out_old = ref_model(input_ids=tokens, attention_mask=attention_mask)
+                logits_old = out_old.logits
+                shifted_log_probs_old = F.log_softmax(logits_old / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+                log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)
+                answer_log_probs_old = log_probs_old[:, r['prompt_id_length'] - 1:]
+                sum_token_logprobs_old = answer_log_probs_old.sum(dim=1)
 
             # Start to prepare for the GRPO loss
             reward = compute_reward(question, r['text'], gold_answer)
             rewards.append(reward)
             new_logprobs.append(sum_token_logprobs_new.squeeze(0))
-            old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
+            old_logprobs.append(sum_token_logprobs_old.squeeze(0))
         # Compute advantages
         advantages = torch.tensor(
             compute_advantage(rewards),
@@ -137,9 +150,10 @@ for line in tqdm(test_data[:NUM_TRAINING_DATA]):
         old_logprobs_t = torch.stack(old_logprobs)
         new_logprobs_t = torch.stack(new_logprobs)
         print(f"new_logprobs_t shape: {new_logprobs_t.shape}")
+        # GRPO/PPO-style ratio
         log_prob_ratio = new_logprobs_t - old_logprobs_t
-        # Use unclipped ratio (no exp) to avoid degenerate zero-loss when old==new
-        loss = -(advantages * log_prob_ratio).mean()
+        ratio = log_prob_ratio.exp()
+        loss = -(advantages * ratio).mean()
         print(f"loss: {loss.item()}")
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
