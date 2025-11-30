@@ -1,11 +1,17 @@
 # Script to evaluate the model's performance on the test math dataset
 import json, re
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from pathlib import Path
+
 import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
+
+from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 
 MODEL_PATH = "./models/gemma-2-2b"
 TEST_FILE = "./data/test_math.jsonl"
+LORA_CKPT = Path("./checkpoints/lora_epoch3_step150.pt")
+USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 128
 TOL = 1e-6
@@ -32,6 +38,24 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="mps",
     dtype=torch.float16,
 )
+
+if USE_LORA:
+    model = apply_lora_to_model(
+        model,
+        r=8,
+        alpha=16,
+        target_modules=("q_proj", "v_proj"),
+        dropout=0.0,
+    )
+    freeze_non_lora_params(model)
+    if LORA_CKPT.exists():
+        ckpt = torch.load(LORA_CKPT, map_location="cpu")
+        missing = model.load_state_dict(ckpt.get("lora_state_dict", {}), strict=False)
+        print(f"Loaded LoRA checkpoint {LORA_CKPT} (missing/unexpected: {missing})")
+    else:
+        print(f"LoRA checkpoint {LORA_CKPT} not found; evaluating base model.")
+
+model.to("mps")
 model.eval()
 
 correct, total = 0, 0
@@ -85,7 +109,7 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
 accuracy = correct / total * 100
 
 print(f"\n--- Baseline Evaluation ---")
-print(f"Model: Gemma 2B Instruct")
+print(f"Model: Gemma 2B Instruct{' + LoRA' if USE_LORA and LORA_CKPT.exists() else ''}")
 print(f"Total: {total}")
 print(f"Correct: {correct}")
 print(f"Accuracy: {accuracy:.2f}%")
