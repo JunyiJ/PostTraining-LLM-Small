@@ -1,2 +1,174 @@
 
 === Epoch 1/3 ===
+[timing] sample processed in 191.74s
+[timing] sample processed in 206.48s
+[timing] sample processed in 197.04s
+[timing] sample processed in 163.18s
+[timing] sample processed in 155.35s
+[timing] sample processed in 721.61s
+[timing] sample processed in 576.05s
+[timing] sample processed in 919.17s
+[timing] sample processed in 939.23s
+[timing] sample processed in 1227.76s
+[timing] sample processed in 712.75s
+[timing] sample processed in 1147.72s
+[timing] sample processed in 642.00s
+[timing] sample processed in 288.83s
+[timing] sample processed in 305.43s
+[timing] sample processed in 378.49s
+[timing] sample processed in 389.67s
+[timing] sample processed in 495.47s
+[timing] sample processed in 268.55s
+[timing] sample processed in 238.33s
+[timing] sample processed in 758.43s
+[timing] sample processed in 202.91s
+[timing] sample processed in 411.90s
+[timing] sample processed in 384.80s
+[timing] sample processed in 506.13s
+[timing] sample processed in 246.83s
+[timing] sample processed in 362.42s
+[timing] sample processed in 293.03s
+[timing] sample processed in 498.06s
+[timing] sample processed in 292.24s
+[timing] sample processed in 464.20s
+[timing] sample processed in 594.43s
+[timing] sample processed in 266.36s
+[timing] sample processed in 452.36s
+[timing] sample processed in 187.94s
+[timing] sample processed in 391.53s
+[timing] sample processed in 389.09s
+[timing] sample processed in 413.14s
+[timing] sample processed in 324.84s
+[timing] sample processed in 484.68s
+[timing] sample processed in 453.12s
+[timing] sample processed in 578.74s
+[timing] sample processed in 341.81s
+[timing] sample processed in 251.84s
+[timing] sample processed in 597.91s
+[timing] sample processed in 241.35s
+[timing] sample processed in 642.19s
+[timing] sample processed in 435.06s
+[timing] sample processed in 393.94s
+[step 50] avg_loss=0.0008 acc=0.4800
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it
+[timing] sample processed in 308.95s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch1_step50.pt
+==end-of-epoch 1==
+
+=== Epoch 2/3 ===
+[timing] sample processed in 396.10s
+[timing] sample processed in 435.48s
+[timing] sample processed in 627.37s
+[timing] sample processed in 454.38s
+[timing] sample processed in 523.88s
+[timing] sample processed in 248.88s
+[timing] sample processed in 531.32s
+[timing] sample processed in 256.69s
+[timing] sample processed in 583.67s
+[timing] sample processed in 453.40s
+[timing] sample processed in 307.12s
+[timing] sample processed in 446.73s
+[timing] sample processed in 714.75s
+[timing] sample processed in 298.87s
+[timing] sample processed in 420.62s
+[timing] sample processed in 291.24s
+[timing] sample processed in 535.34s
+[timing] sample processed in 265.80s
+[timing] sample processed in 322.84s
+[timing] sample processed in 558.67s
+[timing] sample processed in 551.17s
+[timing] sample processed in 526.81s
+[timing] sample processed in 524.85s
+[timing] sample processed in 719.84s
+[timing] sample processed in 511.44s
+[timing] sample processed in 396.19s
+[timing] sample processed in 205.73s
+[timing] sample processed in 166.58s
+[timing] sample processed in 283.85s
+[timing] sample processed in 155.27s
+[timing] sample processed in 125.60s
+[timing] sample processed in 105.62s
+[timing] sample processed in 8.08s
+[timing] sample processed in 284.95s
+[timing] sample processed in 110.17s
+[timing] sample processed in 139.80s
+[timing] sample processed in 137.76s
+[timing] sample processed in 195.05s
+[timing] sample processed in 295.69s
+[timing] sample processed in 113.32s
+[timing] sample processed in 115.49s
+[timing] sample processed in 257.44s
+[timing] sample processed in 81.83s
+[timing] sample processed in 181.78s
+[timing] sample processed in 177.90s
+[timing] sample processed in 111.50s
+[timing] sample processed in 133.36s
+[timing] sample processed in 101.34s
+[timing] sample processed in 174.55s
+[step 100] avg_loss=-0.0003 acc=0.5467
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it
+[timing] sample processed in 293.59s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch2_step100.pt
+==end-of-epoch 2==
+
+=== Epoch 3/3 ===
+[timing] sample processed in 219.48s
+[timing] sample processed in 205.63s
+[timing] sample processed in 175.75s
+[timing] sample processed in 187.39s
+[timing] sample processed in 110.08s
+[timing] sample processed in 164.29s
+[timing] sample processed in 246.30s
+[timing] sample processed in 150.54s
+[timing] sample processed in 112.43s
+[timing] sample processed in 164.75s
+[timing] sample processed in 137.32s
+[timing] sample processed in 113.25s
+[timing] sample processed in 182.35s
+[timing] sample processed in 198.32s
+[timing] sample processed in 191.81s
+[timing] sample processed in 132.89s
+[timing] sample processed in 215.69s
+[timing] sample processed in 238.68s
+[timing] sample processed in 268.93s
+[timing] sample processed in 176.33s
+[timing] sample processed in 272.21s
+[timing] sample processed in 83.32s
+[timing] sample processed in 202.14s
+[timing] sample processed in 104.43s
+[timing] sample processed in 159.49s
+[timing] sample processed in 128.89s
+[timing] sample processed in 208.07s
+[timing] sample processed in 157.58s
+[timing] sample processed in 213.28s
+[timing] sample processed in 108.36s
+[timing] sample processed in 171.87s
+[timing] sample processed in 283.23s
+[timing] sample processed in 267.77s
+[timing] sample processed in 233.33s
+[timing] sample processed in 110.11s
+[timing] sample processed in 172.66s
+[timing] sample processed in 296.01s
+[timing] sample processed in 202.32s
+[timing] sample processed in 422.51s
+[timing] sample processed in 173.02s
+[timing] sample processed in 108.67s
+[timing] sample processed in 174.16s
+[timing] sample processed in 148.63s
+[timing] sample processed in 158.89s
+[timing] sample processed in 321.98s
+[timing] sample processed in 309.60s
+[timing] sample processed in 105.67s
+[timing] sample processed in 84.85s
+[timing] sample processed in 251.16s
+[step 150] avg_loss=-0.0001 acc=0.5933
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it
+[timing] sample processed in 166.09s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch3_step150.pt
+==end-of-epoch 3==
