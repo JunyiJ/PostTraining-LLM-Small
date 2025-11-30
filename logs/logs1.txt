@@ -1,0 +1,826 @@
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.09s/it]
+  0%|                                                                                                | 0/10 [00:00<?, ?it/s]question is 1+1=?
+gold_answer is 2
+start sampling passes
+
+Sample 1: 1+1=?
+
+Ton si avant nom de cours, c'est seul instructeur de choc je pense.  ++
+
+Précisez petit citoyen toute obtention de bagage voler.  Saviez-vous que je suis MC roman pour trancher reste simples.
+
+prompt token id length: 5
+tokens size: torch.Size([1, 60])
+sum answer token logprobs: tensor([-356.2500], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 55])
+
+Sample 2: 1+1=?
+
+Find the answer.
+
+prompt token id length: 5
+tokens size: torch.Size([1, 14])
+sum answer token logprobs: tensor([-9.6953], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 9])
+
+Sample 3: 1+1=?
+
+**Answer:** 2
+
+prompt token id length: 5
+tokens size: torch.Size([1, 15])
+sum answer token logprobs: tensor([-4.3477], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 10])
+rewards: [0.0, 0.0, 1.0]
+advantages: [-0.333251953125, -0.333251953125, 0.66650390625]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0288848876953125
+==end-of-training-sample==
+ 10%|████████▊                                                                               | 1/10 [00:11<01:42, 11.40s/it]question is A car travels at 47 km/h for 1 hours, then twice that speed for 1 hours. Compute total distance in km.
+gold_answer is 141.000000
+start sampling passes
+
+
+
+Sample 1: A car travels at 47 km/h for 1 hours, then twice that speed for 1 hours. Compute total distance in km. In physics, timing is predetermined why the situations represent stated above are never based on reciprocal timers?
+
+## Options:
+
+* ** (a) 54 km.**
+* ** (b) 108 km.**
+* ** (c) 73 km.**
+* ** (d) undefined:**
+
+
+**Explanation:**
+
+Here's how to solve the problem:
+
+**Step 1: Calculate the distance traveled at 47 km/h**
+
+* Distance = Speed x Time
+* Distance = 47 km/h * 1 h = 47 km
+
+**Step 2: Calculate the distance traveled at 94 km/h**
+
+* Distance = Speed x Time
+* Distance = 94 km/h * 1 h = 94 km
+
+**Step 3: Calculate the total distance**
+
+* Total distance = 47 km + 94 km = 141 km
+
+**Inference and logic:**
+
+The scenario is a complex strategy to maximize distance. Conventional wisdom dictates that relying on approximations requiring interpretable functioning units available since metrics canceling natural instruments struggle with similarity, dysfunction, and forcing effect probability. Otherwise, incorrect forms of functional theories call for machines, finite and then reset resetting response kinetics always scale expecting exact distance regardless of reasoning modes. Regular limitations, multipeni, not mind neither interpretation state specific motions break domain of reaction region  orientation conservation service dynamic machines, both change motor at century half a numbers minute...forget fMath specific pacing standard clearance inverse exposure rates future moments distant syntax encounter detail variation saturation unsqueeze conversion inefficiency tangent rounds count analog lock tuning slope reactions exchange polarization totalation neglect cognition target affection anxiety constituent nuances permutation identify bio onto off since .... compute fixed several we read call fake phony deceive wonder these moppel fail late constant ill indifferent frustrated con svince replicate shuffle bait yordy object refer rethink compute reply motivate excite urge mirror ambush dominate observe lament ..., recall truly criticize internal competition recall return before word complexity compute operations functions processes maintenance managet trace algorithm after verify whole type flaw matter health get ruin haffle overwhelm configure act ride employ transfer series orders premise perpetuate property status setup recollection landmark times rules advantage manipulate disguise exhaust overuse labor exert effort dose pace taste cite. Numerical proofs nonexistent--- every character pun mere faultall identification incompart about which approximates! Keep similar worries merit feeling positive. The upshot look where useless smart again master as process beautiful made forbidden
+prompt token id length: 31
+tokens size: torch.Size([1, 531])
+sum answer token logprobs: tensor([-3116.], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 500])
+
+Sample 2: A car travels at 47 km/h for 1 hours, then twice that speed for 1 hours. Compute total distance in km.
+.**Answer:** 87.5
+
+**Solution:**
+Here's how to solve the problem:
+
+**Step 1: Calculate the distance traveled at 47 km/h**
+
+* Distance = Speed x Time
+* Distance for the first hour = 47 km/h * 1 h = 47 km
+
+**Step 2: Calculate the distance traveled at twice the speed**
+
+* Speed for the second hour = 47 km/h * 2 = 94 km/h
+* Distance for the second hour = 94 km/h * 1 h = 94 km
+
+**Step 3: Calculate the total distance**
+
+* Total distance = 47 km + 94 km = 141 km
+
+**Answer:** The total distance traveled is 141 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 215])
+sum answer token logprobs: tensor([-70.4375], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 184])
+
+Sample 3: A car travels at 47 km/h for 1 hours, then twice that speed for 1 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate the distance traveled at 47 km/h**
+
+* Distance = Speed * Time
+* Distance = 47 km/h * 1 h = 47 km
+
+**Step 2: Calculate the distance traveled at twice the speed**
+
+* Speed = 47 km/h * 2 = 94 km/h
+* Distance = Speed * Time
+* Distance = 94 km/h * 1 h = 94 km
+
+**Step 3: Calculate the total distance**
+
+* Total Distance = Distance at 47 km/h + Distance at 94 km/h
+* Total Distance = 47 km + 94 km = 141 km
+
+
+**Answer:** The total distance traveled is 141 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 218])
+sum answer token logprobs: tensor([-7.6641], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 187])
+rewards: [1.0, 1.0, 1.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 20%|█████████████████▍                                                                     | 2/10 [08:00<37:26, 280.79s/it]question is A car travels at 39 km/h for 2 hours, then twice that speed for 2 hours. Compute total distance in km.
+gold_answer is 234.000000
+start sampling passes
+
+Sample 1: A car travels at 39 km/h for 2 hours, then twice that speed for 2 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate distance for the first part.**
+
+* Distance = Speed × Time
+* Distance = 39 km/h × 2 h = 78 km
+
+**Step 2: Calculate speed for the second part.**
+
+* Speed = 39 km/h × 2 = 78 km/h
+
+**Step 3: Calculate distance for the second part.**
+
+* Distance = Speed × Time
+* Distance = 78 km/h × 2 h = 156 km
+
+**Step 4: Calculate total distance.**
+
+* Total Distance = Distance (Part 1) + Distance (Part 2)
+* Total Distance = 78 km + 156 km = 234 km
+
+**Answer:** The total distance traveled by the car is 234 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 225])
+sum answer token logprobs: tensor([-18.2031], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 194])
+
+Sample 2: A car travels at 39 km/h for 2 hours, then twice that speed for 2 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate distance for the first 2 hours**
+
+* Distance = Speed × Time
+* Distance = 39 km/h × 2 h = 78 km
+
+**Step 2: Calculate speed for the second 2 hours**
+
+* Speed = 39 km/h × 2 = 78 km/h
+
+**Step 3: Calculate distance for the second 2 hours**
+
+* Distance = Speed × Time
+* Distance = 78 km/h × 2 h = 156 km
+
+**Step 4: Calculate total distance**
+
+* Total distance = Distance1 + Distance2
+* Total distance = 78 km + 156 km = 234 km
+
+**Therefore, the total distance traveled by the car is 234 km.**
+
+prompt token id length: 31
+tokens size: torch.Size([1, 223])
+sum answer token logprobs: tensor([-17.0938], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 192])
+
+Sample 3: A car travels at 39 km/h for 2 hours, then twice that speed for 2 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate distance for the first 2 hours:**
+
+* Distance = Speed x Time
+* Distance = 39 km/h * 2 h = 78 km
+
+**Step 2: Calculate speed for the second 2 hours:**
+
+* Speed = 39 km/h * 2 = 78 km/h
+
+**Step 3: Calculate distance for the next 2 hours:**
+
+* Distance = Speed x Time
+* Distance = 78 km/h * 2 h = 156 km
+
+**Step 4: Calculate the total distance:**
+
+* Total distance = Distance 1 + Distance 2
+* Total distance = 78 km + 156 km = 234 km
+
+
+**Answer:** The total distance traveled is 234 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 222])
+sum answer token logprobs: tensor([-19.5938], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 191])
+rewards: [1.0, 1.0, 1.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 30%|██████████████████████████                                                             | 3/10 [11:09<27:52, 238.91s/it]question is A car travels at 65 km/h for 5 hours, then twice that speed for 5 hours. Compute total distance in km.
+gold_answer is 975.000000
+start sampling passes
+
+
+Sample 1: A car travels at 65 km/h for 5 hours, then twice that speed for 5 hours. Compute total distance in km.
+
+**Solution:**
+
+* **Step 1:  Calculate the distance traveled at 65 km/h:**
+   Distance = Speed * Time = 65 km/h * 5 h = 325 km
+
+* **Step 2: Calculate distance traveled at twice the speed:**
+   Speed = 65 km/h * 2 = 130km/h
+   Distance= Speed * Time = 130 km/h * 5 h = 650 km
+
+* **Step 3: Calculate the total distance:**
+   Total Distance = Distance at 65 km/h + Distance at twice the speed
+   Total Distance = 325 km + 650 km = 975 km
+
+**Answer:** The total distance traveled is 975 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 212])
+sum answer token logprobs: tensor([-56.4375], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 181])
+
+Sample 2: A car travels at 65 km/h for 5 hours, then twice that speed for 5 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate the distance traveled at 65 km/h**
+
+* Distance = Speed x Time
+* Distance = 65 km/h * 5 hours = 325 km
+
+**Step 2: Calculate the distance traveled at twice the speed**
+
+* Speed = 65 km/h * 2 = 130 km/h
+* Distance = 130 km/h * 5 hours = 650 km
+
+**Step 3: Calculate the total distance**
+
+* Total Distance = Distance at 65 km/h + Distance at twice the speed
+* Total Distance = 325 km + 650 km = 975 km
+
+
+**Answer:** The total distance traveled is 975 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 214])
+sum answer token logprobs: tensor([-12.0625], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 183])
+
+Sample 3: A car travels at 65 km/h for 5 hours, then twice that speed for 5 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Find the distance traveled at 65 km/h**
+
+* Distance = Speed x Time
+* Distance = 65 km/h * 5 h = 325 km
+
+**Step 2: Find the distance traveled at twice the speed**
+
+* Speed = 65 km/h * 2 = 130 km/h
+* Distance = 130 km/h * 5 h = 650 km
+
+**Step 3: Find the total distance**
+
+* Total Distance = Distance at 65 km/h + Distance at 130 km/h
+* Total Distance = 325 km + 650 km = 975 km
+
+**Answer:** The total distance traveled by the car is 975 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 221])
+sum answer token logprobs: tensor([-15.4219], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 190])
+rewards: [1.0, 1.0, 1.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 40%|██████████████████████████████████▊                                                    | 4/10 [14:10<21:35, 215.99s/it]question is A recipe uses ratio 3:9. If you use 9 cups of sugar, how many cups of flour are needed?
+gold_answer is 27.000000
+start sampling passes
+
+Sample 1: A recipe uses ratio 3:9. If you use 9 cups of sugar, how many cups of flour are needed?
+
+Here's how to solve the problem:
+
+**1. Simplify the Ratio:**
+   The ratio 3:9 can be simplified to 1:3. This means that for every 1 cup of sugar, you need 3 cups of flour.
+
+**2. Calculate the Flour Needed:**
+   Since you're using 9 cups of sugar, you'll need 3 * 9 = 27 cups of flour.
+
+**Answer:** You need 27 cups of flour.
+
+prompt token id length: 27
+tokens size: torch.Size([1, 138])
+sum answer token logprobs: tensor([-21.8438], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 111])
+
+Sample 2: A recipe uses ratio 3:9. If you use 9 cups of sugar, how many cups of flour are needed?
+
+**Here's how to solve this:**
+
+* **Understand the Ratio:** The ratio 3:9 means that for every 3 cups of sugar, you need 9 cups of flour.
+* **Find the Unit:**  The ratio is meant to be a condensed food-measuring unit, on a helpful scale I'll grab at either larger or nonhomogenous something.
+   * To see how efficient utilization boosts brand value apply distinct conversion mathematical fixing quantifiers   You SHOULD commit via smaller instruction passes anytime clarity alignment is otherwise elusive.
+* **Calculate:** Since we have 9 cups of sugar, and the ratio is of 3:9 meaning 3 parts still outstanding normally correlate to 9 another whereas the little scenario is somehow being exposed best upon continual stream measuring back and forth normally unfathomably one knows. _
+
+
+Let me know if you'd like to see the work in a different unit of measurement.
+
+prompt token id length: 27
+tokens size: torch.Size([1, 225])
+sum answer token logprobs: tensor([-846.], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 198])
+
+Sample 3: A recipe uses ratio 3:9. If you use 9 cups of sugar, how many cups of flour are needed?
+
+Here's how to solve the problem:
+
+**1. Understand Ratios:**
+
+* A ratio is a comparison of two or more quantities.
+* The ratio 3:9 means one part represents 3 units, and another part represents 9 units.
+
+**2.  Find the Value of One Part:**
+
+*Since 9 is the denominator in the ratio 3:9, one part of the ratio, represented as 3/9, equals 1/3.
+
+**3. Calculate Flour Needed:**
+
+* If you use 9 cups of sugar (which is 3 parts), and one part is 1/3, then you need 9 * (1/3) = 3 cups of flour.
+
+
+
+**Answer:** You need 3 cups of flour.
+
+prompt token id length: 27
+tokens size: torch.Size([1, 198])
+sum answer token logprobs: tensor([-93.5625], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 171])
+rewards: [1.0, 0.0, 0.0]
+advantages: [0.66650390625, -0.333251953125, -0.333251953125]
+new_logprobs_t shape: torch.Size([3])
+loss: 0.010009765625
+==end-of-training-sample==
+ 50%|███████████████████████████████████████████▌                                           | 5/10 [16:30<15:42, 188.41s/it]question is Compute 7/9 + 3/8. Give the answer as a decimal rounded to 6 decimals.
+gold_answer is 1.152778
+start sampling passes
+
+Sample 1: Compute 7/9 + 3/8. Give the answer as a decimal rounded to 6 decimals.
+
+Here's how to solve it:
+
+**1. Find a common denominator:**
+
+* The smallest common denominator for 9 and 8 is 72.
+* Convert 7/9 to an equivalent fraction with a denominator of 72: (7 * 8) / (9 * 8) = 56/72
+* Convert 3/8 to an equivalent fraction with a denominator of 72: (3 * 9) / (8 * 9) = 27/72
+
+**2. Add the fractions:**
+
+* 56/72 + 27/72 = 83/72
+
+**3. Simplify the fraction (optional):**
+
+* 83/72 is a simplified fraction.
+
+**4. Convert the fraction to a decimal:**
+
+* 83/72 = 1.15388889
+
+**5. Round to 6 decimal places:**
+
+* 1.15388889 ≈ **1.1539**
+
+
+
+Therefore, 7/9 + 3/8 is approximately equal to **1.1539**.
+prompt token id length: 24
+tokens size: torch.Size([1, 283])
+sum answer token logprobs: tensor([-29.3281], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 259])
+
+Sample 2: Compute 7/9 + 3/8. Give the answer as a decimal rounded to 6 decimals.
+
+**Here's how to do it:**
+
+1. **Find a common denominator:** The smallest common denominator for 9 and 8 is 72.
+2. **Convert the fractions:**
+    * 7/9 * (8/8) = 56/72
+    * 3/8 * (9/9) = 27/72
+3. **Add the fractions:** 56/72 + 27/72 = 83/72
+4. **Simplify (if possible):** 83/72 can't be simplified further.
+5. **Convert to a decimal:** 83/72 ≈ 1.1441 (rounded to 6 decimal places)
+
+**Therefore, 7/9 + 3/8 is approximately 1.1441.**
+
+prompt token id length: 24
+tokens size: torch.Size([1, 218])
+sum answer token logprobs: tensor([-43.1875], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 194])
+
+Sample 3: Compute 7/9 + 3/8. Give the answer as a decimal rounded to 6 decimals.
+
+Here's how to solve it:
+
+**1. Convert mixed numbers to fractions:**
+   *  7/9   doesn't need modification
+   *  3/8
+
+**2. Find a common denominator:**
+   * The least common denominator (LCD) of 9 and 8 is 72.
+   * Rewrite 7/9 as 32/72
+   * Rewrite 5/8 as 45/72
+
+**3. Add the fractions:**
+   * (32/72) + (45/72) = 77/72
+
+**4. Convert back to a mixed number (optional):**
+   * 77/72 is not a mixed number, so we can leave it as 77/72.
+
+**5. Please kindly round 77/72 to 6 decimal places**
+
+This amounts to 1.0849
+
+
+
+Let me know if you'd like to explore another method for adding fractions!
+
+prompt token id length: 24
+tokens size: torch.Size([1, 255])
+sum answer token logprobs: tensor([-169.3750], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 231])
+rewards: [0.0, 0.0, 0.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 60%|████████████████████████████████████████████████████▏                                  | 6/10 [20:28<13:41, 205.39s/it]question is Two trains travel toward each other from stations 203 km apart. Train A at 71 km/h and Train B at 28 km/h. How long until they meet? Provide numeric answer.
+gold_answer is 2.050505
+start sampling passes
+
+Sample 1: Two trains travel toward each other from stations 203 km apart. Train A at 71 km/h and Train B at 28 km/h. How long until they meet? Provide numeric answer.
+
+Here's how to solve this:
+
+**1. Find the combined speed:**
+
+   Since the trains are moving towards each other, their speeds add up.
+   Combined speed = 71 km/h + 28 km/h = 99 km/h
+
+**2. Calculate the time to meet:**
+
+   Time = Distance / Speed
+   Time = 203 km / 99 km/h = 2.06 hours (rounded to two decimal places)
+
+**Answer:** The trains will meet after **2.06 hours**.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 173])
+sum answer token logprobs: tensor([-15.2500], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 127])
+
+Sample 2: Two trains travel toward each other from stations 203 km apart. Train A at 71 km/h and Train B at 28 km/h. How long until they meet? Provide numeric answer.
+
+Here's how to solve the problem:
+
+**1. Find the combined speed:**
+
+* The trains are approaching each other, so their speeds add up.
+* Combined speed = 71 km/h + 28 km/h = 99 km/h
+
+**2. Calculate the time to meet:**
+
+* Time = Distance / Speed
+* Time = 203 km / 99 km/h = 2.06 hours (approximately)
+
+**Answer:** It will take approximately **2.06 hours** for the trains to meet.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 173])
+sum answer token logprobs: tensor([-8.7656], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 127])
+
+Sample 3: Two trains travel toward each other from stations 203 km apart. Train A at 71 km/h and Train B at 28 km/h. How long until they meet? Provide numeric answer.
+
+Here's how to solve the problem:
+
+**1. Find the combined speed:**
+
+*  The trains are moving towards each other, so their speeds add up.
+*  Combined speed = 71 km/h + 28 km/h = 99 km/h
+
+**2. Calculate the time to meet:**
+
+*  Time = Distance / Speed
+*  Time = 203 km / 99 km/h = 2.06 hours
+
+**Answer:** They will meet in **2.06 hours**.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 169])
+sum answer token logprobs: tensor([-12.6406], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 123])
+rewards: [0.0, 0.0, 0.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 70%|████████████████████████████████████████████████████████████▉                          | 7/10 [22:17<08:41, 173.81s/it]question is A recipe uses ratio 5:3. If you use 20 cups of sugar, how many cups of flour are needed?
+gold_answer is 12.000000
+start sampling passes
+
+Sample 1: A recipe uses ratio 5:3. If you use 20 cups of sugar, how many cups of flour are needed?
+
+Here's how to solve it:
+
+
+**1. Understand the Ratio:**
+
+* The ratio 5:3 means that for every 5 cups of sugar, you need 3 cups of flour.
+
+**2. Find the Unit Value:**
+
+* You know you're using 20 cups of sugar.
+* To find the equivalent amount of flour, we'll use a proportion.
+
+**3. Set up the Proportion:**
+
+*  Let 'x' represent the number of cups of flour.
+*   We can set up a proportion: 5/3 = 20/x
+
+**4. Solve for 'x':**
+
+* Cross-multiply: 5 * x = 3 * 20
+* Simplify: 5x = 60
+* Divide both sides by 5: x = 12
+
+**Answer:** You need 12 cups of flour.
+
+prompt token id length: 28
+tokens size: torch.Size([1, 226])
+sum answer token logprobs: tensor([-29.1406], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 198])
+
+Sample 2: A recipe uses ratio 5:3. If you use 20 cups of sugar, how many cups of flour are needed?
+
+Here's how to solve this:
+
+**1. Understand the Ratio:**
+
+* The ratio 5:3 means that for every 5 cups of sugar, you need 3 cups of flour.
+
+**2. Find the Unit Value:**
+
+* Since you're using 20 cups of sugar, we need to figure out what proportion of the entire recipe that represents.
+
+**3. Calculate the Proportion:**
+
+*  The ratio 5:3 remains the same. Total # of parts in the ratio = 5+3 = 8.
+* each part represents 20 cups of sugar / 8 = 2.5 cups of sugar *
+
+
+
+**4.  Determine the Amount of Flour:**
+
+*  Taking the (2.5 cups from the above you'll find) ... already priced units,...  you computed that/afich component of the recipe.) * pertionall the FLOUR will be.... stuff. Thank you. Understanding entirely. Always kindly remaining tone.
+---- to encounter the unchanging ratio 5 unit parts to form a ratio with 3 units of flour. Fill in the multiplication deficits to standardize mass agreement.
+
+Let me know if you'd like to try another problem! 😀
+
+
+
+
+
+
+
+prompt token id length: 28
+tokens size: torch.Size([1, 290])
+sum answer token logprobs: tensor([-756.5000], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 262])
+
+Sample 3: A recipe uses ratio 5:3. If you use 20 cups of sugar, how many cups of flour are needed?
+
+Please help me solve this!
+
+The ratio 5:3 means that for every 5 cups of sugar, you need 3 cups of flour.
+Solving for flour:
+Knowns:
+* Sugar: 20 cups
+
+* Ratio: 5:3
+
+To find the flour, we need to figure out 'x' cups of flour that goes with the 20 cups of sugar."
+
+**Here's how to reason **
+
+* **Ratio simplification:** The ratio 5:3 can be simplified as 15/9. Since we're working forward calculate the enough ratio to cover the 20 cups of sugar.
+* **Therefore**, 20 cups ratio = 15/9.
+* **Verification:** Simplifying the ratio and checking if in those weeks..To write few point **To refer to both X and Y values sets due calculations** suppose rate is 1 red and 1 green. Consider both metrics system operations apart from sight review task manually: and whichever representing validity amount has been quantifiable.
+
+
+
+Let me provide the importance of input problems. During image creation or car hire transport recommendations, computationally capable children ratio filling ingredients. Pre-dimensional depth relying.
+
+to some extent back first w cobbies calculations finally reducing the 'added grace' equivalent.
+
+Because filling criteria is somehow a typical vocabulary repair phrase retrieval software sound annotation projects.
+
+prompt token id length: 28
+tokens size: torch.Size([1, 324])
+sum answer token logprobs: tensor([-1408.], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 296])
+rewards: [1.0, 0.0, 0.0]
+advantages: [0.66650390625, -0.333251953125, -0.333251953125]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.007160186767578125
+==end-of-training-sample==
+ 80%|█████████████████████████████████████████████████████████████████████▌                 | 8/10 [45:12<18:32, 556.15s/it]question is A car travels at 58 km/h for 3 hours, then twice that speed for 3 hours. Compute total distance in km.
+gold_answer is 522.000000
+start sampling passes
+
+Sample 1: A car travels at 58 km/h for 3 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve using the formula for distance:
+
+**Hour 1:**
+
+* Distance = Speed * Time
+* Distance = 58 km/h * 3 h = 174 km
+
+**Hour 2:**
+
+* Speed = 58 km/h * 2 = 116 km/h
+* Distance = 116 km/h * 3 h = 348 km
+
+**Total Distance:**
+
+* Total Distance = 174 km + 348 km = **522 km**
+
+
+Let me know if you have any other questions!
+prompt token id length: 31
+tokens size: torch.Size([1, 167])
+sum answer token logprobs: tensor([-37.5312], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 136])
+
+Sample 2: A car travels at 58 km/h for 3 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance for the first 3 hours**
+
+* Distance = Speed x Time
+* Distance = 58 km/h * 3 h
+* Distance = 174 km
+
+**Step 2: Calculate the speed for the second 3 hours**
+
+* Speed = 58 km/h * 2
+* Speed = 116 km/h
+
+**Step 3: Calculate the distance for the second 3 hours**
+
+* Distance = Speed x Time
+* Distance = 116 km/h * 3 h
+* Distance = 348 km
+
+**Step 4: Calculate the total distance**
+
+* Total Distance = Distance 1 + Distance 2
+* Total Distance = 174 km + 348 km
+* Total Distance = 522 km
+
+
+**Answer:** The total distance traveled by the car is 522 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 245])
+sum answer token logprobs: tensor([-10.4219], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 214])
+
+Sample 3: A car travels at 58 km/h for 3 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+**Solution:**
+
+**Step 1: Distance covered at 58 km/h**
+
+* Distance = Speed x Time
+* Distance = 58 km/h * 3 h = 174 km
+
+**Step 2: Distance covered at twice the speed**
+
+* Speed = 58 km/h * 2 = 116 km/h
+* Distance = Speed x Time
+* Distance = 116 km/h * 3 h = 348 km
+
+**Step 3: Total distance**
+
+* Total Distance = Distance of first part + Distance of second part
+* Total Distance = 174 km + 348 km = 522 km
+
+**Answer:** The total distance travelled is 522 km.
+
+prompt token id length: 31
+tokens size: torch.Size([1, 205])
+sum answer token logprobs: tensor([-27.2969], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 174])
+rewards: [1.0, 1.0, 1.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
+ 90%|██████████████████████████████████████████████████████████████████████████████▎        | 9/10 [47:55<07:13, 433.37s/it]question is Two trains travel toward each other from stations 161 km apart. Train A at 80 km/h and Train B at 47 km/h. How long until they meet? Provide numeric answer.
+gold_answer is 1.267717
+start sampling passes
+
+Sample 1: Two trains travel toward each other from stations 161 km apart. Train A at 80 km/h and Train B at 47 km/h. How long until they meet? Provide numeric answer. The time it takes for the trains to meet is
+
+
+
+
+
+We seek the time that it takes for the trains to meet.
+* **Find the combined speed:**  Since the trains are moving towards each other, we add their speeds: 80 km/h + 47 km/h = 127 km/h.
+
+* **Calculate the time:** We divide the distance by the combined speed: 161 km / 127 km/h = 1.27 hours.
+
+**Therefore, it will take the trains approximately 1.27 hours to meet.** Optionally, you can express the answer in minutes: 1.27 hours * 60 minutes/hour = 76.2 minutes.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 212])
+sum answer token logprobs: tensor([-115.1875], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 166])
+
+Sample 2: Two trains travel toward each other from stations 161 km apart. Train A at 80 km/h and Train B at 47 km/h. How long until they meet? Provide numeric answer.
+
+Here's how to solve the problem:
+
+**1. Find the combined speed:**
+
+* Since the trains are traveling toward each other, their speeds add up.
+* Combined speed = 80 km/h + 47 km/h = 127 km/h
+
+**2. Calculate the time needed to meet:**
+
+* Time = Distance / Speed
+* Time = 161 km / 127 km/h = 1.27 hours
+
+**Answer:** The trains will meet in approximately **1.27 hours**.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 170])
+sum answer token logprobs: tensor([-24.4219], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 124])
+
+Sample 3: Two trains travel toward each other from stations 161 km apart. Train A at 80 km/h and Train B at 47 km/h. How long until they meet? Provide numeric answer.
+
+**Solution:**
+
+**1. Determine the combined speed:**
+
+Since the trains are moving toward each other, their speeds add up.
+Combined speed = 80 km/h + 47 km/h = 127 km/h
+
+**2. Calculate the time to meet:**
+
+Time = Distance / Speed
+Time = 161 km / 127 km/h = 1.27 hours
+
+**Answer:** The trains will meet in approximately **1.27 hours**.
+
+prompt token id length: 46
+tokens size: torch.Size([1, 159])
+sum answer token logprobs: tensor([-24.5469], dtype=torch.float16)
+token logprobs shape: torch.Size([1, 113])
+rewards: [0.0, 0.0, 0.0]
+advantages: [0.0, 0.0, 0.0]
+new_logprobs_t shape: torch.Size([3])
+loss: -0.0
+==end-of-training-sample==
