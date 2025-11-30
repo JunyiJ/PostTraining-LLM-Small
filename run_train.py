@@ -1,6 +1,7 @@
 import json
 import re
 import random
+import time
 from pathlib import Path
 
 import torch
@@ -15,8 +16,9 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_para
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
+CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 NUM_SAMPLES_PER_PROMPT = 3
-NUM_TRAINING_DATA = 10
+NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 3
 EVAL_EVERY = 50
 SAMPLING_TEMPERATURE = 0.7
@@ -36,11 +38,23 @@ freeze_non_lora_params(model)
 model.to(DEVICE)
 lora_params = get_lora_parameters(model)
 optimizer = torch.optim.AdamW(lora_params, lr=1e-4)
+CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 global_step = 0
 running_loss = 0.0
 running_correct = 0
 running_total = 0
+
+def save_lora_checkpoint(model, optimizer, epoch, global_step):
+    state = {
+        "epoch": epoch,
+        "global_step": global_step,
+        "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
+        "optimizer_state_dict": optimizer.state_dict(),
+    }
+    ckpt_path = CHECKPOINT_DIR / f"lora_epoch{epoch}_step{global_step}.pt"
+    torch.save(state, ckpt_path)
+    print(f"Saved checkpoint to {ckpt_path}")
 
 """
 load data
@@ -66,6 +80,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
     random.shuffle(train_samples)
     for line in tqdm(train_samples, desc=f"epoch {epoch}", leave=False):
+        t_start = time.perf_counter()
         question = line['question']
         gold_answer = str(line["gold_answer"]).strip()
         # Generate K initial answers and get each answer token's logprob and old_logprob
@@ -142,4 +157,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     )
                     print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
                 model.train()
+        t_end = time.perf_counter()
+        print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
+    save_lora_checkpoint(model, optimizer, epoch, global_step)
     print(f"==end-of-epoch {epoch}==")
