@@ -20,8 +20,9 @@ CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 NUM_SAMPLES_PER_PROMPT = 3
 NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 3
-EVAL_EVERY = 50
+EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.7
+MAX_NEW_TOKENS = 500
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
@@ -92,7 +93,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 question,
                 k=NUM_SAMPLES_PER_PROMPT,
                 temperature=SAMPLING_TEMPERATURE,
-                max_new_tokens=500,
+                max_new_tokens=MAX_NEW_TOKENS,
             )
         # Second pass (enable gradient) to get each answer token's logprob and new_logprob
         model.train()
@@ -113,7 +114,12 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 sum_token_logprobs_new = answer_log_probs_new.sum(dim=1)
 
                 # Start to prepare for the GRPO loss
-                reward = compute_reward(question, r['text'], gold_answer)
+                reward = compute_reward(
+                    question,
+                    r['text'],
+                    gold_answer,
+                    truncated=r.get("truncated", False),
+                )
                 rewards.append(reward)
                 new_logprobs.append(sum_token_logprobs_new.squeeze(0))
                 old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
@@ -152,7 +158,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 with torch.no_grad():
                     out = model.generate(
                         **eval_inputs,
-                        max_new_tokens=8,
+                        max_new_tokens=MAX_NEW_TOKENS,
                         do_sample=False,
                     )
                     print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
