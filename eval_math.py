@@ -13,21 +13,26 @@ TEST_FILE = "./data/test_math.jsonl"
 LORA_CKPT = Path("./checkpoints/lora_epoch3_step150.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
-MAX_NEW_TOKENS = 128
+MAX_NEW_TOKENS = 500
 TOL = 1e-6
 
 def extract_answer(text):
     if text is None:
         return None
-    # Find all numeric spans and pick the last one (closest to the end of the output)
-    # Matches numbers like: 3, -2, 3.1415, 0.00001, .5, -0.25
+    # Prefer a numeric after the keyword "answer", otherwise fall back to last numeric span.
+    keyword_matches = list(re.finditer(r"answer[^0-9\-+]*([-+]?\d*\.?\d+)", text, re.IGNORECASE))
+    if keyword_matches:
+        try:
+            cleaned = keyword_matches[-1].group(1).replace(",", "")
+            return float(cleaned)
+        except Exception:
+            pass
+
     matches = list(re.finditer(r"[-+]?\d*\.?\d+", text))
     if not matches:
         return None
-
-    last_match = matches[-1].group(0)
     try:
-        cleaned = last_match.replace(",", "")
+        cleaned = matches[-1].group(0).replace(",", "")
         return float(cleaned)
     except Exception:
         return None

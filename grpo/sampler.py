@@ -16,6 +16,7 @@ def sample_k(
         input_ids = enc.input_ids.clone()
         prompt_id_length = len(input_ids[0])
         collected_token_logprobs = []
+        truncated = True
         grad_context = torch.enable_grad() if enable_grad else torch.no_grad()
         with grad_context:
             for _ in range(max_new_tokens):
@@ -29,6 +30,7 @@ def sample_k(
                 collected_token_logprobs.append(target_token_log_prob)
                 input_ids = torch.cat([input_ids, next_token], dim=1)
                 if next_token.item() == tokenizer.eos_token_id:
+                    truncated = False
                     break
         token_logprob_tensor = torch.cat(collected_token_logprobs, dim=1)  # [batch, steps]
         sum_token_logprobs = token_logprob_tensor.sum(dim=1)              # [batch]
@@ -39,5 +41,6 @@ def sample_k(
             "tokens": input_ids,
             "token_logprobs": token_logprob_tensor,      # [batch, steps] or None
             "sum_token_logprobs": sum_token_logprobs,    # [batch] or None
+            "truncated": truncated,
         })
     return samples

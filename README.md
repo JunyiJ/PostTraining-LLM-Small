@@ -55,5 +55,6 @@ Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run
 - Add proper batching and gradient accumulation.
 - Expand eval beyond math and add more unit tests.
 
-## Baseline Performance
-Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
+## Performance Comparison
+* Baseline Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
+* GRPO + LORA Model checkpoint: Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00%
