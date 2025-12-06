@@ -1,4 +1,6 @@
-# Script to evaluate the model's performance on the test math dataset
+"""
+Script to evaluate the model's performance on the test math dataset
+"""
 import json, re
 from pathlib import Path
 
