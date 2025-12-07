@@ -10,18 +10,17 @@ from pathlib import Path
 
 import torch
 import torch.nn.functional as F
-from torch.nn.utils.rnn import pad_sequence
 from tqdm import tqdm
 
 from grpo.utils import load_model
-from grpo.sampler import sample_k, sample_k_parallel
+from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage
 from grpo.reward import compute_reward
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
 # This hapens because hugging face automatically runs FP16 warmup allocations
-# even request fp32
+# even request fp32 or bfloat16
 os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
 os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
@@ -95,25 +94,28 @@ for epoch in range(1, NUM_EPOCHS + 1):
         t_start = time.perf_counter()
         question = line['question']
         gold_answer = str(line["gold_answer"]).strip()
-        # Generate K initial answers and get each answer token's logprob and old_logprob
+        # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
-            samples = sample_k(
+            res = sample_k_parallel(
                 model,
                 tokenizer,
                 question,
                 k=NUM_SAMPLES_PER_PROMPT,
+                device=DEVICE,
+                dtype=torch.bfloat16,
                 temperature=SAMPLING_TEMPERATURE,
                 max_new_tokens=MAX_NEW_TOKENS,
             )
-        # Second pass (enable gradient) to get each answer token's logprob and new_logprob
+        # Second pass (enable gradient) to get each answer token's sum_logprob_new.
         model.train()
         with torch.enable_grad():
-            batch_tokens = [r["tokens"].squeeze(0) for r in samples]  # variable lengths
-            batch_prompt_id_len = torch.tensor([r["prompt_id_length"] for r in samples], device=DEVICE)
-            # [batch, max_len]
-            padded_batch_tokens = pad_sequence(batch_tokens, batch_first=True, padding_value=tokenizer.pad_token_id).to(DEVICE)
-            attention_mask = (padded_batch_tokens != tokenizer.pad_token_id).long().to(DEVICE)
+            batch_size = res["tokens"].size(0)
+            batch_prompt_id_len = torch.full(
+                (batch_size,), res["prompt_id_length"], device=DEVICE, dtype=torch.long
+            )
+            padded_batch_tokens = res["tokens"].to(DEVICE)
+            attention_mask = res["attention_mask"].to(DEVICE)
             out_new = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
             # [B, T_max, vocab]
             logits_new = out_new.logits
@@ -135,23 +137,19 @@ for epoch in range(1, NUM_EPOCHS + 1):
             mask = (arange >= idx).float()
             # [B]
             sum_token_logprobs_new = (masked_log_probs_new * mask).sum(dim=1)
-            sum_token_logprobs_old = torch.stack([r["sum_token_logprobs"].to(DEVICE).squeeze(0) for r in samples])
+            sum_token_logprobs_old = res["sum_token_logprobs"].to(DEVICE)
             # Calculate rewards
-            rewards = []
-            for r in samples:
-                reward = compute_reward(
+            rewards = [
+                compute_reward(
                     question,
-                    r['text'],
+                    txt,
                     gold_answer,
-                    truncated=r.get("truncated", False),
+                    truncated=tr,
                 )
-                rewards.append(reward)
+                for txt, tr in zip(res["text"], res["truncated"])
+            ]
             # Calculate advantages
-            advantages = compute_advantage(
-                rewards,
-                device=DEVICE,
-                dtype=sum_token_logprobs_new.dtype if len(rewards) > 0 else torch.float32,
-            )
+            advantages = compute_advantage(rewards, device=DEVICE, dtype=sum_token_logprobs_new.dtype).to(DEVICE)
             # Compute GRPO loss
             log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
             ratio = log_prob_ratio.exp()

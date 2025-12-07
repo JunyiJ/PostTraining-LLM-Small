@@ -6,7 +6,7 @@ def load_model(model_path="./models/gemma-2-2b"):
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         dtype=torch.bfloat16,  # Using float32/bf16 instead of FP16 e MPS FP16 matmul has limited exponent range and MPS has buggy FP16 softmax
-        device_map={"": "cpu"},
+        device_map={"": "cpu"},  # Load model to cpu first and later moved to desired device to avoid the hugging face buggy warmup with FP16
         low_cpu_mem_usage=True,
     )
     model = model.to("mps")
