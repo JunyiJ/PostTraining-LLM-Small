@@ -1,7 +1,2 @@
 
 === Epoch 1/1 ===
-[timing] sample processed in 28.89s
-[timing] sample processed in 229.31s
-[timing] sample processed in 188.15s
-Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch1_step3.pt
-==end-of-epoch 1==

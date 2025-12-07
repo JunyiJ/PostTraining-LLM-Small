@@ -2,6 +2,7 @@
 Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
 """
 import json
+import os
 import re
 import random
 import time
@@ -13,17 +14,23 @@ from torch.nn.utils.rnn import pad_sequence
 from tqdm import tqdm
 
 from grpo.utils import load_model
-from grpo.sampler import sample_k
+from grpo.sampler import sample_k, sample_k_parallel
 from grpo.advantage import compute_advantage
 from grpo.reward import compute_reward
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
+
+# To avoid the known issue of gemma2 x MPS memory allocator bug.
+# This hapens because hugging face automatically runs FP16 warmup allocations
+# even request fp32
+os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
+os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 NUM_SAMPLES_PER_PROMPT = 3
-NUM_TRAINING_DATA = 50
-NUM_EPOCHS = 3
+NUM_TRAINING_DATA = 25
+NUM_EPOCHS = 6
 EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.7
 MAX_NEW_TOKENS = 500
@@ -140,8 +147,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 rewards.append(reward)
             # Calculate advantages
-            advantages = torch.tensor(
-                compute_advantage(rewards),
+            advantages = compute_advantage(
+                rewards,
                 device=DEVICE,
                 dtype=sum_token_logprobs_new.dtype if len(rewards) > 0 else torch.float32,
             )

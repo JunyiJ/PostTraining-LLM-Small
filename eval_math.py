@@ -8,11 +8,12 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 
+from grpo.utils import load_model
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 
 MODEL_PATH = "./models/gemma-2-2b"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./checkpoints/lora_epoch3_step150.pt")
+LORA_CKPT = Path("./checkpoints/lora_epoch6_step150.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 500
@@ -39,12 +40,8 @@ def extract_answer(text):
     except Exception:
         return None
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-model = AutoModelForCausalLM.from_pretrained(
-    MODEL_PATH,
-    device_map="mps",
-    dtype=torch.float16,
-)
+# Load model/tokenizer using helper
+tokenizer, model = load_model(str(MODEL_PATH))
 
 if USE_LORA:
     model = apply_lora_to_model(

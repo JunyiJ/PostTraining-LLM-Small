@@ -57,6 +57,33 @@ def _has_sanity_check(text: str) -> bool:
     return bool(re.search(r"\b(check|verify|re-check|sanity)\b", text, re.IGNORECASE))
 
 
+def _has_repetition(
+    text: str,
+    n_values=(1, 2, 3),
+    min_freq: int = 4,
+    unique_ratio_thresh: float = 0.3,
+) -> bool:
+    """
+    Detect repetitive patterns:
+    - Unique token ratio very low
+    - Any n-gram (1,2,3) repeated at least min_freq times
+    """
+    from collections import Counter
+
+    toks = re.findall(r"\b\w+\b", text.lower())
+    if not toks:
+        return False
+    if len(set(toks)) / len(toks) < unique_ratio_thresh:
+        return True
+    for n in n_values:
+        ngrams = [" ".join(toks[i : i + n]) for i in range(len(toks) - n + 1)]
+        if not ngrams:
+            continue
+        if Counter(ngrams).most_common(1)[0][1] >= min_freq:
+            return True
+    return False
+
+
 def compute_reward(question, answer, gold, tol=1e-6, truncated: bool = False):
     """
     Heuristic reward:
@@ -95,6 +122,8 @@ def compute_reward(question, answer, gold, tol=1e-6, truncated: bool = False):
         reward += 0.5
     if used_keyword and correct:
         reward += ANSWER_BONUS
+    if _has_repetition(answer):
+        reward -= 0.5
 
     reward = max(REWARD_CLIP[0], min(REWARD_CLIP[1], reward))
     return reward
