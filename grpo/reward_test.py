@@ -24,8 +24,8 @@ def test_reasoning_bonus_and_sanity():
     reasoning = " ".join(["step"] * MIN_REASON_TOKENS)
     answer = f"{reasoning} verify: result is 2"
     reward = compute_reward("1+1=?", answer, "2")
-    # base 1.0 + reasoning 0.5 + sanity 0.5 = 2.0 (clipped)
-    assert abs(reward - 2.0) < 1e-6
+    # base 1.0 + reasoning 0.5 + sanity 0.5 - 0.5 repeitition = 1.5
+    assert abs(reward - 1.5) < 1e-6
 
 
 def test_keyword_bonus():
@@ -33,6 +33,17 @@ def test_keyword_bonus():
     reward = compute_reward("Q", answer, "42")
     # base 1.0 + answer bonus 0.2 (reasoning too short, no sanity)
     assert reward == 1.2
+
+def test_keyword_hacking():
+    answer = "Answer: Answer: Answer: Answer: Answer: "
+    reward = compute_reward("Q", answer, "42")
+    assert reward == -1.0
+
+def test_keyword_hacking_with_answer():
+    answer = "Answer: Answer: Answer: Answer: Answer: 42"
+    reward = compute_reward("Q", answer, "42")
+    # base 1.0 + answer bonus 0.2 (reasoning too short, no sanity)
+    assert reward == 0.7
 
 
 def test_keyword_picks_answer_over_later_number():
@@ -47,3 +58,10 @@ def test_fallback_to_last_numeric_when_no_keyword():
     reward = compute_reward("Q", answer, "7")
     # base 1.0, short reasoning, no bonuses
     assert abs(reward - 1.0) < 1e-6
+
+
+def test_repetition_penalty():
+    answer = "word word word word word"
+    reward = compute_reward("Q", answer, "0")
+    # Should incur repetition penalty; incorrect + short + repetition => negative
+    assert reward < 0

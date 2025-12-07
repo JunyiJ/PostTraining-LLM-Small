@@ -1,4 +1,8 @@
+"""
+Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
+"""
 import json
+import os
 import re
 import random
 import time
@@ -6,20 +10,27 @@ from pathlib import Path
 
 import torch
 import torch.nn.functional as F
+from torch.nn.utils.rnn import pad_sequence
 from tqdm import tqdm
 
 from grpo.utils import load_model
-from grpo.sampler import sample_k
+from grpo.sampler import sample_k, sample_k_parallel
 from grpo.advantage import compute_advantage
 from grpo.reward import compute_reward
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
+
+# To avoid the known issue of gemma2 x MPS memory allocator bug.
+# This hapens because hugging face automatically runs FP16 warmup allocations
+# even request fp32
+os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
+os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 NUM_SAMPLES_PER_PROMPT = 3
-NUM_TRAINING_DATA = 50
-NUM_EPOCHS = 3
+NUM_TRAINING_DATA = 25
+NUM_EPOCHS = 6
 EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.7
 MAX_NEW_TOKENS = 500
@@ -98,22 +109,36 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Second pass (enable gradient) to get each answer token's logprob and new_logprob
         model.train()
         with torch.enable_grad():
+            batch_tokens = [r["tokens"].squeeze(0) for r in samples]  # variable lengths
+            batch_prompt_id_len = torch.tensor([r["prompt_id_length"] for r in samples], device=DEVICE)
+            # [batch, max_len]
+            padded_batch_tokens = pad_sequence(batch_tokens, batch_first=True, padding_value=tokenizer.pad_token_id).to(DEVICE)
+            attention_mask = (padded_batch_tokens != tokenizer.pad_token_id).long().to(DEVICE)
+            out_new = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
+            # [B, T_max, vocab]
+            logits_new = out_new.logits
+            # [B, T_max-1, vocab]
+            shifted_log_probs_new = F.log_softmax(logits_new / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+            targets = padded_batch_tokens[:, 1:].unsqueeze(-1)
+            # [B, T_max-1]
+            log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)
+            # Mask out padded tokens
+            shifted_mask = attention_mask[:, 1:]
+            masked_log_probs_new = log_probs_new * shifted_mask
+            # masked_log_probs_new: [B, T]
+            # batch_prompt_id_len: [B] (prompt length)
+            # The first answer token’s logprob is at position prompt_len - 1
+            # [B, T]
+            idx = (batch_prompt_id_len - 1).to(DEVICE).unsqueeze(1)
+            # [1, T]
+            arange = torch.arange(masked_log_probs_new.size(1), device=DEVICE).unsqueeze(0)
+            mask = (arange >= idx).float()
+            # [B]
+            sum_token_logprobs_new = (masked_log_probs_new * mask).sum(dim=1)
+            sum_token_logprobs_old = torch.stack([r["sum_token_logprobs"].to(DEVICE).squeeze(0) for r in samples])
+            # Calculate rewards
             rewards = []
-            new_logprobs = []
-            old_logprobs = []
             for r in samples:
-                tokens = r["tokens"].to(DEVICE)
-                attention_mask = torch.ones_like(tokens)
-                # New logprobs from trainable model (with LoRA)
-                out_new = model(input_ids=tokens, attention_mask=attention_mask)
-                logits_new = out_new.logits  # [batch, seq_length, vocab]
-                shifted_log_probs_new = F.log_softmax(logits_new / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
-                targets = tokens[:, 1:].unsqueeze(-1)
-                log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)  # [batch, seq_length-1]
-                answer_log_probs_new = log_probs_new[:, r['prompt_id_length'] - 1:]
-                sum_token_logprobs_new = answer_log_probs_new.sum(dim=1)
-
-                # Start to prepare for the GRPO loss
                 reward = compute_reward(
                     question,
                     r['text'],
@@ -121,18 +146,14 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     truncated=r.get("truncated", False),
                 )
                 rewards.append(reward)
-                new_logprobs.append(sum_token_logprobs_new.squeeze(0))
-                old_logprobs.append(r['sum_token_logprobs'].to(DEVICE).squeeze(0))
             # Calculate advantages
-            advantages = torch.tensor(
-                compute_advantage(rewards),
+            advantages = compute_advantage(
+                rewards,
                 device=DEVICE,
-                dtype=new_logprobs[0].dtype if new_logprobs else torch.float32,
+                dtype=sum_token_logprobs_new.dtype if len(rewards) > 0 else torch.float32,
             )
             # Compute GRPO loss
-            old_logprobs_t = torch.stack(old_logprobs)
-            new_logprobs_t = torch.stack(new_logprobs)
-            log_prob_ratio = new_logprobs_t - old_logprobs_t
+            log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
             ratio = log_prob_ratio.exp()
             loss = -(advantages * ratio).mean()
             running_loss += loss.item()
