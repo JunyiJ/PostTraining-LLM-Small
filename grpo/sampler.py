@@ -45,8 +45,65 @@ def sample_k(
         })
     return samples
 
-# model.generate(...) Had issues of NaN tensor on MPS
 def sample_k_parallel(
+    model,
+    tokenizer,
+    prompt,
+    k,
+    device="mps",
+    dtype=torch.float32,
+    temperature=1.0,
+    max_new_tokens=256,
+    enable_grad=False,
+):
+    enc = tokenizer(prompt, return_tensors="pt")
+    input_ids = enc["input_ids"].to(device)  # [1, seq_len]
+    prompt_id_length = input_ids.size(1)
+    # [K, seq_len]
+    input_ids_k = input_ids.repeat(k, 1)
+    truncated = torch.ones((k,), dtype=torch.bool, device=device)
+    sum_token_logprobs = torch.zeros((k,), dtype=dtype, device=device)
+    grad_context = torch.enable_grad() if enable_grad else torch.no_grad()
+    with grad_context:
+        for _ in range(max_new_tokens):
+            out = model(input_ids=input_ids_k)
+            # [K, vocab]
+            step_logits = out.logits[:, -1, :]
+            log_probs = F.log_softmax(step_logits / temperature, dim=-1)
+            probs = log_probs.exp()
+            # [K, 1]
+            next_token_raw = torch.multinomial(probs, num_samples=1)
+            token_log_prob = log_probs.gather(-1, next_token_raw).squeeze(-1)  # [K]
+            if not enable_grad:
+                token_log_prob = token_log_prob.detach()
+            # zero out updates for finished rows
+            sum_token_logprobs = sum_token_logprobs + token_log_prob * truncated
+            # For finished rows, append pad instead of sampled token to keep shapes aligned
+            if tokenizer.pad_token_id is not None:
+                next_token = torch.where(
+                    truncated.view(-1, 1),
+                    next_token_raw,
+                    torch.full_like(next_token_raw, tokenizer.pad_token_id),
+                )
+            input_ids_k = torch.cat([input_ids_k, next_token], dim=1)  # [K, seq_len+step]
+            hit_eos = (next_token_raw.squeeze(-1) == tokenizer.eos_token_id)
+            truncated = truncated & (~hit_eos)
+            if (~truncated).all():
+                break
+
+    texts = tokenizer.batch_decode(input_ids_k, skip_special_tokens=True)
+    attention_mask = (input_ids_k != tokenizer.pad_token_id).long() if tokenizer.pad_token_id is not None else torch.ones_like(input_ids_k, dtype=torch.long)
+    return {
+        "text": texts,  # list length K
+        "prompt_id_length": prompt_id_length,  # scaler
+        "tokens": input_ids_k,  # [K, seq_len]
+        "attention_mask": attention_mask,  # [K, seq_len]
+        "sum_token_logprobs": sum_token_logprobs,  # [K]
+        "truncated": truncated.tolist(),  # list of bools
+    }
+
+# model.generate(...) Had issues of NaN tensor on MPS
+def sample_k_generate(
     model,
     tokenizer,
     prompt,
