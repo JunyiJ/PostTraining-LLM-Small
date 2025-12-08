@@ -32,7 +32,8 @@ NUM_TRAINING_DATA = 25
 NUM_EPOCHS = 6
 EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.7
-MAX_NEW_TOKENS = 500
+MAX_NEW_TOKENS = 205
+KL_COEF = 0.01
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
@@ -153,7 +154,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
             # Compute GRPO loss
             log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
             ratio = log_prob_ratio.exp()
-            loss = -(advantages * ratio).mean()
+            kl = log_prob_ratio.mean()
+            loss = -(advantages * ratio).mean() + KL_COEF * kl
             running_loss += loss.item()
             running_correct += sum(1 for r in rewards if r > 0)
             running_total += len(rewards)

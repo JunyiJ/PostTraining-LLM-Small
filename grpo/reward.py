@@ -1,8 +1,8 @@
 import re
 from typing import Optional
 
-MIN_REASON_TOKENS = 20
-MAX_REASON_TOKENS = 200
+MIN_REASON_TOKENS = 10
+MAX_REASON_TOKENS = 120
 REWARD_CLIP = (-1.0, 2.5)
 ANSWER_BONUS = 0.2
 

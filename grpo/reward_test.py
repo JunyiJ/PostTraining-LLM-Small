@@ -49,8 +49,8 @@ def test_keyword_hacking_with_answer():
 def test_keyword_picks_answer_over_later_number():
     answer = "Numbers: 1 2. My answer is 4 and then some text with 5 later."
     reward = compute_reward("Q", answer, "4")
-    # base 1.0 + keyword bonus 0.2 (reasoning too short for bonus)
-    assert abs(reward - 1.2) < 1e-6
+    # With lower MIN_REASON_TOKENS, we now get reasoning bonus + keyword bonus
+    assert abs(reward - 1.7) < 1e-6
 
 
 def test_fallback_to_last_numeric_when_no_keyword():

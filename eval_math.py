@@ -16,7 +16,7 @@ TEST_FILE = "./data/test_math.jsonl"
 LORA_CKPT = Path("./checkpoints/lora_epoch3_step75.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 40
-MAX_NEW_TOKENS = 500
+MAX_NEW_TOKENS = 205
 TOL = 1e-6
 
 def extract_answer(text):
