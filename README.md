@@ -19,22 +19,16 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
 
 ## Setup
 1) Create/activate env (example):
-   ```bash
-   conda create -n grpo-lora python=3.10 -y
-   conda activate grpo-lora
-   pip install torch transformers tqdm
-   ```
-   (or `conda env update -f environment.yml` if you maintain it).
+   `conda env update -f environment.yml`.
 2) Download model locally, e.g.:
    ```bash
    huggingface-cli download google/gemma-2-2b --local-dir ./models/gemma-2-2b --include "*"
    ```
-3) (Optional) Install pytest for helper tests:
-   ```bash
-   pip install pytest
-   ```
+3) I used local machine (mac mini, device=`mps`) to do the post-training, but the code should
+ be able to be adapted to other devices.
 
 ## GRPO + LoRA flow
+### Code structure
 - LoRA: wrap target linear layers (`q_proj`/`v_proj`) via `apply_lora_to_model`, freeze base weights, optimize only LoRA params.
 - Sampling: `sample_k` generates K answers per prompt with the current LoRA policy, storing tokens and old logprobs.
 - Rewards: `compute_reward` extracts the last numeric answer and compares to gold (binary reward).
@@ -45,16 +39,51 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
 
 To train:
 ```bash
-python run_train.py | tee logs/train.log
+python run_train.py | tee logs/train_test.log
 ```
 Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train.py`.
 
-## TODO
-- Refine reward function (format checks, partial credit, reasoning-based reward, numeric robustness).
-- Add PPO-style clipping/advantage normalization for stability.
-- Add proper batching and gradient accumulation.
-- Expand eval beyond math and add more unit tests.
+### Overview of LoRA
+TODO
+### Overview of GRPO
+TODO
 
 ## Performance Comparison
 * Baseline Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
 * GRPO + LORA Model checkpoint: Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00%
+
+## Interesting Learnings
+### Reward definition is key to the quality
+Reward is probably the most critical part for the RL reasoning training for LLM. Soley relying 
+on correctness of the final answer is not enough mainly because
+1) It doesn't encourage reasoning behavior and
+2) The reward is relatively sparse and not distinguishable among different answers.
+
+Instead, we need to take other things into consideration such as
+1) Format checking (e.g. having an "answer" token in reward.)
+2) Encourage reasoning
+3) Numeric robustness.
+...
+
+In this project, the quality breakthrough is through better reward definition.
+
+### Reward hacking and volatility of training loss/accuracy
+Both the base model, the dataset and the post-training parameter are small for this project.
+I do sometimes the training loss/accuracy jump back and forth. Interestingly, I also observed 
+reward hacking sometimes during the RL training process (e.g. got `Answer:\nAnswer:\nAnswer\n...` 
+for example question).
+
+To deal with these issues,
+1) I tried to update the reward function to punish reward hacking (negative score when there are repetitive patterns).
+2) In GRPO advantage calculation, instead of using `reward - mean(reward)`, use 
+`(reward - mean(reward))/std(reward)` to reduce the gradient variance.
+3) Add KL divergency term into the original GRPO formula: `-advantage * P(new)/P(old) + alpha * logP(new) / logP(old)`
+
+### Post training efficiency
+I tried a few things to speed up the training on MPS
+1) Update sample_k logic to avoid looping over k samples, but instead batching the k samples. 
+Ideally we could use the `model.generate` call to avoid iterating with tokens as well, however, it 
+causes NaN issue probably due to a known unstability of Gemma model on MPS.
+2) Update the second pass to a batch mode instead of looping over the k samples.
+3) TODO: update to larger batches.
+
