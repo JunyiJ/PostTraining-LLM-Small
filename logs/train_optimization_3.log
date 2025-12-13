@@ -38,3 +38,194 @@ Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lor
 ==end-of-epoch 1==
 
 === Epoch 2/6 ===
+[timing] sample processed in 140.19s
+[timing] sample processed in 165.09s
+[timing] sample processed in 105.99s
+[timing] sample processed in 488.26s
+[timing] sample processed in 163.79s
+[timing] sample processed in 140.51s
+[timing] sample processed in 177.55s
+[timing] sample processed in 250.65s
+[timing] sample processed in 97.45s
+[timing] sample processed in 145.91s
+[timing] sample processed in 362.40s
+[timing] sample processed in 107.93s
+[timing] sample processed in 141.60s
+[timing] sample processed in 111.67s
+[timing] sample processed in 167.32s
+[timing] sample processed in 631.14s
+[timing] sample processed in 308.35s
+[timing] sample processed in 10.75s
+[timing] sample processed in 271.76s
+[timing] sample processed in 592.23s
+[timing] sample processed in 430.69s
+[timing] sample processed in 537.55s
+[timing] sample processed in 347.27s
+[timing] sample processed in 324.34s
+[step 50] avg_loss=-0.0284 acc=0.5733
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it:
+
+* **Add the numbers:** 11 + 123 = 134 
+
+**Answer:** 11 + 123 = 134 
+
+[timing] sample processed in 327.01s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch2_step50.pt
+==end-of-epoch 2==
+
+=== Epoch 3/6 ===
+[timing] sample processed in 5.91s
+[timing] sample processed in 540.50s
+[timing] sample processed in 345.35s
+[timing] sample processed in 769.21s
+[timing] sample processed in 11.40s
+[timing] sample processed in 826.14s
+[timing] sample processed in 284.14s
+[timing] sample processed in 162.59s
+[timing] sample processed in 2.33s
+[timing] sample processed in 126.28s
+[timing] sample processed in 4.04s
+[timing] sample processed in 3.77s
+[timing] sample processed in 146.53s
+[timing] sample processed in 2.28s
+[timing] sample processed in 134.97s
+[timing] sample processed in 173.04s
+[timing] sample processed in 3.68s
+[timing] sample processed in 253.10s
+[timing] sample processed in 782.24s
+[timing] sample processed in 477.92s
+[timing] sample processed in 324.67s
+[timing] sample processed in 313.32s
+[timing] sample processed in 640.25s
+[timing] sample processed in 375.70s
+[step 75] avg_loss=0.0235 acc=0.8533
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it:
+
+* **Add the numbers together:** 11 + 123 = 134 
+
+**Answer:** 11 + 123 = 134 
+
+[timing] sample processed in 447.62s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch3_step75.pt
+==end-of-epoch 3==
+
+=== Epoch 4/6 ===
+[timing] sample processed in 265.78s
+[timing] sample processed in 278.64s
+[timing] sample processed in 5.14s
+[timing] sample processed in 1012.20s
+[timing] sample processed in 923.75s
+[timing] sample processed in 10.40s
+[timing] sample processed in 1999.75s
+[timing] sample processed in 401.06s
+[timing] sample processed in 415.25s
+[timing] sample processed in 769.40s
+[timing] sample processed in 682.15s
+[timing] sample processed in 5.97s
+[timing] sample processed in 4.05s
+[timing] sample processed in 399.59s
+[timing] sample processed in 342.95s
+[timing] sample processed in 349.51s
+[timing] sample processed in 629.67s
+[timing] sample processed in 357.52s
+[timing] sample processed in 780.39s
+[timing] sample processed in 378.19s
+[timing] sample processed in 5.50s
+[timing] sample processed in 5.04s
+[timing] sample processed in 366.68s
+[timing] sample processed in 307.25s
+[step 100] avg_loss=-0.0076 acc=0.8533
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it:
+
+* **Start with the addition:** 11 + 123 
+* **Combine the numbers:** 11 + 123 = 134
+
+**Answer:** 11 + 123 = 134 
+
+[timing] sample processed in 2278.53s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch4_step100.pt
+==end-of-epoch 4==
+
+=== Epoch 5/6 ===
+[timing] sample processed in 2449.34s
+[timing] sample processed in 155.96s
+[timing] sample processed in 1006.49s
+[timing] sample processed in 510.20s
+[timing] sample processed in 320.72s
+[timing] sample processed in 144.80s
+[timing] sample processed in 2.36s
+[timing] sample processed in 153.95s
+[timing] sample processed in 2.87s
+[timing] sample processed in 2.04s
+[timing] sample processed in 135.87s
+[timing] sample processed in 2.26s
+[timing] sample processed in 262.90s
+[timing] sample processed in 146.04s
+[timing] sample processed in 148.45s
+[timing] sample processed in 178.18s
+[timing] sample processed in 167.86s
+[timing] sample processed in 357.72s
+[timing] sample processed in 10.18s
+[timing] sample processed in 137.06s
+[timing] sample processed in 2.22s
+[timing] sample processed in 240.41s
+[timing] sample processed in 144.96s
+[timing] sample processed in 1488.41s
+[step 125] avg_loss=-0.0077 acc=0.8000
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it:
+
+* **Start with the addition:** 11 + 123 
+* **Combine the numbers:** 11 + 123 = 134
+
+**Answer:** 11 + 123 = 134 
+
+[timing] sample processed in 39.01s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch5_step125.pt
+==end-of-epoch 5==
+
+=== Epoch 6/6 ===
+[timing] sample processed in 153.30s
+[timing] sample processed in 208.91s
+[timing] sample processed in 141.65s
+[timing] sample processed in 155.70s
+[timing] sample processed in 193.81s
+[timing] sample processed in 213.44s
+[timing] sample processed in 3.23s
+[timing] sample processed in 185.19s
+[timing] sample processed in 109.69s
+[timing] sample processed in 308.37s
+[timing] sample processed in 187.96s
+[timing] sample processed in 94.93s
+[timing] sample processed in 2.22s
+[timing] sample processed in 140.45s
+[timing] sample processed in 172.72s
+[timing] sample processed in 2.74s
+[timing] sample processed in 103.01s
+[timing] sample processed in 309.44s
+[timing] sample processed in 4.51s
+[timing] sample processed in 148.93s
+[timing] sample processed in 85.85s
+[timing] sample processed in 187.58s
+[timing] sample processed in 151.70s
+[timing] sample processed in 123.88s
+[step 150] avg_loss=-0.0000 acc=0.7467
+[eval] 11+123=? -> 11+123=?
+
+Here's how to solve it:
+
+* **Start with the addition:** 11 + 123 
+* **Combine the numbers:** 11 + 123 = 134
+
+**Answer:** 11 + 123 = 134 
+
+[timing] sample processed in 7.28s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch6_step150.pt
+==end-of-epoch 6==

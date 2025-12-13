@@ -28,12 +28,12 @@ MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
 NUM_SAMPLES_PER_PROMPT = 3
-NUM_TRAINING_DATA = 25
-NUM_EPOCHS = 6
+NUM_TRAINING_DATA = 50
+NUM_EPOCHS = 3
 EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.7
 MAX_NEW_TOKENS = 205
-KL_COEF = 0.01
+KL_COEF = 0.001
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper

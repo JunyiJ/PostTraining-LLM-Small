@@ -13,7 +13,7 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 
 MODEL_PATH = "./models/gemma-2-2b"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./checkpoints/lora_epoch3_step75.pt")
+LORA_CKPT = Path("./checkpoints/lora_epoch3_step150.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 40
 MAX_NEW_TOKENS = 205
