@@ -114,7 +114,7 @@ def compute_reward(question, answer, gold, tol=1e-6, truncated: bool = False):
 
     reasoning_len = _reasoning_token_count(answer)
     if MIN_REASON_TOKENS <= reasoning_len <= MAX_REASON_TOKENS:
-        reward += 0.5
+        reward += 0.2
     elif reasoning_len < MIN_REASON_TOKENS and not correct:
         reward -= 0.25
 

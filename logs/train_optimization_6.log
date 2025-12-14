@@ -1,0 +1,230 @@
+
+=== Epoch 1/3 ===
+grpo_loss is -0.0640750527381897 and kl is -0.14473502337932587
+[timing] sample processed in 150.18s
+grpo_loss is -0.0572739839553833 and kl is -1.3428764343261719
+[timing] sample processed in 213.86s
+grpo_loss is 0.19574904441833496 and kl is -0.3860343396663666
+[timing] sample processed in 249.68s
+grpo_loss is 0.03891163319349289 and kl is -0.15246963500976562
+[timing] sample processed in 219.41s
+grpo_loss is 1.0479551553726196 and kl is 0.04614202305674553
+[timing] sample processed in 24.94s
+grpo_loss is -0.09825334697961807 and kl is -0.2338603287935257
+[timing] sample processed in 181.18s
+grpo_loss is -0.0 and kl is -0.4938904345035553
+[timing] sample processed in 184.97s
+grpo_loss is 0.2735259532928467 and kl is 0.00905609130859375
+[timing] sample processed in 115.44s
+grpo_loss is -0.05642632767558098 and kl is -0.3429463803768158
+[timing] sample processed in 164.11s
+grpo_loss is -0.4392186105251312 and kl is -0.6126111149787903
+[timing] sample processed in 249.96s
+grpo_loss is 0.07433979958295822 and kl is -0.3172048032283783
+[timing] sample processed in 212.49s
+grpo_loss is -0.0 and kl is -0.026981353759765625
+[timing] sample processed in 41.01s
+grpo_loss is 0.3028847277164459 and kl is -0.26130738854408264
+[timing] sample processed in 138.15s
+grpo_loss is 0.07173877954483032 and kl is -0.4871114194393158
+[timing] sample processed in 142.70s
+grpo_loss is -0.020255783572793007 and kl is -0.053680419921875
+[timing] sample processed in 191.65s
+grpo_loss is -0.0 and kl is 0.11485036462545395
+[timing] sample processed in 143.04s
+grpo_loss is 0.06720145791769028 and kl is 0.0515340156853199
+[timing] sample processed in 55.82s
+grpo_loss is -0.2998208999633789 and kl is 0.10958162695169449
+[timing] sample processed in 61.91s
+grpo_loss is 0.17668704688549042 and kl is -0.3375803530216217
+[timing] sample processed in 153.81s
+grpo_loss is -0.06614068895578384 and kl is -0.1482270509004593
+[timing] sample processed in 190.80s
+grpo_loss is -0.0 and kl is 0.022571245208382607
+[timing] sample processed in 27.38s
+grpo_loss is 0.3097938895225525 and kl is -0.4627789556980133
+[timing] sample processed in 155.28s
+grpo_loss is -0.0 and kl is 0.0042703947983682156
+[timing] sample processed in 17.06s
+grpo_loss is -0.0 and kl is -0.0976928099989891
+[timing] sample processed in 156.28s
+grpo_loss is -0.23963837325572968 and kl is -0.15006192028522491
+[step 25] avg_loss=0.0485 acc=0.7200
+[eval] 11+123=? -> 11+123=?
+
+Answer: 134 
+
+[timing] sample processed in 205.46s
+grpo_loss is 0.0825190469622612 and kl is -0.2354375571012497
+[timing] sample processed in 171.43s
+grpo_loss is -0.22013087570667267 and kl is 0.40544191002845764
+[timing] sample processed in 140.51s
+grpo_loss is -0.4258049726486206 and kl is -0.9999720454216003
+[timing] sample processed in 213.21s
+grpo_loss is -0.18611323833465576 and kl is -0.3371000289916992
+[timing] sample processed in 234.09s
+grpo_loss is -0.4398707449436188 and kl is 0.095916748046875
+[timing] sample processed in 90.22s
+grpo_loss is -0.0 and kl is 0.011822223663330078
+[timing] sample processed in 3.37s
+grpo_loss is 0.31807464361190796 and kl is -1.1110013723373413
+[timing] sample processed in 171.17s
+grpo_loss is 0.22543834149837494 and kl is -0.28284820914268494
+[timing] sample processed in 145.73s
+grpo_loss is -0.278152197599411 and kl is -1.3308919668197632
+[timing] sample processed in 202.72s
+grpo_loss is -0.0 and kl is 0.0023190975189208984
+[timing] sample processed in 23.35s
+grpo_loss is -0.0 and kl is -0.36307334899902344
+[timing] sample processed in 178.54s
+grpo_loss is -0.0 and kl is -0.04958100989460945
+[timing] sample processed in 17.14s
+grpo_loss is -0.3050053119659424 and kl is -0.4312165677547455
+[timing] sample processed in 138.70s
+grpo_loss is -0.0 and kl is 0.008727948181331158
+[timing] sample processed in 20.22s
+grpo_loss is -0.0 and kl is 0.00020333130669314414
+[timing] sample processed in 2.33s
+grpo_loss is -0.0789158046245575 and kl is -0.475494384765625
+[timing] sample processed in 159.69s
+grpo_loss is 0.034015458077192307 and kl is 0.10674905776977539
+[timing] sample processed in 219.20s
+grpo_loss is -0.03323603793978691 and kl is -0.2721420228481293
+[timing] sample processed in 230.67s
+grpo_loss is 0.02076919935643673 and kl is -1.2389501333236694
+[timing] sample processed in 220.77s
+grpo_loss is -0.5024546384811401 and kl is -1.0703741312026978
+[timing] sample processed in 215.86s
+grpo_loss is -0.0 and kl is -0.06046438217163086
+[timing] sample processed in 23.72s
+grpo_loss is -0.0 and kl is 0.005136013031005859
+[timing] sample processed in 4.06s
+grpo_loss is -0.0 and kl is -0.3581043779850006
+[timing] sample processed in 100.02s
+grpo_loss is -0.0 and kl is -0.04843584820628166
+[timing] sample processed in 207.84s
+grpo_loss is -0.1343560665845871 and kl is -0.10417699813842773
+[step 50] avg_loss=-0.0386 acc=0.8000
+[eval] 11+123=? -> 11+123=?
+
+Answer: 134 
+
+[timing] sample processed in 62.03s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch1_step50.pt
+==end-of-epoch 1==
+
+=== Epoch 2/3 ===
+grpo_loss is -0.0 and kl is 0.028594970703125
+[timing] sample processed in 3.60s
+grpo_loss is -0.11087904125452042 and kl is -0.09630393981933594
+[timing] sample processed in 16.52s
+grpo_loss is -0.1239747479557991 and kl is -0.49830880761146545
+[timing] sample processed in 166.58s
+grpo_loss is 0.10954546928405762 and kl is -0.005158106330782175
+[timing] sample processed in 112.37s
+grpo_loss is -0.017049968242645264 and kl is -0.42295965552330017
+[timing] sample processed in 190.29s
+grpo_loss is -0.028648117557168007 and kl is -0.8871123194694519
+[timing] sample processed in 196.35s
+grpo_loss is -0.0 and kl is 0.031031766906380653
+[timing] sample processed in 13.12s
+grpo_loss is -0.0 and kl is 0.05888597294688225
+[timing] sample processed in 2.43s
+grpo_loss is -0.058508794754743576 and kl is 0.06714443117380142
+[timing] sample processed in 4.25s
+grpo_loss is -0.0 and kl is 0.08550754934549332
+[timing] sample processed in 2.10s
+grpo_loss is -0.0 and kl is 0.019481023773550987
+[timing] sample processed in 162.55s
+grpo_loss is -0.0 and kl is -0.21995671093463898
+[timing] sample processed in 117.03s
+grpo_loss is 0.23847652971744537 and kl is -1.0361213684082031
+[timing] sample processed in 200.01s
+grpo_loss is 0.7896940112113953 and kl is -0.21104812622070312
+[timing] sample processed in 214.27s
+grpo_loss is -0.0 and kl is 0.00476837158203125
+[timing] sample processed in 19.72s
+grpo_loss is -0.0 and kl is 0.01897319220006466
+[timing] sample processed in 3.22s
+grpo_loss is -0.14078348875045776 and kl is -1.9210714101791382
+[timing] sample processed in 227.83s
+grpo_loss is -0.0 and kl is 0.14827410876750946
+[timing] sample processed in 15.18s
+grpo_loss is -0.0 and kl is 0.1303996592760086
+[timing] sample processed in 6.76s
+grpo_loss is -0.0 and kl is 0.04295269772410393
+[timing] sample processed in 3.78s
+grpo_loss is -0.0 and kl is -0.22444407641887665
+[timing] sample processed in 266.59s
+grpo_loss is -0.0 and kl is 0.09458398818969727
+[timing] sample processed in 11.52s
+grpo_loss is 0.08769304305315018 and kl is -0.2162952423095703
+[timing] sample processed in 508.88s
+grpo_loss is 0.3670261800289154 and kl is -0.06554794311523438
+[timing] sample processed in 391.12s
+grpo_loss is -0.0 and kl is -0.10018444061279297
+[step 75] avg_loss=0.0148 acc=0.8267
+[eval] 11+123=? -> 11+123=?
+
+Answer: 134 
+
+[timing] sample processed in 274.49s
+grpo_loss is -0.0 and kl is 0.0014115174999460578
+[timing] sample processed in 8.15s
+grpo_loss is -0.0 and kl is -0.10314178466796875
+[timing] sample processed in 8.42s
+grpo_loss is -0.0 and kl is -0.5365807414054871
+[timing] sample processed in 299.60s
+grpo_loss is -0.22883467376232147 and kl is -0.9525629878044128
+[timing] sample processed in 602.49s
+grpo_loss is -0.0 and kl is 0.10685253143310547
+[timing] sample processed in 35.10s
+grpo_loss is 0.08636582642793655 and kl is -0.48502984642982483
+[timing] sample processed in 84.74s
+grpo_loss is -0.0 and kl is -2.00951886177063
+[timing] sample processed in 213.18s
+grpo_loss is -0.45890069007873535 and kl is -0.19840240478515625
+[timing] sample processed in 201.04s
+grpo_loss is -0.0 and kl is -0.1904916763305664
+[timing] sample processed in 36.82s
+grpo_loss is -0.0 and kl is -0.2355480194091797
+[timing] sample processed in 170.08s
+grpo_loss is -0.0 and kl is -0.28874459862709045
+[timing] sample processed in 157.48s
+grpo_loss is -0.4458434581756592 and kl is 0.0902862548828125
+[timing] sample processed in 197.17s
+grpo_loss is -0.0 and kl is 0.029041290283203125
+[timing] sample processed in 13.05s
+grpo_loss is -0.30996212363243103 and kl is -0.49395751953125
+[timing] sample processed in 124.03s
+grpo_loss is -0.0562208890914917 and kl is -0.015269915573298931
+[timing] sample processed in 14.58s
+grpo_loss is -0.3600675165653229 and kl is -1.3206024169921875
+[timing] sample processed in 357.33s
+grpo_loss is -0.0 and kl is -0.5539448857307434
+[timing] sample processed in 294.93s
+grpo_loss is 0.0006788571481592953 and kl is -0.356646865606308
+[timing] sample processed in 182.17s
+grpo_loss is -0.0 and kl is -0.1125122681260109
+[timing] sample processed in 14.43s
+grpo_loss is -0.0 and kl is -0.010771592147648335
+[timing] sample processed in 6.81s
+grpo_loss is -0.0 and kl is -0.1586577147245407
+[timing] sample processed in 224.49s
+grpo_loss is -0.007434725761413574 and kl is -0.5812123417854309
+[timing] sample processed in 457.62s
+grpo_loss is 0.026462575420737267 and kl is -0.3822682797908783
+[timing] sample processed in 320.17s
+grpo_loss is -0.0 and kl is 0.10010746866464615
+[timing] sample processed in 10.72s
+grpo_loss is -0.0 and kl is 0.0006128152017481625
+[step 100] avg_loss=-0.0176 acc=0.7600
+[eval] 11+123=? -> 11+123=?
+
+Answer: 134 
+
+[timing] sample processed in 8.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/checkpoints/lora_epoch2_step100.pt
+==end-of-epoch 2==
+
+=== Epoch 3/3 ===

@@ -26,8 +26,8 @@ model = apply_lora_to_model(
     model,
     r=8,
     alpha=16,
-    target_modules=("q_proj", "v_proj"),
-    dropout=0.0,
+    target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
+    dropout=0.05,
 )
 freeze_non_lora_params(model)
 model.to(DEVICE)

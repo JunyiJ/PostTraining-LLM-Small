@@ -51,7 +51,7 @@ def apply_lora_to_model(
     model: nn.Module,
     r: int = 8,
     alpha: int = 16,
-    target_modules=("q_proj", "v_proj"),
+    target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
     dropout: float = 0.0,
 ) -> nn.Module:
     """
