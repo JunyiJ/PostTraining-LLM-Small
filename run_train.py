@@ -43,8 +43,8 @@ model = apply_lora_to_model(
     model,
     r=8,
     alpha=16,
-    target_modules=("q_proj", "v_proj"),
-    dropout=0.0,
+    target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
+    dropout=0.05,
 )
 freeze_non_lora_params(model)
 model.to(DEVICE)
@@ -155,7 +155,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
             log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
             ratio = log_prob_ratio.exp()
             kl = log_prob_ratio.mean()
-            loss = -(advantages * ratio).mean() + KL_COEF * kl
+            grpo_loss = -(advantages * ratio).mean()
+            loss = grpo_loss + KL_COEF * kl
+            print(f"grpo_loss is {grpo_loss} and kl is {kl}")
             running_loss += loss.item()
             running_correct += sum(1 for r in rewards if r > 0)
             running_total += len(rewards)

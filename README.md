@@ -44,13 +44,22 @@ python run_train.py | tee logs/train_test.log
 Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train.py`.
 
 ### Overview of LoRA
-TODO
+For each target layer(usually q, k, v, o), add a learnable weight with low rank while base weights are frozen:
+output = original_output + alpha/low_rank * B(A(x))
+where A with dimension input_dim * low_rank, B with dimension low_rank * output_dim.
+A is usually initialized with normal distribution and B is initialized as 0 so that initially the delta is 0 
+and model learns from update.
+
 ### Overview of GRPO
-TODO
+loss = - advantage * (prob_new / prob_old) + KL_weight * KL_divergency
+advantage = (reward - mean(reward)) / (std(reward) + 0.00001) for a group of answers (e.g. sample k answers)
+KL_divergency ~= mean(log_prob_new / log_prob_old)
 
 ## Performance Comparison
 * Baseline Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
-* GRPO + LORA Model checkpoint: Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00%
+* GRPO + LORA Model checkpoint (base): Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00% (before running optimization)
+* 
+GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 200 Correct: 113 Accuracy: 56.5%.
 
 ## Interesting Learnings
 ### Reward definition is key to the quality
@@ -85,5 +94,10 @@ I tried a few things to speed up the training on MPS
 Ideally we could use the `model.generate` call to avoid iterating with tokens as well, however, it 
 causes NaN issue probably due to a known unstability of Gemma model on MPS.
 2) Update the second pass to a batch mode instead of looping over the k samples.
+3) Using shorter max_token.
+4) Early stop if all sampling reached EOF.
+
+After the optimization step above (combining, 1/2/3/4), the overall training time is able to reduce 
+by 3-4x.
 3) TODO: update to larger batches.
 
