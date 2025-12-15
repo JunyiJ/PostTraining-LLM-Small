@@ -53,13 +53,16 @@ and model learns from update.
 ### Overview of GRPO
 loss = - advantage * (prob_new / prob_old) + KL_weight * KL_divergency
 advantage = (reward - mean(reward)) / (std(reward) + 0.00001) for a group of answers (e.g. sample k answers)
-KL_divergency ~= mean(log_prob_new / log_prob_old)
+KL_divergency ~= sum(log_prob_new / log_prob_old) per token and then take the mean of all samples
 
 ## Performance Comparison
+### Gemma 2B Instruct as base model
 * Baseline Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
 * GRPO + LORA Model checkpoint (base): Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00% (before running optimization)
-* 
-GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 200 Correct: 113 Accuracy: 56.5%.
+* GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 199 Correct: 118 Accuracy: 59.3%.
+
+### Qwen2.5-Math-1.5B-Instruct as base model
+* Baseline Model: Total: 200 Correct: 16 Accuracy: 8.00%
 
 ## Interesting Learnings
 ### Reward definition is key to the quality

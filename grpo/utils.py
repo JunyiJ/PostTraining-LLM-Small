@@ -2,7 +2,12 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 def load_model(model_path="./models/gemma-2-2b"):
-    tokenizer = AutoTokenizer.from_pretrained(model_path)
+    tokenizer = AutoTokenizer.from_pretrained(
+        model_path,
+        padding_side="left",  # Critical for Qwen model
+    )
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token_id = tokenizer.eos_token_id
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
         dtype=torch.bfloat16,  # Using float32/bf16 instead of FP16 e MPS FP16 matmul has limited exponent range and MPS has buggy FP16 softmax

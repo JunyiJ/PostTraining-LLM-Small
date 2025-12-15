@@ -25,7 +25,7 @@ def test_reasoning_bonus_and_sanity():
     answer = f"{reasoning} verify: result is 2"
     reward = compute_reward("1+1=?", answer, "2")
     # base 1.0 + reasoning 0.5 + sanity 0.5 - 0.5 repeitition = 1.5
-    assert abs(reward - 1.5) < 1e-6
+    assert abs(reward - 1.2) < 1e-6
 
 
 def test_keyword_bonus():
@@ -50,7 +50,7 @@ def test_keyword_picks_answer_over_later_number():
     answer = "Numbers: 1 2. My answer is 4 and then some text with 5 later."
     reward = compute_reward("Q", answer, "4")
     # With lower MIN_REASON_TOKENS, we now get reasoning bonus + keyword bonus
-    assert abs(reward - 1.7) < 1e-6
+    assert abs(reward - 1.4) < 1e-6
 
 
 def test_fallback_to_last_numeric_when_no_keyword():

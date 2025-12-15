@@ -12,8 +12,9 @@ from grpo.utils import load_model
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 
 MODEL_PATH = "./models/gemma-2-2b"
+# MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./checkpoints/lora_epoch2_step100.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch2_step100.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 40
 MAX_NEW_TOKENS = 205
@@ -48,7 +49,7 @@ if USE_LORA:
         model,
         r=8,
         alpha=16,
-        target_modules=("q_proj", "v_proj"),
+        target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
         dropout=0.0,
     )
     freeze_non_lora_params(model)

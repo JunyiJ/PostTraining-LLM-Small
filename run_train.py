@@ -26,14 +26,15 @@ os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
-CHECKPOINT_DIR = Path(__file__).resolve().parent / "checkpoints"
-NUM_SAMPLES_PER_PROMPT = 3
+CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
+# CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
+NUM_SAMPLES_PER_PROMPT = 4
 NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 3
 EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.7
+SAMPLING_TEMPERATURE = 0.8
 MAX_NEW_TOKENS = 205
-KL_COEF = 0.001
+KL_COEF = 0.01
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
@@ -93,7 +94,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
     random.shuffle(train_samples)
     for line in tqdm(train_samples, desc=f"epoch {epoch}", leave=False):
         t_start = time.perf_counter()
-        question = line['question']
+        question = line['question'] + "\nGive numeric answer with concise reasoning, please avoid long reasoning. "
+        # print(question)
         gold_answer = str(line["gold_answer"]).strip()
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
@@ -111,12 +113,28 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Second pass (enable gradient) to get each answer token's sum_logprob_new.
         model.train()
         with torch.enable_grad():
-            batch_size = res["tokens"].size(0)
-            batch_prompt_id_len = torch.full(
-                (batch_size,), res["prompt_id_length"], device=DEVICE, dtype=torch.long
-            )
+            B, T = res["tokens"].size()
+            prompt_len = res["prompt_id_length"]
             padded_batch_tokens = res["tokens"].to(DEVICE)
             attention_mask = res["attention_mask"].to(DEVICE)
+            # First eos after prompt_len
+            eos_mask = (padded_batch_tokens[:, prompt_len:] == tokenizer.eos_token_id)
+            has_eos = eos_mask.any(dim=1)
+            first_eos_offset = torch.where(
+                has_eos,
+                eos_mask.float().argmax(dim=1),
+                (attention_mask.sum(dim=1) - prompt_len - 1)   # fallback to last token
+            )
+            eos_pos = first_eos_offset + prompt_len
+            # build mask for answer region: shape [B, T-1]
+            arange = torch.arange(T - 1, device=DEVICE).unsqueeze(0)  # [1, T-1]
+            answer_mask = ((arange >= (prompt_len - 1)) & (arange < (eos_pos.unsqueeze(1)))).float()
+            # print("TOKENS:", padded_batch_tokens[0].tolist())
+            # print("PROMPT LEN:", prompt_len)
+            # print("EOS POS:", eos_pos[0].item())
+            # print("ANSWER TOKENS:", padded_batch_tokens[0, prompt_len:eos_pos[0]].tolist())
+            # print("ANSWER MASK ROW:", answer_mask[0].nonzero().squeeze().tolist())
+
             out_new = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
             # [B, T_max, vocab]
             logits_new = out_new.logits
@@ -126,19 +144,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
             # [B, T_max-1]
             log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)
             # Mask out padded tokens
-            shifted_mask = attention_mask[:, 1:]
-            masked_log_probs_new = log_probs_new * shifted_mask
-            # masked_log_probs_new: [B, T]
-            # batch_prompt_id_len: [B] (prompt length)
-            # The first answer token’s logprob is at position prompt_len - 1
-            # [B, T]
-            idx = (batch_prompt_id_len - 1).to(DEVICE).unsqueeze(1)
-            # [1, T]
-            arange = torch.arange(masked_log_probs_new.size(1), device=DEVICE).unsqueeze(0)
-            mask = (arange >= idx).float()
+            masked_log_probs_new = log_probs_new * answer_mask
             # [B]
-            sum_token_logprobs_new = (masked_log_probs_new * mask).sum(dim=1)
-            sum_token_logprobs_old = res["sum_token_logprobs"].to(DEVICE)
+            sum_token_logprobs_new = masked_log_probs_new.sum(dim=1)
+            sum_token_logprobs_old = res["sum_token_logprobs"].to(DEVICE).detach()
             # Calculate rewards
             rewards = [
                 compute_reward(
@@ -149,15 +158,20 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
+            # for txt, r in zip(res['text'], rewards):
+            #     print(txt)
+            #     print(f"reward is {r}")
             # Calculate advantages
             advantages = compute_advantage(rewards, device=DEVICE, dtype=sum_token_logprobs_new.dtype).to(DEVICE)
             # Compute GRPO loss
             log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
             ratio = log_prob_ratio.exp()
-            kl = log_prob_ratio.mean()
+            answer_logprobs_old = res["token_logprobs"].to(DEVICE) * answer_mask
+            answer_logprobs_new = masked_log_probs_new
+            kl_loss = (answer_logprobs_old - answer_logprobs_new).sum(dim=1).mean()
             grpo_loss = -(advantages * ratio).mean()
-            loss = grpo_loss + KL_COEF * kl
-            print(f"grpo_loss is {grpo_loss} and kl is {kl}")
+            loss = grpo_loss + KL_COEF * kl_loss
+            print(f"grpo_loss is {grpo_loss} and kl is {kl_loss}")
             running_loss += loss.item()
             running_correct += sum(1 for r in rewards if r > 0)
             running_total += len(rewards)
@@ -175,7 +189,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 running_correct = 0
                 running_total = 0
 
-                eval_prompt = "11+123=?"
+                eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
                 eval_inputs = tokenizer(eval_prompt, return_tensors="pt").to(DEVICE)
                 model.eval()
                 with torch.no_grad():
