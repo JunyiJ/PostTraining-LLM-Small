@@ -64,34 +64,38 @@ def sample_k_parallel(
     prompt_id_length = input_ids.size(1)
     # [K, seq_len]
     input_ids_k = input_ids.repeat(k, 1)
+    attention_mask_k = torch.ones_like(input_ids_k, dtype=torch.long, device=device)
     sampling_active = torch.ones((k,), dtype=torch.bool, device=device)
     finished_with_eos = torch.zeros((k,), dtype=torch.bool, device=device)
-    sum_token_logprobs = torch.zeros((k,), dtype=dtype, device=device)
-    token_logprobs = torch.zeros((k, max_new_tokens), dtype=dtype, device=device)
     steps_taken = 0
+    past_key_values = None
+    pad_id_for_model = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else (tokenizer.eos_token_id or 0)
     grad_context = torch.enable_grad() if enable_grad else torch.no_grad()
     with grad_context:
         for _ in range(max_new_tokens):
-            tokens_for_forward = input_ids_k.clone()
-            fake_pad_positions = (tokens_for_forward == FAKE_PAD_ID)
-            if tokenizer.pad_token_id is not None:
-                tokens_for_forward[fake_pad_positions] = tokenizer.pad_token_id
-                attention_mask_k = (tokens_for_forward != tokenizer.pad_token_id).long()
+            if past_key_values is None:
+                model_inputs = {
+                    "input_ids": input_ids_k,
+                    "attention_mask": attention_mask_k,
+                    "use_cache": True,
+                }
             else:
-                attention_mask_k = (~fake_pad_positions).long()
-            out = model(input_ids=tokens_for_forward, attention_mask=attention_mask_k)
+                last_token = input_ids_k[:, -1:].clone()
+                last_token[last_token == FAKE_PAD_ID] = pad_id_for_model
+                model_inputs = {
+                    "input_ids": last_token,
+                    "attention_mask": attention_mask_k,
+                    "use_cache": True,
+                    "past_key_values": past_key_values,
+                }
+            out = model(**model_inputs)
+            past_key_values = out.past_key_values
             # [K, vocab]
             step_logits = out.logits[:, -1, :]
             log_probs = F.log_softmax(step_logits / temperature, dim=-1)
             probs = log_probs.exp()
             # [K, 1]
             next_token_raw = torch.multinomial(probs, num_samples=1)
-            token_log_prob = log_probs.gather(-1, next_token_raw).squeeze(-1)  # [K]
-            if not enable_grad:
-                token_log_prob = token_log_prob.detach()
-            # zero out updates for finished rows
-            sum_token_logprobs = sum_token_logprobs + token_log_prob * sampling_active
-            token_logprobs[:, steps_taken] = token_log_prob * sampling_active
             # For finished rows, append pad instead of sampled token to keep shapes aligned
             if tokenizer.pad_token_id is not None:
                 next_token = torch.where(
@@ -99,7 +103,16 @@ def sample_k_parallel(
                     next_token_raw,
                     torch.full_like(next_token_raw, FAKE_PAD_ID),
                 )
-            input_ids_k = torch.cat([input_ids_k, next_token], dim=1)  # [K, seq_len+step]
+            else:
+                next_token = next_token_raw
+            # Build attention mask for next step: active rows attend, finished rows are masked
+            attention_mask_k = torch.cat(
+                [attention_mask_k, torch.ones((k,1), dtype=torch.long, device=device)], dim=1
+            )
+            # Append token for model (replace fake pads with a real id)
+            append_for_model = next_token.clone()
+            append_for_model[append_for_model == FAKE_PAD_ID] = pad_id_for_model
+            input_ids_k = torch.cat([input_ids_k, append_for_model], dim=1)  # [K, seq_len+step]
             hit_eos = (next_token_raw.squeeze(-1) == tokenizer.eos_token_id)
             finished_with_eos = finished_with_eos | (hit_eos & sampling_active)
             sampling_active = sampling_active & (~hit_eos)
@@ -110,7 +123,7 @@ def sample_k_parallel(
     # Replace fake pads for model consumption; keep track of real padding locations
     tokens_for_model = input_ids_k.clone()
     fake_pad_positions = (tokens_for_model == FAKE_PAD_ID)
-    tokens_for_model[fake_pad_positions] = tokenizer.pad_token_id
+    tokens_for_model[fake_pad_positions] = pad_id_for_model
     texts = tokenizer.batch_decode(tokens_for_model, skip_special_tokens=True)
     # Attention mask should ignore only the fake pads (not EOS, even if pad==eos)
     attention_mask = torch.ones_like(tokens_for_model, dtype=torch.long)
@@ -120,16 +133,8 @@ def sample_k_parallel(
         "prompt_id_length": prompt_id_length,  # scaler
         "tokens": tokens_for_model,  # [K, seq_len]
         "attention_mask": attention_mask,  # [K, seq_len]
-        # token_logprobs aligned with shifted logits (length T-1): zeros for prompt transitions, then generated
-        "token_logprobs": torch.cat(
-            [
-                torch.zeros((k, max(prompt_id_length - 1, 0)), dtype=dtype, device=device),
-                token_logprobs[:, :steps_taken],
-            ],
-            dim=1,
-        ),  # [K, T-1]
-        "sum_token_logprobs": sum_token_logprobs,  # [K]
         "truncated": (~finished_with_eos).tolist(),  # list of bools
+        "steps_taken": steps_taken,
     }
 
 # model.generate(...) Had issues of NaN tensor on MPS with gemma-2-2b

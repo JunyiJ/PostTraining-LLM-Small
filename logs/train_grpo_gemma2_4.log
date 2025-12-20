@@ -1,0 +1,888 @@
+LoRA checkpoint None not found; training from base model.
+
+=== Epoch 1/10 ===
+A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+**Reasoning:**
+
+1. **Apples sold:** The farmer sold (3/5) * 240 = 144 apples.
+2. **Apples remaining:** After selling some apples, he had 240 - 144 = 96 apples.
+3. **Apples given away:** He gave 1/4 * 96 = 24 apples to his neighbor.
+4. **Apples left:** He has 96 - 24 = 72 apples left.
+
+**Final answer:** 72 
+
+
+
+reward is 0.12
+is result truncated? False
+A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's the solution:
+
+**1. Apples sold at the market:**
+
+* (3/5) * 240 apples = 144 apples
+
+**2. Apples remaining after selling:**
+
+* 240 apples - 144 apples = 96 apples
+
+**3. Apples given to the neighbor:**
+
+* (1/4) * 96 apples = 24 apples
+
+**4. Apples left:**
+
+* 96 apples - 24 apples = 72 apples
+
+**Final answer: 72** 
+
+reward is 1.29
+is result truncated? False
+A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+**Reasoning:**
+
+1. **Apples sold:** The farmer sold (3/5) * 240 = 144 apples.
+2. **Apples remaining after sale:** He had 240 - 144 = 96 apples left.
+3. **Apples given to neighbor:** The farmer gave 1/4 * 96 = 24 apples to the neighbor.
+4. **Apples remaining after giving to neighbor:** He has 96 - 24 = 72 apples left.
+
+**Final answer:** 72 
+
+
+
+reward is 0.12
+is result truncated? False
+A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?
+Please reason step-by-step,  then give: Final answer: <numeric>
+ 
+**Step 1: Calculate the number of apples sold.**
+* Multiply the total apples by the fraction sold: 240 * (3/5) = 144 apples
+ 
+**Step 2: Calculate the number of apples remaining after selling.**
+* Subtract the apples sold from the total apples: 240 - 144 = 96 apples
+
+**Step 3: Calculate the number of apples given to the neighbor.**
+* Multiply the remaining apples by the fraction given away: 96 * (1/4) = 24 apples
+
+**Step 4: Calculate the number of apples remaining after giving to the neighbor.**
+* Subtract the apples given away from the remaining apples: 96 - 24 = 72 apples
+
+**Final answer:** 72 
+
+reward is 0.12
+is result truncated? False
+grpo_loss is -0.12237665057182312 and kl is -0.10389140248298645
+[timing] sample processed in 51.10s
+grpo_loss is -0.12387020885944366 and kl is 0.014257997274398804
+[timing] sample processed in 111.77s
+grpo_loss is 0.18658900260925293 and kl is -0.09859985113143921
+[timing] sample processed in 137.38s
+grpo_loss is -0.12904319167137146 and kl is 0.22082281112670898
+[timing] sample processed in 82.83s
+grpo_loss is 0.2329232394695282 and kl is 0.0907023549079895
+[timing] sample processed in 140.83s
+grpo_loss is 0.05298188328742981 and kl is 0.19444134831428528
+[timing] sample processed in 139.80s
+grpo_loss is -0.0 and kl is 0.07766464352607727
+[timing] sample processed in 86.96s
+grpo_loss is -0.15832269191741943 and kl is -0.009255290031433105
+[timing] sample processed in 158.41s
+grpo_loss is -0.19374319911003113 and kl is 0.27699121832847595
+[timing] sample processed in 2945.52s
+grpo_loss is -0.0 and kl is 0.0906987190246582
+[timing] sample processed in 135.99s
+A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+* **Find the batches per cup:**  The baker uses 3/8 cup of sugar per batch.
+* **Find the total batches:**  She has 9 cups of sugar, so divide the total sugar by the amount per batch: 9 cups / (3/8 cup/batch) = 24 batches.
+
+**Final answer: 24** 
+
+reward is 1.29
+is result truncated? False
+A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **Find the number of batches:** Divide the total sugar by the amount of sugar per batch: 9 cups / (3/8 cup/batch) 
+
+2. **Simplify:** Multiply the fraction inside the division by the fraction outside: (9 cups * 8/3 cups)
+
+3. **Calculate:**  Simplify the expression: 24 batches 
+
+**Final answer: 24** 
+
+reward is 1.29
+is result truncated? False
+A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?
+Please reason step-by-step,  then give: Final answer: <numeric> batches 
+
+**Here's how to solve the problem:**
+
+1. **Find the total sugar used per batch:** 3/8 cup
+2. **Divide the total sugar by the sugar used per batch:** 9 cups / (3/8 cup/batch) 
+3. **Simplify the division:** 9 cups * (8/3) cup/batch = 24 batches 
+
+**Final answer: 24 batches** 
+
+reward is 1.29
+is result truncated? False
+A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?
+Please reason step-by-step,  then give: Final answer: <numeric> batches
+
+Here's the solution:
+
+1. **Find out how many times 3/8 cup fits into 9 cups:** 
+   *  9 cups / (3/8 cup/batch) 
+
+2. **Simplify:**
+   * 9 cups * (8/3) cups/batch 
+   * 24 batches
+
+**Final answer: 24 batches** 
+
+reward is 1.29
+is result truncated? False
+grpo_loss is -0.0 and kl is 0.09130138158798218
+[timing] sample processed in 90.96s
+grpo_loss is 0.24012961983680725 and kl is 0.034646421670913696
+[timing] sample processed in 219.56s
+grpo_loss is 0.09685276448726654 and kl is 0.09930026531219482
+[timing] sample processed in 198.02s
+grpo_loss is -0.0 and kl is 0.06734985113143921
+[timing] sample processed in 469.12s
+grpo_loss is -0.15095967054367065 and kl is -0.03684079647064209
+[timing] sample processed in 435.54s
+grpo_loss is -0.0 and kl is -0.1827068030834198
+[timing] sample processed in 5640.51s
+grpo_loss is 0.14331698417663574 and kl is -0.10446292161941528
+[timing] sample processed in 235.67s
+grpo_loss is -0.11826103925704956 and kl is 0.18805208802223206
+[timing] sample processed in 114.53s
+grpo_loss is -0.0 and kl is -0.08761626482009888
+[timing] sample processed in 46.98s
+grpo_loss is -0.2266918420791626 and kl is 0.027632594108581543
+[timing] sample processed in 202.17s
+A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+**1. Calculate the total number of pencils:**
+
+* 5 boxes * 24 pencils/box = 120 pencils
+
+**2. Calculate the number of pencils given away:**
+
+* 120 pencils * (3/4) = 90 pencils
+
+**3. Calculate the number of pencils kept:**
+
+* 120 pencils - 90 pencils = 30 pencils 
+
+
+**Final answer: 30** 
+
+reward is 1.29
+is result truncated? False
+A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+1. **Total pencils:** The teacher buys 5 boxes * 24 pencils/box = 120 pencils.
+
+2. **Pencils for students:** She gives away (3/4) * 120 pencils = 90 pencils.
+
+3. **Pencils kept:** She keeps 120 pencils - 90 pencils = 30 pencils. 
+
+
+Final answer: 30 
+
+reward is 1.29
+is result truncated? False
+A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+1. **Total pencils:** The teacher has 5 boxes * 24 pencils/box = 120 pencils.
+
+2. **Pencils given away:** She gives away (3/4) * 120 pencils = 90 pencils.
+
+3. **Pencils kept:** The teacher keeps 120 pencils - 90 pencils = 30 pencils. 
+
+
+**Final answer: 30** 
+
+reward is 1.29
+is result truncated? False
+A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+1. **Total pencils:** The teacher has 5 boxes * 24 pencils/box = 120 pencils.
+
+2. **Pencils given away:** She gives away (3/4) * 120 pencils = 90 pencils.
+
+3. **Pencils kept:** The teacher keeps 120 pencils - 90 pencils = 30 pencils. 
+
+
+Final answer: 30 
+
+reward is 1.29
+is result truncated? False
+grpo_loss is -0.0 and kl is 0.03725215792655945
+[timing] sample processed in 422.90s
+grpo_loss is -0.0 and kl is 0.11767449975013733
+[timing] sample processed in 123.23s
+grpo_loss is 0.12611210346221924 and kl is 0.1504366099834442
+[timing] sample processed in 281.78s
+grpo_loss is -0.0 and kl is 0.09597516059875488
+[timing] sample processed in 59.17s
+grpo_loss is 0.15974310040473938 and kl is 0.21319225430488586
+[step 25] avg_loss=0.0035 acc=0.8700
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: Calculate the distance for the first part**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance for the second part**
+
+* Speed = 62 km/h * 2 = 124 km/h
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total distance = 124 km + 372 km = 496 km
+
+
+**Answer:** The total distance traveled is 496 km. 
+
+[timing] sample processed in 223.37s
+grpo_loss is -0.0038162320852279663 and kl is 0.07710078358650208
+[timing] sample processed in 124.83s
+grpo_loss is -0.004216380417346954 and kl is 0.032773494720458984
+[timing] sample processed in 141.40s
+grpo_loss is 0.009937167167663574 and kl is 0.16036975383758545
+[timing] sample processed in 123.49s
+grpo_loss is -0.0 and kl is 0.1287127435207367
+[timing] sample processed in 96.16s
+grpo_loss is -0.0 and kl is -0.2333311140537262
+[timing] sample processed in 108.27s
+A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+**1. Understand the Pattern:**
+
+* The builder builds 20% more each day. This means the percentage increase is 20% of the previous day's output.
+
+**2. Calculate Day 1's Output:**
+
+* Let's say Day 1's output is 'x'. 
+* Day 2's output is 1.20x (20% more than x)
+* Day 3's output is 1.44x (20% more than 1.20x)
+
+**3.  Use the Total Output:**
+
+* We know the total output for 3 days is 180 meters. 
+* This means: x + 1.20x + 1.44x = 180
+
+**4. Solve for x:**
+
+* Combine like terms: 3.64x =
+reward is -0.11000000000000001
+is result truncated? True
+A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+**1. Understand the Problem:**
+
+* The builder builds 20% more each day, meaning he builds 120% of the previous day's output.
+
+**2. Calculate the Daily Output:**
+
+* **Day 1:**  He builds 180 meters (total) / 3 days = 60 meters per day.
+
+* **Day 2:** 60 meters * 1.20 = 72 meters.
+
+* **Day 3:** 72 meters * 1.20 = 86.4 meters. 
+
+**3. Final Answer:** 60 
+
+reward is 0.09
+is result truncated? False
+A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve this problem step-by-step:
+
+**1. Understand the pattern:**
+
+* The builder increases his output each day by 20% of the previous day's amount. This means the amounts built each day form a sequence where each number is 1.20 times the number before it.
+
+**2.  Let's represent the amounts:**
+
+*  Let 'x' represent the amount built on day 1.
+*  Day 2: 1.20x 
+*  Day 3: 1.20 * 1.20x = 1.44x
+
+**3. Use the total distance:**
+
+* The total distance built in 3 days is 180 meters. 
+
+**4. Set up an equation:**
+
+* x + 1.20x + 1.44x = 180 
+
+**5. Solve for x:**
+reward is -1.2
+is result truncated? True
+A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve this problem:
+
+**1.  Understand the percentages:**
+
+* Day 1: 100% 
+* Day 2: 100% + 20% = 120% of Day 1
+* Day 3: 120% of Day 1 + 20% = 140% of Day 1
+
+**2.  Calculate the total progress:**
+
+*  He builds 180 meters in total, which means he's building 180 meters on day 3. 
+
+**3.  Determine the amount built on day 1:**
+
+*  Day 3 represents 140% of Day 1. 
+*  We know he built 180 meters in total. 
+*  This means he built 180/140 = 1.29 meters on Day 1 (approximately). 
+reward is -0.08000000000000002
+is result truncated? True
+grpo_loss is -0.2186841368675232 and kl is 0.34955865144729614
+[timing] sample processed in 250.05s
+grpo_loss is -0.0 and kl is -0.030246615409851074
+[timing] sample processed in 319.63s
+grpo_loss is -0.0 and kl is 0.4638444483280182
+[timing] sample processed in 130.39s
+grpo_loss is -0.0 and kl is -0.09553584456443787
+[timing] sample processed in 118.72s
+grpo_loss is -0.19076263904571533 and kl is 0.01247909665107727
+[timing] sample processed in 224.09s
+grpo_loss is 0.008326485753059387 and kl is -0.022219538688659668
+[timing] sample processed in 336.62s
+grpo_loss is -0.050902560353279114 and kl is 0.10632207989692688
+[timing] sample processed in 314.51s
+grpo_loss is 0.17103371024131775 and kl is 0.17908135056495667
+[timing] sample processed in 252.41s
+grpo_loss is -0.0 and kl is -0.041346222162246704
+[timing] sample processed in 82.02s
+grpo_loss is 0.7253546118736267 and kl is 0.0591903030872345
+[timing] sample processed in 188.17s
+A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve this:
+
+* **Step 1: 25% discount:** $300 - (0.25 * $300) = $225
+* **Step 2: 10% discount:** $225 - (0.1 * $225) = $202.50
+
+**Final answer: 202.5** 
+
+reward is 1.29
+is result truncated? False
+A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **First Discount:** 25% of $300 is (25/100) * $300 = $75.  The price after the first discount is $300 - $75 = $225.
+
+2. **Second Discount:** 10% of $225 is (10/100) * $225 = $22.50. The final price is $225 - $22.50 = **$202.50** 
+
+reward is 0.12
+is result truncated? False
+A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve the problem:
+
+**1. First Discount:** 25% of $300 is (25/100) * $300 = $75.  The price after the first discount is $300 - $75 = $225.
+
+**2. Second Discount:** 10% of $225 is (10/100) * $225 = $22.50. The final price is $225 - $22.50 = **$202.50** 
+
+reward is 0.12
+is result truncated? False
+A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **25% off:** $300 - (0.25 * $300) = $225
+2. **10% off:** $225 - (0.10 * $225) = $202.50
+
+**Final answer: 202.50** 
+
+reward is 1.29
+is result truncated? False
+grpo_loss is -0.024918347597122192 and kl is -0.06659379601478577
+[timing] sample processed in 223.10s
+grpo_loss is -0.0035413801670074463 and kl is -0.2803139090538025
+[timing] sample processed in 364.77s
+grpo_loss is 0.122426837682724 and kl is -0.15059909224510193
+[timing] sample processed in 360.18s
+grpo_loss is 0.08036398887634277 and kl is 0.14675861597061157
+[timing] sample processed in 207.71s
+grpo_loss is 0.03370442986488342 and kl is 0.21544697880744934
+[timing] sample processed in 120.05s
+grpo_loss is -0.3465803265571594 and kl is -0.1149066686630249
+[timing] sample processed in 78.60s
+grpo_loss is -0.18739046156406403 and kl is 0.17482638359069824
+[timing] sample processed in 154.29s
+grpo_loss is 0.047755166888237 and kl is 0.08581414818763733
+[timing] sample processed in 202.51s
+grpo_loss is -0.14028824865818024 and kl is 0.0007829368114471436
+[timing] sample processed in 137.20s
+grpo_loss is -0.0 and kl is -0.26055601239204407
+[step 50] avg_loss=0.0015 acc=0.8900
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve the problem:
+
+**Step 1: First leg of the journey:**
+
+* Distance = Speed x Time 
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Second leg of the journey:**
+
+* Speed = 62 km/h * 2 = 124 km/h
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Total distance:**
+
+* Total distance = 124 km + 372 km = 496 km 
+
+
+**Answer:** The total distance traveled is 496 km. 
+
+[timing] sample processed in 203.75s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/lora_epoch1_step50.pt
+==end-of-epoch 1==
+
+=== Epoch 2/10 ===
+A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+* **Understanding Ratio:** The ratio 3:7 means the shorter piece is 3/10 of the total length.
+* **Calculation:**  3/10 * 60 m = 18 m
+
+
+**Final answer: 18** 
+
+reward is 1.29
+is result truncated? False
+A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+
+Here's how to solve it:
+
+* **Understanding Ratios:**  The ratio 3:7 means the shorter piece is 3 out of 10 parts of the original rope.
+* **Calculation:** 60 m / 10 = 6 m 
+
+
+**Final answer: 6** 
+
+reward is 0.09000000007550271
+is result truncated? False
+A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+* **Understanding the Ratio:**  The ratio 3:7 means the shorter piece is 3 parts and the longer piece is 7 parts.
+
+* **Total Parts:** The total parts are 3 + 7 = 10
+
+* **Length of Each Piece:** 60 m / 10 = 6 m 
+
+**Final Answer: 6** 
+
+reward is 0.12000000007550271
+is result truncated? False
+A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+* **Understanding Ratio:** The ratio 3:7 means the shorter piece is 3/10 of the total length, and the longer piece is 7/10.
+* **Calculation:** 3/10 * 60 m = 18 m 
+
+**Final Answer: 18** 
+
+reward is 1.29
+is result truncated? False
+grpo_loss is 0.17322391271591187 and kl is 0.09239766001701355
+[timing] sample processed in 182.48s
+grpo_loss is -0.02383977174758911 and kl is 0.1006934642791748
+[timing] sample processed in 1353.27s
+grpo_loss is -0.05781954526901245 and kl is -0.09006315469741821
+[timing] sample processed in 163.05s
+grpo_loss is -0.0 and kl is 0.007581859827041626
+[timing] sample processed in 70.97s
+grpo_loss is -0.0 and kl is 0.03475859761238098
+[timing] sample processed in 129.66s
+grpo_loss is 0.126024067401886 and kl is -0.15693333745002747
+[timing] sample processed in 233.43s
+grpo_loss is -0.12273067235946655 and kl is 0.29413947463035583
+[timing] sample processed in 6393.73s
+grpo_loss is -0.0 and kl is -0.4390982389450073
+[timing] sample processed in 4147.13s
+grpo_loss is -0.11657319962978363 and kl is 0.039793819189071655
+[timing] sample processed in 173.02s
+grpo_loss is 0.3036302924156189 and kl is 0.2639082968235016
+[timing] sample processed in 241.64s
+A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's the solution:
+
+1. **Students attending the trip initially:** 2/3 * 36 = 24
+2. **Students who forget permission slips:** 1/4 * 24 = 6
+
+**Final Answer: 24** 
+
+reward is 0.12001228834920441
+is result truncated? False
+A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how we solve it:
+
+1. **Students attending the trip:** (2/3) * 36 = 24 
+2. **Students who forget:** (1/4) * 24 = 6
+
+**Final answer: 24** 
+
+reward is 0.09001228834920441
+is result truncated? False
+A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **Students attending the trip:** (2/3) * 36 = 24
+2. **Students forgetting permission slips:** 24 / 4 = 6 
+
+**Final answer: 6** 
+
+reward is 0.12000000007550271
+is result truncated? False
+A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+* **Students attending:** 2/3 * 36 = 24
+* **Students forgetting permission slips:** 1/4 * 24 = 6 
+
+**Final answer: 18** 
+
+reward is 1.3199999999999998
+is result truncated? False
+grpo_loss is -0.09448915719985962 and kl is 0.409837931394577
+[timing] sample processed in 148.55s
+grpo_loss is 0.4559828042984009 and kl is -0.45852163434028625
+[timing] sample processed in 71.68s
+grpo_loss is 0.03383740782737732 and kl is -0.13919475674629211
+[timing] sample processed in 63.32s
+grpo_loss is -0.0 and kl is 0.18891113996505737
+[timing] sample processed in 65.83s
+grpo_loss is -0.0 and kl is 0.09307998418807983
+[timing] sample processed in 73.45s
+grpo_loss is -0.0 and kl is -0.2881845235824585
+[timing] sample processed in 78.78s
+grpo_loss is -0.0 and kl is -0.0927838683128357
+[timing] sample processed in 96.98s
+grpo_loss is -0.0 and kl is 0.3379247784614563
+[timing] sample processed in 99.52s
+grpo_loss is 0.08778020739555359 and kl is 0.15037524700164795
+[timing] sample processed in 124.65s
+grpo_loss is -0.0 and kl is 0.17199063301086426
+[timing] sample processed in 114.45s
+A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **Distance 1:** 160 miles
+2. **Time 1:** 160 / 40 = 4 hours
+3. **Distance 2:** 160 miles
+4. **Time 2:**  160 / 80 = 2 hours
+5. **Total Distance:** 160 + 160 = 320 miles
+6. **Total Time:** 4 + 2 = 6 hours
+7. **Average Speed:** 320 / 6 = 53.33 
+
+**Final Answer: 53** 
+
+reward is 0.5984872624683635
+is result truncated? False
+A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **Distance:** The car travels 160 miles andata and 160 miles back. Total distance = 160 + 160 = 320 miles.
+2. **Time:** The trip takes time for each leg, so we need to find the total time.
+    * First leg: 160 miles / 40 mph = 4 hours
+    * Second leg: 160 miles / 80 mph = 2 hours
+3. **Average Speed:** Average speed is calculated as total distance divided by total time: 320 miles / (4 + 2) hours = 320 / 6 = 53.33
+
+**Final Answer: 53** 
+
+reward is 0.8284872624683636
+is result truncated? False
+A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **Distance:** The car travels 160 miles andata and 160 miles back, for a total of 320 miles.
+2. **Time:**  The first trip takes 160 miles / 40 mph = 4 hours. The second trip takes 160 miles / 80 mph = 2 hours.
+3. **Average Speed:** The average speed is the total distance divided by the total time: 320 miles / (4 + 2) hours = 320 / 6 = **53.33** 
+
+Final Answer: 53 
+
+reward is 0.7984872624683635
+is result truncated? False
+A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **Distance 1:** 160 miles
+2. **Time 1:** 160 / 40 = 4 hours
+3. **Distance 2:** 160 miles
+4. **Time 1:** 160 / 80 = 2 hours 
+5. **Average Speed:** (160 + 160) / (4 + 2) = 320 / 6 = **53.33** 
+
+
+Let me know if you'd like to try another one! 
+
+reward is -0.08000000000000002
+is result truncated? False
+grpo_loss is -0.06898738443851471 and kl is 0.43007692694664
+[timing] sample processed in 213.07s
+grpo_loss is -0.37848883867263794 and kl is 0.557576060295105
+[timing] sample processed in 152.29s
+grpo_loss is -0.0 and kl is 0.12809330224990845
+[timing] sample processed in 104.42s
+grpo_loss is -0.0 and kl is 0.06106001138687134
+[timing] sample processed in 82.71s
+grpo_loss is -0.0 and kl is 0.5023204684257507
+[step 75] avg_loss=0.0057 acc=0.9500
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+* **First leg:** 62 km/h * 2 h = 124 km
+* **Second leg:** 62 km/h * 2 * 3 h = 372 km
+* **Total distance:** 124 km + 372 km = 596 km 
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 107.97s
+grpo_loss is -0.22242310643196106 and kl is 0.15841025114059448
+[timing] sample processed in 138.98s
+grpo_loss is 0.21144883334636688 and kl is -0.08839410543441772
+[timing] sample processed in 73.55s
+grpo_loss is -0.0 and kl is 0.10344192385673523
+[timing] sample processed in 56.11s
+grpo_loss is 0.004347503185272217 and kl is 0.337626188993454
+[timing] sample processed in 54.54s
+grpo_loss is 0.23306769132614136 and kl is 0.16399329900741577
+[timing] sample processed in 56.27s
+A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?
+Please reason step-by-step,  then give: Final answer: <numeric>
+
+Here's how to solve it:
+
+1. **Gallons per mile:** Divide the gallons consumed by the miles driven: 8 gallons / 120 miles = 0.06666... gallons per mile.
+
+2. **Gallons for 330 miles:** Multiply the gallons per mile by the new mileage: 0.06666... * 330 miles = 2.2 gallons. 
+
+
+**Final answer: 2** 
+
+reward is 0.09
+is result truncated? False
+A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **Calculate miles per gallon (MPG):** 8 gallons / 120 miles = 0.0667 gallons per mile 
+2. **Calculate gallons for 330 miles:** 0.0667 gallons/mile * 330 miles = 22.5 gallons 
+
+**Final answer: 22** 
+
+reward is 1.29
+is result truncated? False
+A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+* **Find the fuel efficiency:** 8 gallons / 120 miles = 0.0667 gallons per mile 
+* **Calculate for 330 miles:** 0.0667 gallons/mile * 330 miles = 22.2 gallons 
+
+**Final answer: 22** 
+
+reward is 1.29
+is result truncated? False
+A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **Calculate the mileage per gallon:** 120 miles / 8 gallons = 15 miles per gallon 
+2. **Calculate gallons for 330 miles:** 330 miles / 15 miles per gallon = 22 gallons 
+
+**Final answer: 22** 
+
+reward is 1.29
+is result truncated? False
+grpo_loss is -0.16564686596393585 and kl is -0.09303832054138184
+[timing] sample processed in 73.07s
+grpo_loss is -0.07304984331130981 and kl is 0.4633682072162628
+[timing] sample processed in 76.13s
+grpo_loss is -0.21759387850761414 and kl is 0.12370005249977112
+[timing] sample processed in 80.81s
+grpo_loss is 0.09050101041793823 and kl is -0.15582874417304993
+[timing] sample processed in 47.10s
+grpo_loss is -0.0 and kl is -0.0456213653087616
+[timing] sample processed in 81.28s
+grpo_loss is 0.038975149393081665 and kl is 0.07778185606002808
+[timing] sample processed in 101.89s
+grpo_loss is -0.0 and kl is -0.05340084433555603
+[timing] sample processed in 40.68s
+grpo_loss is -0.32918819785118103 and kl is -0.15613579750061035
+[timing] sample processed in 59.86s
+grpo_loss is 0.7827820777893066 and kl is -0.4027094841003418
+[timing] sample processed in 63.72s
+grpo_loss is 0.183761864900589 and kl is -0.11401662230491638
+[timing] sample processed in 30.52s
+A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **30% increase:** $50 * 0.30 = $15
+2. **New price:** $50 + $15 = $65
+3. **20% discount:** $65 * 0.20 = $13
+4. **Final price:** $65 - $13 = 52 
+
+**Final answer: 52** 
+
+reward is 1.09
+is result truncated? False
+A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **30% increase:** $50 * 0.30 = $15
+2. **New price:** $50 + $15 = $65
+3. **20% discount:** $65 * 0.20 = $13
+4. **Final price:** $65 - $13 = 52 
+
+**Final answer: 52** 
+
+reward is 1.09
+is result truncated? False
+A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **30% increase:** $50 * 0.30 = $15
+2. **New price:** $50 + $15 = $65
+3. **20% discount:** $65 * 0.20 = $13
+4. **Final price:** $65 - $13 = 52 
+
+**Final answer: 52** 
+
+reward is 1.09
+is result truncated? False
+A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?
+Please reason step-by-step,  then give: Final answer: <numeric> 
+
+Here's how to solve it:
+
+1. **30% increase:** $50 * 0.30 = $15
+2. **New price:** $55 
+3. **20% discount:** $55 * 0.20 = $11
+4. **Final price:** $55 - $11 = 44 
+
+**Final answer: 44** 
+
+reward is -0.10999977492967586
+is result truncated? False
+grpo_loss is -0.20721250772476196 and kl is 0.20586785674095154
+[timing] sample processed in 37.81s
+grpo_loss is 0.03789043426513672 and kl is 0.17049095034599304
+[timing] sample processed in 27.75s
+grpo_loss is -0.0 and kl is 0.18062752485275269
+[timing] sample processed in 34.36s
+grpo_loss is 0.0862542986869812 and kl is -0.007584482431411743
+[timing] sample processed in 45.60s
+grpo_loss is -0.0 and kl is 0.06333139538764954
+[timing] sample processed in 59.34s
+grpo_loss is -0.019361644983291626 and kl is -0.1335722804069519
+[timing] sample processed in 46.73s
+grpo_loss is -0.0 and kl is -0.07373687624931335
+[timing] sample processed in 50.82s
+grpo_loss is 0.34442323446273804 and kl is -0.003583252429962158
+[timing] sample processed in 104.25s
+grpo_loss is -0.0 and kl is 0.3058556914329529
+[timing] sample processed in 307.43s
+grpo_loss is -0.0 and kl is -0.14911964535713196
+[step 100] avg_loss=0.0082 acc=0.9500
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+* **First 2 hours:** 62 km/h * 2 h = 124 km
+* **Next 3 hours:** 62 km/h * 2 = 124 km
+* **Total distance:** 124 km + 124 km = 248 km 
+
+**Answer:** The total distance is 248 km. 
+
+[timing] sample processed in 66.56s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/lora_epoch2_step100.pt
+==end-of-epoch 2==
+
+=== Epoch 3/10 ===

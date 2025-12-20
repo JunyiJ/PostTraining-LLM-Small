@@ -16,13 +16,13 @@ class DummyModel(torch.nn.Module):
     def generation_config(self):
         return self.config
 
-    def forward(self, input_ids, attention_mask=None):
+    def forward(self, input_ids, attention_mask=None, use_cache=False, past_key_values=None, **kwargs):
         # produce deterministic logits ignoring input content
         batch, seq = input_ids.shape
         logits = torch.zeros(batch, seq, self.vocab_size, device=input_ids.device)
         logits[:, :, 1] = 5.0  # favor token id 1
         logits[:, :, self.config.eos_token_id] = -5.0
-        return type("Out", (), {"logits": logits})
+        return type("Out", (), {"logits": logits, "past_key_values": None})
 
 
 class DummyTokenizer:
@@ -80,11 +80,11 @@ def test_truncated_flags():
 def test_padding_after_eos():
     # Make the model emit eos_token_id for the first row immediately
     class EosFirstModel(DummyModel):
-        def forward(self, input_ids, attention_mask=None):
+        def forward(self, input_ids, attention_mask=None, use_cache=False, past_key_values=None, **kwargs):
             batch, seq = input_ids.shape
             logits = torch.zeros(batch, seq, self.vocab_size, device=input_ids.device)
             logits[:, :, self.config.eos_token_id] = 10.0  # force eos
-            return type("Out", (), {"logits": logits})
+            return type("Out", (), {"logits": logits, "past_key_values": None})
 
     model = EosFirstModel(pad_id=0, eos_id=9)
     tokenizer = DummyTokenizer(pad_token_id=0, eos_token_id=9)
