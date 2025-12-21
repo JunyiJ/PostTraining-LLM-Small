@@ -216,7 +216,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32)
         advantages = advantages.to(sum_token_logprobs_new.dtype)
-    
+        print(f"advantages is {advantages}")
         # Compute GRPO loss
         log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
         ratio = log_prob_ratio.exp()

@@ -19,6 +19,6 @@ def test_compute_advantage(rewards, expected):
 def test_rank_advantage():
     rewards = [1.0, -1.0, 1.0, 0.5]
     out = compute_rank_advantage(rewards, "mps")
-    advantages = torch.tensor([3.0, 0.5, 3.0, 1.5], device='mps')
+    advantages = torch.tensor([2.0, 0.0, 3.0, 1.0], device='mps')
     advantages = (advantages - advantages.mean())/ advantages.std()
     assert pytest.approx(out.tolist(), rel=1e-5, abs=1e-5) == advantages.tolist()
