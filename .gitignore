@@ -3,6 +3,9 @@
 /checkpoints/*
 /gemma-2-2b-checkpoints/*
 /Qwen2.5-Math-1.5B-Instruct-checkpoints/*
+/gemma-2-2b-checkpoints/
+/Qwen2.5-Math-1.5B-Instruct-checkpoints/
+/checkpoints/
 
 # Environment / cache files
 .env
