@@ -1,0 +1,447 @@
+
+=== Epoch 1/3 ===
+grpo_loss is -0.2801252603530884 and kl is -0.21336770057678223
+[timing] sample processed in 211.99s
+grpo_loss is -0.5470871329307556 and kl is -0.14070871472358704
+[timing] sample processed in 63.43s
+grpo_loss is -0.2144029140472412 and kl is -0.0024345815181732178
+[timing] sample processed in 113.70s
+grpo_loss is -0.07454031705856323 and kl is 0.016662627458572388
+[timing] sample processed in 114.30s
+grpo_loss is -0.0 and kl is -0.07104989886283875
+[timing] sample processed in 133.95s
+grpo_loss is -0.0 and kl is 0.0303194522857666
+[timing] sample processed in 148.74s
+grpo_loss is -0.17601560056209564 and kl is 0.24563652276992798
+[timing] sample processed in 96.26s
+grpo_loss is -0.03309085965156555 and kl is -0.0742247998714447
+[timing] sample processed in 71.45s
+grpo_loss is -0.0 and kl is 0.29575493931770325
+[timing] sample processed in 62.20s
+grpo_loss is 0.08495330810546875 and kl is 0.27759769558906555
+[timing] sample processed in 60.43s
+grpo_loss is -0.06093838810920715 and kl is -0.2530144155025482
+[timing] sample processed in 176.33s
+grpo_loss is -0.027964085340499878 and kl is -0.079729825258255
+[timing] sample processed in 25.73s
+grpo_loss is -0.0 and kl is -0.21274137496948242
+[timing] sample processed in 14.32s
+grpo_loss is -0.0 and kl is 0.0663476288318634
+[timing] sample processed in 10.65s
+grpo_loss is 0.08484680950641632 and kl is 0.11992636322975159
+[timing] sample processed in 33.96s
+grpo_loss is -0.06658629328012466 and kl is 0.05917787551879883
+[timing] sample processed in 339.41s
+grpo_loss is 0.14513811469078064 and kl is 0.023734837770462036
+[timing] sample processed in 34.91s
+grpo_loss is -0.18162402510643005 and kl is 0.18516898155212402
+[timing] sample processed in 36.31s
+grpo_loss is -0.07546763122081757 and kl is 0.17223450541496277
+[timing] sample processed in 20.38s
+grpo_loss is -0.13629518449306488 and kl is -0.14609339833259583
+[timing] sample processed in 55.78s
+grpo_loss is -0.39585942029953003 and kl is 0.05109909176826477
+[timing] sample processed in 595.38s
+grpo_loss is -0.012256056070327759 and kl is 0.23023873567581177
+[timing] sample processed in 41.03s
+grpo_loss is -0.0 and kl is 0.04872697591781616
+[timing] sample processed in 18.11s
+grpo_loss is -0.0 and kl is -0.056383728981018066
+[timing] sample processed in 18.12s
+grpo_loss is -0.0 and kl is 0.09812107682228088
+[step 25] avg_loss=-0.0784 acc=0.0600
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time
+Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+Total Distance = Distance 1 + Distance 2
+Total Distance = 124 km + 372 km = 596 km
+
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 60.20s
+grpo_loss is -0.0 and kl is -0.007976770401000977
+[timing] sample processed in 13.52s
+grpo_loss is -0.0 and kl is -0.06898951530456543
+[timing] sample processed in 13.71s
+grpo_loss is -0.0 and kl is 0.03295612335205078
+[timing] sample processed in 11.94s
+grpo_loss is -0.0 and kl is 0.09185248613357544
+[timing] sample processed in 11.56s
+grpo_loss is -0.0 and kl is 0.14933431148529053
+[timing] sample processed in 12.69s
+grpo_loss is -0.0 and kl is 0.09687450528144836
+[timing] sample processed in 31.02s
+grpo_loss is -0.0 and kl is 0.03718596696853638
+[timing] sample processed in 13.41s
+grpo_loss is -0.0 and kl is -0.055324554443359375
+[timing] sample processed in 13.86s
+grpo_loss is -0.0 and kl is -0.024784088134765625
+[timing] sample processed in 12.67s
+grpo_loss is -0.0 and kl is -0.023026317358016968
+[timing] sample processed in 4.80s
+grpo_loss is -0.0 and kl is 0.07261651754379272
+[timing] sample processed in 14.92s
+grpo_loss is -0.0 and kl is 0.07107234001159668
+[timing] sample processed in 14.35s
+grpo_loss is -0.0 and kl is -0.0031296610832214355
+[timing] sample processed in 20.17s
+grpo_loss is -0.0 and kl is 0.04171276092529297
+[timing] sample processed in 12.89s
+grpo_loss is -0.0 and kl is -0.21050286293029785
+[timing] sample processed in 11.74s
+grpo_loss is -0.0 and kl is 0.023430973291397095
+[timing] sample processed in 11.77s
+grpo_loss is -0.0 and kl is 0.0975416898727417
+[timing] sample processed in 13.08s
+grpo_loss is -0.0 and kl is 0.004904270172119141
+[timing] sample processed in 17.26s
+grpo_loss is -0.0 and kl is 0.09915482997894287
+[timing] sample processed in 11.73s
+grpo_loss is -0.0 and kl is -0.013450533151626587
+[timing] sample processed in 8.37s
+grpo_loss is -0.0 and kl is 0.05251508951187134
+[timing] sample processed in 13.76s
+grpo_loss is -0.0 and kl is -0.020705223083496094
+[timing] sample processed in 11.15s
+grpo_loss is -0.0 and kl is 0.13137054443359375
+[timing] sample processed in 11.97s
+grpo_loss is -0.0 and kl is 0.010488569736480713
+[timing] sample processed in 13.33s
+grpo_loss is -0.0 and kl is -0.007660031318664551
+[step 50] avg_loss=0.0001 acc=0.0400
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time 
+Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+Total Distance = Distance 1 + Distance 2
+Total Distance = 124 km + 372 km = 596 km
+
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 33.36s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/lora_epoch1_step50.pt
+==end-of-epoch 1==
+
+=== Epoch 2/3 ===
+grpo_loss is -0.0 and kl is -0.03038686513900757
+[timing] sample processed in 13.82s
+grpo_loss is -0.0 and kl is -0.10469454526901245
+[timing] sample processed in 19.32s
+grpo_loss is -0.0 and kl is 0.004827022552490234
+[timing] sample processed in 20.30s
+grpo_loss is -0.0 and kl is 0.03372025489807129
+[timing] sample processed in 15.64s
+grpo_loss is -0.0 and kl is 0.0006017982959747314
+[timing] sample processed in 9.07s
+grpo_loss is -0.0 and kl is 0.030715107917785645
+[timing] sample processed in 12.10s
+grpo_loss is -0.0 and kl is 0.007751405239105225
+[timing] sample processed in 12.66s
+grpo_loss is -0.0 and kl is -0.057005614042282104
+[timing] sample processed in 16.77s
+grpo_loss is -0.0 and kl is 0.0023716092109680176
+[timing] sample processed in 12.63s
+grpo_loss is -0.0 and kl is 0.06986686587333679
+[timing] sample processed in 11.96s
+grpo_loss is -0.0 and kl is 0.030818462371826172
+[timing] sample processed in 21.97s
+grpo_loss is -0.0 and kl is -0.07243257761001587
+[timing] sample processed in 15.29s
+grpo_loss is -0.0 and kl is 0.33613455295562744
+[timing] sample processed in 14.14s
+grpo_loss is 0.0069653987884521484 and kl is 0.19056296348571777
+[timing] sample processed in 16.60s
+grpo_loss is -0.0 and kl is -0.07678696513175964
+[timing] sample processed in 14.70s
+grpo_loss is -0.0 and kl is 0.0953218936920166
+[timing] sample processed in 16.42s
+grpo_loss is -0.0 and kl is 0.0031575262546539307
+[timing] sample processed in 14.31s
+grpo_loss is -0.0 and kl is 0.021735787391662598
+[timing] sample processed in 5.28s
+grpo_loss is -0.0 and kl is -0.1893928349018097
+[timing] sample processed in 15.44s
+grpo_loss is -0.0 and kl is 0.11509591341018677
+[timing] sample processed in 26.73s
+grpo_loss is -0.0 and kl is -0.03705379366874695
+[timing] sample processed in 9.32s
+grpo_loss is -0.0 and kl is -0.03242403268814087
+[timing] sample processed in 13.16s
+grpo_loss is -0.0 and kl is 0.0787111222743988
+[timing] sample processed in 18.47s
+grpo_loss is -0.0 and kl is 0.13568845391273499
+[timing] sample processed in 12.90s
+grpo_loss is -0.0 and kl is 0.02065098285675049
+[step 75] avg_loss=0.0002 acc=0.0600
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+* Distance = Speed x Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total Distance = Distance 1 + Distance 2 
+* Total Distance = 124 km + 372 km = 596 km
+
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 38.30s
+grpo_loss is -0.0 and kl is -0.019292980432510376
+[timing] sample processed in 15.38s
+grpo_loss is -0.0 and kl is 0.1437760889530182
+[timing] sample processed in 19.00s
+grpo_loss is -0.0 and kl is 0.04956483840942383
+[timing] sample processed in 18.34s
+grpo_loss is -0.0 and kl is 0.09905380010604858
+[timing] sample processed in 14.89s
+grpo_loss is -0.0 and kl is 0.17618605494499207
+[timing] sample processed in 12.47s
+grpo_loss is -0.0 and kl is -0.024534881114959717
+[timing] sample processed in 12.82s
+grpo_loss is -0.0 and kl is 0.29488950967788696
+[timing] sample processed in 13.03s
+grpo_loss is -0.0 and kl is -0.06544801592826843
+[timing] sample processed in 14.96s
+grpo_loss is -0.0 and kl is 0.03090474009513855
+[timing] sample processed in 11.52s
+grpo_loss is -0.0 and kl is -0.06063559651374817
+[timing] sample processed in 13.01s
+grpo_loss is -0.2889406085014343 and kl is 0.17183136940002441
+[timing] sample processed in 23.79s
+grpo_loss is -0.0 and kl is 0.10191482305526733
+[timing] sample processed in 15.15s
+grpo_loss is -0.0 and kl is -0.004849880933761597
+[timing] sample processed in 15.40s
+grpo_loss is -0.0 and kl is 0.141400545835495
+[timing] sample processed in 11.40s
+grpo_loss is -0.0 and kl is 0.07014724612236023
+[timing] sample processed in 9.26s
+grpo_loss is -0.0 and kl is 0.07560133934020996
+[timing] sample processed in 19.00s
+grpo_loss is -0.0 and kl is 0.13892287015914917
+[timing] sample processed in 11.50s
+grpo_loss is -0.0 and kl is 3.129243850708008e-05
+[timing] sample processed in 11.53s
+grpo_loss is -0.0 and kl is 0.20100069046020508
+[timing] sample processed in 17.82s
+grpo_loss is -0.0 and kl is -0.017542362213134766
+[timing] sample processed in 15.51s
+grpo_loss is -0.0 and kl is -0.05565929412841797
+[timing] sample processed in 18.50s
+grpo_loss is -0.0 and kl is -0.05169820785522461
+[timing] sample processed in 22.31s
+grpo_loss is -0.0 and kl is 0.050464481115341187
+[timing] sample processed in 11.89s
+grpo_loss is -0.0 and kl is 0.06283807754516602
+[timing] sample processed in 15.75s
+grpo_loss is -0.0 and kl is 0.17986470460891724
+[step 100] avg_loss=-0.0027 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time 
+Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+Total Distance = 124 km + 372 km = 506 km
+
+
+**Answer:** The total distance traveled is 506 km. 
+
+[timing] sample processed in 36.11s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/lora_epoch2_step100.pt
+==end-of-epoch 2==
+
+=== Epoch 3/3 ===
+grpo_loss is -0.0 and kl is -0.14690715074539185
+[timing] sample processed in 12.23s
+grpo_loss is -0.0 and kl is -0.004746496677398682
+[timing] sample processed in 13.35s
+grpo_loss is -0.0 and kl is 0.31435632705688477
+[timing] sample processed in 19.74s
+grpo_loss is -0.0 and kl is -0.1065928041934967
+[timing] sample processed in 11.92s
+grpo_loss is -0.0 and kl is 0.03238022327423096
+[timing] sample processed in 15.52s
+grpo_loss is -0.0 and kl is -0.06140422821044922
+[timing] sample processed in 19.01s
+grpo_loss is -0.0 and kl is 0.10770311951637268
+[timing] sample processed in 15.58s
+grpo_loss is -0.0 and kl is 0.006427139043807983
+[timing] sample processed in 11.99s
+grpo_loss is -0.0 and kl is -0.16103652119636536
+[timing] sample processed in 11.17s
+grpo_loss is -0.0 and kl is 0.06667757034301758
+[timing] sample processed in 15.96s
+grpo_loss is -0.0 and kl is 0.04788172245025635
+[timing] sample processed in 13.57s
+grpo_loss is -0.0 and kl is 0.206903338432312
+[timing] sample processed in 15.66s
+grpo_loss is -0.0 and kl is 0.006523758172988892
+[timing] sample processed in 9.46s
+grpo_loss is -0.0 and kl is -0.0022993087768554688
+[timing] sample processed in 19.75s
+grpo_loss is -0.0 and kl is 0.064308762550354
+[timing] sample processed in 11.90s
+grpo_loss is -0.0 and kl is 0.008266478776931763
+[timing] sample processed in 11.87s
+grpo_loss is -0.0 and kl is -0.09717655181884766
+[timing] sample processed in 20.12s
+grpo_loss is 0.07162819802761078 and kl is 0.008952081203460693
+[timing] sample processed in 16.72s
+grpo_loss is -0.0 and kl is 0.028016120195388794
+[timing] sample processed in 13.19s
+grpo_loss is -0.0 and kl is 0.12654495239257812
+[timing] sample processed in 18.98s
+grpo_loss is -0.0 and kl is -0.10864639282226562
+[timing] sample processed in 17.42s
+grpo_loss is -0.0 and kl is 0.07682731747627258
+[timing] sample processed in 10.53s
+grpo_loss is -0.0 and kl is -0.03604656457901001
+[timing] sample processed in 4.49s
+grpo_loss is -0.0 and kl is 0.10640653967857361
+[timing] sample processed in 19.21s
+grpo_loss is -0.0 and kl is -0.24908903241157532
+[step 125] avg_loss=0.0006 acc=0.0600
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time 
+Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+Total Distance = 124 km + 372 km = 596 km
+
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 32.53s
+grpo_loss is -0.0 and kl is 0.01723867654800415
+[timing] sample processed in 12.23s
+grpo_loss is -0.0 and kl is -0.05774393677711487
+[timing] sample processed in 11.89s
+grpo_loss is -0.0 and kl is 0.08619016408920288
+[timing] sample processed in 14.75s
+grpo_loss is -0.0 and kl is 0.17721092700958252
+[timing] sample processed in 12.22s
+grpo_loss is -0.0 and kl is 0.2397083044052124
+[timing] sample processed in 12.29s
+grpo_loss is -0.0 and kl is 0.11533361673355103
+[timing] sample processed in 12.30s
+grpo_loss is -0.0 and kl is -0.0355701744556427
+[timing] sample processed in 9.73s
+grpo_loss is -0.0 and kl is 0.10940253734588623
+[timing] sample processed in 14.24s
+grpo_loss is -0.0 and kl is -0.1047201156616211
+[timing] sample processed in 21.99s
+grpo_loss is -0.0 and kl is 0.024776935577392578
+[timing] sample processed in 12.06s
+grpo_loss is -0.0 and kl is 0.05724143981933594
+[timing] sample processed in 19.75s
+grpo_loss is -0.0 and kl is -0.04115304350852966
+[timing] sample processed in 14.83s
+grpo_loss is -0.0 and kl is -0.009213656187057495
+[timing] sample processed in 14.24s
+grpo_loss is -0.0 and kl is 0.001818239688873291
+[timing] sample processed in 9.86s
+grpo_loss is -0.0 and kl is 0.10820257663726807
+[timing] sample processed in 9.81s
+grpo_loss is -0.0 and kl is -0.07635247707366943
+[timing] sample processed in 10.73s
+grpo_loss is -0.0 and kl is 0.022218704223632812
+[timing] sample processed in 19.67s
+grpo_loss is -0.0 and kl is 0.03807118535041809
+[timing] sample processed in 10.54s
+grpo_loss is -0.0 and kl is -0.09400543570518494
+[timing] sample processed in 13.81s
+grpo_loss is 0.10494384169578552 and kl is 0.043384701013565063
+[timing] sample processed in 12.21s
+grpo_loss is -0.0 and kl is 0.14534342288970947
+[timing] sample processed in 10.82s
+grpo_loss is -0.0 and kl is -0.010101348161697388
+[timing] sample processed in 9.72s
+grpo_loss is -0.0 and kl is -0.049135684967041016
+[timing] sample processed in 21.65s
+grpo_loss is -0.0 and kl is 0.16336971521377563
+[timing] sample processed in 9.68s
+grpo_loss is -0.0 and kl is -0.05369400978088379
+[step 150] avg_loss=0.0008 acc=0.0100
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.
+
+Here's how to solve it:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time 
+Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+Total Distance = 124 km + 372 km = 596 km
+
+
+**Answer:** The total distance traveled is 596 km. 
+
+[timing] sample processed in 33.62s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/lora_epoch3_step150.pt
+==end-of-epoch 3==

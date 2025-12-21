@@ -8,28 +8,37 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 
+from grpo.reward import extract_final_answer
 from grpo.utils import load_model
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 
 MODEL_PATH = "./models/gemma-2-2b"
+# MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./checkpoints/lora_epoch2_step100.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch1_step50")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 40
-MAX_NEW_TOKENS = 205
+MAX_NEW_TOKENS = 256
 TOL = 1e-6
+
+prompt = " Please reason step-by-step,  then give: Final answer."
 
 def extract_answer(text):
     if text is None:
         return None
-    # Prefer a numeric after the keyword "answer", otherwise fall back to last numeric span.
-    keyword_matches = list(re.finditer(r"answer[^0-9\-+]*([-+]?\d*\.?\d+)", text, re.IGNORECASE))
-    if keyword_matches:
-        try:
-            cleaned = keyword_matches[-1].group(1).replace(",", "")
-            return float(cleaned)
-        except Exception:
-            pass
+    patterns = [
+        r"answer[^0-9\-+]*([-+]?\d*\.?\d+)",          # Answer: 42
+        r"final\s+answer[^0-9\-+]*([-+]?\d*\.?\d+)",  # Final answer: 42
+        r"=+\s*([-+]?\d*\.?\d+)",                     # x = 42 or = 42
+    ]
+    for pat in patterns:
+        keyword_matches = list(re.finditer(pat, text, re.IGNORECASE))
+        if keyword_matches:
+            try:
+                cleaned = keyword_matches[-1].group(1).replace(",", "")
+                return float(cleaned)
+            except Exception:
+                continue
 
     matches = list(re.finditer(r"[-+]?\d*\.?\d+", text))
     if not matches:
@@ -49,10 +58,10 @@ if USE_LORA:
         r=8,
         alpha=16,
         target_modules=("q_proj", "v_proj"),
-        dropout=0.0,
+        dropout=0.05,
     )
     freeze_non_lora_params(model)
-    if LORA_CKPT.exists():
+    if LORA_CKPT is not None and LORA_CKPT.exists():
         ckpt = torch.load(LORA_CKPT, map_location="cpu")
         missing = model.load_state_dict(ckpt.get("lora_state_dict", {}), strict=False)
         print(f"Loaded LoRA checkpoint {LORA_CKPT} (missing/unexpected: {missing})")
@@ -77,7 +86,7 @@ print(f"Max question tokens: {MAX_INPUT_TOKENS}")
 
 for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
     batch = test_data[idx : idx + BATCH_SIZE]
-    questions = [sample["question"] for sample in batch]
+    questions = [sample["question"] + prompt for sample in batch]
     golds = [str(sample["gold_answer"]).strip() for sample in batch]
 
     inputs = tokenizer(
