@@ -1,6 +1,7 @@
 import pytest
+import torch
 
-from advantage import compute_advantage
+from advantage import compute_advantage, compute_rank_advantage
 
 @pytest.mark.parametrize(
     "rewards, expected",
@@ -14,3 +15,10 @@ from advantage import compute_advantage
 def test_compute_advantage(rewards, expected):
     out = compute_advantage(rewards, device='mps')
     assert pytest.approx(out.tolist(), rel=1e-5, abs=1e-5) == expected
+
+def test_rank_advantage():
+    rewards = [1.0, -1.0, 1.0, 0.5]
+    out = compute_rank_advantage(rewards, "mps")
+    advantages = torch.tensor([3.0, 0.5, 3.0, 1.5], device='mps')
+    advantages = (advantages - advantages.mean())/ advantages.std()
+    assert pytest.approx(out.tolist(), rel=1e-5, abs=1e-5) == advantages.tolist()

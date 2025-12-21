@@ -218,182 +218,226 @@ def compute_reward(question, answer, gold, tol=1e-6, truncated: bool = False):
     return reward
 
 
-# === Optional smoother CoT-aware reward ===
-def extract_final_answer(text: str) -> Optional[float]:
-    if text is None:
-        return None
-    
-    # Strict final answer pattern
-    m = re.search(
-        r"final\s*answer\s*:\s*([-+]?\d+(?:\.\d+)?(?:/\d+)?)(?!.*final\s*answer)",
-        text,
-        flags=re.IGNORECASE
-    )
-    if m:
-        token = m.group(1).strip().rstrip(".")
-        frac_val = _parse_fraction(token)
-        if frac_val is not None:
-            return float(frac_val)
+
+import re
+from typing import Optional
+
+
+# ============================================================
+# Helper: parse numbers, including simple fractions like 3/4
+# ============================================================
+
+def _parse_number(token: str) -> Optional[float]:
+    token = token.strip().rstrip(".")
+    # Support fractions like "3/4"
+    if "/" in token:
         try:
-            return float(token)
+            num, den = token.split("/")
+            return float(num) / float(den)
         except:
             pass
-    
-    # Backup: extract first number AFTER "Final answer"
-    m = re.search(
-        r"final\s*answer[^0-9\-+]*([-+]?\d*\.?\d+)",
-        text, flags=re.IGNORECASE
-    )
-    if m:
-        return float(m.group(1))
-    
-    # Absolute fallback: DO NOT scan entire text
+    try:
+        return float(token)
+    except:
+        return None
+
+
+# ============================================================
+# Extract final numeric answer from the model output
+# ============================================================
+
+NUMBER_PATTERN = re.compile(r"[-+]?\d*\.?\d+(?:/\d+)?")
+
+def extract_final_answer(text: str) -> Optional[float]:
+    """
+    Robust answer extraction:
+    1) Prefer LAST explicit "Final Answer: <num>"
+    2) Otherwise use the LAST number in the text (e.g., "... = 72").
+    """
+
+    if text is None:
+        return None
+    # Remove currency, commas, and percentage signs before float conversion
+    text = re.sub(r"[\$\,\%]", "", text)
+    # 1) Prefer explicit "Final Answer: <num>" (last occurrence)
+    matches = list(re.finditer(
+        r"final\s*answer[^0-9\-+]*([-+]?\d*\.?\d+(?:/\d+)?)",
+        text,
+        flags=re.IGNORECASE
+    ))
+    if matches:
+        token = matches[-1].group(1)
+        return _parse_number(token)
+
+    # 2) Fallback: use LAST number in the answer text
+    nums = NUMBER_PATTERN.findall(text)
+    if nums:
+        return _parse_number(nums[-1])
+
     return None
 
 
-def cot_quality_score(text: str) -> float:
-    """
-    Soft reward for structured reasoning patterns.
-    Range: 0.0 → +0.15
-    Encourages: step-by-step, intermediate calculations, logical flow.
-    """
-    if text is None:
-        return 0.0
-    score = 0.0
-    t = text.lower()
-    if "step" in t:
-        score += 0.03
-    if "first" in t:
-        score += 0.03
-    if "next" in t or "then" in t:
-        score += 0.03
-    if "therefore" in t or "so" in t:
-        score += 0.03
-    if re.search(r"\d+\s*[\+\-\*\/]\s*\d+\s*=\s*\d+", text):
-        score += 0.03
-    return min(score, 0.15)
+# ============================================================
+# Numeric reward: stable, binary math correctness
+# ============================================================
 
+def numeric_reward(pred: float, gold: float, tol: float = 1e-4) -> float:
+    """
+    Math-centric reward:
+    +1    if exactly correct
+    +0.2  if within small relative error (<5%)
+    -1    otherwise
+    """
+    err = abs(pred - gold)
+    if err <= tol:
+        return 1.0
+    rel_err = err / max(1.0, abs(gold))
+    if rel_err < 0.05:
+        return 0.2
+    return -1.0
+
+
+# ============================================================
+# Light, safe equation correctness bonus
+# ============================================================
 
 def extract_equations(text: str):
-    """
-    Extract simple arithmetic equations of the form: <expr> = <expr>
-    Returns a list of (lhs_str, rhs_str).
-    """
     equations = []
     for line in text.splitlines():
         if "=" not in line:
             continue
-        if not re.search(r"\d", line):
-            continue
+        # extract "LHS = RHS"
         parts = line.split("=")
         if len(parts) != 2:
             continue
         lhs, rhs = parts[0].strip(), parts[1].strip()
+        # must contain digits
+        if not re.search(r"\d", lhs) or not re.search(r"\d", rhs):
+            continue
         equations.append((lhs, rhs))
     return equations
 
 
-def safe_eval_arith(expr: str):
+def _safe_eval_arith(expr: str) -> float:
     """
-    Safely evaluate a simple arithmetic expression with + - * / and parentheses.
-    Strips non-allowed chars to avoid weird code execution.
+    Safely evaluate a simple arithmetic expression; raises on empty/invalid.
+    Only allows digits, ., +, -, *, /, parentheses, spaces.
     """
     cleaned = re.sub(r"[^0-9\.\+\-\*\/\(\)\s]", "", expr)
     if not cleaned.strip():
         raise ValueError("Empty or invalid expression")
-    return eval(cleaned, {"__builtins__": None}, {})
+    # allow bare numbers
+    if not re.search(r"\d\s*[\+\-\*\/]\s*\d", cleaned):
+        return float(cleaned)
+    import warnings
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", SyntaxWarning)
+        return eval(cleaned, {"__builtins__": None}, {})
 
 
-def cot_verification_bonus(text) -> float:
+def equation_bonus(text: str) -> float:
     """
-    Analyze intermediate equations in CoT and reward correct math.
-    Penalize clearly incorrect equations.
-    Returns a small bonus/penalty ~ [-0.2, +0.2].
+    Reward correct intermediate math gently:
+    +0.02 per correct equation (max +0.1)
+    No penalty for missing/bad equations: avoids training collapse.
     """
-    equations = extract_equations(text)
-    if not equations:
+    eqs = extract_equations(text)
+    if not eqs:
         return 0.0
 
-    correct = 0
-    incorrect = 0
-    for lhs, rhs in equations:
+    bonus = 0.0
+    for lhs, rhs in eqs:
         try:
-            lhs_val = safe_eval_arith(lhs)
-            rhs_val = safe_eval_arith(rhs)
-            if isinstance(lhs_val, (int, float)) and isinstance(rhs_val, (int, float)):
-                if abs(lhs_val - rhs_val) < 1e-6:
-                    correct += 1
-                else:
-                    incorrect += 1
-        except Exception:
+            lhs_val = _safe_eval_arith(lhs)
+            rhs_val = _safe_eval_arith(rhs)
+            if abs(lhs_val - rhs_val) < 1e-6:
+                bonus += 0.02
+        except:
             continue
 
-    total = correct + incorrect
-    if total == 0:
-        return 0.0
-    ratio = (correct - incorrect) / total  # [-1, 1]
-    return 0.2 * ratio
+    return min(bonus, 0.10)   # cap at +0.1
 
 
-def numeric_reward(pred: float, gold_val: float, tol: float = 1e-6) -> float:
-    err = abs(pred - gold_val)
-    reward = 1 - math.tanh(err)
-    if err <= tol:
-        reward += 0.2
-    return reward
+# ============================================================
+# FINAL COMBINED REWARD
+# ============================================================
 
-
-def reward_fn(text: str, gold_answer: float, tol: float = 1e-6, verify_cot: bool = False) -> float:
+def advanced_cot_reward(text: str, gold_answer: float, truncated: bool = False) -> float:
     """
-    Continuous reward combining:
-      1) Numeric correctness (smooth)
-      2) CoT structural quality
-      3) Optional CoT verification bonus
-    Clips to [-1.2, 1.4].
+    Robust, stable math reward for GRPO/PPO.
+
+    Components:
+        + numeric correctness     (dominant signal)
+        + equation bonus          (optional small add-on)
+        + truncation penalty      (mild)
+    
+    Output range: [-1.5, +1.5]
     """
+
     pred = extract_final_answer(text)
     if pred is None:
         return -1.0
+    
     try:
-        gold_val = float(gold_answer)
-    except Exception:
+        gold = float(gold_answer)
+    except:
         return -1.0
 
-    err = abs(pred - gold_val)
-    rel_err = err / max(abs(gold_val), 1.0)
-    base = numeric_reward(pred, gold_val, tol=tol)
-    cot_bonus = cot_quality_score(text)
-    verify_bonus = cot_verification_bonus(text) if verify_cot else 0.0
-    total_reward = base + cot_bonus + verify_bonus
-    return max(-1.2, min(1.4, total_reward))
+    # 1. Dominant term
+    num_r = numeric_reward(pred, gold)   # [-1, 1]
 
+    # 2. Small positive bonus only
+    eq_r = equation_bonus(text)          # [0, 0.1]
 
-def advanced_cot_reward(
-    text: str,
-    gold_answer: float,
-    tol: float = 1e-4,
-    truncated: bool = False,
-    trunc_penalty: float = -0.6,
-) -> float:
+    # 3. Truncation penalty
+    trunc_r = -0.05 if truncated else 0.0
+
+    total = num_r + eq_r + trunc_r
+
+    return max(-1.5, min(1.5, total))
+
+def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool = False) -> float:
     """
-    Advanced CoT-aware reward:
-      - Final numeric correctness (smooth)
-      - CoT structure bonus (weak)
-      - CoT equation verification bonus
-      - Optional truncation penalty
-    Output clipped to [-1.5, 1.5].
+    Optimized for Rank-based GRPO on Gemma-2-2B.
     """
+    # 1. Improved Extraction Logic
     pred = extract_final_answer(text)
-    if pred is None:
-        return -1.2
+    
     try:
-        gold_val = float(gold_answer)
-    except Exception:
-        return -1.2
-    num_r = numeric_reward(pred, gold_val, tol=tol)
-    struct_r = cot_quality_score(text)
-    verify_r = cot_verification_bonus(text)
-    total = num_r + struct_r + verify_r
-    if truncated:
-        total += trunc_penalty
+        gold = float(gold_answer)
+    except:
+        return -1.0
+
+    # 2. Strict Numeric Reward with a "Near Miss" buffer
+    # This helps the model if it's off by a tiny rounding error
+    if pred is None:
+        # Penalty for failing to follow the format 'Final answer: <num>'
+        num_r = -1.2 
+    elif abs(pred - gold) < 1e-4:
+        num_r = 1.0
+    elif abs(pred - gold) < 1.0: # Near miss (off by less than 1)
+        num_r = 0.2
+    else:
+        num_r = -1.0
+
+    # 3. Intermediate Logic Bonus
+    # Only award equation bonus if the CoT isn't total gibberish
+    eq_r = 0.0
+    if len(text) > 20: 
+        eq_r = equation_bonus(text)
+
+    # 4. Format/Structure Bonus
+    # Reward the model slightly for actually using the step-by-step format
+    format_r = 0.0
+    # if "Step 1" in text or "1." in text:
+    #     format_r += 0.05
+
+    # 5. Soft Truncation Penalty
+    # We lowered this to -0.05 per your latest update, which is good.
+    # It stops the 'Builder Problem' from being a total loss.
+    trunc_r = -0.05 if truncated else 0.0
+
+    total = num_r + eq_r + format_r + trunc_r
+
+    # Clip to ensure advantages don't explode
     return max(-1.5, min(1.5, total))

@@ -14,8 +14,8 @@ from tqdm import tqdm
 
 from grpo.utils import load_model
 from grpo.sampler import sample_k_parallel
-from grpo.advantage import compute_advantage
-from grpo.reward import compute_reward, advanced_cot_reward
+from grpo.advantage import compute_advantage, compute_rank_advantage
+from grpo.reward import compute_reward, advanced_cot_reward,refined_advanced_cot_reward
 from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
@@ -30,13 +30,13 @@ TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_SAMPLES_PER_PROMPT = 4
-NUM_TRAINING_DATA = 5
+NUM_SAMPLES_PER_PROMPT = 6
+NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 1
 EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.7
-MAX_NEW_TOKENS = 205
-KL_COEF = 0.05
+SAMPLING_TEMPERATURE = 0.6
+MAX_NEW_TOKENS = 256
+KL_COEF = 0.2
 DEVICE = torch.device("mps")
 
 # Load model/tokenizer using helper
@@ -46,7 +46,7 @@ model = apply_lora_to_model(
     model,
     r=8,
     alpha=16,
-    target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
+    target_modules=("q_proj", "v_proj"),
     dropout=0.05,
 )
 freeze_non_lora_params(model)
@@ -107,6 +107,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         prompt = " Please reason step-by-step,  then give: Final answer."
         # print(question)
         gold_answer = str(line["gold_answer"]).strip()
+        print(question)
+        print(f"answer is {gold_answer}")
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
@@ -159,54 +161,47 @@ for epoch in range(1, NUM_EPOCHS + 1):
         sum_token_logprobs_old = masked_log_probs_old.sum(dim=1)
         sum_token_logprobs_new = masked_log_probs_new.sum(dim=1)
 
-        print("\n--- ALIGNMENT DEBUG START ---")
+        # print("\n--- ALIGNMENT DEBUG START ---")
 
-        print(f"prompt_len = {prompt_len}")
-        print(f"steps_taken = {res['steps_taken'] if 'steps_taken' in res else 'UNKNOWN'}")
-        print(f"eos_pos = {eos_pos.tolist()}")
-        print(f"answer_mask.sum(dim=1) = {answer_mask.sum(dim=1).tolist()}")
+        # print(f"prompt_len = {prompt_len}")
+        # print(f"steps_taken = {res['steps_taken'] if 'steps_taken' in res else 'UNKNOWN'}")
+        # print(f"eos_pos = {eos_pos.tolist()}")
+        # print(f"answer_mask.sum(dim=1) = {answer_mask.sum(dim=1).tolist()}")
 
-        # 1. Check mask starts at prompt_len-1
-        mask_starts = answer_mask.argmax(dim=1)
-        print(f"mask_starts = {mask_starts.tolist()} (should be prompt_len-1)")
+        # # 1. Check mask starts at prompt_len-1
+        # mask_starts = answer_mask.argmax(dim=1)
+        # print(f"mask_starts = {mask_starts.tolist()} (should be prompt_len-1)")
 
-        # 2. Check mask ends at eos_pos-1
-        mask_lengths = answer_mask.sum(dim=1)
-        mask_ends = mask_starts + mask_lengths - 1
-        print(f"mask_ends = {mask_ends.tolist()} (should be eos_pos-1)")
+        # # 2. Check mask ends at eos_pos-1
+        # mask_lengths = answer_mask.sum(dim=1)
+        # mask_ends = mask_starts + mask_lengths - 1
+        # print(f"mask_ends = {mask_ends.tolist()} (should be eos_pos-1)")
 
-        # 3. Compare OLD logprob sum with masked sum of token_logprobs_old
-        masked_old_manual = masked_log_probs_old.sum(dim=1)
-        print("\nOLD LOGPROB CHECK:")
-        for i in range(min(4, len(sum_token_logprobs_old))):
-            print(f" sample {i}: sum_old={sum_token_logprobs_old[i].item():.6f}, "
-                f"manual={masked_old_manual[i].item():.6f}")
+        # # 3. Compare OLD logprob sum with masked sum of token_logprobs_old
+        # masked_old_manual = masked_log_probs_old.sum(dim=1)
+        # print("\nOLD LOGPROB CHECK:")
+        # for i in range(min(4, len(sum_token_logprobs_old))):
+        #     print(f" sample {i}: sum_old={sum_token_logprobs_old[i].item():.6f}, "
+        #         f"manual={masked_old_manual[i].item():.6f}")
 
-        # 4. Compare NEW logprob sum with masked sum of log_probs_new
-        masked_new_manual = masked_log_probs_new.sum(dim=1)
-        print("\nNEW LOGPROB CHECK:")
-        for i in range(min(4, len(sum_token_logprobs_new))):
-            print(f" sample {i}: sum_new={sum_token_logprobs_new[i].item():.6f}, "
-                f"manual={masked_new_manual[i].item():.6f}")
+        # # 4. Compare NEW logprob sum with masked sum of log_probs_new
+        # masked_new_manual = masked_log_probs_new.sum(dim=1)
+        # print("\nNEW LOGPROB CHECK:")
+        # for i in range(min(4, len(sum_token_logprobs_new))):
+        #     print(f" sample {i}: sum_new={sum_token_logprobs_new[i].item():.6f}, "
+        #         f"manual={masked_new_manual[i].item():.6f}")
 
-        # # 5. KL should be >= 0
-        # kl_each = (answer_logprobs_old - answer_logprobs_new).sum(dim=1)
-        # print("\nKL EACH SAMPLE:")
-        # print(kl_each.tolist())
-        # if (kl_each < -1e-5).any():
-        #     print("❌ WARNING: NEGATIVE KL DETECTED — MASK OR ALIGNMENT IS WRONG")
+        # # 5. Ensure mask does not overlap prompt tokens
+        # print("\nFIRST MASKED TOKEN (SHOULD BE FIRST GENERATED TOKEN):")
+        # for i in range(min(4, padded_batch_tokens.size(0))):
+        #     idx = mask_starts[i].item()
+        #     tok = padded_batch_tokens[i, idx+1].item()
+        #     print(f" sample {i}: pos={idx}, token='{tokenizer.decode([tok])}'")
 
-        # 6. Ensure mask does not overlap prompt tokens
-        print("\nFIRST MASKED TOKEN (SHOULD BE FIRST GENERATED TOKEN):")
-        for i in range(min(4, padded_batch_tokens.size(0))):
-            idx = mask_starts[i].item()
-            tok = padded_batch_tokens[i, idx].item()
-            print(f" sample {i}: pos={idx}, token='{tokenizer.decode([tok])}'")
-
-        print("--- ALIGNMENT DEBUG END ---\n")
+        # print("--- ALIGNMENT DEBUG END ---\n")
         # Calculate rewards
         rewards = [
-            advanced_cot_reward(
+            refined_advanced_cot_reward(
                 txt,
                 gold_answer,
                 truncated=tr,
@@ -219,14 +214,14 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 print(f"reward is {r}")
                 print(f"is result truncated? {tr}")
         # Calculate advantages
-        advantages = compute_advantage(rewards, device=DEVICE, dtype=torch.float32)
+        advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32)
         advantages = advantages.to(sum_token_logprobs_new.dtype)
     
         # Compute GRPO loss
         log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
         ratio = log_prob_ratio.exp()
         kl_loss = (masked_log_probs_old.detach() - masked_log_probs_new).sum(dim=1).mean()
-        kl_loss = torch.clamp(kl_loss, -5, 5)
+        kl_loss = torch.clamp(kl_loss, 0.0, 5.0)
         grpo_loss = -(advantages * ratio).mean()
         loss = grpo_loss + KL_COEF * kl_loss
         print(f"grpo_loss is {grpo_loss} and kl is {kl_loss}")

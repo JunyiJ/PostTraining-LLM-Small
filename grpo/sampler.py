@@ -124,7 +124,8 @@ def sample_k_parallel(
     tokens_for_model = input_ids_k.clone()
     fake_pad_positions = (tokens_for_model == FAKE_PAD_ID)
     tokens_for_model[fake_pad_positions] = pad_id_for_model
-    texts = tokenizer.batch_decode(tokens_for_model, skip_special_tokens=True)
+    answer_tokens = tokens_for_model[:, prompt_id_length:]
+    texts = tokenizer.batch_decode(answer_tokens, skip_special_tokens=True)
     # Attention mask should ignore only the fake pads (not EOS, even if pad==eos)
     attention_mask = torch.ones_like(tokens_for_model, dtype=torch.long)
     attention_mask[fake_pad_positions] = 0

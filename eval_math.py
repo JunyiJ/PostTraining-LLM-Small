@@ -15,10 +15,10 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch4_step160.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch1_step50")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 40
-MAX_NEW_TOKENS = 205
+MAX_NEW_TOKENS = 256
 TOL = 1e-6
 
 prompt = " Please reason step-by-step,  then give: Final answer."
@@ -57,7 +57,7 @@ if USE_LORA:
         model,
         r=8,
         alpha=16,
-        target_modules=("q_proj", "v_proj", "k_proj", "o_proj"),
+        target_modules=("q_proj", "v_proj"),
         dropout=0.05,
     )
     freeze_non_lora_params(model)
