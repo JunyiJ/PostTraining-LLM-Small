@@ -1,5 +1,6 @@
 /models/*
 !/models/.gitkeep
+/checkpoints/*
 
 # Environment / cache files
 .env
