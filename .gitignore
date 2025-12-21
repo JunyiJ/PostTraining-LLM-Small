@@ -1,6 +1,8 @@
 /models/*
 !/models/.gitkeep
 /checkpoints/*
+/gemma-2-2b-checkpoints/*
+/Qwen2.5-Math-1.5B-Instruct-checkpoints/*
 
 # Environment / cache files
 .env
