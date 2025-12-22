@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+import re
 
 
 FAKE_PAD_ID = -100   # any ID not used by model
@@ -58,42 +59,74 @@ def sample_k_parallel(
     temperature=1.0,
     max_new_tokens=256,
     enable_grad=False,
+    top_p=0.95,
+    repetition_penalty=1.1,
 ):
     enc = tokenizer(prompt, return_tensors="pt")
     input_ids = enc["input_ids"].to(device)  # [1, seq_len]
     prompt_id_length = input_ids.size(1)
     # [K, seq_len]
-    input_ids_k = input_ids.repeat(k, 1)
-    attention_mask_k = torch.ones_like(input_ids_k, dtype=torch.long, device=device)
+    
+    # Pre-allocate tensor for input_ids_k
+    total_max_len = prompt_id_length + max_new_tokens
+    input_ids_k = torch.full((k, total_max_len), FAKE_PAD_ID, device=device)
+    input_ids_k[:, :prompt_id_length] = input_ids.repeat(k, 1)
+    
+    attention_mask_k = torch.zeros((k, total_max_len), dtype=torch.long, device=device)
+    attention_mask_k[:, :prompt_id_length] = 1
+
     sampling_active = torch.ones((k,), dtype=torch.bool, device=device)
     finished_with_eos = torch.zeros((k,), dtype=torch.bool, device=device)
+    
     steps_taken = 0
     past_key_values = None
     pad_id_for_model = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else (tokenizer.eos_token_id or 0)
     grad_context = torch.enable_grad() if enable_grad else torch.no_grad()
+
+    # This pattern allows for:
+    # - Optional currency ($)
+    # - Commas in numbers (1,000)
+    # - Negative signs (-5)
+    # - Decimals (3.14)
+    # - Fractions (3/4)
+    # - Optional percentage (%)
+    RE_UNIT_NUMERIC = r"[\$]?\s*([-+]?\d[0-9,]*\.?\d*(?:/\d+)?)\s*[\%]*"
+
+    # The early-stop regex:
+    stop_regex = re.compile(r"final\s*answer[:\s]*" + RE_UNIT_NUMERIC, re.IGNORECASE)
     with grad_context:
-        for _ in range(max_new_tokens):
-            if past_key_values is None:
-                model_inputs = {
-                    "input_ids": input_ids_k,
-                    "attention_mask": attention_mask_k,
-                    "use_cache": True,
-                }
+        for i in range(max_new_tokens):
+            curr_pos = prompt_id_length + i
+            if i == 0:
+                model_inputs = {"input_ids": input_ids_k[:, :prompt_id_length], "use_cache": True}
             else:
-                last_token = input_ids_k[:, -1:].clone()
-                last_token[last_token == FAKE_PAD_ID] = pad_id_for_model
                 model_inputs = {
-                    "input_ids": last_token,
-                    "attention_mask": attention_mask_k,
-                    "use_cache": True,
+                    "input_ids": input_ids_k[:, curr_pos - 1 : curr_pos],
                     "past_key_values": past_key_values,
+                    "use_cache": True,
                 }
+            model_inputs["attention_mask"] = attention_mask_k[:, :curr_pos]
             out = model(**model_inputs)
             past_key_values = out.past_key_values
             # [K, vocab]
-            step_logits = out.logits[:, -1, :]
-            log_probs = F.log_softmax(step_logits / temperature, dim=-1)
-            probs = log_probs.exp()
+            step_logits = out.logits[:, -1, :] / max(temperature, 1e-5)
+            # Repetition penalty: penalize tokens that already appeared
+            for batch_idx in range(k):
+                if sampling_active[batch_idx]:
+                    lookback = input_ids_k[batch_idx, max(0, curr_pos - 64) : curr_pos]
+                    unique_tokens = torch.unique(lookback)
+                    step_logits[batch_idx, unique_tokens] /= repetition_penalty
+
+            # TOP-P sampling
+            sorted_logits, sorted_indices = torch.sort(step_logits, descending=True)
+            cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+            sorted_indices_to_remove = cumulative_probs > top_p
+            sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
+            sorted_indices_to_remove[..., 0] = 0
+            indices_to_remove = sorted_indices_to_remove.scatter(1, sorted_indices, sorted_indices_to_remove)
+            step_logits[indices_to_remove] = -float("inf")
+
+            probs = F.softmax(step_logits, dim=-1)
             # [K, 1]
             next_token_raw = torch.multinomial(probs, num_samples=1)
             # For finished rows, append pad instead of sampled token to keep shapes aligned
@@ -106,13 +139,21 @@ def sample_k_parallel(
             else:
                 next_token = next_token_raw
             # Build attention mask for next step: active rows attend, finished rows are masked
-            attention_mask_k = torch.cat(
-                [attention_mask_k, torch.ones((k,1), dtype=torch.long, device=device)], dim=1
-            )
+            attention_mask_k[:, curr_pos] = sampling_active.long()
             # Append token for model (replace fake pads with a real id)
             append_for_model = next_token.clone()
             append_for_model[append_for_model == FAKE_PAD_ID] = pad_id_for_model
-            input_ids_k = torch.cat([input_ids_k, append_for_model], dim=1)  # [K, seq_len+step]
+            input_ids_k[:, curr_pos] = append_for_model.squeeze(-1)
+
+            # Early stopping
+            if i > 20 and i % 10 == 0:
+                for j in range(k):
+                    if sampling_active[j]:
+                        tail_text = tokenizer.decode(input_ids_k[j, curr_pos-40:curr_pos+1])
+                        if stop_regex.search(tail_text):
+                            sampling_active[j] = False
+                            finished_with_eos[j] = True
+
             hit_eos = (next_token_raw.squeeze(-1) == tokenizer.eos_token_id)
             finished_with_eos = finished_with_eos | (hit_eos & sampling_active)
             sampling_active = sampling_active & (~hit_eos)
@@ -120,20 +161,21 @@ def sample_k_parallel(
             if steps_taken >= max_new_tokens or sampling_active.sum() == 0:
                 break
     
+    # Cleanup
+    del past_key_values
+    torch.mps.empty_cache()
+    
     # Replace fake pads for model consumption; keep track of real padding locations
-    tokens_for_model = input_ids_k.clone()
+    tokens_for_model = input_ids_k.clone()[:, :prompt_id_length+steps_taken]
     fake_pad_positions = (tokens_for_model == FAKE_PAD_ID)
     tokens_for_model[fake_pad_positions] = pad_id_for_model
-    answer_tokens = tokens_for_model[:, prompt_id_length:]
+    answer_tokens = tokens_for_model[:, prompt_id_length:prompt_id_length + steps_taken]
     texts = tokenizer.batch_decode(answer_tokens, skip_special_tokens=True)
-    # Attention mask should ignore only the fake pads (not EOS, even if pad==eos)
-    attention_mask = torch.ones_like(tokens_for_model, dtype=torch.long)
-    attention_mask[fake_pad_positions] = 0
     return {
         "text": texts,  # list length K
         "prompt_id_length": prompt_id_length,  # scaler
         "tokens": tokens_for_model,  # [K, seq_len]
-        "attention_mask": attention_mask,  # [K, seq_len]
+        "attention_mask": attention_mask_k[:, : prompt_id_length + steps_taken],
         "truncated": (~finished_with_eos).tolist(),  # list of bools
         "steps_taken": steps_taken,
     }

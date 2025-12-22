@@ -208,7 +208,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             )
             for txt, tr in zip(res["text"], res["truncated"])
         ]
-        if global_step % 10 == 0:
+        if global_step % 5 == 0:
             for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
                 print(txt)
                 print(f"reward is {r}")

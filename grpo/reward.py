@@ -258,16 +258,24 @@ def extract_final_answer(text: str) -> Optional[float]:
     if text is None:
         return None
     # Remove currency, commas, and percentage signs before float conversion
-    text = re.sub(r"[\$\,\%]", "", text)
-    # 1) Prefer explicit "Final Answer: <num>" (last occurrence)
-    matches = list(re.finditer(
-        r"final\s*answer[^0-9\-+]*([-+]?\d*\.?\d+(?:/\d+)?)",
-        text,
-        flags=re.IGNORECASE
-    ))
-    if matches:
-        token = matches[-1].group(1)
-        return _parse_number(token)
+    # Pattern to find the number after the tag
+    pattern = r"final\s*answer[:\s]*[\$]?\s*([-+]?\d[0-9,]*\.?\d*(?:/\d+)?)\s*[\%]*"
+    match = re.search(pattern, text, re.IGNORECASE)
+    if match:
+        raw_num = match.group(1).strip()
+        # Remove commas: "1,200" -> "1200"
+        clean_num = raw_num.replace(",", "")
+        
+        # Handle Fractions: "3/4" -> 0.75
+        if "/" in clean_num:
+            try:
+                num, den = clean_num.split("/")
+                return float(num) / float(den)
+            except: return None
+        try:
+            return float(clean_num)
+        except:
+            return None
 
     # 2) Fallback: use LAST number in the answer text
     nums = NUMBER_PATTERN.findall(text)
@@ -437,7 +445,12 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # It stops the 'Builder Problem' from being a total loss.
     trunc_r = -0.05 if truncated else 0.0
 
-    total = num_r + eq_r + format_r + trunc_r
+    # 6. Efficiency Bonus (The Tie-Breaker)
+    # Rewards the model for getting the answer in fewer tokens.
+    # If two samples are correct, the shorter one ranks higher.
+    length_penalty = min(len(text) / 1000, 0.1)
+
+    total = num_r + eq_r + format_r + trunc_r - length_penalty
 
     # Clip to ensure advantages don't explode
     return max(-1.5, min(1.5, total))
