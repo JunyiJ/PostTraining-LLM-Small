@@ -14,6 +14,10 @@ class LoRALinear(nn.Module):
         super().__init__()
 
         self.base = base_layer
+        # Freeze the base layer weights immediately
+        self.base.weight.requires_grad = False
+        if self.base.bias is not None:
+            self.base.bias.requires_grad = False
         self.in_features = base_layer.in_features
         self.out_features = base_layer.out_features
 
@@ -22,17 +26,6 @@ class LoRALinear(nn.Module):
         self.scaling = alpha / float(r)
         self.dropout = nn.Dropout(dropout)
 
-        self.weight = nn.Parameter(
-            base_layer.weight.detach().clone(),
-            requires_grad=False
-        )
-        self.bias = None
-        if base_layer.bias is not None:
-            self.bias = nn.Parameter(
-                base_layer.bias.detach().clone(),
-                requires_grad=False
-            )
-
         # Low-rank adapters
         self.A = nn.Linear(self.base.in_features, r, bias=False)
         self.B = nn.Linear(r, self.base.out_features, bias=False)
@@ -40,10 +33,10 @@ class LoRALinear(nn.Module):
         init.zeros_(self.B.weight)
         
     def forward(self, x):
-        base_out = x @ self.weight.T
+        base_out = self.base(x)
         lora_out = self.B(self.dropout(self.A(x))) * self.scaling
-        if self.bias is not None:
-            return self.bias + base_out +lora_out
+        if self.base.bias is not None:
+            return self.base.bias + base_out +lora_out
         return base_out + lora_out
 
 

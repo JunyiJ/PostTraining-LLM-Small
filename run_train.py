@@ -1,6 +1,7 @@
 """
 Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
 """
+import gc
 import json
 import os
 import re
@@ -30,12 +31,12 @@ TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
 LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_SAMPLES_PER_PROMPT = 6
+NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 1
 EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.6
-MAX_NEW_TOKENS = 256
+MAX_NEW_TOKENS = 200
 KL_COEF = 0.2
 DEVICE = torch.device("mps")
 
@@ -109,6 +110,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         gold_answer = str(line["gold_answer"]).strip()
         print(question)
         print(f"answer is {gold_answer}")
+        t0 = time.perf_counter()
+        print("enter sampling")
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
@@ -122,6 +125,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 temperature=SAMPLING_TEMPERATURE,
                 max_new_tokens=MAX_NEW_TOKENS,
             )
+        print("get results from sampling")
+        t1 = time.perf_counter()
+        t2 = time.perf_counter()
         B, T = res["tokens"].size()
         prompt_len = res["prompt_id_length"]
         padded_batch_tokens = res["tokens"].to(DEVICE)
@@ -160,7 +166,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         masked_log_probs_new = log_probs_new * answer_mask
         sum_token_logprobs_old = masked_log_probs_old.sum(dim=1)
         sum_token_logprobs_new = masked_log_probs_new.sum(dim=1)
-
+        t3 = time.perf_counter()
         # print("\n--- ALIGNMENT DEBUG START ---")
 
         # print(f"prompt_len = {prompt_len}")
@@ -200,15 +206,17 @@ for epoch in range(1, NUM_EPOCHS + 1):
 
         # print("--- ALIGNMENT DEBUG END ---\n")
         # Calculate rewards
-        rewards = [
-            refined_advanced_cot_reward(
-                txt,
-                gold_answer,
-                truncated=tr,
-            )
-            for txt, tr in zip(res["text"], res["truncated"])
-        ]
-        if global_step % 5 == 0:
+        t4 = time.perf_counter()
+        with torch.no_grad():
+            rewards = [
+                refined_advanced_cot_reward(
+                    txt,
+                    gold_answer,
+                    truncated=tr,
+                )
+                for txt, tr in zip(res["text"], res["truncated"])
+            ]
+        if global_step % 1 == 0:
             for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
                 print(txt)
                 print(f"reward is {r}")
@@ -225,14 +233,23 @@ for epoch in range(1, NUM_EPOCHS + 1):
         grpo_loss = -(advantages * ratio).mean()
         loss = grpo_loss + KL_COEF * kl_loss
         print(f"grpo_loss is {grpo_loss} and kl is {kl_loss}")
+        t5 = time.perf_counter()
+
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
         running_total += len(rewards)
         global_step += 1
         # Backprop
+        t6 = time.perf_counter()
         optimizer.zero_grad()
+        gc.collect()
+        torch.mps.empty_cache()
+        for param in model.parameters():
+            if param.grad is not None:
+                param.grad.data = param.grad.data.contiguous()
         loss.backward()
         optimizer.step()
+        t7 = time.perf_counter()
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)
@@ -255,5 +272,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
             model.train()
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
+        print("\n=== PROFILER ===")
+        print(f"Sampling:          {(t1-t0):.2f}s")
+        print(f"Logprob forward:   {(t3-t2):.2f}s")
+        print(f"Reward + Adv:      {(t5-t4):.2f}s")
+        print(f"Backward:          {(t7-t6):.2f}s")
     save_lora_checkpoint(model, optimizer, epoch, global_step)
     print(f"==end-of-epoch {epoch}==")

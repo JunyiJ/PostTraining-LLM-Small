@@ -1,510 +1,505 @@
-{"question": "A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?", "gold_answer": "72"}
-{"question": "A bookstore had 350 books. They sold 40% of them in the morning and 30% of the remainder in the afternoon. How many books were sold in total?", "gold_answer": "245"}
-{"question": "A car travels 180 miles at 60 miles per hour, then another 150 miles at 50 miles per hour. What is its average speed for the trip?", "gold_answer": "54.54545454545455"}
-{"question": "A class has 28 students. 3/7 of them bring lunch from home, and 1/2 of the remaining students buy lunch at school. How many students buy lunch at school?", "gold_answer": "8"}
-{"question": "A tank is 2/3 full with 160 liters of water. How many liters does the tank hold when full?", "gold_answer": "240"}
-{"question": "A store increases the price of an item from $80 by 25% and then discounts the new price by 20%. What is the final price?", "gold_answer": "80"}
-{"question": "A chef makes 180 cookies. He sells 45%, gives 1/3 of the remainder to neighbors, and keeps the rest. How many cookies does he keep?", "gold_answer": "66"}
-{"question": "A train leaves Station A toward Station B at 70 mph. Another train leaves Station B toward Station A at 50 mph. The stations are 360 miles apart. How long until the trains meet?", "gold_answer": "3"}
-{"question": "A school buys markers in packs of 16. They need at least 250 markers. What is the minimum number of packs they must buy?", "gold_answer": "16"}
-{"question": "A book club has 48 members. 1/3 are teachers, and 1/4 of the teachers lead meetings. How many teachers lead meetings?", "gold_answer": "4"}
-{"question": "A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?", "gold_answer": "24"}
-{"question": "A rectangle has perimeter 72 cm. The length is twice the width. What is the area?", "gold_answer": "288"}
-{"question": "A cyclist rides uphill at 8 mph and downhill at 16 mph. If each segment is 12 miles, what is his average speed for the round trip?", "gold_answer": "10.666666666666666"}
-{"question": "A jar contains quarters (25¢) and dimes (10¢). If there are 70 coins totaling $11.50, how many quarters are there?", "gold_answer": "30"}
-{"question": "A student scores 82, 91, 76 on three tests. What must he score on the fourth test to average 85?", "gold_answer": "91"}
-{"question": "A bag contains red, blue, and green marbles in ratio 4:5:6. If there are 75 marbles in total, how many are blue?", "gold_answer": "25"}
-{"question": "A painter uses 2/5 of a bucket of paint and then 1/2 of what remains. If 18 liters are left, how many liters were originally in the bucket?", "gold_answer": "40"}
-{"question": "A store sells apples at $3/lb and bananas at $2/lb. If Maya buys 6 pounds of apples and some bananas for $30 total, how many pounds of bananas did she buy?", "gold_answer": "6"}
-{"question": "A library has 540 books. 3/10 are fiction, and 1/6 of the fiction books are mysteries. How many mystery books are there?", "gold_answer": "27"}
-{"question": "A pool fills at 12 liters per minute for 10 minutes, then at 15 liters per minute for 8 minutes. How much water was added?", "gold_answer": "300"}
-{"question": "A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?", "gold_answer": "30"}
-{"question": "A train travels 150 miles at 75 mph, then another 210 miles at 70 mph. What is the total travel time?", "gold_answer": "5"}
-{"question": "A store discounts a $200 jacket by 30%, then applies a 10% coupon. What is the final price?", "gold_answer": "126"}
-{"question": "A farmer plants 420 seeds in rows of 14. How many rows does he plant?", "gold_answer": "30"}
-{"question": "A car rental costs $40 plus $0.30 per mile. If Jake pays $88, how many miles did he drive?", "gold_answer": "160"}
-{"question": "A school has 360 students. 1/9 join band, and 2/3 of the band members also join choir. How many join both?", "gold_answer": "26.666666666666668"}
-{"question": "A shop sells notebooks for $4 or 3 for $10. If Anna buys 14 notebooks using the cheapest strategy, how much does she pay?", "gold_answer": "48"}
-{"question": "A tank contains 180 liters of water, which is 3/4 of its capacity. How many liters does it hold when full?", "gold_answer": "240"}
-{"question": "A student reads 18 pages per day for 8 days, then 25 pages per day for 6 days. If the book has 350 pages, how many pages remain unread?", "gold_answer": "0"}
-{"question": "A soccer team wins 60% of 45 games. If they win 80% of home games and half their games are at home, how many home games did they win?", "gold_answer": "18"}
-{"question": "A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?", "gold_answer": "50"}
-{"question": "A store mixes peanuts costing $4/lb with cashews costing $12/lb to make 40 lbs of mix worth $7/lb. How many pounds of each nut are used?", "gold_answer": "25,15"}
-{"question": "A costume originally costs $60. It is discounted by 20%, then increases by 15%. What is the final price?", "gold_answer": "55.2"}
-{"question": "A teacher has $160 to spend on markers costing $5 per pack. If she uses 3/4 of her budget, how many packs does she buy?", "gold_answer": "24"}
-{"question": "A car travels 40 miles at 50 mph and returns 40 miles at 80 mph. What is the average speed?", "gold_answer": "61.53846153846154"}
-{"question": "A walker completes 3/8 of a trail, then another 2/5 of the remaining distance. If 12 km remain, how long is the trail?", "gold_answer": "20"}
-{"question": "A fruit stand sells apples at 4 for $5 and oranges at 3 for $4. If a customer buys 12 apples and 9 oranges, how much does he pay?", "gold_answer": "23"}
-{"question": "A contractor needs 400 bricks. He buys boxes containing 18 bricks each. How many boxes must he buy?", "gold_answer": "23"}
-{"question": "A library read-a-thon awards points: 5 per chapter and 2 per review. If a student earns 74 points from 10 reviews, how many chapters did he read?", "gold_answer": "12"}
-{"question": "A recipe uses sugar and flour in ratio 3:8. If 48 cups of flour are used, how much sugar is needed?", "gold_answer": "18"}
-{"question": "A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?", "gold_answer": "202.5"}
-{"question": "A pet shelter has dogs and cats in ratio 5:7. If there are 84 cats, how many dogs?", "gold_answer": "60"}
-{"question": "A bottle is 2/5 full with 28 mL. How much does it hold when full?", "gold_answer": "70"}
-{"question": "A car drives 150 miles at 60 mph, then 210 miles at 70 mph. What is its average speed for the whole trip?", "gold_answer": "65"}
-{"question": "A school buys 480 pencils. They distribute 32 to each class. If 96 pencils remain, how many classes are there?", "gold_answer": "12"}
-{"question": "A bookstore sells $150 in magazines and twice as much in books. If 20% of the book revenue is profit, how much profit do they make from books?", "gold_answer": "60"}
-{"question": "A computer is discounted 15%, then the discounted price is discounted another 5%. If the final price is $484.50, what was the original price?", "gold_answer": "600"}
-{"question": "A student jogs 3 miles at 6 mph and then walks 2 miles at 3 mph. What is her average speed for the trip?", "gold_answer": "4"}
-{"question": "A cafeteria prepares food for 400 students. Only 75% eat lunch, and 20 servings are wasted. How many students were served?", "gold_answer": "280"}
-{"question": "A worker completes 24 tasks per hour for 5 hours and then increases speed by 20% for 2 hours. How many tasks does he complete?", "gold_answer": "192"}
-{"question": "A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?", "gold_answer": "18"}
-{"question": "A garden has 180 flowers: 1/3 roses, 1/4 tulips, and the rest daisies. How many daisies?", "gold_answer": "75"}
-{"question": "A student has $50. She buys a book for $18 and pens costing $2 each. How many pens can she buy?", "gold_answer": "16"}
-{"question": "A team scores 3 touchdowns (7 points each) and 4 field goals (3 points each). How many total points?", "gold_answer": "33"}
-{"question": "A store mixes candies priced at $6/lb and $10/lb to make 30 lbs priced at $8/lb. How many pounds of each candy are used?", "gold_answer": "15,15"}
-{"question": "A teacher assigns 120 pages to read. A student reads 15 pages per day for 4 days, then 20 pages per day. How many total days to finish?", "gold_answer": "7"}
-{"question": "A family spends 35% of income on rent and 15% on utilities. If these total $1200, what is their income?", "gold_answer": "2400"}
-{"question": "A car decreases value by 30% year 1 and 20% year 2. If new value is $5600, what was original price?", "gold_answer": "10000"}
-{"question": "A store sells pens at 5 for $3. If a teacher buys 45 pens, how much does she pay?", "gold_answer": "27"}
-{"question": "A jogger runs 8 km at 10 km/h and then 6 km at 6 km/h. What is the average speed?", "gold_answer": "7.5"}
-{"question": "A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?", "gold_answer": "18"}
-{"question": "A warehouse stores 900 boxes. Each shelf holds 36. If the warehouse has 18 shelves, how many boxes exceed capacity?", "gold_answer": "252"}
-{"question": "A farmer buys 32 kg of feed. His animals eat 3/8 of it weekly. How many weeks until it is gone?", "gold_answer": "2.6666666666666665"}
-{"question": "A book costs $12. It is discounted 20%, then taxed 10%. What is the final price?", "gold_answer": "10.56"}
-{"question": "A swimming pool fills at 50 L/min for 12 minutes, then 30 L/min for 20 minutes. How many liters added?", "gold_answer": "1560"}
-{"question": "A team wins 24 of its games, which is 60% of all games. How many games did they play?", "gold_answer": "40"}
-{"question": "A chef prepares 360 cookies. He sells 55% and gives 1/5 of the remainder to staff. How many cookies are left?", "gold_answer": "162"}
-{"question": "A jar has 90 candies: 2/9 are lemon, 1/3 are cherry, and the rest are grape. How many grape candies?", "gold_answer": "40"}
-{"question": "A shipment contains 420 items. 3/7 are electronics, 1/5 of the electronics are defective. How many defective items?", "gold_answer": "36"}
-{"question": "A tank drains at 20 L/min for 8 minutes, then 15 L/min for 6 minutes. How many liters drained?", "gold_answer": "280"}
-{"question": "A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?", "gold_answer": "53.333333333333336"}
-{"question": "A student scores 70, 85, 90. What must she score next to average 84?", "gold_answer": "91"}
-{"question": "A bakery sells 3/8 of its 320 loaves in the morning and 1/3 of the remainder in evening. How many loaves sold total?", "gold_answer": "200"}
-{"question": "A garden is 12 m by 18 m. A path 1 m wide is built around inside. What is path area?", "gold_answer": "56"}
-{"question": "A family saves 15% of income and spends $2380. If savings are $420, what is total income?", "gold_answer": "2800"}
-{"question": "A store discounts a $150 coat by 30%. Next week it increases the discounted price by 20%. What is new price?", "gold_answer": "126"}
-{"question": "A team plays 60 games, wins 40%, and draws 1/3 of the wins. How many games did they draw?", "gold_answer": "8"}
-{"question": "A teacher buys 8 packs of markers, each with 15 markers. She gives 2/3 to students. How many markers remain?", "gold_answer": "40"}
-{"question": "A shop sells cups 4 for $9. How much for 18 cups?", "gold_answer": "40.5"}
-{"question": "A rope is cut in ratio 5:3. Total length is 64 m. What is shorter piece?", "gold_answer": "24"}
-{"question": "A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?", "gold_answer": "22"}
-{"question": "A store has 500 phones. 30% are sold, 1/5 of remainder defective. How many working phones left?", "gold_answer": "280"}
-{"question": "A field is 30 m by 20 m. 25% used for corn, 40% of remainder for beans. How many m² for beans?", "gold_answer": "360"}
-{"question": "A shop sells pens at $1.20 each or 10 for $10. If a customer buys 27 pens, what is the minimum cost?", "gold_answer": "26"}
-{"question": "Sophie read 40 pages on Monday, 25% more on Tuesday, and 30% less on Wednesday than Tuesday. How many pages did she read in total?", "gold_answer": "112"}
-{"question": "A farmer has 360 chickens. He sells 1/3 of them, then 1/4 of the remainder die. How many chickens remain?", "gold_answer": "180"}
-{"question": "A store purchases items for $12 each and sells them for 40% profit. If the store sells 70 items, what is the total profit?", "gold_answer": "336"}
-{"question": "A water tank contains 450 liters when it is 3/5 full. How many liters are needed to fill it completely?", "gold_answer": "300"}
-{"question": "A bike rider travels 15 miles at 10 mph and then 12 miles at 6 mph. What is his average speed for the entire trip?", "gold_answer": "7.5"}
-{"question": "A pack of 24 markers costs $9.60. How much do 18 markers cost at the same rate?", "gold_answer": "7.2"}
-{"question": "A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?", "gold_answer": "52"}
-{"question": "A gardener plants flowers in the ratio 3 roses : 4 tulips : 5 daisies. If she plants 96 flowers, how many are daisies?", "gold_answer": "40"}
-{"question": "A farmer harvested 960 oranges. He sells 45% and uses 1/4 of the remainder for juice. How many oranges are left?", "gold_answer": "396"}
-{"question": "A recipe uses 2 cups of sugar for every 5 cups of flour. If a baker uses 20 cups of flour, how much sugar does he need?", "gold_answer": "8"}
-{"question": "After a 20% discount, a jacket costs $72. What was its original price?", "gold_answer": "90"}
-{"question": "A class has 36 students. 1/3 join math club, and 1/2 of those also join science club. How many join both clubs?", "gold_answer": "6"}
-{"question": "A machine produces 180 parts per hour for 4 hours, then 220 parts per hour for 3 hours. How many parts are produced in total?", "gold_answer": "1360"}
-{"question": "A runner completes 3 laps of 800 meters and 4 laps of 400 meters. What is the total distance in kilometers?", "gold_answer": "4"}
-{"question": "A store buys pens for $0.50 each and sells them for $1.20. If it sells 150 pens, how much profit does it make?", "gold_answer": "105"}
-{"question": "A family spends 25% of income on food and $900 on rent, which is 30% of income. What is their income?", "gold_answer": "3000"}
-{"question": "A student solves 75% of 160 practice problems. If he gets 20% of them wrong, how many does he solve correctly?", "gold_answer": "96"}
-{"question": "A train travels 120 miles at 60 mph, then 180 miles at 90 mph. What is the total travel time?", "gold_answer": "3.5"}
-{"question": "A library has 600 books. 1/5 are reference books, and 30% of the rest are fiction. How many fiction books are there?", "gold_answer": "144"}
-{"question": "A store discounts a $200 TV by 35%, then applies a coupon for $10 off. What is the final price?", "gold_answer": "120"}
-{"question": "A car has a fuel efficiency of 30 miles per gallon. How many gallons are needed for a 420-mile trip?", "gold_answer": "14"}
-{"question": "A teacher has 72 stickers. She gives 5 to each student. If she has 7 stickers left, how many students are there?", "gold_answer": "13"}
-{"question": "A theater has 320 seats. On opening night, 75% are filled. If 1/10 of those filled seats are VIP seats, how many VIP seats are there?", "gold_answer": "24"}
-{"question": "A pool drains at 18 liters per minute for 15 minutes, then 12 liters per minute for 10 minutes. How much water drains in total?", "gold_answer": "390"}
-{"question": "A contractor builds 240 meters of road in 4 days. Each day he builds the same amount. How many meters per day does he build?", "gold_answer": "60"}
-{"question": "A $500 phone is discounted 40%, then the discounted price is increased by 25%. What is the final price?", "gold_answer": "450"}
-{"question": "A library has 48 fiction books for every 32 nonfiction books. If there are 240 nonfiction books, how many fiction books are there?", "gold_answer": "360"}
-{"question": "A worker completes 35 tasks per hour for 5 hours, then 28 tasks per hour for 3 hours. How many tasks does he complete?", "gold_answer": "259"}
-{"question": "A jar contains red, blue, and yellow marbles in the ratio 2:3:5. If there are 180 marbles, how many are blue?", "gold_answer": "54"}
-{"question": "A cyclist rides 24 miles at 12 mph, then 18 miles at 9 mph. What is his average speed?", "gold_answer": "10.285714285714286"}
-{"question": "A store sells a pair of shoes for $60 after a 20% discount. What was the original price?", "gold_answer": "75"}
-{"question": "A bus has 56 seats. If 75% are taken and 1/3 of the empty seats are reserved, how many seats remain available?", "gold_answer": "10"}
-{"question": "A farmer buys a 50-pound sack of feed. His animals eat 2/5 of it weekly. How many pounds remain after 2 weeks?", "gold_answer": "10"}
-{"question": "A student receives grades of 84, 88, and 92. What must he score on his fourth test to average 90?", "gold_answer": "96"}
-{"question": "A shop sells boxes of 18 oranges. If a restaurant needs 430 oranges, how many boxes must they buy?", "gold_answer": "24"}
-{"question": "A class of 30 students has 40% boys. If 1/3 of the girls play soccer, how many girls play soccer?", "gold_answer": "6"}
-{"question": "A garden is 14 meters by 18 meters. A walkway 1 meter wide is built around the inside. What is the area of the walkway?", "gold_answer": "60"}
-{"question": "A company makes 20% profit on a product that costs $45 to produce. What is the selling price?", "gold_answer": "54"}
-{"question": "A rope is 72 meters long. It is cut so that one piece is 3/5 of the total length. How long is the shorter piece?", "gold_answer": "28.8"}
-{"question": "A bag has 90 candies: 1/3 are lemon, 2/9 are cherry, and the rest are mint. How many are mint?", "gold_answer": "40"}
-{"question": "A store sells staplers for $6 each or 3 for $15. If a customer buys 9 staplers using the cheapest combination, how much does he pay?", "gold_answer": "45"}
-{"question": "A hiking trail is 15 km long. A hiker completes 2/5 of it before lunch and 1/2 of the remainder after lunch. How many kilometers remain?", "gold_answer": "4.5"}
-{"question": "A train travels 200 miles at 80 mph, then 150 miles at 60 mph. What is the average speed for the trip?", "gold_answer": "70"}
-{"question": "A store buys pencils in packs of 12. They need at least 430 pencils. What is the minimum number of packs required?", "gold_answer": "36"}
-{"question": "A farmer divides his land so that 2/3 is for crops and 1/4 of the crop land is for wheat. If the wheat section is 30 acres, how large is the entire farm?", "gold_answer": "180"}
-{"question": "A shop sells shirts for $18 after a 25% discount. What was the original price?", "gold_answer": "24"}
-{"question": "A student solves 90% of 200 math problems but gets 10% of those wrong. How many correct answers does he have?", "gold_answer": "162"}
-{"question": "A cat eats 1/6 of a bag of food daily. How many bags are needed for 30 days?", "gold_answer": "5"}
-{"question": "A baker uses 3/4 cup of sugar per batch. If she has 15 cups, how many batches can she make?", "gold_answer": "20"}
-{"question": "A train leaves City A at 90 mph. One hour later, another train leaves City B at 110 mph toward City A. If the cities are 450 miles apart, how long until they meet?", "gold_answer": "2"}
-{"question": "A teacher assigns 240 pages. A student reads 20 pages/day for 6 days, then 30 pages/day. How many days total?", "gold_answer": "10"}
-{"question": "A store discounts a $120 coat by 30%, then applies 10% tax. What is the final price?", "gold_answer": "92.4"}
-{"question": "A library has 540 books. 1/5 are nonfiction, and 30% of the nonfiction books are history. How many history books are there?", "gold_answer": "32.4"}
-{"question": "A store sells apples 5 for $4. How much for 22 apples?", "gold_answer": "17.6"}
-{"question": "A baker prepares 720 cookies. He sells 50% and gives 15% of the remainder to friends. How many remain?", "gold_answer": "306"}
-{"question": "A school has 480 students. 30% join sports, and 40% of those join both sports and band. How many join both?", "gold_answer": "57.6"}
-{"question": "A car depreciates 20% in year 1 and 15% in year 2. If it's now worth $6120, what was the original value?", "gold_answer": "9000"}
-{"question": "A factory produces 360 items per hour for 6 hours, then 420 per hour for 3 hours. How many items?", "gold_answer": "3780"}
-{"question": "A container holds 48 liters when 3/8 full. How much when full?", "gold_answer": "128"}
-{"question": "A student increases study time from 2 hours/day to 2.5 hours/day. What percent increase?", "gold_answer": "25"}
-{"question": "A gardener plants trees in rows of 18. If she plants 612 trees, how many rows?", "gold_answer": "34"}
-{"question": "A chef mixes nuts costing $6/lb and $10/lb to make 25 lbs costing $8/lb. How many lbs of each are used?", "gold_answer": "12.5,12.5"}
-{"question": "A store marks up a $50 item by 40%, then discounts by 30%. What is the final price?", "gold_answer": "49"}
-{"question": "A man saves $240 monthly, which is 20% of his income. What is his income?", "gold_answer": "1200"}
-{"question": "A pool fills 60 L/min for 12 minutes, then 40 L/min for 15 minutes. How much water is added?", "gold_answer": "1380"}
-{"question": "A school bus has 48 seats. 75% filled. If 1/8 of filled seats are teachers, how many teachers?", "gold_answer": "4.5"}
-{"question": "A hiker walks 12 km at 4 km/h and 6 km at 3 km/h. What is the average speed?", "gold_answer": "3.6"}
-{"question": "A store sells notebooks for $3 each or 4 for $10. If a teacher buys 14, what's the minimum cost?", "gold_answer": "32"}
-{"question": "A baker uses 2/5 of her flour and then 1/3 of the remainder. If 18 kg remain, how much flour initially?", "gold_answer": "45"}
-{"question": "A tank holds 900 liters. After draining 35% and refilling 150 liters, how many liters are inside?", "gold_answer": "735"}
-{"question": "A rope is cut in ratio 3:4:5. If the longest piece is 30 m, what is the total length?", "gold_answer": "72"}
-{"question": "A student solves 70% of 150 problems. If he gets 20% of those wrong, how many correct?", "gold_answer": "84"}
-{"question": "A store sells 15 pencils at $0.60 each or 20 for $10. If someone buys 40, what is minimum cost?", "gold_answer": "20"}
-{"question": "A rectangle is 18 m long and 12 m wide. A walkway 1 m wide is built around inside. What is walkway area?", "gold_answer": "56"}
-{"question": "A car travels 90 miles at 30 mph, then 90 miles at 45 mph. What is average speed?", "gold_answer": "36"}
-{"question": "A library has 300 fiction books and 200 nonfiction. Fiction increases by 20%, nonfiction by 10%. How many books now?", "gold_answer": "560"}
-{"question": "A factory produces 500 items daily. It increases production by 30% for a week. How many items produced that week?", "gold_answer": "4550"}
-{"question": "A radio costs $80. It goes on sale for 25% off, then clearance for 20% off the sale price. What is final price?", "gold_answer": "48"}
-{"question": "A student jogs 9 miles at 6 mph and 3 miles at 4 mph. What is his average speed?", "gold_answer": "5.142857142857143"}
-{"question": "A bottle has 30 mL of medicine, which is 3/10 of full capacity. How many mL when full?", "gold_answer": "100"}
-{"question": "A class has 45 students. 1/3 take French, 2/5 take Spanish, and 1/6 take both. How many take only Spanish?", "gold_answer": "15"}
-{"question": "A machine produces 240 items/hour for 5 hours, then 300 items/hour for 4 hours. How many items produced?", "gold_answer": "2760"}
-{"question": "A chef buys 24 kg of rice. She uses 3/8 for one dish and 1/4 of the remainder for another. How much rice left?", "gold_answer": "12"}
-{"question": "A store's revenue increases from $18,000 to $22,500. What percent increase?", "gold_answer": "25"}
-{"question": "A bakery sells 3/5 of its 450 pastries in the morning and 1/4 of the remainder in the afternoon. How many pastries remain unsold?", "gold_answer": "135"}
-{"question": "A factory produces 320 units per day for 6 days, then increases production by 25% for the next 4 days. How many units are produced in total?", "gold_answer": "2720"}
-{"question": "A train travels 180 miles at 60 mph and then 210 miles at 70 mph. What is the total time for the trip?", "gold_answer": "6"}
-{"question": "A class has 30 students. 40% take art and 1/3 take music. If 5 students take both, how many take only music?", "gold_answer": "5"}
-{"question": "A bookstore marks up books by 30% on a cost of $12 per book. If a coupon gives 15% off the sale price, what is the final price?", "gold_answer": "11.02"}
-{"question": "A runner completes 5 miles at 8 mph and 7 miles at 7 mph. What is his average speed?", "gold_answer": "7.4375"}
-{"question": "A school has 540 lockers. 2/3 are used by students, and 1/5 of the used lockers need repairs. How many lockers need repairs?", "gold_answer": "72"}
-{"question": "A grocery store sells apples at 4 for $3.75. How much would 28 apples cost?", "gold_answer": "26.25"}
-{"question": "After losing 20% of its weight, a package weighs 48 grams. What was its original weight?", "gold_answer": "60"}
-{"question": "A carpenter cuts a 96-inch board into pieces in the ratio 3:5:4. How long is the shortest piece?", "gold_answer": "24"}
-{"question": "A water tank drains at 14 liters/min for 12 minutes, then at 10 liters/min for 15 minutes. How many liters drain in total?", "gold_answer": "318"}
-{"question": "A machine produces 150 items/hour for 7 hours and then increases speed by 40% for 5 more hours. How many items does it produce?", "gold_answer": "2190"}
-{"question": "A student correctly answers 80% of 150 questions. If she improves her accuracy by 10 percentage points on another 120 questions, how many total correct answers does she have?", "gold_answer": "222"}
-{"question": "A store mixes candy costing $8/lb with candy costing $12/lb to make 36 lbs of mix costing $10/lb. How many pounds of each type are used?", "gold_answer": "18,18"}
-{"question": "A farmer divides his 420-acre farm so that 2/7 is corn and 3/5 of the remaining land is wheat. How many acres are wheat?", "gold_answer": "180"}
-{"question": "A cyclist rides 16 miles at 8 mph, takes a break, then rides 24 miles at 12 mph. What is his average speed?", "gold_answer": "10"}
-{"question": "A bag contains red, blue, and green marbles in ratio 7:4:5. If there are 64 marbles total, how many are green?", "gold_answer": "20"}
-{"question": "A movie theater sells tickets for $12 adults and $8 children. If 180 tickets were sold and the total revenue was $1740, how many adult tickets were sold?", "gold_answer": "105"}
-{"question": "A hiker travels 10 km at 4 km/h and 6 km at 3 km/h. How long does the entire trip take?", "gold_answer": "4.5"}
-{"question": "A bottle is filled to 3/8 of its capacity with 45 mL of liquid. What is its full capacity?", "gold_answer": "120"}
-{"question": "A student earns 84, 92, 78, and 86 on four tests. What score must he earn on a fifth test to average 85?", "gold_answer": "84"}
-{"question": "A store buys 200 calculators at $15 each and sells them at a 40% markup. If 150 are sold, what is the revenue?", "gold_answer": "3150"}
-{"question": "A pool fills at 25 liters/min for 16 minutes and 40 liters/min for 12 minutes. How much water is in the pool?", "gold_answer": "1000"}
-{"question": "A train leaves City A at 70 mph. One hour later, another train leaves City B at 90 mph toward City A. If the cities are 380 miles apart, how long until they meet?", "gold_answer": "2"}
-{"question": "A library buys 480 books. 1/3 are fiction and 40% of the fiction books are mystery. How many mystery books are there?", "gold_answer": "64"}
-{"question": "A store discounts a $90 jacket by 35%, then applies 10% tax. What is the final price?", "gold_answer": "64.35"}
-{"question": "A gardener plants flowers in rows of 18. If she plants 774 flowers, how many rows are there?", "gold_answer": "43"}
-{"question": "A baker uses 2/5 of his flour and then 1/3 of what remains. If 36 kg are left, how much flour did he have originally?", "gold_answer": "75"}
-{"question": "A shipment contains 900 boxes. 40% are large boxes, and 1/6 of the large boxes are damaged. How many damaged boxes?", "gold_answer": "60"}
-{"question": "A bike originally costs $240. It's discounted by 25% and then by another 10%. What is the final price?", "gold_answer": "162"}
-{"question": "A restaurant sells combo meals for $8 each and drinks for $2 each. If 220 items were sold and total revenue was $1240, how many combo meals were sold?", "gold_answer": "120"}
-{"question": "A warehouse stores 2400 boxes on shelves that hold 48 each. How many shelves are needed?", "gold_answer": "50"}
-{"question": "A runner jogs 4 miles at 6 mph and 6 miles at 10 mph. What is his average speed?", "gold_answer": "8"}
-{"question": "A zoo has lions and tigers in ratio 2:3. If there are 45 tigers, how many lions?", "gold_answer": "30"}
-{"question": "A store buys mugs for $4 each and sells them for $6.50. If 180 mugs are sold, what is the total profit?", "gold_answer": "450"}
-{"question": "A school cafeteria prepares 560 meals. 3/8 are vegetarian and 1/5 of the vegetarian meals are gluten-free. How many gluten-free meals?", "gold_answer": "42"}
-{"question": "A container has 180 liters, which is 3/4 of its capacity. How many liters when full?", "gold_answer": "240"}
-{"question": "A class of 32 has 3/8 boys. If 1/4 of the boys play basketball, how many boys play?", "gold_answer": "3"}
-{"question": "A shop sells bananas at 3 lbs for $2.40. How much does 7.5 lbs cost?", "gold_answer": "6"}
-{"question": "A car travels 150 miles at 75 mph, then 180 miles at 60 mph. What is the average speed?", "gold_answer": "66"}
-{"question": "A farmer plants corn, wheat, and oats in ratio 6:5:4. If 300 acres are planted, how many acres of wheat?", "gold_answer": "100"}
-{"question": "A baker sells cupcakes for $3 each or 4 for $10. If she sells 52 cupcakes, what is the maximum revenue she can make?", "gold_answer": "130"}
-{"question": "A tank drains 35% of its 900 liters, then is refilled with 180 liters. How much water is in the tank?", "gold_answer": "765"}
-{"question": "A train travels 90 miles at 45 mph, 60 miles at 30 mph, and 75 miles at 75 mph. What is the total travel time?", "gold_answer": "4"}
-{"question": "A carpenter buys wood for $480. If he sells it for 35% profit, how much does he earn?", "gold_answer": "168"}
-{"question": "A student reads 18 pages/day for 10 days, then 25 pages/day for 6 days. How many pages total?", "gold_answer": "330"}
-{"question": "A store discounts a $300 laptop by 30%. A week later it discounts the reduced price by another 15%. What is the new price?", "gold_answer": "178.5"}
-{"question": "A worker starts with 360 tasks. He completes 45% in the morning and 30% of the remainder in the afternoon. How many are left?", "gold_answer": "138"}
-{"question": "A painter uses 2/3 of a 60-liter bucket of paint. How many liters are used?", "gold_answer": "40"}
-{"question": "A factory increases production from 800 to 1040 units. What percent increase is this?", "gold_answer": "30"}
-{"question": "A school has 420 students. 25% join art club and 40% of those also join music club. How many join both?", "gold_answer": "42"}
-{"question": "A recipe calls for 3 cups sugar to 8 cups flour. If 32 cups of flour are used, how much sugar is needed?", "gold_answer": "12"}
-{"question": "A man spends 30% of income on rent, 20% on food, and saves $600 which is 15% of income. What is his income?", "gold_answer": "4000"}
-{"question": "A cyclist rides 20 miles at 10 mph and then 25 miles at 5 mph. What is average speed?", "gold_answer": "6.666666666666667"}
-{"question": "A box contains 132 chocolates: 1/3 dark, 1/4 milk, and the rest white. How many white chocolates?", "gold_answer": "66"}
-{"question": "A student earns 75%, 80%, 92% on three tests weighted 1,2,2 respectively. What is the weighted average?", "gold_answer": "83.8"}
-{"question": "A factory produces 150 parts/hour for 10 hours and 200 parts/hour for 5 hours. How many parts total?", "gold_answer": "3500"}
-{"question": "A hiker completes 16 miles: 6 at 4 mph, 10 at 2 mph. Total time?", "gold_answer": "7"}
-{"question": "A club has 96 members. 5/8 are juniors and 1/6 of juniors volunteer. How many junior volunteers?", "gold_answer": "10"}
-{"question": "A clinic schedules 15-minute appointments. If it operates 7 hours, how many appointments can it fit?", "gold_answer": "28"}
-{"question": "A store sells coffee for $9/lb and blends it with $6/lb beans to make 30 lbs at $7.50/lb. How much of each?", "gold_answer": "15,15"}
-{"question": "A toy costs $40 after a 20% discount. What was the original price?", "gold_answer": "50"}
-{"question": "A school spends 12% of its budget on art and this equals $54,000. What is the total budget?", "gold_answer": "450000"}
-{"question": "A student buys 4 notebooks at $3.50 each and a binder for $12.50. If he pays with $40, how much change?", "gold_answer": "10"}
-{"question": "A bus travels 240 miles at 60 mph and returns at 40 mph. What is the average speed?", "gold_answer": "48"}
-{"question": "A bakery makes 540 cookies. They sell 1/3 and donate 40% of the remainder. How many are left?", "gold_answer": "216"}
-{"question": "A garden is divided into 5 sections in ratio 3:4:5:6:2. If total area is 500 m², how large is the largest section?", "gold_answer": "150"}
-{"question": "A student solves 144 problems, which is 80% of all assigned. How many were assigned?", "gold_answer": "180"}
-{"question": "A store marks up items from $25 to $40. What percent markup is this?", "gold_answer": "60"}
-{"question": "A family spends $840 on rent, which is 35% of their income. What is their income?", "gold_answer": "2400"}
-{"question": "A car uses 10 gallons to travel 270 miles. How many gallons are needed for 405 miles?", "gold_answer": "15"}
-{"question": "A manufacturer reduces defects by 25%, then by another 20%, ending with 180 defects. How many were there originally?", "gold_answer": "300"}
-{"question": "A class has 50 students. 60% pass a test; 30% of those who pass earn A’s. How many earn A’s?", "gold_answer": "9"}
-{"question": "A company increases salaries by 12%, then again by 8%. If the final salary is $30,240, what was the original?", "gold_answer": "24000"}
-{"question": "A student averages 87 on five tests. If her first four scores are 82, 90, 85, 89, what is her fifth score?", "gold_answer": "89"}
-{"question": "A store sells boxes of cereal at 3 for $11.50. How much for 8 boxes?", "gold_answer": "30.666666666666664"}
-{"question": "A piping system delivers 50 L/min for 30 min, then 30 L/min for 45 min. Total water delivered?", "gold_answer": "2850"}
-{"question": "A club has 84 members. 2/7 are seniors and 25% of seniors play chess. How many seniors play chess?", "gold_answer": "6"}
-{"question": "A car travels 280 miles at 70 mph, then 120 miles at 40 mph. Total travel time?", "gold_answer": "6"}
-{"question": "A baker uses 3/8 of her 64 kg of flour, then 1/4 of the remainder. How much flour remains?", "gold_answer": "30"}
-{"question": "A pool drains 20% of 800 liters, then 150 liters are added. How much water is in the pool?", "gold_answer": "790"}
-{"question": "A rope is cut into pieces in ratio 4:5. If the longer piece is 45 m, how long is the shorter?", "gold_answer": "36"}
-{"question": "A store sells pens at 6 for $5.40. How much for 25 pens?", "gold_answer": "22.5"}
-{"question": "A company sells 600 items. 30% are premium; 15% of premium are returned. How many premium items are kept?", "gold_answer": "153"}
-{"question": "A school cafeteria prepares 900 meals. 40% are vegetarian and 30% of those vegetarian meals are vegan. How many vegan meals?", "gold_answer": "108"}
-{"question": "A student reads 25 pages/day for 8 days and 30 pages/day for 7 days. How many total pages?", "gold_answer": "410"}
-{"question": "A school has 480 students. 35% join art club, and 30% of those also join music club. How many students join both?", "gold_answer": "50"}
-{"question": "A bookstore sells notebooks at $4 each or 3 for $10. If a teacher buys 21 notebooks, what is the minimum cost?", "gold_answer": "70"}
-{"question": "A tank holds 840 liters when full. It is currently 3/7 full. How many liters must be added to fill it?", "gold_answer": "480"}
-{"question": "A gardener plants flowers in ratio 5:3:2. If 500 flowers are planted, how many are in the smallest group?", "gold_answer": "100"}
-{"question": "A bike trip is 45 miles long. A cyclist travels 15 miles at 12 mph and the rest at 9 mph. How long does the trip take?", "gold_answer": "4.5"}
-{"question": "A factory produces 240 parts/hour for 5 hours and then 300 parts/hour for 3 hours. How many parts are produced?", "gold_answer": "2100"}
-{"question": "A student solves 180 math problems, which is 60% of all assigned. How many were assigned?", "gold_answer": "300"}
-{"question": "A school band has 72 members. 3/8 play woodwinds, and 2/5 of woodwinds play flute. How many flute players?", "gold_answer": "13"}
-{"question": "A truck travels 120 miles at 40 mph and 180 miles at 60 mph. What is the total travel time?", "gold_answer": "5"}
-{"question": "A $200 coat is discounted 20%, then an additional 15%. What is the final price?", "gold_answer": "136"}
-{"question": "A library buys 360 books: 1/3 are fiction, 1/4 of fiction are mysteries. How many mysteries?", "gold_answer": "30"}
-{"question": "A chef mixes nuts costing $6/lb and $12/lb to produce 40 lbs costing $9/lb. How many lbs of $12 nuts are used?", "gold_answer": "20"}
-{"question": "A car uses 8 gallons to travel 224 miles. How many gallons are needed for 336 miles?", "gold_answer": "12"}
-{"question": "A jogger runs 6 miles at 8 mph and 4 miles at 5 mph. What is average speed?", "gold_answer": "6.315789473684211"}
-{"question": "A shop sells pens 5 for $4.25. How much for 28 pens?", "gold_answer": "23.8"}
-{"question": "A class of 36 students has 1/4 boys. Half the boys play soccer. How many play soccer?", "gold_answer": "4"}
-{"question": "A machine makes 500 items/day. Production increases 30% for 12 days. How many items total in those 12 days?", "gold_answer": "7800"}
-{"question": "A farm has 450 animals. 30% are cows, 20% pigs, and the rest chickens. How many chickens?", "gold_answer": "225"}
-{"question": "A painter uses 3/8 of 64 liters of paint, then another 1/4 of what's left. How much remains?", "gold_answer": "30"}
-{"question": "A family spends 40% of income on rent ($1200). What is the total income?", "gold_answer": "3000"}
-{"question": "A bicycle originally $180 is discounted 30%, then 10% off the discounted price. Final price?", "gold_answer": "113.4"}
-{"question": "A recipe uses sugar and flour in ratio 2:7. If 56 cups of flour are used, how much sugar?", "gold_answer": "16"}
-{"question": "A truck holds 18 boxes per row. If 720 boxes must be loaded, how many rows?", "gold_answer": "40"}
-{"question": "A train travels 210 miles at 70 mph and 70 miles at 35 mph. Average speed?", "gold_answer": "52.5"}
-{"question": "A school has 350 students. 80 join robotics, 45% of them are girls. How many girls in robotics?", "gold_answer": "36"}
-{"question": "A pool fills at 40 L/min for 20 minutes and 25 L/min for 30 minutes. Total liters added?", "gold_answer": "1850"}
-{"question": "A café sold 2/5 of its 900 pastries, then half of the remainder. How many pastries remain?", "gold_answer": "270"}
-{"question": "A clothing shop marks up shirts from $25 to $40. What percent increase is this?", "gold_answer": "60"}
-{"question": "A student reads 18 pages/day for 10 days, then 25/day for 6 days. Pages read total?", "gold_answer": "330"}
-{"question": "A car depreciates 15% one year and 10% the next. If it is worth $18,360 now, original price?", "gold_answer": "24000"}
-{"question": "A travel package costs $1200 but includes a 25% discount followed by 8% tax. What is the final price?", "gold_answer": "972"}
-{"question": "A gym has 600 members. 40% attend morning workouts and 30% of them take yoga. How many take yoga?", "gold_answer": "72"}
-{"question": "A runner completes a marathon in two segments: 14 miles at 7 mph and 12.2 miles at 5 mph. Total time?", "gold_answer": "4.44"}
-{"question": "A grocer buys apples at $0.60 each and sells at $1.00. If he sells 900 apples, profit?", "gold_answer": "360"}
-{"question": "A school orders 960 books in ratio 5:3:4 for subjects A,B,C. How many for subject C?", "gold_answer": "320"}
-{"question": "A 72-inch rope is cut into pieces with lengths in ratio 6:3:5. Shortest piece length?", "gold_answer": "15"}
-{"question": "A movie theater seats 420 and fills 75%. If 1/6 of filled seats are VIP, how many VIPs?", "gold_answer": "52.5"}
-{"question": "A warehouse can stack 48 boxes per shelf. If it stores 2016 boxes, how many shelves?", "gold_answer": "42"}
-{"question": "A student answers 85% of 200 questions correctly. If she improves accuracy by 10 points on next 100 questions, total correct?", "gold_answer": "245"}
-{"question": "A machine makes 90 items in 15 minutes. How many in 2 hours?", "gold_answer": "720"}
-{"question": "A farmer divides 300 acres in ratio 4:3:2. How many acres in the smallest portion?", "gold_answer": "60"}
-{"question": "A car travels 180 miles at 45 mph and returns 180 miles at 60 mph. Average speed?", "gold_answer": "51.43"}
-{"question": "A store has 450 items. It sells 30% in week 1 and 40% of remaining in week 2. Items left?", "gold_answer": "189"}
-{"question": "A student gets test scores 82, 91, 87, 78. What fifth score is needed for average 85?", "gold_answer": "87"}
-{"question": "A store sells oranges 3 lbs for $4.50. How much for 11 lbs?", "gold_answer": "16.5"}
-{"question": "A tank drains 20% of 600 liters, then loses 90 more liters. How much remains?", "gold_answer": "390"}
-{"question": "A boutique discounts a dress from $200 by 40% and then 25%. Final price?", "gold_answer": "90"}
-{"question": "A bus completes 150 miles at 50 mph and 180 miles at 60 mph. Total travel time?", "gold_answer": "6"}
-{"question": "A school buys tablets at $250 each. A bulk deal gives 15% discount. How much for 40 tablets?", "gold_answer": "8500"}
-{"question": "A student spends 45 min/day reading for 20 days and 60 min/day for 10 days. Total hours?", "gold_answer": "27"}
-{"question": "A shop sells candy in ratio 7:5:4 of flavors A,B,C. If there are 640 candies, how many are flavor B?", "gold_answer": "200"}
-{"question": "A container holds 3/5 of capacity at 72 liters. Full capacity?", "gold_answer": "120"}
-{"question": "A formula returns 8% of income as tax, which equals $384. What is the income?", "gold_answer": "4800"}
-{"question": "A café sells sandwiches at $6 or 4 for $20. If someone buys 24 sandwiches, minimum cost?", "gold_answer": "120"}
-{"question": "A car uses 12 gallons for 300 miles. How many gallons for 550 miles?", "gold_answer": "22"}
-{"question": "A factory reduces defects by 20% then another 15%. If now 408 remain, original number?", "gold_answer": "600"}
-{"question": "A book has 360 pages. Student reads 1/3 first day, 1/4 next day, and 40 pages third day. Pages left?", "gold_answer": "100"}
-{"question": "A student solves 3/4 of 240 problems and gets 10% of those wrong. How many correct?", "gold_answer": "162"}
-{"question": "A cooking recipe uses 4 parts oil to 7 parts vinegar. If 91 ounces total mixture, how much oil?", "gold_answer": "28"}
-{"question": "A highway toll increases from $3 to $4.20. Percent increase?", "gold_answer": "40"}
-{"question": "A toy discounted 25% costs $54. Original price?", "gold_answer": "72"}
-{"question": "A machine outputs 600 parts/day. If output increases 30% for 5 days, how many parts produced?", "gold_answer": "3900"}
-{"question": "A runner jogs 8 miles at 6 mph and 4 miles at 4 mph. Average speed?", "gold_answer": "5.14"}
-{"question": "A store sells gift bags for $3 or 5 for $12. If someone buys 27 bags, minimum cost?", "gold_answer": "64"}
-{"question": "A company manufactures 1400 items. 1/4 fail testing and 15% of remaining are reworked. How many pass without rework?", "gold_answer": "892"}
-{"question": "A gardener plants shrubs in rows of 14. If she plants 980 shrubs, number of rows?", "gold_answer": "70"}
-{"question": "A store buys items for $18 and sells for $25. If 360 items sold, profit?", "gold_answer": "2520"}
-{"question": "A truck carries 48 boxes per trip. If 1,200 boxes must be moved, trips needed?", "gold_answer": "25"}
-{"question": "A school has 960 students. 3/8 are in sports and 20% of sports join choir. How many join choir?", "gold_answer": "72"}
-{"question": "A container drains 45 liters which is 3/10 of its contents. What was full amount?", "gold_answer": "150"}
-{"question": "A bike rental costs $12/hour. A customer rents for 3.5 hours and gets 20% discount. Total cost?", "gold_answer": "33.6"}
-{"question": "A car travels 320 miles at 80 mph and 180 miles at 60 mph. Average speed?", "gold_answer": "71.11"}
-{"question": "A warehouse stores boxes in ratio 4:5 of small to large. If there are 720 boxes, how many small?", "gold_answer": "320"}
-{"question": "A tank fills 30 L/min for 25 min, then 20 L/min for 20 min. Total volume added?", "gold_answer": "1150"}
-{"question": "A class of 40 has 60% girls; 25% of girls take art. How many take art?", "gold_answer": "6"}
-{"question": "A store sells 6 apples for $4.20. How much for 17 apples?", "gold_answer": "11.9"}
-{"question": "A factory produces 180 units/hour for 7 hours, then increases production by 20% for 3 hours. Total produced?", "gold_answer": "1536"}
-{"question": "A bag has marbles in ratio 9:6:5. If there are 400 marbles, how many are the second color?", "gold_answer": "120"}
-{"question": "A runner completes 10 km at 8 km/h and 6 km at 6 km/h. Total time?", "gold_answer": "2.5"}
-{"question": "A school buys 48 laptops at $520 each but gets 15% off. Total cost?", "gold_answer": "21216"}
-{"question": "A bakery sells cupcakes at 3 for $5.40. How much for 22 cupcakes?", "gold_answer": "39.6"}
-{"question": "A bus travels 200 miles at 50 mph and returns at 40 mph. Total travel time?", "gold_answer": "9"}
-{"question": "A student writes 28 essays, 3/7 are narrative and 1/4 of narrative essays win awards. How many awards?", "gold_answer": "3"}
-{"question": "A park has 450 trees. 40% are oak, 30% maple, rest pine. How many pine?", "gold_answer": "135"}
-{"question": "A gym increases membership from 420 to 525. Percent increase?", "gold_answer": "25"}
-{"question": "A machine makes 75 items in 10 minutes. How many in 1 hour?", "gold_answer": "450"}
-{"question": "A student reads 45 pages/day for 8 days, then 60 pages/day for 5 days. How many pages total?", "gold_answer": "660"}
-{"question": "A warehouse has 540 crates. 2/3 are electronics, and 25% of electronics are TVs. How many crates contain TVs?", "gold_answer": "90"}
-{"question": "A car travels 96 miles at 48 mph and 150 miles at 75 mph. What is the total travel time?", "gold_answer": "4"}
-{"question": "A shop discounts a $120 jacket by 30%, then applies 10% tax. What is the final price?", "gold_answer": "92.4"}
-{"question": "A school cafeteria prepares 480 meals. 5/8 are vegetarian and 1/3 of vegetarian meals are vegan. How many vegan meals?", "gold_answer": "100"}
-{"question": "A runner completes 12 miles: 6 at 8 mph and 6 at 6 mph. What is his average speed?", "gold_answer": "6.857142857142857"}
-{"question": "A pet shelter has dogs and cats in ratio 5:7. If there are 168 animals, how many are dogs?", "gold_answer": "60"}
-{"question": "A bicycle originally costs $320. A store discounts it 25% then 20%. What is the final price?", "gold_answer": "192"}
-{"question": "A gardener plants 840 seeds. 3/4 germinate, and 2/5 of those become mature plants. How many mature plants?", "gold_answer": "252"}
-{"question": "A train travels 180 miles at 60 mph then 120 miles at 40 mph. What is the average speed?", "gold_answer": "48"}
-{"question": "A school enrolls 720 students. 30% join sports, and 40% of those join track. How many join track?", "gold_answer": "86"}
-{"question": "A company buys 500 devices at $24 each and sells them at a 35% profit. What is total revenue?", "gold_answer": "16200"}
-{"question": "A baker uses 2/7 of 210 lbs of flour, then another 1/4 of what remains. How much flour is left?", "gold_answer": "105"}
-{"question": "A store sells pens at 4 for $3.20. How much for 30 pens?", "gold_answer": "24"}
-{"question": "A student earns 88%, 92%, 81% on three tests weighted 2,3,1 respectively. What is the weighted average?", "gold_answer": "88.83333333333333"}
-{"question": "A café sells muffins at $2.50 each or 5 for $10. If someone buys 23 muffins, what is the minimum cost?", "gold_answer": "46"}
-{"question": "A car uses 9 gallons to travel 270 miles. How many gallons for 495 miles?", "gold_answer": "16.5"}
-{"question": "A train leaves City A at 90 mph. Two hours later, another leaves City B at 110 mph. If cities are 560 miles apart, how long until they meet?", "gold_answer": "2.8"}
-{"question": "A class of 28 students has 3/4 girls. 1/3 of girls play violin. How many play violin?", "gold_answer": "7"}
-{"question": "A machine makes 600 bolts/day for 8 days and then increases output by 20% for 6 more days. How many bolts total?", "gold_answer": "9360"}
-{"question": "A recipe uses sugar and flour in ratio 3:8. If 48 cups of flour are used, how much sugar?", "gold_answer": "18"}
-{"question": "A park has 420 trees. 2/5 are pine, 1/3 maple, rest oak. How many oak trees?", "gold_answer": "126"}
-{"question": "A store marks up items from $40 to $62. What is the percent increase?", "gold_answer": "55"}
-{"question": "A cycler travels 32 miles at 16 mph and 18 miles at 9 mph. Average speed?", "gold_answer": "12"}
-{"question": "A student completes 150 problems, which is 75% of assigned. How many assigned?", "gold_answer": "200"}
-{"question": "A store buys 400 mugs at $3 each and sells them for $4.50. What is total profit?", "gold_answer": "600"}
-{"question": "A machine produces 180 units/hour for 9 hours, then 150 units/hour for 6 hours. Total units?", "gold_answer": "3150"}
-{"question": "A hiker goes 9 miles at 3 mph and 12 miles at 4 mph. Total time?", "gold_answer": "5.75"}
-{"question": "A bookstore sells 27 books at $15 each and 18 at $12 each. What is total revenue?", "gold_answer": "621"}
-{"question": "A warehouse stores 960 boxes in ratio 5:4:3. How many in the smallest category?", "gold_answer": "240"}
-{"question": "A truck drains 20% of a 500 L tank, then 60 L more. How many liters left?", "gold_answer": "340"}
-{"question": "A factory increases production from 1200 to 1620. Percent increase?", "gold_answer": "35"}
-{"question": "A runner travels 14 miles at 7 mph and 7 miles at 7 mph. What is travel time?", "gold_answer": "3"}
-{"question": "A school sells lunch tickets for $4.50 or 5 for $20. Minimum cost for 38 tickets?", "gold_answer": "152"}
-{"question": "A store buys chairs for $30 and sells for $48. If 250 chairs sold, profit?", "gold_answer": "4500"}
-{"question": "A student reads 280 pages in 7 days. If he doubles daily rate, how many pages in 5 days?", "gold_answer": "400"}
-{"question": "A tank fills at 20 L/min for 30 min, then at 35 L/min for 20 min. Total liters?", "gold_answer": "1250"}
-{"question": "A bakery makes 672 rolls. 3/7 are wheat, 1/4 of wheat are seeded. Seeded rolls?", "gold_answer": "72"}
-{"question": "A store discounts a $240 item by 40% then 15%. Final price?", "gold_answer": "122.4"}
-{"question": "A café sells tea for $3.75 and coffee for $4.50. If 180 drinks sold and revenue is $720, how many coffees?", "gold_answer": "60"}
-{"question": "A school prints 1800 flyers. 40% distributed on Monday, and 25% of remaining on Tuesday. Flyers left?", "gold_answer": "810"}
-{"question": "A road trip is 240 miles. Car goes 120 miles at 60 mph, 120 at 30 mph. Average speed?", "gold_answer": "40"}
-{"question": "A company makes 540 parts. 1/3 fail inspection, 10% of remaining need rework. Good parts?", "gold_answer": "324"}
-{"question": "A student scores 84, 90, 78, 92. What is fifth score needed for 88 average?", "gold_answer": "96"}
-{"question": "A shop sells apples at 5 lbs for $8. What is cost of 17.5 lbs?", "gold_answer": "28"}
-{"question": "A train travels 120 miles at 60 mph and 210 miles at 70 mph. What is average speed?", "gold_answer": "66"}
-{"question": "A school enrolls 540 students: 1/3 in band, 1/6 in choir, rest in sports. How many in sports?", "gold_answer": "270"}
-{"question": "A container is 3/5 full with 84 liters. Full capacity?", "gold_answer": "140"}
-{"question": "A machine makes 200 items in 25 minutes. Items in 2 hours?", "gold_answer": "960"}
-{"question": "A student runs 10 laps at 2 min each, then 8 laps at 3 min each. Total time?", "gold_answer": "44"}
-{"question": "A store buys jeans for $28, sells for $45. If 320 jeans sold, revenue?", "gold_answer": "14400"}
-{"question": "A gardener divides a 300 m² plot in ratio 3:5:2. How big is the largest section?", "gold_answer": "150"}
-{"question": "A cyclist rides 40 miles at 10 mph and 20 miles at 6 mph. Total time?", "gold_answer": "7.333333333333333"}
-{"question": "A pool contains 840 L. It loses 15% overnight, then 90 L more. Remaining?", "gold_answer": "624"}
-{"question": "A recipe calls for 4 cups sugar per 7 cups flour. If 56 cups flour used, sugar needed?", "gold_answer": "32"}
-{"question": "A hiker travels 24 miles: 8 at 4 mph, 16 at 2 mph. Travel time?", "gold_answer": "12"}
-{"question": "A store buys 180 shirts at $12 and sells for $18. Profit?", "gold_answer": "1080"}
-{"question": "A machine outputs 75 units every 10 minutes. Output in 3 hours?", "gold_answer": "1350"}
-{"question": "A school band has 90 members. 2/5 play brass, 1/4 of brass play trumpet. Trumpet players?", "gold_answer": "9"}
-{"question": "A shop sells oranges at 4 lbs for $6. How much for 19 lbs?", "gold_answer": "28.5"}
-{"question": "A bus travels 300 miles at 75 mph then 120 miles at 40 mph. Average speed?", "gold_answer": "60"}
-{"question": "A tank drains 180 liters, which is 3/10 of full capacity. What is full capacity?", "gold_answer": "600"}
-{"question": "A bakery makes 1500 cookies. 40% chocolate chip, 35% oatmeal, rest sugar. Sugar cookies?", "gold_answer": "375"}
-{"question": "A student reads 360 pages in 6 days. If he increases rate by 25%, pages read in 5 days?", "gold_answer": "375"}
-{"question": "A store mixes nuts at $8/lb and $12/lb to get 60 lbs costing $10/lb. How many lbs of $12 nuts?", "gold_answer": "30"}
-{"question": "A cyclist rides 15 miles at 10 mph and 15 miles at 5 mph. Average speed?", "gold_answer": "6.666666666666667"}
-{"question": "A company’s revenue increases from $480k to $588k. Percent increase?", "gold_answer": "22.5"}
-{"question": "A school prints 2400 flyers. 45% distributed, then 30% of remaining. Flyers left?", "gold_answer": "924"}
-{"question": "A machine makes 150 units/hour. After upgrade it makes 195. Percent increase?", "gold_answer": "30"}
-{"question": "A baker uses 2/9 of 270 lbs flour, then another 1/4 of remainder. Flour left?", "gold_answer": "150"}
-{"question": "A container holds 75 liters, which is 3/5 of capacity. Full capacity?", "gold_answer": "125"}
-{"question": "A store sells boxes for $3 or 5 for $13. Minimum cost for 27 boxes?", "gold_answer": "68"}
-{"question": "A car travels 180 miles at 60 mph and 90 miles at 45 mph. Total time?", "gold_answer": "5"}
-{"question": "A runner jogs 12 miles: 4 at 6 mph, 8 at 4 mph. Average speed?", "gold_answer": "4.8"}
-{"question": "A hotel has 360 rooms. 5/9 are occupied, and 20% of unoccupied are being cleaned. How many are being cleaned?", "gold_answer": "32"}
-{"question": "A bus makes $8 per ticket. If revenue is $1960, how many tickets sold?", "gold_answer": "245"}
-{"question": "A factory produces 900 units/day. Output increases 25% for 8 days. Extra units produced?", "gold_answer": "1800"}
-{"question": "A student purchases 6 books at $12.50 each and 3 at $9.75. Total cost?", "gold_answer": "112.25"}
-{"question": "A class has 48 students. 1/3 take piano, 1/2 take guitar, 6 take both. How many take neither?", "gold_answer": "14"}
-{"question": "A container loses 28 liters, which is 1/7 of the water. How much water originally?", "gold_answer": "196"}
-{"question": "A worker finishes 180 tasks. He completed 60% in the morning. How many in the afternoon?", "gold_answer": "72"}
-{"question": "A student scores 90, 85, 92, 88. Needed 5th score for average 90?", "gold_answer": "95"}
-{"question": "A baker sells 3 muffins for $5.40. How much for 17 muffins?", "gold_answer": "30.6"}
-{"question": "A school has 540 students. 3/5 participate in sports, and 30% of those join basketball. How many join basketball?", "gold_answer": "97"}
-{"question": "A store sells candles at 4 for $7.20. How much would 26 candles cost?", "gold_answer": "46.8"}
-{"question": "A library classifies 1200 books: 45% fiction, 30% non-fiction, rest reference. How many reference books?", "gold_answer": "300"}
-{"question": "A runner completes 15 miles: 9 at 6 mph and 6 at 4 mph. What is the total time?", "gold_answer": "3.5"}
-{"question": "A tank holds 420 liters. It is drained by 25% and then loses 70 more liters. How many liters remain?", "gold_answer": "245"}
-{"question": "A baker uses flour in ratio sugar:flour = 3:8. If sugar is 27 cups, how much flour?", "gold_answer": "72"}
-{"question": "A gym membership increases from $48/month to $60/month. What percent increase is this?", "gold_answer": "25"}
-{"question": "A tourist walks 6 miles at 3 mph and 4 miles at 2 mph. What is his average speed?", "gold_answer": "2.4"}
-{"question": "A toy factory makes 900 toys/day for 12 days, then increases production by 20% for the next 8 days. How many toys total?", "gold_answer": "19680"}
-{"question": "A truck travels 300 miles at 75 mph and 160 miles at 40 mph. What is the total time?", "gold_answer": "7"}
-{"question": "A store mixes cereals costing $4/lb and $7/lb to form 60 lbs at $5.80/lb. How many lbs of $7 cereal?", "gold_answer": "24"}
-{"question": "A class of 42 students has 3/7 girls. Half of the girls play violin. How many girls play violin?", "gold_answer": "9"}
-{"question": "A pool contains 1600 liters. It loses 12% overnight, then 90 liters more. How many liters remain?", "gold_answer": "1318"}
-{"question": "A bakery sells cupcakes at 3 for $4.80. How much for 29 cupcakes?", "gold_answer": "46.4"}
-{"question": "A student gets 75, 83, 91, 89 on tests. What fifth score is needed for average 86?", "gold_answer": "92"}
-{"question": "A hiker travels 24 miles: 12 at 4 mph and 12 at 3 mph. What is average speed?", "gold_answer": "3.43"}
-{"question": "A restaurant orders 720 tomatoes. 40% used Monday, 25% of remaining Tuesday. How many left?", "gold_answer": "324"}
-{"question": "A train travels 180 miles at 60 mph and 200 miles at 50 mph. What is average speed?", "gold_answer": "54.55"}
-{"question": "A car uses 12 gallons to go 360 miles. How many gallons are needed for 540 miles?", "gold_answer": "18"}
-{"question": "A box has marbles in ratio 6:5:4. If total is 450, how many are of the smallest color?", "gold_answer": "120"}
-{"question": "A gardener plants 648 shrubs in rows of 18. How many rows needed?", "gold_answer": "36"}
-{"question": "A store buys mugs for $6 and sells for $9. If 850 mugs sold, what is total profit?", "gold_answer": "2550"}
-{"question": "A student reads 50 pages/day for 6 days, then 70 pages/day for 4 days. Total pages?", "gold_answer": "620"}
-{"question": "A tent rental costs $95/day plus $8 setup fee. How much for 6 days?", "gold_answer": "578"}
-{"question": "A bike trip is 90 miles: 50 at 25 mph and 40 at 20 mph. Total travel time?", "gold_answer": "4.5"}
-{"question": "A class has 36 students. 1/4 take piano, 1/3 take guitar, and 6 take both. How many take neither?", "gold_answer": "17"}
-{"question": "A container is 3/8 full with 54 liters. Full capacity?", "gold_answer": "144"}
-{"question": "A company’s revenue increases from $320k to $400k. Percent increase?", "gold_answer": "25"}
-{"question": "A school sells 5 raffle tickets for $12. If 48 tickets sold, revenue?", "gold_answer": "115.2"}
-{"question": "A truck holds 56 boxes per trip. How many trips for 1512 boxes?", "gold_answer": "27"}
-{"question": "A machine makes 160 units/hour for 9 hours and 200/hour for 6 hours. Total units?", "gold_answer": "3240"}
-{"question": "A runner goes 18 miles: half at 9 mph and half at 6 mph. What is total time?", "gold_answer": "2.5"}
-{"question": "A recipe calls for flour:sugar = 5:3. If flour is 85 cups, how much sugar?", "gold_answer": "51"}
-{"question": "A store discounts a $150 coat by 35%, then 10% more. Final price?", "gold_answer": "87.75"}
-{"question": "A city bus sells 210 tickets at $2.40 each. Revenue?", "gold_answer": "504"}
-{"question": "A pool fills 40 L/min for 18 min, then 25 L/min for 30 min. Total liters?", "gold_answer": "1620"}
-{"question": "A student solves 80% of 300 problems, but 15% of solved are wrong. How many correct?", "gold_answer": "204"}
-{"question": "A toy box contains items in ratio 7:5:3. If there are 300 toys, how many belong to the middle group?", "gold_answer": "100"}
-{"question": "A car travels 120 miles at 40 mph, then 180 miles at 60 mph. Average speed?", "gold_answer": "50"}
-{"question": "A store buys 540 shirts at $18 and sells at $27. Profit?", "gold_answer": "4860"}
-{"question": "A ferry travels 42 miles at 14 mph and 36 miles at 12 mph. Travel time?", "gold_answer": "6"}
-{"question": "A bike rental charges $15 per hour. If someone rents for 3.5 hours with 20% off, what is cost?", "gold_answer": "42"}
-{"question": "A bakery produces 1440 loaves weekly. Demand increases 25%. New production?", "gold_answer": "1800"}
-{"question": "A student runs 20 laps: 10 laps at 2 min/lap, 10 at 3 min/lap. Total time?", "gold_answer": "50"}
-{"question": "A warehouse stores 1500 boxes: 30% small, 1/4 medium, rest large. How many large boxes?", "gold_answer": "825"}
-{"question": "A school uses 240 markers. 3/5 used Monday, 50 of remaining Tuesday. How many left?", "gold_answer": "46"}
-{"question": "A gardener mixes soil types at $5/bag and $9/bag to make 80 bags at $7/bag. How many $9 bags?", "gold_answer": "40"}
-{"question": "A toy set costs $18 after a 25% discount. Original price?", "gold_answer": "24"}
-{"question": "A truck travels 162 miles at 54 mph and 108 miles at 36 mph. Average speed?", "gold_answer": "45"}
-{"question": "A school buys 24 tablets at $230 each with 15% bulk discount. Total cost?", "gold_answer": "4692"}
-{"question": "A student reads 420 pages in 7 days. If he reads 25% more daily, how many pages in 5 days?", "gold_answer": "375"}
-{"question": "A fruit shop sells apples at 4 lbs for $6. How much for 18 lbs?", "gold_answer": "27"}
-{"question": "A class collects 480 cans. 35% collected Monday, 45% of remaining Tuesday. How many collected Tuesday?", "gold_answer": "140"}
-{"question": "A truck unloads 18% of 1250 kg, then 130 kg more. How much remains?", "gold_answer": "895"}
-{"question": "A student hikes 10 miles at 5 mph and 6 miles at 3 mph. Total time?", "gold_answer": "4"}
-{"question": "A store sells notebooks at 5 for $11. How much for 37 notebooks?", "gold_answer": "81.4"}
-{"question": "A bus travels 288 miles: 144 at 36 mph and 144 at 48 mph. Average speed?", "gold_answer": "41.14"}
-{"question": "A tank is 3/4 full with 96 liters. How many liters does it hold full?", "gold_answer": "128"}
-{"question": "A factory reduces defects by 30% then 20%. If 392 remain, original number?", "gold_answer": "700"}
-{"question": "A recipe uses 2/5 of 350 grams of sugar, then 40 grams more. How much used?", "gold_answer": "180"}
-{"question": "A toy car travels 15 miles at 10 mph and 10 miles at 5 mph. Average speed?", "gold_answer": "7.5"}
-{"question": "A company sells 900 items at $14 each. Production cost is $8 per item. Profit?", "gold_answer": "5400"}
-{"question": "A swimming pool contains 2500 liters. It loses 18%, then 150 liters more. Remaining?", "gold_answer": "1900"}
-{"question": "A trip is 300 miles: first 120 at 60 mph, rest at 40 mph. Total time?", "gold_answer": "6.5"}
-{"question": "A store buys 60 laptops at $500 each. Selling price is 25% higher. Total revenue?", "gold_answer": "37500"}
-{"question": "A gardener waters 90 plants daily. 3/10 wilt, 2/3 of remaining bloom. How many bloom?", "gold_answer": "42"}
-{"question": "A store sells soda at 3 for $4.50. How much for 22 sodas?", "gold_answer": "33"}
-{"question": "A book has 480 pages. Reader finishes 1/3 first day, 120 next day. Pages left?", "gold_answer": "200"}
-{"question": "A cyclist travels 28 miles at 14 mph and 14 miles at 7 mph. Travel time?", "gold_answer": "4"}
-{"question": "A school hires 75 tutors. 40% teach math, 1/3 of math tutors teach algebra. How many teach algebra?", "gold_answer": "10"}
-{"question": "A baker makes 1800 cookies. 40% chocolate chip, 30% oatmeal, rest sugar. Sugar cookies?", "gold_answer": "540"}
-{"question": "A car depreciates 20% one year, 10% next year. Current value $28,800. Original value?", "gold_answer": "40000"}
-{"question": "A chef uses flour in ratio 7:5 with sugar. If sugar is 35 cups, flour needed?", "gold_answer": "49"}
-{"question": "A hotel booked 270 rooms. 3/10 check out, and 25 new guests check in. Rooms occupied now?", "gold_answer": "214"}
-{"question": "A worker completes 65% of 480 tasks, then 40 more. How many completed?", "gold_answer": "352"}
-{"question": "A store sells 640 tickets. 25% morning, 45% of remaining afternoon. Tickets left?", "gold_answer": "264"}
-{"question": "A farm has 840 chickens. 3/7 hens, 2/5 of hens lay eggs. How many lay eggs?", "gold_answer": "144"}
-{"question": "A windmill produces 240 kWh/day. Output rises 20% for 15 days. Extra energy?", "gold_answer": "720"}
-{"question": "A student’s average of four tests is 87. Scores: 91, 84, 88. What is the fourth?", "gold_answer": "85"}
-{"question": "A sports club has 350 members: 2/7 teens, 1/5 teens do swimming. Teen swimmers?", "gold_answer": "20"}
-{"question": "A toy store buys puzzles for $7 and sells at $12. If 420 sold, revenue?", "gold_answer": "5040"}
-{"question": "A machine produces 75 bolts every 6 minutes. Bolts in 2 hours?", "gold_answer": "1500"}
-{"question": "A runner completes 30 miles: 18 at 6 mph and 12 at 4 mph. Average speed?", "gold_answer": "5"}
-{"question": "A student writes 48 essays. 3/8 narrative, 1/3 of narrative win awards. Awards?", "gold_answer": "6"}
-{"question": "A bakery sells bagels at 5 for $6.75. How much for 32 bagels?", "gold_answer": "43.2"}
-{"question": "A movie theater seats 560. It fills 80%, and 15% of filled are VIP. VIP count?", "gold_answer": "67"}
+{"question": "A tank is 2/3 full with 160 liters of water. How many liters does the tank hold when full?", "gold_answer": "240"},
+{"question": "A car travels 180 miles at 60 miles per hour, then another 150 miles at 50 miles per hour. What is its average speed for the trip?", "gold_answer": "55"},
+{"question": "A farmer harvested 240 apples. He sold 3/5 of them at the market and gave 1/4 of the remainder to a neighbor. How many apples does he have left?", "gold_answer": "72"},
+{"question": "A bookstore had 350 books. They sold 40% of them in the morning and 30% of the remainder in the afternoon. How many books were sold in total?", "gold_answer": "203"},
+{"question": "A class has 28 students. 3/7 of them bring lunch from home, and 1/2 of the remaining students buy lunch at school. How many students buy lunch at school?", "gold_answer": "8"},
+{"question": "A store increases the price of an item from $80 by 25% and then discounts the new price by 20%. What is the final price?", "gold_answer": "80"},
+{"question": "A chef makes 180 cookies. He sells 45%, gives 1/3 of the remainder to neighbors, and keeps the rest. How many cookies does he keep?", "gold_answer": "66"},
+{"question": "A train leaves Station A toward Station B at 70 mph. Another train leaves Station B toward Station A at 50 mph. The stations are 360 miles apart. How long until the trains meet?", "gold_answer": "3"},
+{"question": "A school buys markers in packs of 16. They need at least 250 markers. What is the minimum number of packs they must buy?", "gold_answer": "16"},
+{"question": "A book club has 48 members. 1/3 are teachers, and 1/4 of the teachers lead meetings. How many teachers lead meetings?", "gold_answer": "4"},
+{"question": "A baker uses 3/8 cup of sugar per batch of muffins. How many batches can she make with 9 cups of sugar?", "gold_answer": "24"},
+{"question": "A rectangle has perimeter 72 cm. The length is twice the width. What is the area?", "gold_answer": "288"},
+{"question": "A cyclist rides uphill at 8 mph and downhill at 16 mph. If each segment is 12 miles, what is his average speed for the round trip?", "gold_answer": "10.67"},
+{"question": "A jar contains quarters (25¢) and dimes (10¢). If there are 70 coins totaling $11.50, how many quarters are there?", "gold_answer": "30"},
+{"question": "A student scores 82, 91, 76 on three tests. What must he score on the fourth test to average 85?", "gold_answer": "91"},
+{"question": "A bag contains red, blue, and green marbles in ratio 4:5:6. If there are 75 marbles in total, how many are blue?", "gold_answer": "25"},
+{"question": "A painter uses 2/5 of a bucket of paint and then 1/2 of what remains. If 18 liters are left, how many liters were originally in the bucket?", "gold_answer": "60"},
+{"question": "A store sells apples at $3/lb and bananas at $2/lb. If Maya buys 6 pounds of apples and some bananas for $30 total, how many pounds of bananas did she buy?", "gold_answer": "6"},
+{"question": "A library has 540 books. 3/10 are fiction, and 1/6 of the fiction books are mysteries. How many mystery books are there?", "gold_answer": "27"},
+{"question": "A pool fills at 12 liters per minute for 10 minutes, then at 15 liters per minute for 8 minutes. How much water was added?", "gold_answer": "240"},
+{"question": "A teacher buys 5 boxes of pencils. Each box has 24 pencils. She gives 3/4 of them to students. How many pencils does she keep?", "gold_answer": "30"},
+{"question": "A train travels 150 miles at 75 mph, then another 210 miles at 70 mph. What is the total travel time?", "gold_answer": "5"},
+{"question": "A store discounts a $200 jacket by 30%, then applies a 10% coupon. What is the final price?", "gold_answer": "126"},
+{"question": "A farmer plants 420 seeds in rows of 14. How many rows does he plant?", "gold_answer": "30"},
+{"question": "A car rental costs $40 plus $0.30 per mile. If Jake pays $88, how many miles did he drive?", "gold_answer": "160"},
+{"question": "A school has 360 students. 1/9 join band, and 3/4 of the band members also join choir. How many join both?", "gold_answer": "30"},
+{"question": "A shop sells notebooks for $4 or 3 for $10. If Anna buys 14 notebooks using the cheapest strategy, how much does she pay?", "gold_answer": "48"},
+{"question": "A tank contains 180 liters of water, which is 3/4 of its capacity. How many liters does it hold when full?", "gold_answer": "240"},
+{"question": "A student reads 18 pages per day for 8 days, then 25 pages per day for 6 days. If the book has 350 pages, how many pages remain unread?", "gold_answer": "56"},
+{"question": "A soccer team wins 60% of 45 games. If they win 80% of home games and half their games are at home, how many home games did they win?", "gold_answer": "18"},
+{"question": "A builder constructs 180 meters of road in 3 days. Each day he builds 20% more than the previous day. How much does he build on day 1?", "gold_answer": "49.45"},
+{"question": "A costume originally costs $60. It is discounted by 20%, then increases by 15%. What is the final price?", "gold_answer": "55.2"},
+{"question": "A teacher has $160 to spend on markers costing $5 per pack. If she uses 3/4 of her budget, how many packs does she buy?", "gold_answer": "24"},
+{"question": "A car travels 40 miles at 50 mph and returns 40 miles at 80 mph. What is the average speed?", "gold_answer": "61.54"},
+{"question": "A walker completes 3/8 of a trail, then another 2/5 of the remaining distance. If 12 km remain, how long is the trail?", "gold_answer": "32"},
+{"question": "A fruit stand sells apples at 4 for $5 and oranges at 3 for $4. If a customer buys 12 apples and 9 oranges, how much does he pay?", "gold_answer": "27"},
+{"question": "A contractor needs 400 bricks. He buys boxes containing 18 bricks each. How many boxes must he buy?", "gold_answer": "23"},
+{"question": "A library read-a-thon awards points: 5 per chapter and 2 per review. If a student earns 74 points from 10 reviews, how many chapters did he read?", "gold_answer": "10.8"},
+{"question": "A recipe uses sugar and flour in ratio 3:8. If 48 cups of flour are used, how much sugar is needed?", "gold_answer": "18"},
+{"question": "A bike originally costs $300. It is discounted 25%, then discounted another 10%. What is the final price?", "gold_answer": "202.5"},
+{"question": "A pet shelter has dogs and cats in ratio 5:7. If there are 84 cats, how many dogs?", "gold_answer": "60"},
+{"question": "A bottle is 2/5 full with 28 mL. How much does it hold when full?", "gold_answer": "70"},
+{"question": "A car drives 150 miles at 60 mph, then 210 miles at 70 mph. What is its average speed for the whole trip?", "gold_answer": "65.45"},
+{"question": "A school buys 480 pencils. They distribute 32 to each class. If 96 pencils remain, how many classes are there?", "gold_answer": "12"},
+{"question": "A bookstore sells $150 in magazines and twice as much in books. If 20% of the book revenue is profit, how much profit do they make from books?", "gold_answer": "60"},
+{"question": "A computer is discounted 15%, then the discounted price is discounted another 5%. If the final price is $484.50, what was the original price?", "gold_answer": "600"},
+{"question": "A student jogs 3 miles at 6 mph and then walks 2 miles at 3 mph. What is her average speed for the trip?", "gold_answer": "4.29"},
+{"question": "A cafeteria prepares food for 400 students. Only 75% eat lunch, and 20 servings are wasted. How many students were served?", "gold_answer": "280"},
+{"question": "A worker completes 24 tasks per hour for 5 hours and then increases speed by 20% for 2 hours. How many tasks does he complete?", "gold_answer": "177.6"},
+{"question": "A rope of length 60 m is cut into two pieces in ratio 3:7. How long is the shorter piece?", "gold_answer": "18"},
+{"question": "A garden has 180 flowers: 1/3 roses, 1/4 tulips, and the rest daisies. How many daisies?", "gold_answer": "75"},
+{"question": "A student has $50. She buys a book for $18 and pens costing $2 each. How many pens can she buy?", "gold_answer": "16"},
+{"question": "A team scores 3 touchdowns (7 points each) and 4 field goals (3 points each). How many total points?", "gold_answer": "33"},
+{"question": "A teacher assigns 120 pages to read. A student reads 15 pages per day for 4 days, then 20 pages per day. How many total days to finish?", "gold_answer": "7"},
+{"question": "A family spends 35% of income on rent and 15% on utilities. If these total $1200, what is their income?", "gold_answer": "2400"},
+{"question": "A car decreases value by 30% year 1 and 20% year 2. If new value is $5600, what was original price?", "gold_answer": "10000"},
+{"question": "A store sells pens at 5 for $3. If a teacher buys 45 pens, how much does she pay?", "gold_answer": "27"},
+{"question": "A jogger runs 8 km at 10 km/h and then 6 km at 6 km/h. What is the average speed?", "gold_answer": "7.78"},
+{"question": "A class of 36 students has 2/3 attending a field trip. Of those, 1/4 forget permission slips. How many attend the trip?", "gold_answer": "18"},
+{"question": "A warehouse stores 900 boxes. Each shelf holds 36. If the warehouse has 18 shelves, how many boxes exceed capacity?", "gold_answer": "252"},
+{"question": "A farmer buys 32 kg of feed. His animals eat 3/8 of it weekly. How many weeks until it is gone?", "gold_answer": "2.67"},
+{"question": "A book costs $12. It is discounted 20%, then taxed 10%. What is the final price?", "gold_answer": "10.56"},
+{"question": "A swimming pool fills at 50 L/min for 12 minutes, then 30 L/min for 20 minutes. How many liters added?", "gold_answer": "1200"},
+{"question": "A team wins 24 of its games, which is 60% of all games. How many games did they play?", "gold_answer": "40"},
+{"question": "A chef prepares 360 cookies. He sells 55% and gives 1/5 of the remainder to staff. How many cookies are left?", "gold_answer": "129.6"},
+{"question": "A jar has 90 candies: 2/9 are lemon, 1/3 are cherry, and the rest are grape. How many grape candies?", "gold_answer": "40"},
+{"question": "A shipment contains 420 items. 3/7 are electronics, 1/5 of the electronics are defective. How many defective items?", "gold_answer": "36"},
+{"question": "A tank drains at 20 L/min for 8 minutes, then 15 L/min for 6 minutes. How many liters drained?", "gold_answer": "250"},
+{"question": "A car travels 160 miles at 40 mph and returns at 80 mph. What is the average speed?", "gold_answer": "53.33"},
+{"question": "A student scores 70, 85, 90. What must she score next to average 84?", "gold_answer": "91"},
+{"question": "A bakery sells 3/8 of its 320 loaves in the morning and 1/3 of the remainder in evening. How many loaves sold total?", "gold_answer": "186.67"},
+{"question": "A garden is 12 m by 18 m. A path 1 m wide is built around inside. What is path area?", "gold_answer": "56"},
+{"question": "A family saves 15% of income and spends $2380. If savings are $420, what is total income?", "gold_answer": "2800"},
+{"question": "A store discounts a $150 coat by 30%. Next week it increases the discounted price by 20%. What is new price?", "gold_answer": "126"},
+{"question": "A team plays 60 games, wins 40%, and draws 1/3 of the wins. How many games did they draw?", "gold_answer": "8"},
+{"question": "A teacher buys 8 packs of markers, each with 15 markers. She gives 2/3 to students. How many markers remain?", "gold_answer": "40"},
+{"question": "A shop sells cups 4 for $9. How much for 18 cups?", "gold_answer": "40.5"},
+{"question": "A rope is cut in ratio 5:3. Total length is 64 m. What is shorter piece?", "gold_answer": "24"},
+{"question": "A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?", "gold_answer": "22"},
+{"question": "A store has 500 phones. 30% are sold, 1/5 of remainder defective. How many working phones left?", "gold_answer": "280"},
+{"question": "A field is 30 m by 20 m. 25% used for corn, 40% of remainder for beans. How many m² for beans?", "gold_answer": "180"},
+{"question": "A shop sells pens at $1.20 each or 10 for $10. If a customer buys 27 pens, what is the minimum cost?", "gold_answer": "28.4"},
+{"question": "Sophie read 40 pages on Monday, 25% more on Tuesday, and 30% less on Wednesday than Tuesday. How many pages did she read in total?", "gold_answer": "125"},
+{"question": "A farmer has 360 chickens. He sells 1/3 of them, then 1/4 of the remainder die. How many chickens remain?", "gold_answer": "180"},
+{"question": "A store purchases items for $12 each and sells them for 40% profit. If the store sells 70 items, what is the total profit?", "gold_answer": "336"},
+{"question": "A water tank contains 450 liters when it is 3/5 full. How many liters are needed to fill it completely?", "gold_answer": "300"},
+{"question": "A bike rider travels 15 miles at 10 mph and then 12 miles at 6 mph. What is his average speed for the entire trip?", "gold_answer": "7.71"},
+{"question": "A pack of 24 markers costs $9.60. How much do 18 markers cost at the same rate?", "gold_answer": "7.2"},
+{"question": "A store increases the price of a $50 item by 30%. After poor sales, it discounts the new price by 20%. What is the final price?", "gold_answer": "52"},
+{"question": "A gardener plants flowers in the ratio 3 roses : 4 tulips : 5 daisies. If she plants 96 flowers, how many are daisies?", "gold_answer": "40"},
+{"question": "A farmer harvested 960 oranges. He sells 45% and uses 1/4 of the remainder for juice. How many oranges are left?", "gold_answer": "396"},
+{"question": "A recipe uses 2 cups of sugar for every 5 cups of flour. If a baker uses 20 cups of flour, how much sugar does he need?", "gold_answer": "8"},
+{"question": "After a 20% discount, a jacket costs $72. What was its original price?", "gold_answer": "90"},
+{"question": "A class has 36 students. 1/3 join math club, and 1/2 of those also join science club. How many join both clubs?", "gold_answer": "6"},
+{"question": "A machine produces 180 parts per hour for 4 hours, then 220 parts per hour for 3 hours. How many parts are produced in total?", "gold_answer": "1380"},
+{"question": "A runner completes 3 laps of 800 meters and 4 laps of 400 meters. What is the total distance in kilometers?", "gold_answer": "4"},
+{"question": "A store buys pens for $0.50 each and sells them for $1.20. If it sells 150 pens, how much profit does it make?", "gold_answer": "105"},
+{"question": "A family spends 25% of income on food and $900 on rent, which is 30% of income. What is their income?", "gold_answer": "3000"},
+{"question": "A student solves 75% of 160 practice problems. If he gets 20% of them wrong, how many does he solve correctly?", "gold_answer": "96"},
+{"question": "A train travels 120 miles at 60 mph, then 180 miles at 90 mph. What is the total travel time?", "gold_answer": "4"},
+{"question": "A library has 600 books. 1/5 are reference books, and 30% of the rest are fiction. How many fiction books are there?", "gold_answer": "144"},
+{"question": "A store discounts a $200 TV by 35%, then applies a coupon for $10 off. What is the final price?", "gold_answer": "120"},
+{"question": "A car has a fuel efficiency of 30 miles per gallon. How many gallons are needed for a 420-mile trip?", "gold_answer": "14"},
+{"question": "A teacher has 72 stickers. She gives 5 to each student. If she has 7 stickers left, how many students are there?", "gold_answer": "13"},
+{"question": "A theater has 320 seats. On opening night, 75% are filled. If 1/10 of those filled seats are VIP seats, how many VIP seats are there?", "gold_answer": "24"},
+{"question": "A pool drains at 18 liters per minute for 15 minutes, then 12 liters per minute for 10 minutes. How much water drains in total?", "gold_answer": "390"},
+{"question": "A contractor builds 240 meters of road in 4 days. Each day he builds the same amount. How many meters per day does he build?", "gold_answer": "60"},
+{"question": "A $500 phone is discounted 40%, then the discounted price is increased by 25%. What is the final price?", "gold_answer": "375"},
+{"question": "A library has 48 fiction books for every 32 nonfiction books. If there are 240 nonfiction books, how many fiction books are there?", "gold_answer": "360"},
+{"question": "A worker completes 35 tasks per hour for 5 hours, then 28 tasks per hour for 3 hours. How many tasks does he complete?", "gold_answer": "259"},
+{"question": "A jar contains red, blue, and yellow marbles in the ratio 2:3:5. If there are 180 marbles, how many are blue?", "gold_answer": "54"},
+{"question": "A cyclist rides 24 miles at 12 mph, then 18 miles at 9 mph. What is his average speed?", "gold_answer": "10.5"},
+{"question": "A store sells a pair of shoes for $60 after a 20% discount. What was the original price?", "gold_answer": "75"},
+{"question": "A bus has 56 seats. If 75% are taken and 1/3 of the empty seats are reserved, how many seats remain available?", "gold_answer": "9.33"},
+{"question": "A farmer buys a 50-pound sack of feed. His animals eat 2/5 of it weekly. How many pounds remain after 2 weeks?", "gold_answer": "10"},
+{"question": "A student receives grades of 84, 88, and 92. What must he score on his fourth test to average 90?", "gold_answer": "96"},
+{"question": "A shop sells boxes of 18 oranges. If a restaurant needs 430 oranges, how many boxes must they buy?", "gold_answer": "24"},
+{"question": "A class of 30 students has 40% boys. If 1/3 of the girls play soccer, how many girls play soccer?", "gold_answer": "6"},
+{"question": "A garden is 14 meters by 18 meters. A walkway 1 meter wide is built around the inside. What is the area of the walkway?", "gold_answer": "60"},
+{"question": "A company makes 20% profit on a product that costs $45 to produce. What is the selling price?", "gold_answer": "54"},
+{"question": "A rope is 72 meters long. It is cut so that one piece is 3/5 of the total length. How long is the shorter piece?", "gold_answer": "28.8"},
+{"question": "A bag has 90 candies: 1/3 are lemon, 2/9 are cherry, and the rest are mint. How many are mint?", "gold_answer": "40"},
+{"question": "A store sells staplers for $6 each or 3 for $15. If a customer buys 9 staplers using the cheapest combination, how much does he pay?", "gold_answer": "45"},
+{"question": "A hiking trail is 15 km long. A hiker completes 2/5 of it before lunch and 1/2 of the remainder after lunch. How many kilometers remain?", "gold_answer": "4.5"},
+{"question": "A train travels 200 miles at 80 mph, then 150 miles at 60 mph. What is the average speed for the trip?", "gold_answer": "70"},
+{"question": "A store buys pencils in packs of 12. They need at least 430 pencils. What is the minimum number of packs required?", "gold_answer": "36"},
+{"question": "A farmer divides his land so that 2/3 is for crops and 1/4 of the crop land is for wheat. If the wheat section is 30 acres, how large is the entire farm?", "gold_answer": "180"},
+{"question": "A shop sells shirts for $18 after a 25% discount. What was the original price?", "gold_answer": "24"},
+{"question": "A student solves 90% of 200 math problems but gets 10% of those wrong. How many correct answers does he have?", "gold_answer": "162"},
+{"question": "A cat eats 1/6 of a bag of food daily. How many bags are needed for 30 days?", "gold_answer": "5"},
+{"question": "A baker uses 3/4 cup of sugar per batch. If she has 15 cups, how many batches can she make?", "gold_answer": "20"},
+{"question": "A train leaves City A at 90 mph. One hour later, another train leaves City B at 110 mph toward City A. If the cities are 450 miles apart, how long until they meet?", "gold_answer": "1.8"},
+{"question": "A teacher assigns 240 pages. A student reads 20 pages/day for 6 days, then 30 pages/day. How many days total?", "gold_answer": "10"},
+{"question": "A store discounts a $120 coat by 30%, then applies 10% tax. What is the final price?", "gold_answer": "92.4"},
+{"question": "A library has 540 books. 1/5 are nonfiction, and 30% of the nonfiction books are history. How many history books are there?", "gold_answer": "32.4"},
+{"question": "A store sells apples 5 for $4. How much for 22 apples?", "gold_answer": "17.6"},
+{"question": "A baker prepares 720 cookies. He sells 50% and gives 15% of the remainder to friends. How many remain?", "gold_answer": "306"},
+{"question": "A school has 480 students. 30% join sports, and 40% of those join both sports and band. How many join both?", "gold_answer": "57.6"},
+{"question": "A car depreciates 20% in year 1 and 15% in year 2. If it's now worth $6120, what was the original value?", "gold_answer": "9000"},
+{"question": "A factory produces 360 items per hour for 6 hours, then 420 per hour for 3 hours. How many items?", "gold_answer": "3420"},
+{"question": "A container holds 48 liters when 3/8 full. How much when full?", "gold_answer": "128"},
+{"question": "A student increases study time from 2 hours/day to 2.5 hours/day. What percent increase?", "gold_answer": "25"},
+{"question": "A gardener plants trees in rows of 18. If she plants 612 trees, how many rows?", "gold_answer": "34"},
+{"question": "A store marks up a $50 item by 40%, then discounts by 30%. What is the final price?", "gold_answer": "49"},
+{"question": "A man saves $240 monthly, which is 20% of his income. What is his income?", "gold_answer": "1200"},
+{"question": "A pool fills 60 L/min for 12 minutes, then 40 L/min for 15 minutes. How much water is added?", "gold_answer": "1320"},
+{"question": "A school bus has 48 seats. 75% filled. If 1/8 of filled seats are teachers, how many teachers?", "gold_answer": "4.5"},
+{"question": "A hiker walks 12 km at 4 km/h and 6 km at 3 km/h. What is the average speed?", "gold_answer": "3.6"},
+{"question": "A store sells notebooks for $3 each or 4 for $10. If a teacher buys 14, what's the minimum cost?", "gold_answer": "36"},
+{"question": "A baker uses 2/5 of her flour and then 1/3 of the remainder. If 18 kg remain, how much flour initially?", "gold_answer": "45"},
+{"question": "A tank holds 900 liters. After draining 35% and refilling 150 liters, how many liters are inside?", "gold_answer": "735"},
+{"question": "A rope is cut in ratio 3:4:5. If the longest piece is 30 m, what is the total length?", "gold_answer": "72"},
+{"question": "A student solves 70% of 150 problems. If he gets 20% of those wrong, how many correct?", "gold_answer": "84"},
+{"question": "A store sells 15 pencils at $0.60 each or 20 for $10. If someone buys 40, what is minimum cost?", "gold_answer": "20"},
+{"question": "A rectangle is 18 m long and 12 m wide. A walkway 1 m wide is built around inside. What is walkway area?", "gold_answer": "56"},
+{"question": "A car travels 90 miles at 30 mph, then 90 miles at 45 mph. What is average speed?", "gold_answer": "36"},
+{"question": "A library has 300 fiction books and 200 nonfiction. Fiction increases by 20%, nonfiction by 10%. How many books now?", "gold_answer": "580"},
+{"question": "A factory produces 500 items daily. It increases production by 30% for a week. How many items produced that week?", "gold_answer": "4550"},
+{"question": "A radio costs $80. It goes on sale for 25% off, then clearance for 20% off the sale price. What is final price?", "gold_answer": "48"},
+{"question": "A student jogs 9 miles at 6 mph and 3 miles at 4 mph. What is his average speed?", "gold_answer": "5.33"},
+{"question": "A bottle has 30 mL of medicine, which is 3/10 of full capacity. How many mL when full?", "gold_answer": "100"},
+{"question": "A class has 45 students. 1/3 take French, 2/5 take Spanish, and 1/6 take both. How many take only Spanish?", "gold_answer": "10.5"},
+{"question": "A machine produces 240 items/hour for 5 hours, then 300 items/hour for 4 hours. How many items produced?", "gold_answer": "2400"},
+{"question": "A chef buys 24 kg of rice. She uses 3/8 for one dish and 1/4 of the remainder for another. How much rice left?", "gold_answer": "11.25"},
+{"question": "A store's revenue increases from $18,000 to $22,500. What percent increase?", "gold_answer": "25"},
+{"question": "A bakery sells 3/5 of its 450 pastries in the morning and 1/4 of the remainder in the afternoon. How many pastries remain unsold?", "gold_answer": "135"},
+{"question": "A factory produces 320 units per day for 6 days, then increases production by 25% for the next 4 days. How many units are produced in total?", "gold_answer": "3520"},
+{"question": "A train travels 180 miles at 60 mph and then 210 miles at 70 mph. What is the total time for the trip?", "gold_answer": "6"},
+{"question": "A class has 30 students. 40% take art and 1/3 take music. If 5 students take both, how many take only music?", "gold_answer": "5"},
+{"question": "A bookstore marks up books by 30% on a cost of $12 per book. If a coupon gives 15% off the sale price, what is the final price?", "gold_answer": "13.26"},
+{"question": "A runner completes 5 miles at 8 mph and 7 miles at 7 mph. What is his average speed?", "gold_answer": "7.38"},
+{"question": "A school has 540 lockers. 2/3 are used by students, and 1/5 of the used lockers need repairs. How many lockers need repairs?", "gold_answer": "72"},
+{"question": "A grocery store sells apples at 4 for $3.75. How much would 28 apples cost?", "gold_answer": "26.25"},
+{"question": "After losing 20% of its weight, a package weighs 48 grams. What was its original weight?", "gold_answer": "60"},
+{"question": "A carpenter cuts a 96-inch board into pieces in the ratio 3:5:4. How long is the shortest piece?", "gold_answer": "24"},
+{"question": "A water tank drains at 14 liters/min for 12 minutes, then at 10 liters/min for 15 minutes. How many liters drain in total?", "gold_answer": "318"},
+{"question": "A machine produces 150 items/hour for 7 hours and then increases speed by 40% for 5 more hours. How many items does it produce?", "gold_answer": "2100"},
+{"question": "A student correctly answers 80% of 150 questions. If she improves her accuracy by 10 percentage points on another 120 questions, how many total correct answers does she have?", "gold_answer": "228"},
+{"question": "A farmer divides his 420-acre farm so that 2/7 is corn and 3/5 of the remaining land is wheat. How many acres are wheat?", "gold_answer": "180"},
+{"question": "A cyclist rides 16 miles at 8 mph, takes a break, then rides 24 miles at 12 mph. What is his average speed?", "gold_answer": "10"},
+{"question": "A bag contains red, blue, and green marbles in ratio 7:4:5. If there are 64 marbles total, how many are green?", "gold_answer": "20"},
+{"question": "A movie theater sells tickets for $12 adults and $8 children. If 180 tickets were sold and the total revenue was $1740, how many adult tickets were sold?", "gold_answer": "75"},
+{"question": "A hiker travels 10 km at 4 km/h and 6 km at 3 km/h. How long does the entire trip take?", "gold_answer": "4.5"},
+{"question": "A bottle is filled to 3/8 of its capacity with 45 mL of liquid. What is its full capacity?", "gold_answer": "120"},
+{"question": "A student earns 84, 92, 78, and 86 on four tests. What score must he earn on a fifth test to average 85?", "gold_answer": "85"},
+{"question": "A store buys 200 calculators at $15 each and sells them at a 40% markup. If 150 are sold, what is the revenue?", "gold_answer": "3150"},
+{"question": "A pool fills at 25 liters/min for 16 minutes and 40 liters/min for 12 minutes. How much water is in the pool?", "gold_answer": "880"},
+{"question": "A train leaves City A at 70 mph. One hour later, another train leaves City B at 90 mph toward City A. If the cities are 380 miles apart, how long until they meet?", "gold_answer": "1.94"},
+{"question": "A library buys 480 books. 1/3 are fiction and 40% of the fiction books are mystery. How many mystery books are there?", "gold_answer": "64"},
+{"question": "A store discounts a $90 jacket by 35%, then applies 10% tax. What is the final price?", "gold_answer": "64.35"},
+{"question": "A gardener plants flowers in rows of 18. If she plants 774 flowers, how many rows are there?", "gold_answer": "43"},
+{"question": "A baker uses 2/5 of his flour and then 1/3 of what remains. If 36 kg are left, how much flour did he have originally?", "gold_answer": "90"},
+{"question": "A shipment contains 900 boxes. 40% are large boxes, and 1/6 of the large boxes are damaged. How many damaged boxes?", "gold_answer": "60"},
+{"question": "A bike originally costs $240. It's discounted by 25% and then by another 10%. What is the final price?", "gold_answer": "162"},
+{"question": "A restaurant sells combo meals for $8 each and drinks for $2 each. If 220 items were sold and total revenue was $1240, how many combo meals were sold?", "gold_answer": "133.3"},
+{"question": "A warehouse stores 2400 boxes on shelves that hold 48 each. How many shelves are needed?", "gold_answer": "50"},
+{"question": "A runner jogs 4 miles at 6 mph and 6 miles at 10 mph. What is his average speed?", "gold_answer": "7.89"},
+{"question": "A zoo has lions and tigers in ratio 2:3. If there are 45 tigers, how many lions?", "gold_answer": "30"},
+{"question": "A store buys mugs for $4 each and sells them for $6.50. If 180 mugs are sold, what is the total profit?", "gold_answer": "450"},
+{"question": "A school cafeteria prepares 560 meals. 3/8 are vegetarian and 1/5 of the vegetarian meals are gluten-free. How many gluten-free meals?", "gold_answer": "42"},
+{"question": "A container has 180 liters, which is 3/4 of its capacity. How many liters when full?", "gold_answer": "240"},
+{"question": "A class of 32 has 3/8 boys. If 1/4 of the boys play basketball, how many boys play?", "gold_answer": "3"},
+{"question": "A shop sells bananas at 3 lbs for $2.40. How much does 7.5 lbs cost?", "gold_answer": "6"},
+{"question": "A car travels 150 miles at 75 mph, then 180 miles at 60 mph. What is the average speed?", "gold_answer": "66"},
+{"question": "A farmer plants corn, wheat, and oats in ratio 6:5:4. If 300 acres are planted, how many acres of wheat?", "gold_answer": "100"},
+{"question": "A baker sells cupcakes for $3 each or 4 for $10. If she sells 52 cupcakes, what is the maximum revenue she can make?", "gold_answer": "130"},
+{"question": "A tank drains 35% of its 900 liters, then is refilled with 180 liters. How much water is in the tank?", "gold_answer": "765"},
+{"question": "A train travels 90 miles at 45 mph, 60 miles at 30 mph, and 75 miles at 75 mph. What is the total travel time?", "gold_answer": "5"},
+{"question": "A carpenter buys wood for $480. If he sells it for 35% profit, how much does he earn?", "gold_answer": "168"},
+{"question": "A student reads 18 pages/day for 10 days, then 25 pages/day for 6 days. How many pages total?", "gold_answer": "330"},
+{"question": "A store discounts a $300 laptop by 30%. A week later it discounts the reduced price by another 15%. What is the new price?", "gold_answer": "178.5"},
+{"question": "A worker starts with 360 tasks. He completes 45% in the morning and 30% of the remainder in the afternoon. How many are left?", "gold_answer": "138.6"},
+{"question": "A painter uses 2/3 of a 60-liter bucket of paint. How many liters are used?", "gold_answer": "40"},
+{"question": "A factory increases production from 800 to 1040 units. What percent increase is this?", "gold_answer": "30"},
+{"question": "A school has 420 students. 25% join art club and 40% of those also join music club. How many join both?", "gold_answer": "42"},
+{"question": "A recipe calls for 3 cups sugar to 8 cups flour. If 32 cups of flour are used, how much sugar is needed?", "gold_answer": "12"},
+{"question": "A man spends 30% of income on rent, 20% on food, and saves $600 which is 15% of income. What is his income?", "gold_answer": "4000"},
+{"question": "A cyclist rides 20 miles at 10 mph and then 25 miles at 5 mph. What is average speed?", "gold_answer": "6.43"},
+{"question": "A box contains 132 chocolates: 1/3 dark, 1/4 milk, and the rest white. How many white chocolates?", "gold_answer": "55"},
+{"question": "A student earns 75%, 80%, 92% on three tests weighted 1,2,2 respectively. What is the weighted average?", "gold_answer": "83.8"},
+{"question": "A factory produces 150 parts/hour for 10 hours and 200 parts/hour for 5 hours. How many parts total?", "gold_answer": "2500"},
+{"question": "A hiker completes 16 miles: 6 at 4 mph, 10 at 2 mph. Total time?", "gold_answer": "6.5"},
+{"question": "A club has 96 members. 5/8 are juniors and 1/6 of juniors volunteer. How many junior volunteers?", "gold_answer": "10"},
+{"question": "A clinic schedules 15-minute appointments. If it operates 7 hours, how many appointments can it fit?", "gold_answer": "28"},
+{"question": "A toy costs $40 after a 20% discount. What was the original price?", "gold_answer": "50"},
+{"question": "A school spends 12% of its budget on art and this equals $54,000. What is the total budget?", "gold_answer": "450000"},
+{"question": "A student buys 4 notebooks at $3.50 each and a binder for $12.50. If he pays with $40, how much change?", "gold_answer": "13.5"},
+{"question": "A bus travels 240 miles at 60 mph and returns at 40 mph. What is the average speed?", "gold_answer": "48"},
+{"question": "A bakery makes 540 cookies. They sell 1/3 and donate 40% of the remainder. How many are left?", "gold_answer": "216"},
+{"question": "A garden is divided into 5 sections in ratio 3:4:5:6:2. If total area is 500 m², how large is the largest section?", "gold_answer": "150"},
+{"question": "A student solves 144 problems, which is 80% of all assigned. How many were assigned?", "gold_answer": "180"},
+{"question": "A store marks up items from $25 to $40. What percent markup is this?", "gold_answer": "60"},
+{"question": "A family spends $840 on rent, which is 35% of their income. What is their income?", "gold_answer": "2400"},
+{"question": "A car uses 10 gallons to travel 270 miles. How many gallons are needed for 405 miles?", "gold_answer": "15"},
+{"question": "A manufacturer reduces defects by 25%, then by another 20%, ending with 180 defects. How many were there originally?", "gold_answer": "300"},
+{"question": "A class has 50 students. 60% pass a test; 30% of those who pass earn A’s. How many earn A’s?", "gold_answer": "9"},
+{"question": "A company increases salaries by 12%, then again by 8%. If the final salary is $30,240, what was the original?", "gold_answer": "24991.7"},
+{"question": "A student averages 87 on five tests. If her first four scores are 82, 90, 85, 89, what is her fifth score?", "gold_answer": "89"},
+{"question": "A store sells boxes of cereal at 3 for $11.50. How much for 8 boxes?", "gold_answer": "30.67"},
+{"question": "A piping system delivers 50 L/min for 30 min, then 30 L/min for 45 min. Total water delivered?", "gold_answer": "2850"},
+{"question": "A club has 84 members. 2/7 are seniors and 25% of seniors play chess. How many seniors play chess?", "gold_answer": "6"},
+{"question": "A car travels 280 miles at 70 mph, then 120 miles at 40 mph. Total travel time?", "gold_answer": "7"},
+{"question": "A baker uses 3/8 of her 64 kg of flour, then 1/4 of the remainder. How much flour remains?", "gold_answer": "30"},
+{"question": "A pool drains 20% of 800 liters, then 150 liters are added. How much water is in the pool?", "gold_answer": "790"},
+{"question": "A rope is cut into pieces in ratio 4:5. If the longer piece is 45 m, how long is the shorter?", "gold_answer": "36"},
+{"question": "A store sells pens at 6 for $5.40. How much for 25 pens?", "gold_answer": "22.5"},
+{"question": "A company sells 600 items. 30% are premium; 15% of premium are returned. How many premium items are kept?", "gold_answer": "153"},
+{"question": "A school cafeteria prepares 900 meals. 40% are vegetarian and 30% of those vegetarian meals are vegan. How many vegan meals?", "gold_answer": "108"},
+{"question": "A student reads 25 pages/day for 8 days and 30 pages/day for 7 days. How many total pages?", "gold_answer": "410"},
+{"question": "A school has 480 students. 35% join art club, and 30% of those also join music club. How many students join both?", "gold_answer": "50.4"},
+{"question": "A bookstore sells notebooks at $4 each or 3 for $10. If a teacher buys 21 notebooks, what is the minimum cost?", "gold_answer": "70"},
+{"question": "A tank holds 840 liters when full. It is currently 3/7 full. How many liters must be added to fill it?", "gold_answer": "480"},
+{"question": "A gardener plants flowers in ratio 5:3:2. If 500 flowers are planted, how many are in the smallest group?", "gold_answer": "100"},
+{"question": "A bike trip is 45 miles long. A cyclist travels 15 miles at 12 mph and the rest at 9 mph. How long does the trip take?", "gold_answer": "4.58"},
+{"question": "A factory produces 240 parts/hour for 5 hours and then 300 parts/hour for 3 hours. How many parts are produced?", "gold_answer": "2100"},
+{"question": "A student solves 180 math problems, which is 60% of all assigned. How many were assigned?", "gold_answer": "300"},
+{"question": "A school band has 72 members. 3/8 play woodwinds, and 2/5 of woodwinds play flute. How many flute players?", "gold_answer": "10.8"},
+{"question": "A truck travels 120 miles at 40 mph and 180 miles at 60 mph. What is the total travel time?", "gold_answer": "6"},
+{"question": "A $200 coat is discounted 20%, then an additional 15%. What is the final price?", "gold_answer": "136"},
+{"question": "A library buys 360 books: 1/3 are fiction, 1/4 of fiction are mysteries. How many mysteries?", "gold_answer": "30"},
+{"question": "A chef mixes nuts costing $6/lb and $12/lb to produce 40 lbs costing $9/lb. How many lbs of $12 nuts are used?", "gold_answer": "20"},
+{"question": "A car uses 8 gallons to travel 224 miles. How many gallons are needed for 336 miles?", "gold_answer": "12"},
+{"question": "A jogger runs 6 miles at 8 mph and 4 miles at 5 mph. What is average speed?", "gold_answer": "6.45"},
+{"question": "A shop sells pens 5 for $4.25. How much for 28 pens?", "gold_answer": "23.8"},
+{"question": "A class of 36 students has 1/4 boys. Half the boys play soccer. How many play soccer?", "gold_answer": "4.5"},
+{"question": "A machine makes 500 items/day. Production increases 30% for 12 days. How many items total in those 12 days?", "gold_answer": "7800"},
+{"question": "A farm has 450 animals. 30% are cows, 20% pigs, and the rest chickens. How many chickens?", "gold_answer": "225"},
+{"question": "A painter uses 3/8 of 64 liters of paint, then another 1/4 of what's left. How much remains?", "gold_answer": "30"},
+{"question": "A family spends 40% of income on rent ($1200). What is the total income?", "gold_answer": "3000"},
+{"question": "A bicycle originally $180 is discounted 30%, then 10% off the discounted price. Final price?", "gold_answer": "113.4"},
+{"question": "A recipe uses sugar and flour in ratio 2:7. If 56 cups of flour are used, how much sugar?", "gold_answer": "16"},
+{"question": "A truck holds 18 boxes per row. If 720 boxes must be loaded, how many rows?", "gold_answer": "40"},
+{"question": "A train travels 210 miles at 70 mph and 70 miles at 35 mph. Average speed?", "gold_answer": "56"},
+{"question": "A school has 350 students. 80 join robotics, 45% of them are girls. How many girls in robotics?", "gold_answer": "36"},
+{"question": "A pool fills at 40 L/min for 20 minutes and 25 L/min for 30 minutes. Total liters added?", "gold_answer": "1550"},
+{"question": "A café sold 2/5 of its 900 pastries, then half of the remainder. How many pastries remain?", "gold_answer": "270"},
+{"question": "A clothing shop marks up shirts from $25 to $40. What percent increase is this?", "gold_answer": "60"},
+{"question": "A student reads 18 pages/day for 10 days, then 25/day for 6 days. Pages read total?", "gold_answer": "330"},
+{"question": "A car depreciates 15% one year and 10% the next. If it is worth $18,360 now, original price?", "gold_answer": "24000"},
+{"question": "A travel package costs $1200 but includes a 25% discount followed by 8% tax. What is the final price?", "gold_answer": "972"},
+{"question": "A gym has 600 members. 40% attend morning workouts and 30% of them take yoga. How many take yoga?", "gold_answer": "72"},
+{"question": "A runner completes a marathon in two segments: 14 miles at 7 mph and 12.2 miles at 5 mph. Total time?", "gold_answer": "4.44"},
+{"question": "A grocer buys apples at $0.60 each and sells at $1.00. If he sells 900 apples, profit?", "gold_answer": "360"},
+{"question": "A school orders 960 books in ratio 5:3:4 for subjects A,B,C. How many for subject C?", "gold_answer": "320"},
+{"question": "A 72-inch rope is cut into pieces with lengths in ratio 6:3:5. Shortest piece length?", "gold_answer": "15.4"},
+{"question": "A movie theater seats 420 and fills 75%. If 1/6 of filled seats are VIP, how many VIPs?", "gold_answer": "52.5"},
+{"question": "A warehouse can stack 48 boxes per shelf. If it stores 2016 boxes, how many shelves?", "gold_answer": "42"},
+{"question": "A student answers 85% of 200 questions correctly. If she improves accuracy by 10 points on next 100 questions, total correct?", "gold_answer": "265"},
+{"question": "A machine makes 90 items in 15 minutes. How many in 2 hours?", "gold_answer": "720"},
+{"question": "A farmer divides 300 acres in ratio 4:3:2. How many acres in the smallest portion?", "gold_answer": "66.67"},
+{"question": "A car travels 180 miles at 45 mph and returns 180 miles at 60 mph. Average speed?", "gold_answer": "51.43"},
+{"question": "A store has 450 items. It sells 30% in week 1 and 40% of remaining in week 2. Items left?", "gold_answer": "189"},
+{"question": "A student gets test scores 82, 91, 87, 78. What fifth score is needed for average 85?", "gold_answer": "87"},
+{"question": "A store sells oranges 3 lbs for $4.50. How much for 11 lbs?", "gold_answer": "16.5"},
+{"question": "A tank drains 20% of 600 liters, then loses 90 more liters. How much remains?", "gold_answer": "390"},
+{"question": "A boutique discounts a dress from $200 by 40% and then 25%. Final price?", "gold_answer": "90"},
+{"question": "A bus completes 150 miles at 50 mph and 180 miles at 60 mph. Total travel time?", "gold_answer": "6"},
+{"question": "A school buys tablets at $250 each. A bulk deal gives 15% discount. How much for 40 tablets?", "gold_answer": "8500"},
+{"question": "A student spends 45 min/day reading for 20 days and 60 min/day for 10 days. Total hours?", "gold_answer": "25"},
+{"question": "A shop sells candy in ratio 7:5:4 of flavors A,B,C. If there are 640 candies, how many are flavor B?", "gold_answer": "200"},
+{"question": "A container holds 3/5 of capacity at 72 liters. Full capacity?", "gold_answer": "120"},
+{"question": "A formula returns 8% of income as tax, which equals $384. What is the income?", "gold_answer": "4800"},
+{"question": "A café sells sandwiches at $6 or 4 for $20. If someone buys 24 sandwiches, minimum cost?", "gold_answer": "120"},
+{"question": "A car uses 12 gallons for 300 miles. How many gallons for 550 miles?", "gold_answer": "22"},
+{"question": "A factory reduces defects by 20% then another 15%. If now 408 remain, original number?", "gold_answer": "600"},
+{"question": "A book has 360 pages. Student reads 1/3 first day, 1/4 next day, and 40 pages third day. Pages left?", "gold_answer": "110"},
+{"question": "A student solves 3/4 of 240 problems and gets 10% of those wrong. How many correct?", "gold_answer": "162"},
+{"question": "A cooking recipe uses 4 parts oil to 7 parts vinegar. If 91 ounces total mixture, how much oil?", "gold_answer": "33.1"},
+{"question": "A highway toll increases from $3 to $4.20. Percent increase?", "gold_answer": "40"},
+{"question": "A toy discounted 25% costs $54. Original price?", "gold_answer": "72"},
+{"question": "A machine outputs 600 parts/day. If output increases 30% for 5 days, how many parts produced?", "gold_answer": "3900"},
+{"question": "A runner jogs 8 miles at 6 mph and 4 miles at 4 mph. Average speed?", "gold_answer": "5.14"},
+{"question": "A store sells gift bags for $3 or 5 for $12. If someone buys 27 bags, minimum cost?", "gold_answer": "66.6"},
+{"question": "A company manufactures 1400 items. 1/4 fail testing and 15% of remaining are reworked. How many pass without rework?", "gold_answer": "892.5"},
+{"question": "A gardener plants shrubs in rows of 14. If she plants 980 shrubs, number of rows?", "gold_answer": "70"},
+{"question": "A store buys items for $18 and sells for $25. If 360 items sold, profit?", "gold_answer": "2520"},
+{"question": "A truck carries 48 boxes per trip. If 1,200 boxes must be moved, trips needed?", "gold_answer": "25"},
+{"question": "A school has 960 students. 3/8 are in sports and 20% of sports join choir. How many join choir?", "gold_answer": "72"},
+{"question": "A container drains 45 liters which is 3/10 of its contents. What was full amount?", "gold_answer": "150"},
+{"question": "A bike rental costs $12/hour. A customer rents for 3.5 hours and gets 20% discount. Total cost?", "gold_answer": "33.6"},
+{"question": "A car travels 320 miles at 80 mph and 180 miles at 60 mph. Average speed?", "gold_answer": "71.43"},
+{"question": "A warehouse stores boxes in ratio 4:5 of small to large. If there are 720 boxes, how many small?", "gold_answer": "320"},
+{"question": "A tank fills 30 L/min for 25 min, then 20 L/min for 20 min. Total volume added?", "gold_answer": "1150"},
+{"question": "A class of 40 has 60% girls; 25% of girls take art. How many take art?", "gold_answer": "6"},
+{"question": "A store sells 6 apples for $4.20. How much for 17 apples?", "gold_answer": "11.9"},
+{"question": "A factory produces 180 units/hour for 7 hours, then increases production by 20% for 3 hours. Total produced?", "gold_answer": "1908"},
+{"question": "A bag has marbles in ratio 9:6:5. If there are 400 marbles, how many are the second color?", "gold_answer": "120"},
+{"question": "A runner completes 10 km at 8 km/h and 6 km at 6 km/h. Total time?", "gold_answer": "2.25"},
+{"question": "A school buys 48 laptops at $520 each but gets 15% off. Total cost?", "gold_answer": "21216"},
+{"question": "A bakery sells cupcakes at 3 for $5.40. How much for 22 cupcakes?", "gold_answer": "39.6"},
+{"question": "A bus travels 200 miles at 50 mph and returns at 40 mph. Total travel time?", "gold_answer": "9"},
+{"question": "A student writes 28 essays, 3/7 are narrative and 1/4 of narrative essays win awards. How many awards?", "gold_answer": "3"},
+{"question": "A park has 450 trees. 40% are oak, 30% maple, rest pine. How many pine?", "gold_answer": "135"},
+{"question": "A gym increases membership from 420 to 525. Percent increase?", "gold_answer": "25"},
+{"question": "A machine makes 75 items in 10 minutes. How many in 1 hour?", "gold_answer": "450"},
+{"question": "A student reads 45 pages/day for 8 days, then 60 pages/day for 5 days. How many pages total?", "gold_answer": "660"},
+{"question": "A warehouse has 540 crates. 2/3 are electronics, and 25% of electronics are TVs. How many crates contain TVs?", "gold_answer": "90"},
+{"question": "A car travels 96 miles at 48 mph and 150 miles at 75 mph. What is the total travel time?", "gold_answer": "4"},
+{"question": "A shop discounts a $120 jacket by 30%, then applies 10% tax. What is the final price?", "gold_answer": "92.4"},
+{"question": "A school cafeteria prepares 480 meals. 5/8 are vegetarian and 1/3 of vegetarian meals are vegan. How many vegan meals?", "gold_answer": "100"},
+{"question": "A runner completes 12 miles: 6 at 8 mph and 6 at 6 mph. What is his average speed?", "gold_answer": "6.86"},
+{"question": "A pet shelter has dogs and cats in ratio 5:7. If there are 168 animals, how many are dogs?", "gold_answer": "70"},
+{"question": "A bicycle originally costs $320. A store discounts it 25% then 20%. What is the final price?", "gold_answer": "192"},
+{"question": "A gardener plants 840 seeds. 3/4 germinate, and 2/5 of those become mature plants. How many mature plants?", "gold_answer": "252"},
+{"question": "A train travels 180 miles at 60 mph then 120 miles at 40 mph. What is the average speed?", "gold_answer": "50"},
+{"question": "A school enrolls 720 students. 30% join sports, and 40% of those join track. How many join track?", "gold_answer": "86.4"},
+{"question": "A company buys 500 devices at $24 each and sells them at a 35% profit. What is total revenue?", "gold_answer": "16200"},
+{"question": "A baker uses 2/7 of 210 lbs of flour, then another 1/4 of what remains. How much flour is left?", "gold_answer": "112.5"},
+{"question": "A store sells pens at 4 for $3.20. How much for 30 pens?", "gold_answer": "24"},
+{"question": "A student earns 88%, 92%, 81% on three tests weighted 2,3,1 respectively. What is the weighted average?", "gold_answer": "88.83"},
+{"question": "A café sells muffins at $2.50 each or 5 for $10. If someone buys 23 muffins, what is the minimum cost?", "gold_answer": "47.5"},
+{"question": "A car uses 9 gallons to travel 270 miles. How many gallons for 495 miles?", "gold_answer": "16.5"},
+{"question": "A train leaves City A at 90 mph. Two hours later, another leaves City B at 110 mph. If cities are 560 miles apart, how long until they meet?", "gold_answer": "1.9"},
+{"question": "A class of 28 students has 3/4 girls. 1/3 of girls play violin. How many play violin?", "gold_answer": "7"},
+{"question": "A machine makes 600 bolts/day for 8 days and then increases output by 20% for 6 more days. How many bolts total?", "gold_answer": "9120"},
+{"question": "A recipe uses sugar and flour in ratio 3:8. If 48 cups of flour are used, how much sugar?", "gold_answer": "18"},
+{"question": "A park has 420 trees. 2/5 are pine, 1/3 maple, rest oak. How many oak trees?", "gold_answer": "112"},
+{"question": "A store marks up items from $40 to $62. What is the percent increase?", "gold_answer": "55"},
+{"question": "A cycler travels 32 miles at 16 mph and 18 miles at 9 mph. Average speed?", "gold_answer": "12.5"},
+{"question": "A student completes 150 problems, which is 75% of assigned. How many assigned?", "gold_answer": "200"},
+{"question": "A store buys 400 mugs at $3 each and sells them for $4.50. What is total profit?", "gold_answer": "600"},
+{"question": "A machine produces 180 units/hour for 9 hours, then 150 units/hour for 6 hours. Total units?", "gold_answer": "2520"},
+{"question": "A hiker goes 9 miles at 3 mph and 12 miles at 4 mph. Total time?", "gold_answer": "6"},
+{"question": "A bookstore sells 27 books at $15 each and 18 at $12 each. What is total revenue?", "gold_answer": "621"},
+{"question": "A warehouse stores 960 boxes in ratio 5:4:3. How many in the smallest category?", "gold_answer": "240"},
+{"question": "A truck drains 20% of a 500 L tank, then 60 L more. How many liters left?", "gold_answer": "340"},
+{"question": "A factory increases production from 1200 to 1620. Percent increase?", "gold_answer": "35"},
+{"question": "A runner travels 14 miles at 7 mph and 7 miles at 7 mph. What is travel time?", "gold_answer": "3"},
+{"question": "A school sells lunch tickets for $4.50 or 5 for $20. Minimum cost for 38 tickets?", "gold_answer": "153.5"},
+{"question": "A store buys chairs for $30 and sells for $48. If 250 chairs sold, profit?", "gold_answer": "4500"},
+{"question": "A student reads 280 pages in 7 days. If he doubles daily rate, how many pages in 5 days?", "gold_answer": "400"},
+{"question": "A tank fills at 20 L/min for 30 min, then at 35 L/min for 20 min. Total liters?", "gold_answer": "1300"},
+{"question": "A bakery makes 672 rolls. 3/7 are wheat, 1/4 of wheat are seeded. Seeded rolls?", "gold_answer": "72"},
+{"question": "A store discounts a $240 item by 40% then 15%. Final price?", "gold_answer": "122.4"},
+{"question": "A café sells tea for $3.75 and coffee for $4.50. If 180 drinks sold and revenue is $720, how many coffees?", "gold_answer": "60"},
+{"question": "A school prints 1800 flyers. 40% distributed on Monday, and 25% of remaining on Tuesday. Flyers left?", "gold_answer": "810"},
+{"question": "A road trip is 240 miles. Car goes 120 miles at 60 mph, 120 at 30 mph. Average speed?", "gold_answer": "40"},
+{"question": "A company makes 540 parts. 1/3 fail inspection, 10% of remaining need rework. Good parts?", "gold_answer": "324"},
+{"question": "A student scores 84, 90, 78, 92. What is fifth score needed for 88 average?", "gold_answer": "96"},
+{"question": "A shop sells apples at 5 lbs for $8. What is cost of 17.5 lbs?", "gold_answer": "28"},
+{"question": "A train travels 120 miles at 60 mph and 210 miles at 70 mph. What is average speed?", "gold_answer": "66"},
+{"question": "A school enrolls 540 students: 1/3 in band, 1/6 in choir, rest in sports. How many in sports?", "gold_answer": "270"},
+{"question": "A container is 3/5 full with 84 liters. Full capacity?", "gold_answer": "140"},
+{"question": "A machine makes 200 items in 25 minutes. Items in 2 hours?", "gold_answer": "960"},
+{"question": "A student runs 10 laps at 2 min each, then 8 laps at 3 min each. Total time?", "gold_answer": "44"},
+{"question": "A store buys jeans for $28, sells for $45. If 320 jeans sold, revenue?", "gold_answer": "14400"},
+{"question": "A gardener divides a 300 m² plot in ratio 3:5:2. How big is the largest section?", "gold_answer": "150"},
+{"question": "A cyclist rides 40 miles at 10 mph and 20 miles at 6 mph. Total time?", "gold_answer": "7.33"},
+{"question": "A pool contains 840 L. It loses 15% overnight, then 90 L more. Remaining?", "gold_answer": "624"},
+{"question": "A recipe calls for 4 cups sugar per 7 cups flour. If 56 cups flour used, sugar needed?", "gold_answer": "32"},
+{"question": "A hiker travels 24 miles: 8 at 4 mph, 16 at 2 mph. Travel time?", "gold_answer": "10"},
+{"question": "A store buys 180 shirts at $12 and sells for $18. Profit?", "gold_answer": "1080"},
+{"question": "A machine outputs 75 units every 10 minutes. Output in 3 hours?", "gold_answer": "1350"},
+{"question": "A school band has 90 members. 2/5 play brass, 1/4 of brass play trumpet. Trumpet players?", "gold_answer": "9"},
+{"question": "A shop sells oranges at 4 lbs for $6. How much for 19 lbs?", "gold_answer": "28.5"},
+{"question": "A bus travels 300 miles at 75 mph then 120 miles at 40 mph. Average speed?", "gold_answer": "60"},
+{"question": "A tank drains 180 liters, which is 3/10 of full capacity. What is full capacity?", "gold_answer": "600"},
+{"question": "A bakery makes 1500 cookies. 40% chocolate chip, 35% oatmeal, rest sugar. Sugar cookies?", "gold_answer": "375"},
+{"question": "A student reads 360 pages in 6 days. If he increases rate by 25%, pages read in 5 days?", "gold_answer": "375"},
+{"question": "A store mixes nuts at $8/lb and $12/lb to get 60 lbs costing $10/lb. How many lbs of $12 nuts?", "gold_answer": "30"},
+{"question": "A cyclist rides 15 miles at 10 mph and 15 miles at 5 mph. Average speed?", "gold_answer": "6.67"},
+{"question": "A company’s revenue increases from $480k to $588k. Percent increase?", "gold_answer": "22.5"},
+{"question": "A school prints 2400 flyers. 45% distributed, then 30% of remaining. Flyers left?", "gold_answer": "924"},
+{"question": "A machine makes 150 units/hour. After upgrade it makes 195. Percent increase?", "gold_answer": "30"},
+{"question": "A baker uses 2/9 of 270 lbs flour, then another 1/4 of remainder. Flour left?", "gold_answer": "157.5"},
+{"question": "A container holds 75 liters, which is 3/5 of capacity. Full capacity?", "gold_answer": "125"},
+{"question": "A store sells boxes for $3 or 5 for $13. Minimum cost for 27 boxes?", "gold_answer": "71.6"},
+{"question": "A car travels 180 miles at 60 mph and 90 miles at 45 mph. Total time?", "gold_answer": "5"},
+{"question": "A runner jogs 12 miles: 4 at 6 mph, 8 at 4 mph. Average speed?", "gold_answer": "4.5"},
+{"question": "A hotel has 360 rooms. 5/9 are occupied, and 20% of unoccupied are being cleaned. How many are being cleaned?", "gold_answer": "32"},
+{"question": "A bus makes $8 per ticket. If revenue is $1960, how many tickets sold?", "gold_answer": "245"},
+{"question": "A factory produces 900 units/day. Output increases 25% for 8 days. Extra units produced?", "gold_answer": "1800"},
+{"question": "A student purchases 6 books at $12.50 each and 3 at $9.75. Total cost?", "gold_answer": "104.25"},
+{"question": "A class has 48 students. 1/3 take piano, 1/2 take guitar, 6 take both. How many take neither?", "gold_answer": "8"},
+{"question": "A container loses 28 liters, which is 1/7 of the water. How much water originally?", "gold_answer": "196"},
+{"question": "A worker finishes 180 tasks. He completed 60% in the morning. How many in the afternoon?", "gold_answer": "72"},
+{"question": "A student scores 90, 85, 92, 88. Needed 5th score for average 90?", "gold_answer": "95"},
+{"question": "A baker sells 3 muffins for $5.40. How much for 17 muffins?", "gold_answer": "30.6"},
+{"question": "A school has 540 students. 3/5 participate in sports, and 30% of those join basketball. How many join basketball?", "gold_answer": "97.2"},
+{"question": "A store sells candles at 4 for $7.20. How much would 26 candles cost?", "gold_answer": "46.8"},
+{"question": "A library classifies 1200 books: 45% fiction, 30% non-fiction, rest reference. How many reference books?", "gold_answer": "300"},
+{"question": "A runner completes 15 miles: 9 at 6 mph and 6 at 4 mph. What is the total time?", "gold_answer": "3"},
+{"question": "A tank holds 420 liters. It is drained by 25% and then loses 70 more liters. How many liters remain?", "gold_answer": "245"},
+{"question": "A baker uses flour in ratio sugar:flour = 3:8. If sugar is 27 cups, how much flour?", "gold_answer": "72"},
+{"question": "A gym membership increases from $48/month to $60/month. What percent increase is this?", "gold_answer": "25"},
+{"question": "A tourist walks 6 miles at 3 mph and 4 miles at 2 mph. What is his average speed?", "gold_answer": "2.5"},
+{"question": "A toy factory makes 900 toys/day for 12 days, then increases production by 20% for the next 8 days. How many toys total?", "gold_answer": "19440"},
+{"question": "A truck travels 300 miles at 75 mph and 160 miles at 40 mph. What is the total time?", "gold_answer": "8"},
+{"question": "A store mixes cereals costing $4/lb and $7/lb to form 60 lbs at $5.80/lb. How many lbs of $7 cereal?", "gold_answer": "36"},
+{"question": "A class of 42 students has 3/7 girls. Half of the girls play violin. How many girls play violin?", "gold_answer": "9"},
+{"question": "A pool contains 1600 liters. It loses 12% overnight, then 90 liters more. How many liters remain?", "gold_answer": "1318"},
+{"question": "A bakery sells cupcakes at 3 for $4.80. How much for 29 cupcakes?", "gold_answer": "46.4"},
+{"question": "A student gets 75, 83, 91, 89 on tests. What fifth score is needed for average 86?", "gold_answer": "92"},
+{"question": "A hiker travels 24 miles: 12 at 4 mph and 12 at 3 mph. What is average speed?", "gold_answer": "3.43"},
+{"question": "A restaurant orders 720 tomatoes. 40% used Monday, 25% of remaining Tuesday. How many left?", "gold_answer": "324"},
+{"question": "A train travels 180 miles at 60 mph and 200 miles at 50 mph. What is average speed?", "gold_answer": "54.29"},
+{"question": "A car uses 12 gallons to go 360 miles. How many gallons are needed for 540 miles?", "gold_answer": "18"},
+{"question": "A box has marbles in ratio 6:5:4. If total is 450, how many are of the smallest color?", "gold_answer": "120"},
+{"question": "A gardener plants 648 shrubs in rows of 18. How many rows needed?", "gold_answer": "36"},
+{"question": "A store buys mugs for $6 and sells for $9. If 850 mugs sold, what is total profit?", "gold_answer": "2550"},
+{"question": "A student reads 50 pages/day for 6 days, then 70 pages/day for 4 days. Total pages?", "gold_answer": "580"},
+{"question": "A tent rental costs $95/day plus $8 setup fee. How much for 6 days?", "gold_answer": "578"},
+{"question": "A bike trip is 90 miles: 50 at 25 mph and 40 at 20 mph. Total travel time?", "gold_answer": "4"},
+{"question": "A class has 36 students. 1/4 take piano, 1/3 take guitar, and 6 take both. How many take neither?", "gold_answer": "15"},
+{"question": "A container is 3/8 full with 54 liters. Full capacity?", "gold_answer": "144"},
+{"question": "A company’s revenue increases from $320k to $400k. Percent increase?", "gold_answer": "25"},
+{"question": "A school sells 5 raffle tickets for $12. If 48 tickets sold, revenue?", "gold_answer": "115.2"},
+{"question": "A truck holds 56 boxes per trip. How many trips for 1512 boxes?", "gold_answer": "27"},
+{"question": "A machine makes 160 units/hour for 9 hours and 200/hour for 6 hours. Total units?", "gold_answer": "2640"},
+{"question": "A runner goes 18 miles: half at 9 mph and half at 6 mph. What is total time?", "gold_answer": "2.5"},
+{"question": "A recipe calls for flour:sugar = 5:3. If flour is 85 cups, how much sugar?", "gold_answer": "51"},
+{"question": "A store discounts a $150 coat by 35%, then 10% more. Final price?", "gold_answer": "87.75"},
+{"question": "A city bus sells 210 tickets at $2.40 each. Revenue?", "gold_answer": "504"},
+{"question": "A pool fills 40 L/min for 18 min, then 25 L/min for 30 min. Total liters?", "gold_answer": "1470"},
+{"question": "A student solves 80% of 300 problems, but 15% of solved are wrong. How many correct?", "gold_answer": "204"},
+{"question": "A toy box contains items in ratio 7:5:3. If there are 300 toys, how many belong to the middle group?", "gold_answer": "100"},
+{"question": "A car travels 120 miles at 40 mph, then 180 miles at 60 mph. Average speed?", "gold_answer": "50"},
+{"question": "A store buys 540 shirts at $18 and sells at $27. Profit?", "gold_answer": "4860"},
+{"question": "A ferry travels 42 miles at 14 mph and 36 miles at 12 mph. Travel time?", "gold_answer": "6"},
+{"question": "A bike rental charges $15 per hour. If someone rents for 3.5 hours with 20% off, what is cost?", "gold_answer": "42"},
+{"question": "A bakery produces 1440 loaves weekly. Demand increases 25%. New production?", "gold_answer": "1800"},
+{"question": "A student runs 20 laps: 10 laps at 2 min/lap, 10 at 3 min/lap. Total time?", "gold_answer": "50"},
+{"question": "A warehouse stores 1500 boxes: 30% small, 1/4 medium, rest large. How many large boxes?", "gold_answer": "675"},
+{"question": "A school uses 240 markers. 3/5 used Monday, 50 of remaining Tuesday. How many left?", "gold_answer": "46"},
+{"question": "A gardener mixes soil types at $5/bag and $9/bag to make 80 bags at $7/bag. How many $9 bags?", "gold_answer": "40"},
+{"question": "A toy set costs $18 after a 25% discount. Original price?", "gold_answer": "24"},
+{"question": "A truck travels 162 miles at 54 mph and 108 miles at 36 mph. Average speed?", "gold_answer": "45"},
+{"question": "A school buys 24 tablets at $230 each with 15% bulk discount. Total cost?", "gold_answer": "4692"},
+{"question": "A student reads 420 pages in 7 days. If he reads 25% more daily, how many pages in 5 days?", "gold_answer": "375"},
+{"question": "A fruit shop sells apples at 4 lbs for $6. How much for 18 lbs?", "gold_answer": "27"},
+{"question": "A class collects 480 cans. 35% collected Monday, 45% of remaining Tuesday. How many collected Tuesday?", "gold_answer": "140.4"},
+{"question": "A truck unloads 18% of 1250 kg, then 130 kg more. How much remains?", "gold_answer": "895"},
+{"question": "A student hikes 10 miles at 5 mph and 6 miles at 3 mph. Total time?", "gold_answer": "4"},
+{"question": "A store sells notebooks at 5 for $11. How much for 37 notebooks?", "gold_answer": "81.4"},
+{"question": "A bus travels 288 miles: 144 at 36 mph and 144 at 48 mph. Average speed?", "gold_answer": "41.14"},
+{"question": "A tank is 3/4 full with 96 liters. How many liters does it hold full?", "gold_answer": "128"},
+{"question": "A factory reduces defects by 30% then 20%. If 392 remain, original number?", "gold_answer": "700"},
+{"question": "A recipe uses 2/5 of 350 grams of sugar, then 40 grams more. How much used?", "gold_answer": "180"},
+{"question": "A toy car travels 15 miles at 10 mph and 10 miles at 5 mph. Average speed?", "gold_answer": "7.14"},
+{"question": "A company sells 900 items at $14 each. Production cost is $8 per item. Profit?", "gold_answer": "5400"},
+{"question": "A swimming pool contains 2500 liters. It loses 18%, then 150 liters more. Remaining?", "gold_answer": "1900"},
+{"question": "A trip is 300 miles: first 120 at 60 mph, rest at 40 mph. Total time?", "gold_answer": "6.5"},
+{"question": "A store buys 60 laptops at $500 each. Selling price is 25% higher. Total revenue?", "gold_answer": "37500"},
+{"question": "A gardener waters 90 plants daily. 3/10 wilt, 2/3 of remaining bloom. How many bloom?", "gold_answer": "42"},
+{"question": "A store sells soda at 3 for $4.50. How much for 22 sodas?", "gold_answer": "33"},
+{"question": "A book has 480 pages. Reader finishes 1/3 first day, 120 next day. Pages left?", "gold_answer": "200"},
+{"question": "A cyclist travels 28 miles at 14 mph and 14 miles at 7 mph. Travel time?", "gold_answer": "4"},
+{"question": "A school hires 75 tutors. 40% teach math, 1/3 of math tutors teach algebra. How many teach algebra?", "gold_answer": "10"},
+{"question": "A baker makes 1800 cookies. 40% chocolate chip, 30% oatmeal, rest sugar. Sugar cookies?", "gold_answer": "540"},
+{"question": "A car depreciates 20% one year, 10% next year. Current value $28,800. Original value?", "gold_answer": "40000"},
+{"question": "A chef uses flour in ratio 7:5 with sugar. If sugar is 35 cups, flour needed?", "gold_answer": "49"},
+{"question": "A hotel has 270 rooms. 3/10 check out, and 25 new guests check in. Rooms occupied now?", "gold_answer": "214"},
+{"question": "A worker completes 65% of 480 tasks, then 40 more. How many completed?", "gold_answer": "352"},
+{"question": "A store sells 640 tickets. 25% morning, 45% of remaining afternoon. Tickets left?", "gold_answer": "264"},
+{"question": "A farm has 840 chickens. 3/7 hens, 2/5 of hens lay eggs. How many lay eggs?", "gold_answer": "144"},
+{"question": "A windmill produces 240 kWh/day. Output rises 20% for 15 days. Extra energy?", "gold_answer": "720"},
+{"question": "A student’s average of four tests is 87. Scores: 91, 84, 88. What is the fourth?", "gold_answer": "85"},
+{"question": "A sports club has 350 members: 2/7 teens, 1/5 teens do swimming. Teen swimmers?", "gold_answer": "20"},
+{"question": "A toy store buys puzzles for $7 and sells at $12. If 420 sold, revenue?", "gold_answer": "5040"},
+{"question": "A machine produces 75 bolts every 6 minutes. Bolts in 2 hours?", "gold_answer": "1500"},
+{"question": "A runner completes 30 miles: 18 at 6 mph and 12 at 4 mph. Average speed?", "gold_answer": "5"},
+{"question": "A student writes 48 essays. 3/8 narrative, 1/3 of narrative win awards. Awards?", "gold_answer": "6"},
+{"question": "A bakery sells bagels at 5 for $6.75. How much for 32 bagels?", "gold_answer": "43.2"},
+{"question": "A movie theater seats 560. It fills 80%, and 15% of filled are VIP. VIP count?", "gold_answer": "67.2"},
 {"question": "A café sells smoothies at $4 each. Costs are $2.40 each. If 900 sold, profit?", "gold_answer": "1440"}

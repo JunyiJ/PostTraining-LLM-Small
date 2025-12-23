@@ -443,7 +443,7 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # 5. Soft Truncation Penalty
     # We lowered this to -0.05 per your latest update, which is good.
     # It stops the 'Builder Problem' from being a total loss.
-    trunc_r = -0.05 if truncated else 0.0
+    trunc_r = -0.2 if truncated else 0.0
 
     # 6. Efficiency Bonus (The Tie-Breaker)
     # Rewards the model for getting the answer in fewer tokens.

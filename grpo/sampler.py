@@ -1,9 +1,41 @@
 import torch
 import torch.nn.functional as F
 import re
+import time
 
 
 FAKE_PAD_ID = -100   # any ID not used by model
+
+import time
+
+def profile_sampling(func):
+    """Decorator to measure sampling performance and detect stalls."""
+    def wrapper(*args, **kwargs):
+        t0 = time.perf_counter()
+        out = func(*args, **kwargs)
+        t1 = time.perf_counter()
+
+        duration = t1 - t0
+        steps = out.get("steps_taken", None)
+        truncated = out.get("truncated", None)
+
+        # Immediately warn if sampling too slow
+        if duration > 200:
+            print("\n🚨 SAMPLING WARNING")
+            print(f"  Time: {duration:.2f}s (too slow)")
+            print(f"  Steps taken: {steps}")
+            print(f"  Truncated flags: {truncated}")
+            print(f"  Prompt: {args[2][:120]}...")
+            print("  → Early-stop likely failed OR logits collapsed.")
+            print("  → Inspect sampler immediately.\n")
+
+        # Soft warning
+        elif duration > 20:
+            print(f"⚠️ Sampling slow: {duration:.1f}s, steps={steps}")
+
+        return out
+    return wrapper
+
 
 def sample_k(
     model,
@@ -60,12 +92,11 @@ def sample_k_parallel(
     max_new_tokens=256,
     enable_grad=False,
     top_p=0.95,
-    repetition_penalty=1.1,
+    repetition_penalty=1.05,
 ):
     enc = tokenizer(prompt, return_tensors="pt")
     input_ids = enc["input_ids"].to(device)  # [1, seq_len]
     prompt_id_length = input_ids.size(1)
-    # [K, seq_len]
     
     # Pre-allocate tensor for input_ids_k
     total_max_len = prompt_id_length + max_new_tokens
@@ -83,61 +114,78 @@ def sample_k_parallel(
     pad_id_for_model = tokenizer.pad_token_id if tokenizer.pad_token_id is not None else (tokenizer.eos_token_id or 0)
     grad_context = torch.enable_grad() if enable_grad else torch.no_grad()
 
-    # This pattern allows for:
-    # - Optional currency ($)
-    # - Commas in numbers (1,000)
-    # - Negative signs (-5)
-    # - Decimals (3.14)
-    # - Fractions (3/4)
-    # - Optional percentage (%)
-    RE_UNIT_NUMERIC = r"[\$]?\s*([-+]?\d[0-9,]*\.?\d*(?:/\d+)?)\s*[\%]*"
-
-    # The early-stop regex:
-    stop_regex = re.compile(r"final\s*answer[:\s]*" + RE_UNIT_NUMERIC, re.IGNORECASE)
-    with grad_context:
+    with torch.no_grad():
         for i in range(max_new_tokens):
             curr_pos = prompt_id_length + i
+            # STOP IF ALL SAMPLES DONE
+            if i % 16 == 0:
+                if not sampling_active.any():
+                    break
+
+            if curr_pos > 200:
+                print(f"⚠️ KV cache getting large: {curr_pos}")
             if i == 0:
-                model_inputs = {"input_ids": input_ids_k[:, :prompt_id_length], "use_cache": True}
+                model_inputs = {
+                    "input_ids": input_ids_k[:, :prompt_id_length],
+                    "attention_mask": attention_mask_k[:, :prompt_id_length],
+                    "use_cache": True,
+                }
             else:
                 model_inputs = {
                     "input_ids": input_ids_k[:, curr_pos - 1 : curr_pos],
                     "past_key_values": past_key_values,
+                    "attention_mask": attention_mask_k[:, :curr_pos],
                     "use_cache": True,
                 }
-            model_inputs["attention_mask"] = attention_mask_k[:, :curr_pos]
             out = model(**model_inputs)
+            del past_key_values
             past_key_values = out.past_key_values
             # [K, vocab]
             step_logits = out.logits[:, -1, :] / max(temperature, 1e-5)
-            # Repetition penalty: penalize tokens that already appeared
-            for batch_idx in range(k):
-                if sampling_active[batch_idx]:
-                    lookback = input_ids_k[batch_idx, max(0, curr_pos - 64) : curr_pos]
-                    unique_tokens = torch.unique(lookback)
-                    step_logits[batch_idx, unique_tokens] /= repetition_penalty
+            del out
+            step_logits[:, tokenizer.eos_token_id] += 1.0
+            # # Repetition penalty: penalize tokens that already appeared
+            # if repetition_penalty > 1.0:
+            #     for batch_idx in range(k):
+            #         if sampling_active[batch_idx]:
+            #             lookback = input_ids_k[batch_idx, max(0, curr_pos - 64) : curr_pos]
+            #             valid_mask = (lookback >= 0) & (lookback < model.config.vocab_size)
+            #             unique_tokens = torch.unique(lookback[valid_mask])
+            #             step_logits[batch_idx, unique_tokens] /= repetition_penalty
 
-            # TOP-P sampling
-            sorted_logits, sorted_indices = torch.sort(step_logits, descending=True)
-            cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
-            sorted_indices_to_remove = cumulative_probs > top_p
-            sorted_indices_to_remove[..., 1:] = sorted_indices_to_remove[..., :-1].clone()
-            sorted_indices_to_remove[..., 0] = 0
-            indices_to_remove = sorted_indices_to_remove.scatter(1, sorted_indices, sorted_indices_to_remove)
-            step_logits[indices_to_remove] = -float("inf")
+            # # TOP-P sampling
+            # sorted_logits, sorted_indices = torch.sort(step_logits, descending=True)
+            # cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+            # mask = cumulative_probs > top_p
+            # mask[..., 1:] = mask[..., :-1].clone()
+            # mask[..., 0] = False
+            # indices_to_remove = mask.scatter(1, sorted_indices, mask)
+            # step_logits = step_logits.masked_fill(indices_to_remove, -1e10)
 
-            probs = F.softmax(step_logits, dim=-1)
+            
+            # --- Check for flat logits (stall detector) ---
+            # if torch.allclose(step_logits.max(dim=-1).values,
+            #                    step_logits.min(dim=-1).values,
+            #                    atol=1e-7):
+            #     sampling_active[:] = False
+            #     finished_with_eos[:] = True
+            #     print("🚨 Flat logits detected — model confused.")
+            #     break
+
+            log_probs = F.log_softmax(step_logits, dim=-1)
+            probs = torch.exp(log_probs - log_probs.max(dim=-1, keepdim=True).values)
+            probs = probs.clamp(min=1e-8)
+            probs = probs / probs.sum(dim=-1, keepdim=True)
+            # if probs.min() < 1e-12:
+            #     print(f"⚠️ Extremely small probs detected: min={probs.min().item():.3e}")
             # [K, 1]
             next_token_raw = torch.multinomial(probs, num_samples=1)
             # For finished rows, append pad instead of sampled token to keep shapes aligned
-            if tokenizer.pad_token_id is not None:
-                next_token = torch.where(
-                    sampling_active.view(-1, 1),
-                    next_token_raw,
-                    torch.full_like(next_token_raw, FAKE_PAD_ID),
-                )
-            else:
-                next_token = next_token_raw
+            next_token = torch.where(
+                sampling_active.view(-1, 1),
+                next_token_raw,
+                torch.full_like(next_token_raw, FAKE_PAD_ID),
+            )
             # Build attention mask for next step: active rows attend, finished rows are masked
             attention_mask_k[:, curr_pos] = sampling_active.long()
             # Append token for model (replace fake pads with a real id)
@@ -145,21 +193,35 @@ def sample_k_parallel(
             append_for_model[append_for_model == FAKE_PAD_ID] = pad_id_for_model
             input_ids_k[:, curr_pos] = append_for_model.squeeze(-1)
 
-            # Early stopping
-            if i > 20 and i % 10 == 0:
-                for j in range(k):
-                    if sampling_active[j]:
-                        tail_text = tokenizer.decode(input_ids_k[j, curr_pos-40:curr_pos+1])
-                        if stop_regex.search(tail_text):
-                            sampling_active[j] = False
-                            finished_with_eos[j] = True
+            # # Early stopping
+            # if i > 50 and i % 10 == 0:
+            #     for j in range(k):
+            #         if i == max_new_tokens - 1 and sampling_active[j]:
+            #             print(f"⚠️ No early-stop for sample {j}, generated full length.")
+            #         if sampling_active[j]:
+            #             start_ind = max(prompt_id_length, curr_pos - 30)
+            #             tail_text = tokenizer.decode(input_ids_k[j, start_ind:curr_pos+1], skip_special_tokens=True).lower().strip()
+            #             # find any numeric candidate in text
+            #             marker = "final answer:"
+            #             if marker in tail_text.lower():
+            #                 parts = re.split(marker, tail_text, flags=re.IGNORECASE)
+            #                 after_answer = parts[-1].strip()
+            #                 if re.search(r"[-+]?\d[\d,./]*\s*(\n|\.|$)", after_answer):
+            #                     # We found a number followed by a terminator or end of string
+            #                     # To be safe, let's ensure it's not just a single digit mid-sentence
+            #                     if len(after_answer) > 0 and (after_answer[-1] in ['.', '\n'] or i == max_new_tokens - 1):
+            #                         print(f"🟢 Controlled stop (sample {j}): {after_answer}")
+            #                         sampling_active[j] = False
+            #                         finished_with_eos[j] = True
+
+            # if sampling_active.sum() == 0:
+            #     print("🟢 All samples terminated — stopping sampler loop")
+            #     break
 
             hit_eos = (next_token_raw.squeeze(-1) == tokenizer.eos_token_id)
-            finished_with_eos = finished_with_eos | (hit_eos & sampling_active)
-            sampling_active = sampling_active & (~hit_eos)
+            finished_with_eos |= (hit_eos & sampling_active)
+            sampling_active &= (~hit_eos)
             steps_taken += 1
-            if steps_taken >= max_new_tokens or sampling_active.sum() == 0:
-                break
     
     # Cleanup
     del past_key_values
@@ -179,6 +241,9 @@ def sample_k_parallel(
         "truncated": (~finished_with_eos).tolist(),  # list of bools
         "steps_taken": steps_taken,
     }
+
+sample_k_parallel = profile_sampling(sample_k_parallel)
+
 
 # model.generate(...) Had issues of NaN tensor on MPS with gemma-2-2b
 def sample_k_generate(
