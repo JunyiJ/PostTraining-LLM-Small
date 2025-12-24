@@ -8,6 +8,7 @@ import re
 import random
 import time
 from pathlib import Path
+import psutil
 
 import torch
 import torch.nn.functional as F
@@ -33,12 +34,13 @@ CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 50
-NUM_EPOCHS = 1
-EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.6
+NUM_EPOCHS = 8
+EVAL_EVERY = 10
+SAMPLING_TEMPERATURE = 0.8
 MAX_NEW_TOKENS = 200
 KL_COEF = 0.2
 DEVICE = torch.device("mps")
+PROMPT = " Please reason step-by-step,  then give: Final answer."
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
@@ -67,6 +69,14 @@ running_loss = 0.0
 running_correct = 0
 running_total = 0
 
+def check_memory_health():
+    vmem = psutil.virtual_memory()
+    swap = psutil.swap_memory()
+    # Color coding the output for visibility
+    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
+    reset = "\033[0m"
+    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
+
 def save_lora_checkpoint(model, optimizer, epoch, global_step):
     state = {
         "epoch": epoch,
@@ -93,8 +103,13 @@ for each batch:
     periodically evaluate
 """
 # Load training data
+test_data = []
 with open(TRAIN_FILE) as f:
-    test_data = [json.loads(line) for line in f]
+    for ln in f:
+        ln = ln.strip()
+        if not ln:
+            continue
+        test_data.append(json.loads(ln))
 # random.shuffle(test_data)
 
 for epoch in range(1, NUM_EPOCHS + 1):
@@ -103,9 +118,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
     end = start + NUM_TRAINING_DATA
     train_samples = test_data[start:end]
     for line in tqdm(train_samples, desc=f"epoch {epoch}", leave=False):
+        check_memory_health()
         t_start = time.perf_counter()
         question = line['question']
-        prompt = " Please reason step-by-step,  then give: Final answer."
+        prompt = PROMPT
         # print(question)
         gold_answer = str(line["gold_answer"]).strip()
         print(question)
@@ -216,13 +232,16 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
-        if global_step % 1 == 0:
+        all_equal = len(set(rewards)) == 1
+        all_pos = all(r > 0 for r in rewards)
+        all_neg = all(r < 0 for r in rewards)
+        if all_equal or all_pos or all_neg:
             for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
                 print(txt)
                 print(f"reward is {r}")
                 print(f"is result truncated? {tr}")
         # Calculate advantages
-        advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32)
+        advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(sum_token_logprobs_new.dtype)
         print(f"advantages is {advantages}")
         # Compute GRPO loss
@@ -241,15 +260,34 @@ for epoch in range(1, NUM_EPOCHS + 1):
         global_step += 1
         # Backprop
         t6 = time.perf_counter()
-        optimizer.zero_grad()
-        gc.collect()
-        torch.mps.empty_cache()
-        for param in model.parameters():
+        # pre-backprop cleanup. adding set_to_none is more memory efficiency
+        optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        # For MPS gradient stability
+        torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+        for param in lora_params:
             if param.grad is not None:
                 param.grad.data = param.grad.data.contiguous()
-        loss.backward()
         optimizer.step()
         t7 = time.perf_counter()
+        # --- THE DEEP CLEAN BLOCK ---
+        # Tensors from the Forward Passes (The biggest memory hogs)
+        del logits_new, logits_old
+        del shifted_log_probs_new, shifted_log_probs_old
+        del old_out, out_new
+
+        # Tensors from Log-prob calculations
+        del masked_log_probs_new, masked_log_probs_old
+        del sum_token_logprobs_new, sum_token_logprobs_old
+        del log_prob_ratio, ratio
+
+        # Intermediate Tensors and Sampler output
+        del res, padded_batch_tokens, attention_mask, answer_mask, targets
+
+        # Final scalars
+        del loss, grpo_loss, kl_loss, advantages, rewards
+        gc.collect()
+        torch.mps.empty_cache()
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)
@@ -260,7 +298,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             running_total = 0
 
             eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
-            eval_inputs = tokenizer(eval_prompt, return_tensors="pt").to(DEVICE)
+            eval_inputs = tokenizer(eval_prompt + PROMPT, return_tensors="pt").to(DEVICE)
             model.eval()
             with torch.no_grad():
                 out = model.generate(
@@ -270,6 +308,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
             model.train()
+            del eval_inputs, out
+            torch.mps.empty_cache()
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
         print("\n=== PROFILER ===")

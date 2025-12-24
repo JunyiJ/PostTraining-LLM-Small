@@ -1,0 +1,2 @@
+{"question": "A teacher assigns 120 pages to read. A student reads 15 pages per day for 4 days, then 20 pages per day. How many total days to finish?", "gold_answer": "7", "initial_accuracy": 0.75}
+{"question": "A car decreases value by 30% year 1 and 20% year 2. If new value is $5600, what was original price?", "gold_answer": "10000", "initial_accuracy": 0.0}

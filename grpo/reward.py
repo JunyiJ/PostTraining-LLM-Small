@@ -255,33 +255,31 @@ def extract_final_answer(text: str) -> Optional[float]:
     2) Otherwise use the LAST number in the text (e.g., "... = 72").
     """
 
-    if text is None:
-        return None
-    # Remove currency, commas, and percentage signs before float conversion
-    # Pattern to find the number after the tag
-    pattern = r"final\s*answer[:\s]*[\$]?\s*([-+]?\d[0-9,]*\.?\d*(?:/\d+)?)\s*[\%]*"
-    match = re.search(pattern, text, re.IGNORECASE)
-    if match:
-        raw_num = match.group(1).strip()
-        # Remove commas: "1,200" -> "1200"
-        clean_num = raw_num.replace(",", "")
-        
-        # Handle Fractions: "3/4" -> 0.75
-        if "/" in clean_num:
+    if not text: return None
+    
+    # Split by the LAST "final answer" to avoid getting trapped by intermediate thoughts
+    parts = re.split(r"final\s*answer[:\s]*", text, flags=re.IGNORECASE)
+    if len(parts) > 1:
+        # We look at the very last segment
+        after_tag = parts[-1].strip()
+        # Find the first number in that segment. 
+        # Handles: "$10,000", "126.", "3/4", "85%"
+        num_match = re.search(r"([-+]?\d[0-9,./]*)", after_tag)
+        if num_match:
+            raw_num = num_match.group(1).replace(",", "").rstrip(".")
             try:
-                num, den = clean_num.split("/")
-                return float(num) / float(den)
-            except: return None
-        try:
-            return float(clean_num)
-        except:
-            return None
+                if "/" in raw_num:
+                    n, d = raw_num.split("/")
+                    return float(n) / float(d)
+                return float(raw_num)
+            except: pass
 
-    # 2) Fallback: use LAST number in the answer text
-    nums = NUMBER_PATTERN.findall(text)
+    # Fallback to the very last number found anywhere
+    nums = re.findall(r"[-+]?\d[0-9,]*\.?\d*", text)
     if nums:
-        return _parse_number(nums[-1])
-
+        try:
+            return float(nums[-1].replace(",", "").rstrip("."))
+        except: return None
     return None
 
 
@@ -387,7 +385,7 @@ def advanced_cot_reward(text: str, gold_answer: float, truncated: bool = False) 
         return -1.0
     
     try:
-        gold = float(gold_answer)
+        gold = float(str(gold_answer).replace(",", ""))
     except:
         return -1.0
 
@@ -412,7 +410,7 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     pred = extract_final_answer(text)
     
     try:
-        gold = float(gold_answer)
+        gold = float(str(gold_answer).replace(",", ""))
     except:
         return -1.0
 
@@ -420,13 +418,15 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # This helps the model if it's off by a tiny rounding error
     if pred is None:
         # Penalty for failing to follow the format 'Final answer: <num>'
-        num_r = -1.2 
-    elif abs(pred - gold) < 1e-4:
-        num_r = 1.0
-    elif abs(pred - gold) < 1.0: # Near miss (off by less than 1)
-        num_r = 0.2
+        num_r = -1.2
     else:
-        num_r = -1.0
+        rel_error = abs(pred - gold) / max(1.0, abs(gold))
+        if rel_error < 1e-4:
+            num_r = 1.0
+        elif rel_error < 0.05: # Near miss
+            num_r = 0.4
+        else:
+            num_r = -1.0
 
     # 3. Intermediate Logic Bonus
     # Only award equation bonus if the CoT isn't total gibberish

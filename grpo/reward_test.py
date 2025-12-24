@@ -2,8 +2,8 @@ import pytest
 from reward import (
     compute_reward,
     MIN_REASON_TOKENS,
-    reward_fn,
     advanced_cot_reward,
+    refined_advanced_cot_reward,
 )
 
 @pytest.mark.parametrize(
@@ -113,16 +113,6 @@ def test_equals_in_last_sentence_only():
     assert reward < 0  # incorrect after fallback
 
 
-def test_cot_verification_bonus_improves_score():
-    correct = "Step 1: 2 + 3 = 5\nFinal answer: 5"
-    incorrect = "Step 1: 2 + 3 = 6\nFinal answer: 5"
-    base = reward_fn(correct, 5.0, verify_cot=False)
-    with_verify = reward_fn(correct, 5.0, verify_cot=True)
-    with_verify_bad = reward_fn(incorrect, 5.0, verify_cot=True)
-    assert with_verify > base
-    assert with_verify > with_verify_bad
-
-
 def test_advanced_cot_reward_bounds():
     text = "Calc: 2 * 3 = 6\nFinal answer: 6"
     score = advanced_cot_reward(text, 6.0)
@@ -132,5 +122,74 @@ def test_advanced_cot_reward_bounds():
 def test_truncated_penalty_applied():
     text = "Calc: 2 * 3 = 6\nFinal answer: 6"
     base = advanced_cot_reward(text, 6.0, truncated=False)
-    penalized = advanced_cot_reward(text, 6.0, truncated=True, trunc_penalty=-0.2)
+    penalized = advanced_cot_reward(text, 6.0, truncated=True)
     assert penalized < base
+
+
+# === refined_advanced_cot_reward coverage ===
+def test_refined_exact_and_near():
+    exact = "Final answer: 42"
+    near = "Final answer: 42.5"
+    exact_score = refined_advanced_cot_reward(exact, 42.0, truncated=False)
+    near_score = refined_advanced_cot_reward(near, 42.0, truncated=False)
+    assert exact_score > 0.9
+    assert 0.1 <= near_score <= 0.4
+
+
+def test_refined_no_answer_penalty():
+    text = "I refuse to answer."
+    score = refined_advanced_cot_reward(text, 10.0, truncated=False)
+    assert score <= -1.0
+
+
+def test_refined_equation_bonus_and_length_penalty():
+    base_text = "Final answer: 5"
+    eq_text = "Step 1: 2+3=5\nFinal answer: 5"
+    base_score = refined_advanced_cot_reward(base_text, 5.0, truncated=False)
+    long_text = ("Final answer: 5 " + "filler " * 200).strip()
+    long_score = refined_advanced_cot_reward(long_text, 5.0, truncated=False)
+    assert long_score < base_score  # length penalty applied
+
+
+def test_refined_extraction_1():
+    text = "Final answer: 10,000"
+    base = refined_advanced_cot_reward(text, 10000, truncated=False)
+    assert base == 0.98
+
+def test_refined_extraction_2():
+    text = """
+    **Reasoning:**
+
+    1. **Year 1:** The car loses 30% of its value, meaning it's worth 70% of its original price. We can express this as: 
+    Original Price * 0.70 = $5600
+    2. **Year 2:**  The car loses 20% of its value, meaning it's worth 80% of what it was last year. We can express this as:
+    $5600 * 0.80 = $4480
+    3. **Year 1 Value:** The value after Year 1 is $5600.
+    4. **Year 2 Value:** The value after Year 2 is $4480.
+
+    Now we can use these values to find the original price:
+
+
+    **Final Answer:** $10,000 
+    """
+    base = refined_advanced_cot_reward(text, 10000, truncated=False)
+    assert base >= 0.9
+
+def test_refined_extraction_3():
+    text = """
+    **Reasoning:**
+
+    1. **Year 1:** The car loses 30% of its value, meaning it's worth 70% of its original price. We can express this as: 
+    Original Price * 0.70 = $5600
+    2. **Year 2:**  The car loses 20% of its value, meaning it's worth 80% of what it was last year. We can express this as:
+    $5600 * 0.80 = $4480
+    3. **Year 1 Value:** The value after Year 1 is $5600.
+    4. **Year 2 Value:** The value after Year 2 is $4480.
+
+    Now we can use these values to find the original price:
+
+
+    **Final Answer:** $10,000 
+    """
+    base = refined_advanced_cot_reward(text, "10,000", truncated=False)
+    assert base >= 0.9

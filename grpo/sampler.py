@@ -93,7 +93,9 @@ def sample_k_parallel(
     enable_grad=False,
     top_p=0.95,
     repetition_penalty=1.05,
+    timeout_seconds=500,
 ):
+    t_start_global = time.perf_counter()
     enc = tokenizer(prompt, return_tensors="pt")
     input_ids = enc["input_ids"].to(device)  # [1, seq_len]
     prompt_id_length = input_ids.size(1)
@@ -117,13 +119,17 @@ def sample_k_parallel(
     with torch.no_grad():
         for i in range(max_new_tokens):
             curr_pos = prompt_id_length + i
+            # --- WATCHDOG: Skip if batch is taking too long ---
+            if (time.perf_counter() - t_start_global) > timeout_seconds:
+                print(f"🚨 WATCHDOG TRIGGERED: Sampling took >{timeout_seconds}s. Aborting.")
+                sampling_active[:] = False
+                break
             # STOP IF ALL SAMPLES DONE
-            if i % 16 == 0:
-                if not sampling_active.any():
-                    break
+            if not sampling_active.any():
+                break
 
-            if curr_pos > 200:
-                print(f"⚠️ KV cache getting large: {curr_pos}")
+            # if curr_pos > 200:
+            #     print(f"⚠️ KV cache getting large: {curr_pos}")
             if i == 0:
                 model_inputs = {
                     "input_ids": input_ids_k[:, :prompt_id_length],
@@ -141,7 +147,7 @@ def sample_k_parallel(
             del past_key_values
             past_key_values = out.past_key_values
             # [K, vocab]
-            step_logits = out.logits[:, -1, :] / max(temperature, 1e-5)
+            step_logits = out.logits[:, -1, :].to(torch.float32) / max(temperature, 1e-5)
             del out
             step_logits[:, tokenizer.eos_token_id] += 1.0
             # # Repetition penalty: penalize tokens that already appeared
@@ -153,14 +159,14 @@ def sample_k_parallel(
             #             unique_tokens = torch.unique(lookback[valid_mask])
             #             step_logits[batch_idx, unique_tokens] /= repetition_penalty
 
-            # # TOP-P sampling
-            # sorted_logits, sorted_indices = torch.sort(step_logits, descending=True)
-            # cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
-            # mask = cumulative_probs > top_p
-            # mask[..., 1:] = mask[..., :-1].clone()
-            # mask[..., 0] = False
-            # indices_to_remove = mask.scatter(1, sorted_indices, mask)
-            # step_logits = step_logits.masked_fill(indices_to_remove, -1e10)
+            # TOP-P sampling
+            sorted_logits, sorted_indices = torch.sort(step_logits, descending=True)
+            cumulative_probs = torch.cumsum(F.softmax(sorted_logits, dim=-1), dim=-1)
+            mask = cumulative_probs > top_p
+            mask[..., 1:] = mask[..., :-1].clone()
+            mask[..., 0] = False
+            indices_to_remove = mask.scatter(1, sorted_indices, mask)
+            step_logits.masked_fill_(indices_to_remove, -1e10)
 
             
             # --- Check for flat logits (stall detector) ---
