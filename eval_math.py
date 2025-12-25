@@ -15,11 +15,11 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch1_step50.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")
 USE_LORA = True  # set False to eval base model only
-BATCH_SIZE = 40
-MAX_NEW_TOKENS = 256
-TOL = 1e-6
+BATCH_SIZE = 20
+MAX_NEW_TOKENS = 400
+TOL = 1e-1
 
 prompt = " Please reason step-by-step,  then give: Final answer."
 
@@ -102,21 +102,27 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
             **inputs,
             max_new_tokens=MAX_NEW_TOKENS,
             do_sample=False,  # greedy decode; temperature/top-k/p ignored
+            pad_token_id=tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id,
+            use_cache=True # Critical for speed
         )
+        texts = tokenizer.batch_decode(outputs, skip_special_tokens=True)
 
-    for out, gold in zip(outputs, golds):
-        text = tokenizer.decode(out, skip_special_tokens=True)
+    for q, text, gold in zip(questions, texts, golds):
+        print(f"Question is: {q}\n\n")
+        print(f"model output is: {text}\n")
         try:
             gold_val = float(gold.replace(",", ""))
         except Exception:
             continue
-        pred = extract_answer(text)
+        pred = extract_final_answer(text)
         if pred is None:
             continue
         print("pred is {} and gold is {}".format(pred, gold))
         if abs(pred - gold_val) <= TOL:
             correct += 1
         total += 1
+        print(">>>>>>>>>>>>.")
     print("total questions processed is {} and correct answer is {}".format(total, correct))
 
 accuracy = correct / total * 100

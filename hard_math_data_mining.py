@@ -23,7 +23,7 @@ NUM_TRAINING_DATA = 50
 NUM_EPOCHS = 8
 EVAL_EVERY = 10
 SAMPLING_TEMPERATURE = 0.8
-MAX_NEW_TOKENS = 200
+MAX_NEW_TOKENS = 300
 DEVICE = torch.device("mps")
 PROMPT = " Please reason step-by-step,  then give: Final answer."
 

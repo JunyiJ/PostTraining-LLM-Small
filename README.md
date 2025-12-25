@@ -60,6 +60,7 @@ KL_divergency ~= sum(log_prob_new / log_prob_old) per token and then take the me
 * Baseline Model: Gemma 2B Instruct Total: 200 Correct: 74 Accuracy: 37.00%
 * GRPO + LORA Model checkpoint (base): Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00% (before running optimization)
 * GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 199 Correct: 118 Accuracy: 59.3%.
+* GRPO + LORA Model checkpoint(Train on 200 harder hand curated + AI generated examples, with efficiency improvement, MAX_NEW_TOKENS=400, TEMP=0.9, NUM_SAMPLES=5, lr=2*1e-4, KL_COEFF=0.1): Gemma 2B Instruct + LoRA Total: 200 Correct: 132 Accuracy: 66.00%
 
 ### Qwen2.5-Math-1.5B-Instruct as base model
 * Baseline Model: Total: 200 Correct: 16 Accuracy: 8.00%
@@ -88,7 +89,7 @@ for example question).
 To deal with these issues,
 1) I tried to update the reward function to punish reward hacking (negative score when there are repetitive patterns).
 2) In GRPO advantage calculation, instead of using `reward - mean(reward)`, use 
-`(reward - mean(reward))/std(reward)` to reduce the gradient variance.
+`(reward - mean(reward))/std(reward)` to reduce the gradient variance. Later changed to a rank based advantage function that is more robust to outliers, providing consistent gradient signals for stable training and effective tie-breaking. Rank-based method is more suitable for sparse, discrete rewards such as Math/Coding problems.
 3) Add KL divergency term into the original GRPO formula: `-advantage * P(new)/P(old) + alpha * logP(new) / logP(old)`
 
 ### Post training efficiency
@@ -97,8 +98,9 @@ I tried a few things to speed up the training on MPS
 Ideally we could use the `model.generate` call to avoid iterating with tokens as well, however, it 
 causes NaN issue probably due to a known unstability of Gemma model on MPS.
 2) Update the second pass to a batch mode instead of looping over the k samples.
-3) Using shorter max_token.
+3) Enable cache for sampling logic
 4) Early stop if all sampling reached EOF.
+5) Use Top-P sampling to avoid unexpected tokens that confuse the model.
 
 After the optimization step above (combining, 1/2/3/4), the overall training time is able to reduce 
 by 3-4x.

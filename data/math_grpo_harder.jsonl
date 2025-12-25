@@ -1,102 +1,100 @@
-[
-  {"question": "A bakery makes 400 cupcakes. They sell 40% in the morning. Of the remainder, they give 1/4 to a local shelter. The rest are sold in the afternoon in boxes of 6. If they sell each box for $12, how much money did they make in the afternoon?", "gold_answer": "360"},
-  {"question": "Alice is 4 years older than Bob. Bob is half the age of Charlie. In 5 years, Charlie will be 35. How old is Alice now?", "gold_answer": "19"},
-  {"question": "A pool is being filled by two pipes. Pipe A fills at 20L/min and Pipe B fills at 15L/min. Pipe A runs for 30 minutes alone, then both pipes run together for 20 minutes. If the pool is now 70% full, what is the total capacity of the pool?", "gold_answer": "1857.14"},
-  {"question": "A store buys 50 shirts for $10 each. They sell 30 shirts at a 60% markup. The remaining shirts are sold at a 20% discount off the original cost. What is the total profit or loss in dollars?", "gold_answer": "120"},
-  {"question": "A train travels from City A to City B at 60 mph and returns at 40 mph. If the distance between the cities is 120 miles, what is the average speed for the entire round trip?", "gold_answer": "48"},
-  {"question": "A farmer has 120 animals. 1/3 are cows, 2/5 are sheep, and the rest are goats. If he sells half the goats and buys 10 more sheep, how many animals does he have in total now?", "gold_answer": "114"},
-  {"question": "A tank contains 500 liters of a 20% salt solution. How much water must be evaporated to make it a 25% salt solution?", "gold_answer": "100"},
-  {"question": "A project takes 3 workers 8 days to complete. If one worker leaves after 2 days, how many additional days will it take the remaining two workers to finish the job?", "gold_answer": "9"},
-  {"question": "A car rental costs $50 per day plus $0.15 per mile. If a person rents a car for 3 days and is charged $210, how many miles did they drive?", "gold_answer": "400"},
-  {"question": "A student scored 75, 82, and 90 on three tests. What score does he need on the fourth test to raise his average to 85?", "gold_answer": "93"},
-  {"question": "A rectangle's length is 4 cm more than its width. If the perimeter is 48 cm, what is the area of the rectangle?", "gold_answer": "140"},
-  {"question": "A jar contains red and blue marbles in a 3:5 ratio. After adding 10 red marbles, the ratio becomes 1:1. How many blue marbles were originally in the jar?", "gold_answer": "25"},
-  {"question": "A person spends 1/3 of their monthly salary on rent and 1/4 of the remainder on food. If they have $1200 left, what is their total monthly salary?", "gold_answer": "2400"},
-  {"question": "A clock loses 5 minutes every hour. If it is set correctly at 12:00 PM, what time will it show when the actual time is 8:00 PM?", "gold_answer": "7:20 PM"},
-  {"question": "A sum of money doubles itself in 10 years at simple interest. What is the annual interest rate?", "gold_answer": "10"},
-  {"question": "A cyclist travels 15 miles at 10 mph and then 20 miles at 15 mph. What is the total time spent cycling in minutes?", "gold_answer": "170"},
-  {"question": "A box contains 240 fruit pieces. 30% are apples, 45% are oranges, and the rest are bananas. If 1/3 of the bananas are removed, how many pieces of fruit are left in the box?", "gold_answer": "220"},
-  {"question": "A worker's salary is increased by 10% and then decreased by 10%. What is the net percentage change in the salary?", "gold_answer": "-1"},
-  {"question": "A garden is 20m long and 15m wide. A path 2m wide is built around the outside. What is the area of the path?", "gold_answer": "156"},
-  {"question": "A set of 5 consecutive odd integers has a sum of 105. What is the largest integer in the set?", "gold_answer": "25"},
-  {"question": "A plane flies 600 miles with a tailwind in 2 hours. The return trip against the same wind takes 3 hours. What is the speed of the wind in mph?", "gold_answer": "50"},
-  {"question": "A bag contains $5.50 in quarters and dimes. If there are 34 coins in total, how many quarters are there?", "gold_answer": "14"},
-  {"question": "A machine can produce 120 units in 3 hours. If its efficiency decreases by 20%, how many units can it produce in a 5-hour shift?", "gold_answer": "160"},
-  {"question": "A student reads 20 pages a day. After 5 days, she increases her rate by 50%. How many total days will it take her to finish a 250-page book?", "gold_answer": "10"},
-  {"question": "A shirt is marked down by 20%, and then an additional 10% discount is applied to the sale price. If the final price is $54, what was the original price?", "gold_answer": "75"},
-  {"question": "A cylindrical tank has a radius of 3m and a height of 7m. If it is 1/3 full, how many cubic meters of water are in the tank? (Use pi = 22/7)", "gold_answer": "66"},
-  {"question": "A person buys a bike for $400 and spends $100 on repairs. They then sell it for a 25% profit on the total cost. What was the selling price?", "gold_answer": "625"},
-  {"question": "A sequence of numbers follows the rule: next number = (previous number * 2) - 3. If the first number is 5, what is the 5th number?", "gold_answer": "35"},
-  {"question": "A work group of 5 people can finish a task in 12 hours. How many more people are needed to finish the same task in 4 hours?", "gold_answer": "10"},
-  {"question": "A jar of honey is 4/5 full. After using 120ml, it is 1/2 full. What is the total capacity of the jar in milliliters?", "gold_answer": "400"},
-  {"question": "A car travels 30 miles per gallon of gas. If gas costs $4 per gallon, how much will a 450-mile trip cost?", "gold_answer": "60"},
-  {"question": "A rectangular field has an area of 300 square meters. If the length is 3 times the width, what is the perimeter of the field?", "gold_answer": "80"},
-  {"question": "A store sells a laptop for $800, which is a 25% profit over the cost. What was the original cost to the store?", "gold_answer": "640"},
-  {"question": "A person is twice as old as their brother was 5 years ago. If the person is currently 20, how old is the brother now?", "gold_answer": "15"},
-  {"question": "A library has 1000 books. 40% are fiction. Of the non-fiction books, 1/3 are science-related. How many science books are there?", "gold_answer": "200"},
-  {"question": "A boat travels 24 miles downstream in 2 hours and 24 miles upstream in 4 hours. What is the speed of the boat in still water?", "gold_answer": "9"},
-  {"question": "A sum of $5000 is invested at 5% annual compound interest. What is the total value after 2 years?", "gold_answer": "5512.50"},
-  {"question": "A marathon runner completes 26 miles. He runs the first 10 miles at 8 mph and the rest at 6 mph. How many minutes did the total run take?", "gold_answer": "235"},
-  {"question": "A box of 12 donuts costs $10. A single donut costs $1.25. How much money is saved by buying 3 dozen donuts instead of 36 single donuts?", "gold_answer": "15"},
-  {"question": "A person is 3 times as old as his son. In 12 years, he will be twice as old as his son. How old is the father now?", "gold_answer": "36"},
-  {"question": "A pipe can fill a tank in 4 hours, and a drain can empty it in 6 hours. If both are open, how long will it take to fill the tank?", "gold_answer": "12"},
-  {"question": "A group of 4 people shared a bill of $120. They decided to leave a 15% tip and split the total equally. How much did each person pay?", "gold_answer": "34.50"},
-  {"question": "A wall is 10m long and 3m high. How many 20cm by 10cm bricks are needed to cover it?", "gold_answer": "1500"},
-  {"question": "A number is increased by 20% and the result is decreased by 25%. If the final number is 90, what was the original number?", "gold_answer": "100"},
-  {"question": "A car's value depreciates by 15% each year. If it is worth $20,000 now, what will it be worth in 2 years?", "gold_answer": "14450"},
-  {"question": "A man walks 3km North, then 4km East. How far is he from his starting point in a straight line?", "gold_answer": "5"},
-  {"question": "A shop sells pens in packs of 5 for $2 or packs of 12 for $4.50. What is the minimum cost to buy 50 pens?", "gold_answer": "19"},
-  {"question": "A mixture contains milk and water in a 5:2 ratio. If the total volume is 35 liters, how much water must be added to make the ratio 1:1?", "gold_answer": "15"},
-  {"question": "A student has an average of 80 on 4 tests. If her next test score is 95, what will her new average be?", "gold_answer": "83"},
-  {"question": "A person has 10 coins consisting of quarters and dimes. If the total value is $1.90, how many dimes are there?", "gold_answer": "4"},
-  {"question": "A plane travels 1500 miles. For the first 500 miles, it flies at 250 mph. For the rest, it flies at 500 mph. What is the average speed?", "gold_answer": "375"},
-  {"question": "A company has 60 employees. 40% are male. If 5 more females are hired, what is the new percentage of male employees?", "gold_answer": "36.9"},
-  {"question": "A rectangular prism has a volume of 120 cubic cm. If the length is 5cm and the width is 4cm, what is the surface area?", "gold_answer": "148"},
-  {"question": "A person saves $50 in January and increases their monthly savings by $10 each month. How much total will they have saved by the end of December?", "gold_answer": "1260"},
-  {"question": "A phone battery drops from 100% to 40% in 4 hours of use. At this rate, how many more minutes will the battery last before reaching 0%?", "gold_answer": "160"},
-  {"question": "A set of 4 numbers has an average of 15. If one number is replaced by 25, the new average becomes 18. what was the number that was replaced?", "gold_answer": "13"},
-  {"question": "A store offers 'Buy 2 Get 1 Free' on $15 books. If a customer needs 10 books, what is the total cost?", "gold_answer": "105"},
-  {"question": "A car travels 60km in 45 minutes. What is its speed in km/h?", "gold_answer": "80"},
-  {"question": "A baker uses 2.5 cups of flour for one loaf of bread. If he has 22 cups of flour, how many full loaves can he bake and how much flour will be left?", "gold_answer": "8, 2"},
-  {"question": "A person can type 50 words per minute. How many hours will it take to type a 15,000-word document?", "gold_answer": "5"},
-  {"question": "A map scale is 1:50,000. If two cities are 8cm apart on the map, what is the actual distance in km?", "gold_answer": "4"},
-  {"question": "A box contains 5 red, 8 blue, and 7 green balls. If two balls are drawn at random without replacement, what is the probability they are both red?", "gold_answer": "0.0526"},
-  {"question": "A shirt costs $25. The price is increased by 10% and then a $5 discount is applied. What is the final price?", "gold_answer": "22.50"},
-  {"question": "A gardener wants to fence a circular garden with a diameter of 14m. If the fencing costs $10 per meter, how much will it cost? (Use pi = 22/7)", "gold_answer": "440"},
-  {"question": "A school has 400 students. 20% are in the band. 25% of the band members play the flute. How many flute players are there?", "gold_answer": "20"},
-  {"question": "A person is paid $15/hour for a 40-hour week. Overtime is paid at 1.5 times the hourly rate. If they work 48 hours, what is their total pay?", "gold_answer": "780"},
-  {"question": "A tank is 1/4 full. After adding 30 liters, it is 2/3 full. What is the total capacity?", "gold_answer": "72"},
-  {"question": "A person borrows $2000 at 10% simple interest per year. How much total will they pay back after 3 years?", "gold_answer": "2600"},
-  {"question": "A fruit basket has apples and oranges. The ratio of apples to oranges is 2:3. If there are 30 fruits in total, how many oranges must be added to make the ratio 1:2?", "gold_answer": "6"},
-  {"question": "A car is traveling at 90 km/h. How many meters does it travel in 1 second?", "gold_answer": "25"},
-  {"question": "A person buys 3 dozen eggs for $12. If 4 eggs are broken, what is the cost per remaining egg in cents?", "gold_answer": "37.5"},
-  {"question": "A rectangle has a length twice its width. If the area is 72 sq cm, what is the length?", "gold_answer": "12"},
-  {"question": "A bank account earns 4% interest compounded annually. If $1000 is deposited, how much interest is earned after 2 years?", "gold_answer": "81.60"},
-  {"question": "A group of 10 friends went to a movie. 6 adults paid $12 each and 4 children paid $8 each. What was the average cost per person?", "gold_answer": "10.40"},
-  {"question": "A machine fills 40 bottles in 5 minutes. How many hours will it take to fill 1440 bottles?", "gold_answer": "3"},
-  {"question": "A student got 18 out of 25 on a quiz. What is this score as a percentage?", "gold_answer": "72"},
-  {"question": "A triangle has a base of 10cm and a height of 6cm. What is the area?", "gold_answer": "30"},
-  {"question": "A store has 600 items. 15% are returned. Of the remaining items, 10% are found to be defective. How many items are in good condition?", "gold_answer": "459"},
-  {"question": "A person walks at 4 km/h for 1.5 hours and then runs at 8 km/h for 30 minutes. What is the total distance covered?", "gold_answer": "10"},
-  {"question": "A book has 300 pages. If you read 15% on Monday and 25% of the remainder on Tuesday, how many pages are left?", "gold_answer": "191.25"},
-  {"question": "A car rental company charges $40 a day and $0.20 per mile. If the total bill for one day was $64, how many miles were driven?", "gold_answer": "120"},
-  {"question": "A person's heart beats 72 times per minute. How many times does it beat in one day?", "gold_answer": "103680"},
-  {"question": "A box contains 50 light bulbs. 4% are defective. If you buy 3 boxes, how many non-defective bulbs do you have?", "gold_answer": "144"},
-  {"question": "A recipe for 4 people requires 200g of flour. How many kg of flour are needed for 30 people?", "gold_answer": "1.5"},
-  {"question": "A train is 200m long and passes a pole in 10 seconds. What is its speed in km/h?", "gold_answer": "72"},
-  {"question": "A person has $200. He spends 20% on a shirt and 10% of the remainder on a hat. How much money is left?", "gold_answer": "144"},
-  {"question": "A square has a perimeter of 32cm. If the side is doubled, what will be the new area?", "gold_answer": "256"},
-  {"question": "A jar contains 50 coins, all nickels and dimes. If the total value is $3.50, how many nickels are there?", "gold_answer": "30"},
-  {"question": "A person travels at 50 mph for 2 hours and then 70 mph for 3 hours. What is the average speed for the whole trip?", "gold_answer": "62"},
-  {"question": "A machine can produce 500 parts in 8 hours. How many parts can it produce in 24 hours at the same rate?", "gold_answer": "1500"},
-  {"question": "A shirt is originally $40. It is on sale for 25% off. If there is a 10% sales tax on the sale price, what is the final cost?", "gold_answer": "33"},
-  {"question": "A garden is 10m by 12m. If you want to cover it with 2 inches of topsoil, how many cubic meters do you need? (1 inch = 0.0254m)", "gold_answer": "6.1"},
-  {"question": "A person can paint a room in 6 hours. His friend can do it in 4 hours. How long will it take if they work together?", "gold_answer": "2.4"},
-  {"question": "A box of 20 chocolates costs $15. What is the price per chocolate in cents?", "gold_answer": "75"},
-  {"question": "A cyclist travels 10km in 20 minutes. At this rate, how long will it take to travel 25km?", "gold_answer": "50"},
-  {"question": "A student scores 80, 85, and 90 on three exams. If each exam is 25% of the grade and the final project is 25%, what score does he need on the project to get an average of 88?", "gold_answer": "97"},
-  {"question": "A store increases the price of an item by 20% and then offers a 20% discount. What is the total percentage change?", "gold_answer": "-4"},
-  {"question": "A tank is 3/5 full. 20 liters are removed, and now it is 1/2 full. What is the capacity of the tank?", "gold_answer": "200"},
-  {"question": "A person travels 100 miles. For the first 40 miles, he goes at 40 mph. For the rest, he goes at 60 mph. What is the total time in hours?", "gold_answer": "2"},
-  {"question": "A shop sells apples for $0.50 each and oranges for $0.75 each. If a customer buys 10 items for $6, how many oranges did he buy?", "gold_answer": "4"}
-]
+{"question": "A bakery makes 400 cupcakes. They sell 40% in the morning. Of the remainder, they give 1/4 to a local shelter. The rest are sold in the afternoon in boxes of 6. If they sell each box for $12, how much money did they make in the afternoon?", "gold_answer": "360"}
+{"question": "Alice is 4 years older than Bob. Bob is half the age of Charlie. In 5 years, Charlie will be 35. How old is Alice now?", "gold_answer": "19"}
+{"question": "A pool is being filled by two pipes. Pipe A fills at 20L/min and Pipe B fills at 15L/min. Pipe A runs for 30 minutes alone, then both pipes run together for 20 minutes. If the pool is now 70% full, what is the total capacity of the pool?", "gold_answer": "1857.14"}
+{"question": "A store buys 50 shirts for $10 each. They sell 30 shirts at a 60% markup. The remaining shirts are sold at a 20% discount off the original cost. What is the total profit or loss in dollars?", "gold_answer": "120"}
+{"question": "A train travels from City A to City B at 60 mph and returns at 40 mph. If the distance between the cities is 120 miles, what is the average speed for the entire round trip?", "gold_answer": "48"}
+{"question": "A farmer has 120 animals. 1/3 are cows, 2/5 are sheep, and the rest are goats. If he sells half the goats and buys 10 more sheep, how many animals does he have in total now?", "gold_answer": "114"}
+{"question": "A tank contains 500 liters of a 20% salt solution. How much water must be evaporated to make it a 25% salt solution?", "gold_answer": "100"}
+{"question": "A project takes 3 workers 8 days to complete. If one worker leaves after 2 days, how many additional days will it take the remaining two workers to finish the job?", "gold_answer": "9"}
+{"question": "A car rental costs $50 per day plus $0.15 per mile. If a person rents a car for 3 days and is charged $210, how many miles did they drive?", "gold_answer": "400"}
+{"question": "A student scored 75, 82, and 90 on three tests. What score does he need on the fourth test to raise his average to 85?", "gold_answer": "93"}
+{"question": "A rectangle's length is 4 cm more than its width. If the perimeter is 48 cm, what is the area of the rectangle?", "gold_answer": "140"}
+{"question": "A jar contains red and blue marbles in a 3:5 ratio. After adding 10 red marbles, the ratio becomes 1:1. How many blue marbles were originally in the jar?", "gold_answer": "25"}
+{"question": "A person spends 1/3 of their monthly salary on rent and 1/4 of the remainder on food. If they have $1200 left, what is their total monthly salary?", "gold_answer": "2400"}
+{"question": "A clock loses 5 minutes every hour. If it is set correctly at 12:00 PM, what time will it show when the actual time is 8:00 PM?", "gold_answer": "7:20 PM"}
+{"question": "A sum of money doubles itself in 10 years at simple interest. What is the annual interest rate?", "gold_answer": "10"}
+{"question": "A cyclist travels 15 miles at 10 mph and then 20 miles at 15 mph. What is the total time spent cycling in minutes?", "gold_answer": "170"}
+{"question": "A box contains 240 fruit pieces. 30% are apples, 45% are oranges, and the rest are bananas. If 1/3 of the bananas are removed, how many pieces of fruit are left in the box?", "gold_answer": "220"}
+{"question": "A worker's salary is increased by 10% and then decreased by 10%. What is the net percentage change in the salary?", "gold_answer": "-1"}
+{"question": "A garden is 20m long and 15m wide. A path 2m wide is built around the outside. What is the area of the path?", "gold_answer": "156"}
+{"question": "A set of 5 consecutive odd integers has a sum of 105. What is the largest integer in the set?", "gold_answer": "25"}
+{"question": "A plane flies 600 miles with a tailwind in 2 hours. The return trip against the same wind takes 3 hours. What is the speed of the wind in mph?", "gold_answer": "50"}
+{"question": "A bag contains $5.50 in quarters and dimes. If there are 34 coins in total, how many quarters are there?", "gold_answer": "14"}
+{"question": "A machine can produce 120 units in 3 hours. If its efficiency decreases by 20%, how many units can it produce in a 5-hour shift?", "gold_answer": "160"}
+{"question": "A student reads 20 pages a day. After 5 days, she increases her rate by 50%. How many total days will it take her to finish a 250-page book?", "gold_answer": "10"}
+{"question": "A shirt is marked down by 20%, and then an additional 10% discount is applied to the sale price. If the final price is $54, what was the original price?", "gold_answer": "75"}
+{"question": "A cylindrical tank has a radius of 3m and a height of 7m. If it is 1/3 full, how many cubic meters of water are in the tank? (Use pi = 22/7)", "gold_answer": "66"}
+{"question": "A person buys a bike for $400 and spends $100 on repairs. They then sell it for a 25% profit on the total cost. What was the selling price?", "gold_answer": "625"}
+{"question": "A sequence of numbers follows the rule: next number = (previous number * 2) - 3. If the first number is 5, what is the 5th number?", "gold_answer": "35"}
+{"question": "A work group of 5 people can finish a task in 12 hours. How many more people are needed to finish the same task in 4 hours?", "gold_answer": "10"}
+{"question": "A jar of honey is 4/5 full. After using 120ml, it is 1/2 full. What is the total capacity of the jar in milliliters?", "gold_answer": "400"}
+{"question": "A car travels 30 miles per gallon of gas. If gas costs $4 per gallon, how much will a 450-mile trip cost?", "gold_answer": "60"}
+{"question": "A rectangular field has an area of 300 square meters. If the length is 3 times the width, what is the perimeter of the field?", "gold_answer": "80"}
+{"question": "A store sells a laptop for $800, which is a 25% profit over the cost. What was the original cost to the store?", "gold_answer": "640"}
+{"question": "A person is twice as old as their brother was 5 years ago. If the person is currently 20, how old is the brother now?", "gold_answer": "15"}
+{"question": "A library has 1000 books. 40% are fiction. Of the non-fiction books, 1/3 are science-related. How many science books are there?", "gold_answer": "200"}
+{"question": "A boat travels 24 miles downstream in 2 hours and 24 miles upstream in 4 hours. What is the speed of the boat in still water?", "gold_answer": "9"}
+{"question": "A sum of $5000 is invested at 5% annual compound interest. What is the total value after 2 years?", "gold_answer": "5512.50"}
+{"question": "A marathon runner completes 26 miles. He runs the first 10 miles at 8 mph and the rest at 6 mph. How many minutes did the total run take?", "gold_answer": "235"}
+{"question": "A box of 12 donuts costs $10. A single donut costs $1.25. How much money is saved by buying 3 dozen donuts instead of 36 single donuts?", "gold_answer": "15"}
+{"question": "A person is 3 times as old as his son. In 12 years, he will be twice as old as his son. How old is the father now?", "gold_answer": "36"}
+{"question": "A pipe can fill a tank in 4 hours, and a drain can empty it in 6 hours. If both are open, how long will it take to fill the tank?", "gold_answer": "12"}
+{"question": "A group of 4 people shared a bill of $120. They decided to leave a 15% tip and split the total equally. How much did each person pay?", "gold_answer": "34.50"}
+{"question": "A wall is 10m long and 3m high. How many 20cm by 10cm bricks are needed to cover it?", "gold_answer": "1500"}
+{"question": "A number is increased by 20% and the result is decreased by 25%. If the final number is 90, what was the original number?", "gold_answer": "100"}
+{"question": "A car's value depreciates by 15% each year. If it is worth $20,000 now, what will it be worth in 2 years?", "gold_answer": "14450"}
+{"question": "A man walks 3km North, then 4km East. How far is he from his starting point in a straight line?", "gold_answer": "5"}
+{"question": "A shop sells pens in packs of 5 for $2 or packs of 12 for $4.50. What is the minimum cost to buy 50 pens?", "gold_answer": "19"}
+{"question": "A mixture contains milk and water in a 5:2 ratio. If the total volume is 35 liters, how much water must be added to make the ratio 1:1?", "gold_answer": "15"}
+{"question": "A student has an average of 80 on 4 tests. If her next test score is 95, what will her new average be?", "gold_answer": "83"}
+{"question": "A person has 10 coins consisting of quarters and dimes. If the total value is $1.90, how many dimes are there?", "gold_answer": "4"}
+{"question": "A plane travels 1500 miles. For the first 500 miles, it flies at 250 mph. For the rest, it flies at 500 mph. What is the average speed?", "gold_answer": "375"}
+{"question": "A company has 60 employees. 40% are male. If 5 more females are hired, what is the new percentage of male employees?", "gold_answer": "36.9"}
+{"question": "A rectangular prism has a volume of 120 cubic cm. If the length is 5cm and the width is 4cm, what is the surface area?", "gold_answer": "148"}
+{"question": "A person saves $50 in January and increases their monthly savings by $10 each month. How much total will they have saved by the end of December?", "gold_answer": "1260"}
+{"question": "A phone battery drops from 100% to 40% in 4 hours of use. At this rate, how many more minutes will the battery last before reaching 0%?", "gold_answer": "160"}
+{"question": "A set of 4 numbers has an average of 15. If one number is replaced by 25, the new average becomes 18. what was the number that was replaced?", "gold_answer": "13"}
+{"question": "A store offers 'Buy 2 Get 1 Free' on $15 books. If a customer needs 10 books, what is the total cost?", "gold_answer": "105"}
+{"question": "A car travels 60km in 45 minutes. What is its speed in km/h?", "gold_answer": "80"}
+{"question": "A baker uses 2.5 cups of flour for one loaf of bread. If he has 22 cups of flour, how many full loaves can he bake and how much flour will be left?", "gold_answer": "8, 2"}
+{"question": "A person can type 50 words per minute. How many hours will it take to type a 15,000-word document?", "gold_answer": "5"}
+{"question": "A map scale is 1:50,000. If two cities are 8cm apart on the map, what is the actual distance in km?", "gold_answer": "4"}
+{"question": "A box contains 5 red, 8 blue, and 7 green balls. If two balls are drawn at random without replacement, what is the probability they are both red?", "gold_answer": "0.0526"}
+{"question": "A shirt costs $25. The price is increased by 10% and then a $5 discount is applied. What is the final price?", "gold_answer": "22.50"}
+{"question": "A gardener wants to fence a circular garden with a diameter of 14m. If the fencing costs $10 per meter, how much will it cost? (Use pi = 22/7)", "gold_answer": "440"}
+{"question": "A school has 400 students. 20% are in the band. 25% of the band members play the flute. How many flute players are there?", "gold_answer": "20"}
+{"question": "A person is paid $15/hour for a 40-hour week. Overtime is paid at 1.5 times the hourly rate. If they work 48 hours, what is their total pay?", "gold_answer": "780"}
+{"question": "A tank is 1/4 full. After adding 30 liters, it is 2/3 full. What is the total capacity?", "gold_answer": "72"}
+{"question": "A person borrows $2000 at 10% simple interest per year. How much total will they pay back after 3 years?", "gold_answer": "2600"}
+{"question": "A fruit basket has apples and oranges. The ratio of apples to oranges is 2:3. If there are 30 fruits in total, how many oranges must be added to make the ratio 1:2?", "gold_answer": "6"}
+{"question": "A car is traveling at 90 km/h. How many meters does it travel in 1 second?", "gold_answer": "25"}
+{"question": "A person buys 3 dozen eggs for $12. If 4 eggs are broken, what is the cost per remaining egg in cents?", "gold_answer": "37.5"}
+{"question": "A rectangle has a length twice its width. If the area is 72 sq cm, what is the length?", "gold_answer": "12"}
+{"question": "A bank account earns 4% interest compounded annually. If $1000 is deposited, how much interest is earned after 2 years?", "gold_answer": "81.60"}
+{"question": "A group of 10 friends went to a movie. 6 adults paid $12 each and 4 children paid $8 each. What was the average cost per person?", "gold_answer": "10.40"}
+{"question": "A machine fills 40 bottles in 5 minutes. How many hours will it take to fill 1440 bottles?", "gold_answer": "3"}
+{"question": "A student got 18 out of 25 on a quiz. What is this score as a percentage?", "gold_answer": "72"}
+{"question": "A triangle has a base of 10cm and a height of 6cm. What is the area?", "gold_answer": "30"}
+{"question": "A store has 600 items. 15% are returned. Of the remaining items, 10% are found to be defective. How many items are in good condition?", "gold_answer": "459"}
+{"question": "A person walks at 4 km/h for 1.5 hours and then runs at 8 km/h for 30 minutes. What is the total distance covered?", "gold_answer": "10"}
+{"question": "A book has 300 pages. If you read 15% on Monday and 25% of the remainder on Tuesday, how many pages are left?", "gold_answer": "191.25"}
+{"question": "A car rental company charges $40 a day and $0.20 per mile. If the total bill for one day was $64, how many miles were driven?", "gold_answer": "120"}
+{"question": "A person's heart beats 72 times per minute. How many times does it beat in one day?", "gold_answer": "103680"}
+{"question": "A box contains 50 light bulbs. 4% are defective. If you buy 3 boxes, how many non-defective bulbs do you have?", "gold_answer": "144"}
+{"question": "A recipe for 4 people requires 200g of flour. How many kg of flour are needed for 30 people?", "gold_answer": "1.5"}
+{"question": "A train is 200m long and passes a pole in 10 seconds. What is its speed in km/h?", "gold_answer": "72"}
+{"question": "A person has $200. He spends 20% on a shirt and 10% of the remainder on a hat. How much money is left?", "gold_answer": "144"}
+{"question": "A square has a perimeter of 32cm. If the side is doubled, what will be the new area?", "gold_answer": "256"}
+{"question": "A jar contains 50 coins, all nickels and dimes. If the total value is $3.50, how many nickels are there?", "gold_answer": "30"}
+{"question": "A person travels at 50 mph for 2 hours and then 70 mph for 3 hours. What is the average speed for the whole trip?", "gold_answer": "62"}
+{"question": "A machine can produce 500 parts in 8 hours. How many parts can it produce in 24 hours at the same rate?", "gold_answer": "1500"}
+{"question": "A shirt is originally $40. It is on sale for 25% off. If there is a 10% sales tax on the sale price, what is the final cost?", "gold_answer": "33"}
+{"question": "A garden is 10m by 12m. If you want to cover it with 2 inches of topsoil, how many cubic meters do you need? (1 inch = 0.0254m)", "gold_answer": "6.1"}
+{"question": "A person can paint a room in 6 hours. His friend can do it in 4 hours. How long will it take if they work together?", "gold_answer": "2.4"}
+{"question": "A box of 20 chocolates costs $15. What is the price per chocolate in cents?", "gold_answer": "75"}
+{"question": "A cyclist travels 10km in 20 minutes. At this rate, how long will it take to travel 25km?", "gold_answer": "50"}
+{"question": "A student scores 80, 85, and 90 on three exams. If each exam is 25% of the grade and the final project is 25%, what score does he need on the project to get an average of 88?", "gold_answer": "97"}
+{"question": "A store increases the price of an item by 20% and then offers a 20% discount. What is the total percentage change?", "gold_answer": "-4"}
+{"question": "A tank is 3/5 full. 20 liters are removed, and now it is 1/2 full. What is the capacity of the tank?", "gold_answer": "200"}
+{"question": "A person travels 100 miles. For the first 40 miles, he goes at 40 mph. For the rest, he goes at 60 mph. What is the total time in hours?", "gold_answer": "2"}
+{"question": "A shop sells apples for $0.50 each and oranges for $0.75 each. If a customer buys 10 items for $6, how many oranges did he buy?", "gold_answer": "4"}

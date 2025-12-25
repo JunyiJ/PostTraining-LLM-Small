@@ -252,18 +252,17 @@ def extract_final_answer(text: str) -> Optional[float]:
     """
     Robust answer extraction:
     1) Prefer LAST explicit "Final Answer: <num>"
-    2) Otherwise use the LAST number in the text (e.g., "... = 72").
+    2) Otherwise prefer LAST "therefore ... <num>"
+    3) Otherwise use the LAST number in the text (e.g., "... = 72").
     """
 
-    if not text: return None
-    
+    if not text:
+        return None
+
     # Split by the LAST "final answer" to avoid getting trapped by intermediate thoughts
     parts = re.split(r"final\s*answer[:\s]*", text, flags=re.IGNORECASE)
     if len(parts) > 1:
-        # We look at the very last segment
         after_tag = parts[-1].strip()
-        # Find the first number in that segment. 
-        # Handles: "$10,000", "126.", "3/4", "85%"
         num_match = re.search(r"([-+]?\d[0-9,./]*)", after_tag)
         if num_match:
             raw_num = num_match.group(1).replace(",", "").rstrip(".")
@@ -272,14 +271,31 @@ def extract_final_answer(text: str) -> Optional[float]:
                     n, d = raw_num.split("/")
                     return float(n) / float(d)
                 return float(raw_num)
-            except: pass
+            except:
+                pass
+
+    # Try the last occurrence of "therefore ... <num>"
+    parts = re.split(r"therefore[:\s]*", text, flags=re.IGNORECASE)
+    if len(parts) > 1:
+        after_tag = parts[-1].strip()
+        num_match = re.search(r"([-+]?\d[0-9,./]*)", after_tag)
+        if num_match:
+            raw_num = num_match.group(1).replace(",", "").rstrip(".")
+            try:
+                if "/" in raw_num:
+                    n, d = raw_num.split("/")
+                    return float(n) / float(d)
+                return float(raw_num)
+            except:
+                pass
 
     # Fallback to the very last number found anywhere
     nums = re.findall(r"[-+]?\d[0-9,]*\.?\d*", text)
     if nums:
         try:
             return float(nums[-1].replace(",", "").rstrip("."))
-        except: return None
+        except:
+            return None
     return None
 
 
@@ -421,10 +437,10 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
         num_r = -1.2
     else:
         rel_error = abs(pred - gold) / max(1.0, abs(gold))
-        if rel_error < 1e-4:
+        if rel_error < 0.01:
             num_r = 1.0
         elif rel_error < 0.05: # Near miss
-            num_r = 0.4
+            num_r = 0.2
         else:
             num_r = -1.0
 

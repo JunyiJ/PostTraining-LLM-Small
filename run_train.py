@@ -27,18 +27,19 @@ os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
 os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
-TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
-# LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch4_step160.pt")  # Set to None if training from base
-LORA_CKPT = None
+TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
+# LORA_CKPT = None
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
+
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_SAMPLES_PER_PROMPT = 5
-NUM_TRAINING_DATA = 50
-NUM_EPOCHS = 8
-EVAL_EVERY = 10
-SAMPLING_TEMPERATURE = 0.8
-MAX_NEW_TOKENS = 200
-KL_COEF = 0.2
+NUM_TRAINING_DATA = 100
+NUM_EPOCHS = 20
+EVAL_EVERY = 50
+SAMPLING_TEMPERATURE = 0.9
+MAX_NEW_TOKENS = 400
+KL_COEF = 0.1
 DEVICE = torch.device("mps")
 PROMPT = " Please reason step-by-step,  then give: Final answer."
 
@@ -47,9 +48,9 @@ tokenizer, model = load_model(str(MODEL_PATH))
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
-    r=8,
-    alpha=16,
-    target_modules=("q_proj", "v_proj"),
+    r=16,
+    alpha=32,
+    target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
     dropout=0.05,
 )
 freeze_non_lora_params(model)
@@ -61,7 +62,7 @@ else:
     print(f"LoRA checkpoint {LORA_CKPT} not found; training from base model.")
 model.to(DEVICE)
 lora_params = get_lora_parameters(model)
-optimizer = torch.optim.AdamW(lora_params, lr=1e-4)
+optimizer = torch.optim.AdamW(lora_params, lr=2e-5)
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 global_step = 0
@@ -111,6 +112,7 @@ with open(TRAIN_FILE) as f:
             continue
         test_data.append(json.loads(ln))
 # random.shuffle(test_data)
+print(f"Print found {len(test_data)} lines of training data")
 
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
@@ -118,7 +120,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
     end = start + NUM_TRAINING_DATA
     train_samples = test_data[start:end]
     for line in tqdm(train_samples, desc=f"epoch {epoch}", leave=False):
-        check_memory_health()
+        if global_step % 10 == 0:
+            check_memory_health()
         t_start = time.perf_counter()
         question = line['question']
         prompt = PROMPT
@@ -127,7 +130,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         print(question)
         print(f"answer is {gold_answer}")
         t0 = time.perf_counter()
-        print("enter sampling")
+        # print("enter sampling")
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
@@ -141,7 +144,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 temperature=SAMPLING_TEMPERATURE,
                 max_new_tokens=MAX_NEW_TOKENS,
             )
-        print("get results from sampling")
+        # print("get results from sampling")
         t1 = time.perf_counter()
         t2 = time.perf_counter()
         B, T = res["tokens"].size()
@@ -232,14 +235,15 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
-        all_equal = len(set(rewards)) == 1
-        all_pos = all(r > 0 for r in rewards)
-        all_neg = all(r < 0 for r in rewards)
-        if all_equal or all_pos or all_neg:
-            for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
-                print(txt)
-                print(f"reward is {r}")
-                print(f"is result truncated? {tr}")
+        if global_step % 10 == 0:
+            all_equal = len(set(rewards)) == 1
+            all_pos = all(r > 0 for r in rewards)
+            all_neg = all(r < 0 for r in rewards)
+            if all_equal or all_pos or all_neg:
+                for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
+                    print(txt)
+                    print(f"reward is {r}")
+                    print(f"is result truncated? {tr}")
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(sum_token_logprobs_new.dtype)
