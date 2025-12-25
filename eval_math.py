@@ -1,7 +1,7 @@
 """
 Script to evaluate the model's performance on the test math dataset
 """
-import json, re
+import json, re, gc
 from pathlib import Path
 
 import torch
@@ -15,11 +15,11 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch1_step50")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")
 USE_LORA = True  # set False to eval base model only
-BATCH_SIZE = 40
-MAX_NEW_TOKENS = 256
-TOL = 1e-6
+BATCH_SIZE = 8
+MAX_NEW_TOKENS = 400
+TOL = 1e-1
 
 prompt = " Please reason step-by-step,  then give: Final answer."
 
@@ -55,9 +55,9 @@ tokenizer, model = load_model(str(MODEL_PATH))
 if USE_LORA:
     model = apply_lora_to_model(
         model,
-        r=8,
-        alpha=16,
-        target_modules=("q_proj", "v_proj"),
+        r=16,
+        alpha=32,
+        target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
         dropout=0.05,
     )
     freeze_non_lora_params(model)
@@ -96,27 +96,37 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
         truncation=True,
         max_length=MAX_INPUT_TOKENS,
     ).to("mps")
+    input_len = inputs["input_ids"].shape[1]
 
     with torch.no_grad():
         outputs = model.generate(
             **inputs,
             max_new_tokens=MAX_NEW_TOKENS,
             do_sample=False,  # greedy decode; temperature/top-k/p ignored
+            pad_token_id=tokenizer.pad_token_id,
+            eos_token_id=tokenizer.eos_token_id,
+            use_cache=True # Critical for speed
         )
+        texts = tokenizer.batch_decode(outputs[:, input_len:], skip_special_tokens=True)
 
-    for out, gold in zip(outputs, golds):
-        text = tokenizer.decode(out, skip_special_tokens=True)
+    for q, text, gold in zip(questions, texts, golds):
+        print(f"Question is: {q}\n\n")
+        print(f"model output is: {text}\n")
         try:
             gold_val = float(gold.replace(",", ""))
         except Exception:
             continue
-        pred = extract_answer(text)
+        pred = extract_final_answer(text)
         if pred is None:
             continue
         print("pred is {} and gold is {}".format(pred, gold))
         if abs(pred - gold_val) <= TOL:
             correct += 1
         total += 1
+        print(">>>>>>>>>>>>.")
+    del inputs, outputs, texts
+    gc.collect()
+    torch.mps.empty_cache()
     print("total questions processed is {} and correct answer is {}".format(total, correct))
 
 accuracy = correct / total * 100

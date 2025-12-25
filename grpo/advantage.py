@@ -19,12 +19,12 @@ def compute_advantage(rewards, device, dtype=torch.float32):
 def compute_rank_advantage(rewards, device, dtype=torch.float32):
     if len(rewards) == 0:
         return torch.tensor([])
-    rs = torch.tensor(rewards, device=device, dtype=dtype)
+    rs = torch.tensor(rewards, device=device, dtype=dtype).detach()
     if torch.allclose(rs, rs[0]):
         return torch.zeros_like(rs)
     ranks = torch.argsort(torch.argsort(rs))
     advantages = ranks.float()
-    advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-6)
+    advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
     return advantages
 
 

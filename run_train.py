@@ -1,12 +1,14 @@
 """
 Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
 """
+import gc
 import json
 import os
 import re
 import random
 import time
 from pathlib import Path
+import psutil
 
 import torch
 import torch.nn.functional as F
@@ -25,28 +27,30 @@ os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
 os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
-TRAIN_FILE = Path(__file__).resolve().parent / "data" / "math_grpo_200.jsonl"
-# LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch4_step160.pt")  # Set to None if training from base
-LORA_CKPT = None
+TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
+# LORA_CKPT = None
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
+
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_SAMPLES_PER_PROMPT = 6
-NUM_TRAINING_DATA = 50
-NUM_EPOCHS = 1
-EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.6
-MAX_NEW_TOKENS = 256
-KL_COEF = 0.2
+NUM_SAMPLES_PER_PROMPT = 5
+NUM_TRAINING_DATA = 100
+NUM_EPOCHS = 20
+EVAL_EVERY = 50
+SAMPLING_TEMPERATURE = 0.9
+MAX_NEW_TOKENS = 400
+KL_COEF = 0.1
 DEVICE = torch.device("mps")
+PROMPT = " Please reason step-by-step,  then give: Final answer."
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
-    r=8,
-    alpha=16,
-    target_modules=("q_proj", "v_proj"),
+    r=16,
+    alpha=32,
+    target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
     dropout=0.05,
 )
 freeze_non_lora_params(model)
@@ -58,13 +62,21 @@ else:
     print(f"LoRA checkpoint {LORA_CKPT} not found; training from base model.")
 model.to(DEVICE)
 lora_params = get_lora_parameters(model)
-optimizer = torch.optim.AdamW(lora_params, lr=1e-4)
+optimizer = torch.optim.AdamW(lora_params, lr=2e-5)
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 global_step = 0
 running_loss = 0.0
 running_correct = 0
 running_total = 0
+
+def check_memory_health():
+    vmem = psutil.virtual_memory()
+    swap = psutil.swap_memory()
+    # Color coding the output for visibility
+    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
+    reset = "\033[0m"
+    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
 
 def save_lora_checkpoint(model, optimizer, epoch, global_step):
     state = {
@@ -92,9 +104,15 @@ for each batch:
     periodically evaluate
 """
 # Load training data
+test_data = []
 with open(TRAIN_FILE) as f:
-    test_data = [json.loads(line) for line in f]
+    for ln in f:
+        ln = ln.strip()
+        if not ln:
+            continue
+        test_data.append(json.loads(ln))
 # random.shuffle(test_data)
+print(f"Print found {len(test_data)} lines of training data")
 
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
@@ -102,13 +120,17 @@ for epoch in range(1, NUM_EPOCHS + 1):
     end = start + NUM_TRAINING_DATA
     train_samples = test_data[start:end]
     for line in tqdm(train_samples, desc=f"epoch {epoch}", leave=False):
+        if global_step % 10 == 0:
+            check_memory_health()
         t_start = time.perf_counter()
         question = line['question']
-        prompt = " Please reason step-by-step,  then give: Final answer."
+        prompt = PROMPT
         # print(question)
         gold_answer = str(line["gold_answer"]).strip()
         print(question)
         print(f"answer is {gold_answer}")
+        t0 = time.perf_counter()
+        # print("enter sampling")
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
@@ -122,6 +144,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 temperature=SAMPLING_TEMPERATURE,
                 max_new_tokens=MAX_NEW_TOKENS,
             )
+        # print("get results from sampling")
+        t1 = time.perf_counter()
+        t2 = time.perf_counter()
         B, T = res["tokens"].size()
         prompt_len = res["prompt_id_length"]
         padded_batch_tokens = res["tokens"].to(DEVICE)
@@ -160,7 +185,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         masked_log_probs_new = log_probs_new * answer_mask
         sum_token_logprobs_old = masked_log_probs_old.sum(dim=1)
         sum_token_logprobs_new = masked_log_probs_new.sum(dim=1)
-
+        t3 = time.perf_counter()
         # print("\n--- ALIGNMENT DEBUG START ---")
 
         # print(f"prompt_len = {prompt_len}")
@@ -200,21 +225,27 @@ for epoch in range(1, NUM_EPOCHS + 1):
 
         # print("--- ALIGNMENT DEBUG END ---\n")
         # Calculate rewards
-        rewards = [
-            refined_advanced_cot_reward(
-                txt,
-                gold_answer,
-                truncated=tr,
-            )
-            for txt, tr in zip(res["text"], res["truncated"])
-        ]
+        t4 = time.perf_counter()
+        with torch.no_grad():
+            rewards = [
+                refined_advanced_cot_reward(
+                    txt,
+                    gold_answer,
+                    truncated=tr,
+                )
+                for txt, tr in zip(res["text"], res["truncated"])
+            ]
         if global_step % 10 == 0:
-            for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
-                print(txt)
-                print(f"reward is {r}")
-                print(f"is result truncated? {tr}")
+            all_equal = len(set(rewards)) == 1
+            all_pos = all(r > 0 for r in rewards)
+            all_neg = all(r < 0 for r in rewards)
+            if all_equal or all_pos or all_neg:
+                for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
+                    print(txt)
+                    print(f"reward is {r}")
+                    print(f"is result truncated? {tr}")
         # Calculate advantages
-        advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32)
+        advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(sum_token_logprobs_new.dtype)
         print(f"advantages is {advantages}")
         # Compute GRPO loss
@@ -225,14 +256,42 @@ for epoch in range(1, NUM_EPOCHS + 1):
         grpo_loss = -(advantages * ratio).mean()
         loss = grpo_loss + KL_COEF * kl_loss
         print(f"grpo_loss is {grpo_loss} and kl is {kl_loss}")
+        t5 = time.perf_counter()
+
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
         running_total += len(rewards)
         global_step += 1
         # Backprop
-        optimizer.zero_grad()
+        t6 = time.perf_counter()
+        # pre-backprop cleanup. adding set_to_none is more memory efficiency
+        optimizer.zero_grad(set_to_none=True)
         loss.backward()
+        # For MPS gradient stability
+        torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+        for param in lora_params:
+            if param.grad is not None:
+                param.grad.data = param.grad.data.contiguous()
         optimizer.step()
+        t7 = time.perf_counter()
+        # --- THE DEEP CLEAN BLOCK ---
+        # Tensors from the Forward Passes (The biggest memory hogs)
+        del logits_new, logits_old
+        del shifted_log_probs_new, shifted_log_probs_old
+        del old_out, out_new
+
+        # Tensors from Log-prob calculations
+        del masked_log_probs_new, masked_log_probs_old
+        del sum_token_logprobs_new, sum_token_logprobs_old
+        del log_prob_ratio, ratio
+
+        # Intermediate Tensors and Sampler output
+        del res, padded_batch_tokens, attention_mask, answer_mask, targets
+
+        # Final scalars
+        del loss, grpo_loss, kl_loss, advantages, rewards
+        gc.collect()
+        torch.mps.empty_cache()
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)
@@ -243,7 +302,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             running_total = 0
 
             eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
-            eval_inputs = tokenizer(eval_prompt, return_tensors="pt").to(DEVICE)
+            eval_inputs = tokenizer(eval_prompt + PROMPT, return_tensors="pt").to(DEVICE)
             model.eval()
             with torch.no_grad():
                 out = model.generate(
@@ -253,7 +312,14 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
             model.train()
+            del eval_inputs, out
+            torch.mps.empty_cache()
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
+        print("\n=== PROFILER ===")
+        print(f"Sampling:          {(t1-t0):.2f}s")
+        print(f"Logprob forward:   {(t3-t2):.2f}s")
+        print(f"Reward + Adv:      {(t5-t4):.2f}s")
+        print(f"Backward:          {(t7-t6):.2f}s")
     save_lora_checkpoint(model, optimizer, epoch, global_step)
     print(f"==end-of-epoch {epoch}==")
