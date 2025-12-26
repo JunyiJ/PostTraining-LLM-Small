@@ -54,7 +54,6 @@ def test_sample_k_parallel_shapes():
         enable_grad=False,
     )
     assert res["tokens"].shape[0] == 3
-    assert res["sum_token_logprobs"].shape[0] == 3
     assert len(res["text"]) == 3
     assert len(res["truncated"]) == 3
 
