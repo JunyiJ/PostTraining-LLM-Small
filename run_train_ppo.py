@@ -128,8 +128,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # periodically evaluate
         enc = tokenizer(question + prompt, return_tensors="pt")
         input_ids = enc["input_ids"].to(DEVICE)  # [1, seq_len]
-        logits, values = model(input_ids=input_ids)
-        print(logits.shape, values.shape)
+        outputs, values = model(input_ids=input_ids)
+        print(outputs, values.shape)
 
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)

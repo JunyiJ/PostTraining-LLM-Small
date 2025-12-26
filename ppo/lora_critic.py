@@ -1,9 +1,28 @@
 
+import torch
 import torch.nn as nn
 import torch.nn.init as init
-from typing import Iterable, Tuple
+from typing import Tuple, Iterable
 
-import torch
+class Critic(nn.Module):
+    def __init__(self, base_model):
+        super().__init__()
+        self.base_model = base_model
+        ref = next(base_model.parameters())
+        self.value_layer = nn.Linear(base_model.config.hidden_size, 1, device=ref.device, dtype=ref.dtype)
+        init.normal_(self.value_layer.weight, mean=0.0, std=0.02)
+        init.zeros_(self.value_layer.bias)
+
+    def forward(self, input_ids, attention_mask=None, return_values=True):
+        outs = self.base_model(input_ids, attention_mask=attention_mask, output_hidden_states=True)
+        if not return_values:
+            return outs
+        hidden = outs.hidden_states[-1]
+        values = self.value_layer(hidden).squeeze(-1)
+        return outs, values
+
+    def generate(self, *args, **kwargs):
+        return self.base_model.generate(*args, **kwargs)
 
 class LoRALinear(nn.Module):
     """
@@ -72,7 +91,7 @@ def apply_lora_to_model(
     return model
 
 
-def freeze_non_lora_params(model: nn.Module) -> None:
+def freeze_non_lora_critic_params(model: nn.Module) -> None:
     """Freeze all parameters except LoRA adapter weights."""
     for p in model.parameters():
         p.requires_grad = False
@@ -80,8 +99,11 @@ def freeze_non_lora_params(model: nn.Module) -> None:
         if isinstance(module, LoRALinear):
             module.A.weight.requires_grad = True
             module.B.weight.requires_grad = True
+        if isinstance(module, Critic):
+            module.value_layer.weight.requires_grad = True
+            module.value_layer.bias.requires_grad = True
 
-def get_lora_parameters(model):
+def get_lora_critic_parameters(model):
     """
     Gather only LoRA A and B matrix params.
     Base model params remain frozen.
