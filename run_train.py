@@ -28,14 +28,14 @@ os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
-LORA_CKPT = None
-# LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
+# LORA_CKPT = None
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
-NUM_EPOCHS = 10
+NUM_EPOCHS = 20
 EVAL_EVERY = 50
 SAMPLING_TEMPERATURE = 0.9
 MAX_NEW_TOKENS = 400

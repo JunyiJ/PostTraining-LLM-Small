@@ -35,6 +35,8 @@ class LoRALinear(nn.Module):
     def forward(self, x):
         base_out = self.base(x)
         lora_out = self.B(self.dropout(self.A(x))) * self.scaling
+        if self.base.bias is not None:
+            return self.base.bias + base_out +lora_out
         return base_out + lora_out
 
 
