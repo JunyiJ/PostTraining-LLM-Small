@@ -2,6 +2,7 @@
 import torch
 import torch.nn as nn
 import torch.nn.init as init
+from contextlib import contextmanager
 from typing import Tuple, Iterable
 
 class Critic(nn.Module):
@@ -13,8 +14,12 @@ class Critic(nn.Module):
         init.normal_(self.value_layer.weight, mean=0.0, std=0.02)
         init.zeros_(self.value_layer.bias)
 
-    def forward(self, input_ids, attention_mask=None, return_values=True):
-        outs = self.base_model(input_ids, attention_mask=attention_mask, output_hidden_states=True)
+    def forward(self, *args, return_values=True, **kwargs):
+        # Preserve user args/kwargs while ensuring hidden states for value head
+        if "return_values" in kwargs:
+            return_values = kwargs.pop("return_values")
+        kwargs.setdefault("output_hidden_states", True)
+        outs = self.base_model(*args, **kwargs)
         if not return_values:
             return outs
         hidden = outs.hidden_states[-1]
@@ -23,6 +28,20 @@ class Critic(nn.Module):
 
     def generate(self, *args, **kwargs):
         return self.base_model.generate(*args, **kwargs)
+
+    @contextmanager
+    def disable_adapter(self):
+        # Temporarily disable LoRA adapters (used for reference/pass-through runs)
+        lora_modules = []
+        for module in self.modules():
+            if isinstance(module, LoRALinear):
+                lora_modules.append((module, module._lora_enabled))
+                module._lora_enabled = False
+        try:
+            yield
+        finally:
+            for module, prev in lora_modules:
+                module._lora_enabled = prev
 
 class LoRALinear(nn.Module):
     """
@@ -44,6 +63,7 @@ class LoRALinear(nn.Module):
         self.alpha = alpha
         self.scaling = alpha / float(r)
         self.dropout = nn.Dropout(dropout)
+        self._lora_enabled = True
 
         # Low-rank adapters
         self.A = nn.Linear(self.base.in_features, r, bias=False)
@@ -53,6 +73,8 @@ class LoRALinear(nn.Module):
         
     def forward(self, x):
         base_out = self.base(x)
+        if not self._lora_enabled:
+            return base_out
         lora_out = self.B(self.dropout(self.A(x))) * self.scaling
         return base_out + lora_out
 

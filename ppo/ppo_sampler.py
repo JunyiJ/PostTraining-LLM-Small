@@ -37,13 +37,14 @@ def profile_sampling(func):
     return wrapper
 
 # Get  log-probs (tokens, log-probs, values from critic)
-def sample_k_parallel(
+def sample_batch(
     model,
     tokenizer,
     prompts,
     device="mps",
     dtype=torch.float32,
     temperature=1.0,
+    max_input_tokens=150,
     max_new_tokens=256,
     enable_grad=False,
     top_p=0.95,
@@ -51,20 +52,32 @@ def sample_k_parallel(
     timeout_seconds=500,
 ):
     t_start_global = time.perf_counter()
-    enc = tokenizer(prompt, return_tensors="pt")
-    input_ids = enc["input_ids"].to(device)  # [1, seq_len]
+    batch_size = len(prompts)
+    enc = tokenizer(
+        prompts,
+        return_tensors="pt",
+        padding=True,
+        truncation=True,
+        max_length=max_input_tokens,
+    )
+    input_ids = enc["input_ids"].to(device)  # [B, seq_len]
+    attn = enc["attention_mask"]
+    prompt_lens = attn.sum(dim=1)
+    # padded prompt length
     prompt_id_length = input_ids.size(1)
     
     # Pre-allocate tensor for input_ids_k
     total_max_len = prompt_id_length + max_new_tokens
-    input_ids_k = torch.full((k, total_max_len), FAKE_PAD_ID, device=device)
-    input_ids_k[:, :prompt_id_length] = input_ids.repeat(k, 1)
+    input_ids_k = torch.full((batch_size, total_max_len), FAKE_PAD_ID, device=device)
+    input_ids_k[:, :prompt_id_length] = input_ids
     
-    attention_mask_k = torch.zeros((k, total_max_len), dtype=torch.long, device=device)
+    attention_mask_k = torch.zeros((batch_size, total_max_len), dtype=torch.long, device=device)
     attention_mask_k[:, :prompt_id_length] = 1
 
-    sampling_active = torch.ones((k,), dtype=torch.bool, device=device)
-    finished_with_eos = torch.zeros((k,), dtype=torch.bool, device=device)
+    values_k = torch.zeros((batch_size, total_max_len), dtype=dtype, device=device)
+
+    sampling_active = torch.ones((batch_size,), dtype=torch.bool, device=device)
+    finished_with_eos = torch.zeros((batch_size,), dtype=torch.bool, device=device)
     
     steps_taken = 0
     past_key_values = None
@@ -83,12 +96,11 @@ def sample_k_parallel(
             if not sampling_active.any():
                 break
 
-            # if curr_pos > 200:
-            #     print(f"⚠️ KV cache getting large: {curr_pos}")
             if i == 0:
                 model_inputs = {
                     "input_ids": input_ids_k[:, :prompt_id_length],
                     "attention_mask": attention_mask_k[:, :prompt_id_length],
+                    "return_values": False,
                     "use_cache": True,
                 }
             else:
@@ -96,9 +108,11 @@ def sample_k_parallel(
                     "input_ids": input_ids_k[:, curr_pos - 1 : curr_pos],
                     "past_key_values": past_key_values,
                     "attention_mask": attention_mask_k[:, :curr_pos],
+                    "return_values": False,
                     "use_cache": True,
                 }
             out = model(**model_inputs)
+
             del past_key_values
             past_key_values = out.past_key_values
             # [K, vocab]
@@ -203,4 +217,4 @@ def sample_k_parallel(
         "steps_taken": steps_taken,
     }
 
-sample_k_parallel = profile_sampling(sample_k_parallel)
+# sample_batch = profile_sampling(sample_batch)
