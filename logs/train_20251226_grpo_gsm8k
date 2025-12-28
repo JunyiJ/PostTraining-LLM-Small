@@ -8425,3 +8425,250 @@ Backward:          44.17s
 Gary manages two Amazon distribution centers. The first center processes 10000 packages per day, and the second center processes three times that volume. If Amazon makes 5 cents of profit per package, how much profit per week do the two centers make combined?
 answer is 14000
 ⚠️ Sampling slow: 117.7s, steps=359
+advantages is tensor([ 1.2649, -1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.09555389732122421 and kl is 0.17427316308021545
+[timing] sample processed in 217.71s
+
+=== PROFILER ===
+Sampling:          117.70s
+Logprob forward:   19.16s
+Reward + Adv:      9.73s
+Backward:          70.46s
+In his company, Kenzo has 80 office chairs with five legs each and 20 round tables with three legs each. If after a month 40% of the chairs are damaged and have to be disposed of, calculate the total number of legs of furniture Kenzo has remaining in his company.
+answer is 300
+⚠️ Sampling slow: 120.0s, steps=361
+advantages is tensor([ 1.2649, -1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.11384103447198868 and kl is 0.16390183568000793
+[step 350] avg_loss=0.0027 acc=0.6720
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+* **Step 1: Calculate distance traveled at 62 km/h for 2 hours.**
+
+   * We use the formula distance = speed × time.
+   * Distance = 62 km/h × 2 h = 124 km
+
+* **Step 2: Calculate distance traveled at twice 62 km/h for 3 hours.**
+
+   * We use the formula distance = speed × time.
+   * We double the speed to 62 km/h × 2 = 124 km
+   * We multiply this by the time spent, which is 3 h: 124 km × 3 h = 372 km
+
+* **Step 3: Calculate the total distance traveled.**
+
+   * We add the distances from Step 1 and Step 2: 124 km + 372 km = 496 km
+
+* **Step 4: Give: Final answer.**
+
+   * Final answer: 496 km
+
+* **Step 5: Give: Final answer.**
+
+   * Final answer: 496 km
+[timing] sample processed in 263.50s
+
+=== PROFILER ===
+Sampling:          119.95s
+Logprob forward:   23.05s
+Reward + Adv:      11.77s
+Backward:          71.79s
+[92m📊 [System Health] RAM: 72.4% | Swap Used: 10.16 GB[0m
+Randy had $3,000. Smith gave him another $200. Randy then gave Sally $1,200 and kept the rest. What was the value, in dollars, of the rest?
+answer is 2000
+⚠️ Sampling slow: 58.4s, steps=200
+
+
+* **Step 1: Calculate how much money Randy has after receiving $200 from Smith.**
+
+   * Randy starts with $3,000 and gets $200, so he has $3,000 + $200 = $3,200.
+
+* **Step 2: Calculate how much money Randy keeps after giving Sally $1,200.**
+
+   * He gives away $3,200 - $1,200 = $2,000.
+
+* **Step 3: Calculate his final answer.**
+
+   * He keeps $2,000.
+
+* **Step 4: Give: Final answer.**
+
+   * Final answer: $2,000
+
+* **Step 5: Give:  Final answer.**
+
+   * Final answer: $2,000
+reward is 0.9
+is result truncated? False
+
+
+* **Step 1: Calculate how much money Randy has after he receives $200 from Smith.**
+
+   * Randy starts with $3,000 and receives $200, so he has $3,000 + $200 = $3,200.
+
+* **Step 2: Calculate how much money Randy keeps after he gives Sally $1,200.**
+
+   * He gives away $3,200 - $1,200 = $2,000.
+
+* **Step 3: Calculate his final answer.**
+
+   * He keeps $2,000.
+
+* **Step 4: Give: Final answer.**
+
+   * Final answer: $2,000
+
+* **Step 5: Give: Final answer.**
+
+   * Final answer: $2,000
+reward is 0.9
+is result truncated? False
+
+
+* **Step 1: Calculate how much money Randy had after Smith gave him $200.**
+
+   * Randy had $3,000 + $200 = $3,200.
+
+* **Step 2: Calculate how much money Randy kept.**
+
+   * He kept $3,200 - $1,200 = $2,000.
+
+* **Step 3: Give: value, in dollars, of the rest.**
+
+   * He kept $2,000.
+
+* **Step 4: Give: Final answer.**
+
+   * Final answer: $2,000
+
+ NSCoder: value, in dollars, of the rest = $2,000, Final answer = $2,000
+reward is 0.9
+is result truncated? False
+
+
+* **Step 1: Calculate how much money Randy has after he receives $200 from Smith.**
+
+   * Randy starts with $3,000 and gets $200, so he has $3,000 + $200 = $3,200.
+
+* **Step 2: Calculate how much money Randy keeps after he gives Sally $1,200.**
+
+   * He gives away $3,200 - $1,200 = $2,000.
+
+* **Step 3: Calculate his final answer.**
+
+   * He has $2,000, so his final answer is $2,000.
+
+* **Step 4: Give: Final answer.**
+
+   * Final answer: $2,000
+
+* **Step 5: Give: Final answer.**
+
+   * Final answer: $2,000
+reward is 0.9
+is result truncated? False
+
+
+* **Step 1: Calculate how much money Randy had after Smith gave him $200.**
+
+   * Randy started with $3,000 and got $200, so he has $3,000 + $200 = $3,200.
+
+* **Step 2: Calculate how much money Randy kept.**
+
+   * He gave away $1,200, so he kept $3,200 - $1,200 = $2,000.
+
+* **Step 3: Give: Final answer.**
+
+   * His final answer is $2,000.
+
+* **Step 4: Give: Final answer.**
+
+   * He final answer is $2,000.
+
+* **Step 5: Give: Final answer.**
+
+   * He final answer is $2,000.
+reward is 0.9
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0
+[timing] sample processed in 99.24s
+
+=== PROFILER ===
+Sampling:          58.41s
+Logprob forward:   5.71s
+Reward + Adv:      6.21s
+Backward:          28.46s
+Arlene hiked 24 miles on Saturday, carrying a 60-pound backpack. She is exactly 5 feet tall. She spent 6 hours hiking. The temperature during the day was 60 degrees Fahrenheit. What was Arlene's average hiking pace, in miles per hour?
+answer is 4
+⚠️ Sampling slow: 125.5s, steps=400
+advantages is tensor([ 0.0000, -0.6325, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.08366861194372177 and kl is 0.17283697426319122
+[timing] sample processed in 243.76s
+
+=== PROFILER ===
+Sampling:          125.47s
+Logprob forward:   25.67s
+Reward + Adv:      10.11s
+Backward:          80.57s
+James paves a new parking lot.  It is 400 feet by 500 feet.  Only 80% of that is useable for parking.  It takes 10 square feet to park a car.  How many cars can be parked?
+answer is 16000
+⚠️ Sampling slow: 84.9s, steps=244
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0
+[timing] sample processed in 147.76s
+
+=== PROFILER ===
+Sampling:          84.90s
+Logprob forward:   9.33s
+Reward + Adv:      7.26s
+Backward:          45.14s
+Emma buys 2 containers of milk every school day for lunch. She does not go to school on the weekends. How many containers of milk does she buy in 3 weeks?
+answer is 30
+⚠️ Sampling slow: 55.4s, steps=159
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09428112208843231
+[timing] sample processed in 91.88s
+
+=== PROFILER ===
+Sampling:          55.43s
+Logprob forward:   5.01s
+Reward + Adv:      4.32s
+Backward:          26.37s
+If 24 out of every 60 individuals like football and out of those that like it, 50% play it, how many people would you expect play football out of a group of 250?
+answer is 50
+⚠️ Sampling slow: 70.6s, steps=230
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.10227761417627335
+[timing] sample processed in 132.95s
+
+=== PROFILER ===
+Sampling:          70.57s
+Logprob forward:   6.23s
+Reward + Adv:      13.72s
+Backward:          41.58s
+Jacob has half the number of shoes Edward has. Edward has 3 times the number of shoes Brian has. If Brian has 22 pairs of shoes, how many pairs of shoes do they have in total?
+answer is 121
+⚠️ Sampling slow: 64.4s, steps=192
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0
+[timing] sample processed in 104.89s
+
+=== PROFILER ===
+Sampling:          64.40s
+Logprob forward:   5.06s
+Reward + Adv:      6.28s
+Backward:          28.37s
+Roberto recently received a 20% raise from his previous salary, which was already 40% higher than his starting salary. If Roberto's starting salary was $80,000, what is his current salary?
+answer is 134400
+⚠️ Sampling slow: 80.7s, steps=260
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0
+[timing] sample processed in 145.66s
+
+=== PROFILER ===
+Sampling:          80.66s
+Logprob forward:   10.50s
+Reward + Adv:      8.06s
+Backward:          45.70s
+Andy harvests all the tomatoes from 18 plants that have 7 tomatoes each. If he dries half the tomatoes and turns a third of the remainder into marinara sauce, how many tomatoes are left?
+answer is 42
+⚠️ Sampling slow: 75.0s, steps=228

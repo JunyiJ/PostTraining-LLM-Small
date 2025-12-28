@@ -38,11 +38,10 @@ NUM_TRAINING_DATA = 2
 BATCH_SIZE = 2
 NUM_EPOCHS = 1
 EVAL_EVERY = 1
-SAMPLING_TEMPERATURE = 0.9
 MAX_INPUT_TOKENS = 150
 MAX_NEW_TOKENS = 400
 KL_COEF = 0.1
-BETA = 0.01
+BETA = 0.05
 VF_COEF = 0.1
 ENT_COEF = 0.0
 DEVICE = torch.device("mps")
@@ -137,7 +136,6 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 questions,
                 device=DEVICE,
                 dtype=torch.bfloat16,
-                temperature=SAMPLING_TEMPERATURE,
                 max_input_tokens=MAX_INPUT_TOKENS,
                 max_new_tokens=MAX_NEW_TOKENS
             )
@@ -164,18 +162,17 @@ for epoch in range(1, NUM_EPOCHS + 1):
             logits_old = old_out.logits
             values_old = old_values[:, :-1]
             # [B, T_max-1, vocab]
-            shifted_log_probs_old = F.log_softmax(logits_old / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+            shifted_log_probs_old = F.log_softmax(logits_old, dim=-1)[:, :-1, :]
             # [B, T_max-1]
             log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)
 
             with model.disable_adapter():
                 ## Get reference policy logprobs.
-                ref_out, ref_values = model(input_ids=padded_batch_tokens, attention_mask=attention_mask, return_values=True)
+                ref_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask, return_values=False)
                 # [B, T_max, vocab]
                 logits_ref = ref_out.logits
-                values_ref = ref_values[:, :-1]
                 # [B, T_max-1, vocab]
-                shifted_log_probs_ref = F.log_softmax(logits_ref / SAMPLING_TEMPERATURE, dim=-1)[:, :-1, :]
+                shifted_log_probs_ref = F.log_softmax(logits_ref, dim=-1)[:, :-1, :]
                 # [B, T_max-1]
                 log_probs_ref = shifted_log_probs_ref.gather(-1, targets).squeeze(-1)
         model.train()
@@ -184,12 +181,11 @@ for epoch in range(1, NUM_EPOCHS + 1):
             new_out, new_values = model(input_ids=padded_batch_tokens, attention_mask=attention_mask, return_values=True)
             logits_new = new_out.logits[:, :-1, :]   # [B, T-1, V]
             values_new = new_values[:, :-1] # [B, T-1]
-            shifted_log_probs_new = F.log_softmax(logits_new / SAMPLING_TEMPERATURE, dim=-1)
+            shifted_log_probs_new = F.log_softmax(logits_new, dim=-1)
             # Gather logprobs of the actually generated tokens
             log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)  # [B, T-1]
             # Mask out padded tokens
             masked_log_probs_ref = log_probs_ref * answer_mask
-            masked_values_ref = values_ref * answer_mask
             masked_log_probs_new = log_probs_new * answer_mask
             masked_values_new = values_new * answer_mask
             masked_log_probs_old = log_probs_old * answer_mask
@@ -214,14 +210,21 @@ for epoch in range(1, NUM_EPOCHS + 1):
             rewards[batch_indices, eos_reward_idx] = final_rewards_t
             # Get advantage
             advantages = advantage_gae(rewards, masked_values_old).detach()
+            advantages = (advantages - advantages.mean()) / (advantages.std() + 1e-8)
             # Target for the critic
             returns = advantages + masked_values_old
+        # Calculate loss
         with torch.enable_grad():
+            # Policy loss for actor based on ratio and advantage
             surr1 = ratio * advantages
             surr2 = torch.clamp(ratio, 1.0 - EPS, 1.0 + EPS) * advantages
             policy_loss = -torch.min(surr1, surr2).mean()
-
-            value_loss = F.mse_loss(masked_values_new, returns, reduction="mean")
+            
+            # Clipped MSE loss for critic
+            v_clipped = old_values + torch.clamp(new_values - old_values, -EPS, EPS)
+            v_loss_1 = (new_values - returns).pow(2)
+            v_loss_2 = (v_clipped - returns).pow(2)
+            value_loss = 0.5 * torch.max(v_loss_1, v_loss_2).mean()
             total_loss = policy_loss + VF_COEF * value_loss
 
             # # entropy loss to encourage exploration

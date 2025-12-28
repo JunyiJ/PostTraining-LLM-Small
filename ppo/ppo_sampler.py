@@ -43,7 +43,6 @@ def sample_batch(
     prompts,
     device="mps",
     dtype=torch.float32,
-    temperature=1.0,
     max_input_tokens=150,
     max_new_tokens=256,
     enable_grad=False,
@@ -116,7 +115,7 @@ def sample_batch(
             del past_key_values
             past_key_values = out.past_key_values
             # [K, vocab]
-            step_logits = out.logits[:, -1, :].to(torch.float32) / max(temperature, 1e-5)
+            step_logits = out.logits[:, -1, :].to(torch.float32)
             del out
             step_logits[:, tokenizer.eos_token_id] += 1.0
             # # Repetition penalty: penalize tokens that already appeared
