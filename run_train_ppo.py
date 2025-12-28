@@ -222,7 +222,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             
             # Clipped MSE loss for critic
             v_clipped = old_values + torch.clamp(new_values - old_values, -EPS, EPS)
-            v_loss_1 = (new_values - returns).pow(2)
+            v_loss_1 = (masked_values_new - returns).pow(2)
             v_loss_2 = (v_clipped - returns).pow(2)
             value_loss = 0.5 * torch.max(v_loss_1, v_loss_2).mean()
             total_loss = policy_loss + VF_COEF * value_loss
