@@ -66,16 +66,16 @@ class LoRALinear(nn.Module):
         self._lora_enabled = True
 
         # Low-rank adapters
-        self.A = nn.Linear(self.base.in_features, r, bias=False)
-        self.B = nn.Linear(r, self.base.out_features, bias=False)
-        init.kaiming_normal_(self.A.weight, a=0.0, mode="fan_in", nonlinearity="relu")
-        init.zeros_(self.B.weight)
+        self.lora_A = nn.Linear(self.base.in_features, r, bias=False)
+        self.lora_B = nn.Linear(r, self.base.out_features, bias=False)
+        init.kaiming_normal_(self.lora_A.weight, a=0.0, mode="fan_in", nonlinearity="relu")
+        init.zeros_(self.lora_B.weight)
         
     def forward(self, x):
         base_out = self.base(x)
         if not self._lora_enabled:
             return base_out
-        lora_out = self.B(self.dropout(self.A(x))) * self.scaling
+        lora_out = self.lora_B(self.dropout(self.lora_A(x))) * self.scaling
         return base_out + lora_out
 
 
@@ -119,15 +119,38 @@ def freeze_non_lora_critic_params(model: nn.Module) -> None:
         p.requires_grad = False
     for module in model.modules():
         if isinstance(module, LoRALinear):
-            module.A.weight.requires_grad = True
-            module.B.weight.requires_grad = True
+            module.lora_A.weight.requires_grad = True
+            module.lora_B.weight.requires_grad = True
         if isinstance(module, Critic):
             module.value_layer.weight.requires_grad = True
             module.value_layer.bias.requires_grad = True
 
-def get_lora_critic_parameters(model):
-    """
-    Gather only LoRA A and B matrix params.
-    Base model params remain frozen.
-    """
-    return [p for _, p in model.named_parameters() if p.requires_grad]
+def get_optimizer_params(model, lora_lr, critic_lr, weight_decay):
+    no_decay = ["bias", "LayerNorm.weight", "layernorm.weight"]
+    
+    # We create four groups: (Lora + Decay), (Lora + No Decay), (Critic + Decay), (Critic + No Decay)
+    optimizer_grouped_parameters = [
+        # LORA Group
+        {
+            "params": [p for n, p in model.named_parameters() if "lora_" in n and p.requires_grad and not any(nd in n for nd in no_decay)],
+            "weight_decay": weight_decay,
+            "lr": lora_lr,
+        },
+        {
+            "params": [p for n, p in model.named_parameters() if "lora_" in n and p.requires_grad and any(nd in n for nd in no_decay)],
+            "weight_decay": 0.0,
+            "lr": lora_lr,
+        },
+        # CRITIC Group
+        {
+            "params": [p for n, p in model.named_parameters() if "value_layer" in n and p.requires_grad and not any(nd in n for nd in no_decay)],
+            "weight_decay": weight_decay,
+            "lr": critic_lr,
+        },
+        {
+            "params": [p for n, p in model.named_parameters() if "value_layer" in n and p.requires_grad and any(nd in n for nd in no_decay)],
+            "weight_decay": 0.0,
+            "lr": critic_lr,
+        },
+    ]
+    return optimizer_grouped_parameters

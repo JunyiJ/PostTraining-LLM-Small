@@ -9,7 +9,7 @@ def advantage_gae(rewards, values, gamma=0.99, gae_lambda=0.95):
     advantages = torch.zeros_like(rewards)
 
     # TD errors
-    next_values = torch.cat([values[:, 1:], torch.zeros_like(values[:, :1])], dim=-1)
+    next_values = torch.cat([values[:, 1:], torch.zeros((B, 1), device=values.device, dtype=values.dtype)], dim=-1)
     deltas = rewards + gamma * next_values - values
 
     running_gae = torch.zeros(B, device=values.device, dtype=values.dtype)
