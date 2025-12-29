@@ -673,3 +673,183 @@ answer is 40
 advantages is tensor([-0.6325, -1.2649,  0.6325,  0.0000,  1.2649], device='mps:0')
 grpo_loss is 0.43445834517478943 and kl is 0.0
 [timing] sample processed in 130.92s
+
+=== PROFILER ===
+Sampling:          94.30s
+Logprob forward:   10.12s
+Reward + Adv:      5.27s
+Backward:          20.62s
+A rectangular plot of private property is fenced in by a chain-link fence. The long sides of the plot are three times the length of the short sides. One short side of the fence is rusted from being hit by a sprinkler and needs to be replaced. If all the sides of the fence together are 640 feet long, how many feet of fence need to be replaced?
+answer is 80
+
+🚨 SAMPLING WARNING
+  Time: 288.21s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, False, False, False, False]
+  Prompt: A rectangular plot of private property is fenced in by a chain-link fence. The long sides of the plot are three times th...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.25047823786735535 and kl is 0.0
+[timing] sample processed in 415.42s
+
+=== PROFILER ===
+Sampling:          288.21s
+Logprob forward:   25.78s
+Reward + Adv:      14.27s
+Backward:          86.52s
+Nate got lost looking for his car in the airport parking lot. He had to walk through every row in Section G and Section H to find it. Section G has 15 rows that each hold 10 cars. Section H has 20 rows that each hold 9 cars. If Nate can walk past 11 cars per minute, how many minutes did he spend searching the parking lot?
+answer is 30
+⚠️ Sampling slow: 55.7s, steps=155
+advantages is tensor([ 0.6325,  0.0000, -1.2649,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.13217265903949738 and kl is 0.18911322951316833
+[timing] sample processed in 93.54s
+
+=== PROFILER ===
+Sampling:          55.69s
+Logprob forward:   5.71s
+Reward + Adv:      4.14s
+Backward:          27.50s
+Bush and Matt are brothers. Bush is younger than Matt by 3 years. This year Bush will be 12 years old. What will be Matt's age 10 years from now?
+answer is 25
+⚠️ Sampling slow: 36.0s, steps=105
+advantages is tensor([ 1.2649, -1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.13249912858009338 and kl is 0.0490046963095665
+[timing] sample processed in 52.16s
+
+=== PROFILER ===
+Sampling:          36.01s
+Logprob forward:   2.68s
+Reward + Adv:      1.22s
+Backward:          11.86s
+On a road map, 1/4 inch represents 8 miles of actual road distance. The towns of Pence and Hillcrest are represented by points 3 3/8 inches apart on the map. What is the actual distance, in miles, between the towns?
+answer is 108
+⚠️ Sampling slow: 45.3s, steps=148
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.014434576034545898
+[timing] sample processed in 70.47s
+
+=== PROFILER ===
+Sampling:          45.31s
+Logprob forward:   4.35s
+Reward + Adv:      2.77s
+Backward:          17.41s
+Hannah sold 40 pieces of cookies for $0.8 each and 30 cupcakes for $2 each. She used the money to buy 2 sets of measuring spoons for $6.5 each. How much money does she have left?
+answer is 79
+⚠️ Sampling slow: 37.7s, steps=119
+advantages is tensor([ 0.0000, -0.6325, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.19583193957805634 and kl is 0.0
+[timing] sample processed in 59.70s
+
+=== PROFILER ===
+Sampling:          37.66s
+Logprob forward:   5.06s
+Reward + Adv:      2.44s
+Backward:          13.78s
+Anne is 2 times as tall as her sister while Bella is 3 times as tall as Anne. If Anne is 80cm tall, what is the height difference between Bella and Anne's sister?
+answer is 200
+⚠️ Sampling slow: 40.3s, steps=101
+advantages is tensor([-1.2649,  1.2649,  0.0000, -0.6325,  0.6325], device='mps:0')
+grpo_loss is 0.185005784034729 and kl is 0.0
+[timing] sample processed in 60.45s
+
+=== PROFILER ===
+Sampling:          40.30s
+Logprob forward:   4.67s
+Reward + Adv:      2.43s
+Backward:          12.31s
+Adam goes to a small school, which teaches 80 students in three classes. 40% of the students are in class A, and class B has 21 students fewer than class A. The rest are in class C. How many students are in this class?
+answer is 37
+⚠️ Sampling slow: 165.7s, steps=400
+advantages is tensor([ 1.2649,  0.6325, -0.6325,  0.0000, -1.2649], device='mps:0')
+grpo_loss is -0.11412443965673447 and kl is 0.0
+[timing] sample processed in 293.33s
+
+=== PROFILER ===
+Sampling:          165.68s
+Logprob forward:   30.33s
+Reward + Adv:      13.42s
+Backward:          82.82s
+[92m📊 [System Health] RAM: 41.5% | Swap Used: 15.95 GB[0m
+Every hour past noon shadows from a building stretch an extra 5 feet, starting at zero at noon.  How long are the shadows from the building 6 hours past noon in inches?
+answer is 360
+⚠️ Sampling slow: 100.7s, steps=190
+advantages is tensor([ 1.2649, -0.6325, -1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.258706271648407 and kl is 0.16333965957164764
+[timing] sample processed in 137.09s
+
+=== PROFILER ===
+Sampling:          100.71s
+Logprob forward:   8.66s
+Reward + Adv:      6.37s
+Backward:          20.82s
+You can buy 4 apples or 1 watermelon for the same price. You bought 36 fruits evenly split between oranges, apples and watermelons, and the price of 1 orange is $0.50. How much does 1 apple cost if your total bill was $66?
+answer is 1
+⚠️ Sampling slow: 153.4s, steps=317
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.3054521679878235 and kl is 0.0
+[timing] sample processed in 252.79s
+
+=== PROFILER ===
+Sampling:          153.35s
+Logprob forward:   25.71s
+Reward + Adv:      9.79s
+Backward:          62.96s
+Jill and her brother Jack are going apple picking.  Jill's basket can hold twice as much as Jack's basket when both are full.  Jack's basket is full when it has 12 apples, but currently space for 4 more.  How many times could Jack's current number of apples fit into Jill's basket?
+answer is 3
+
+🚨 SAMPLING WARNING
+  Time: 227.99s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, False, False, False, False]
+  Prompt: Jill and her brother Jack are going apple picking.  Jill's basket can hold twice as much as Jack's basket when both are ...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649,  0.0000, -0.6325,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.08041752129793167 and kl is 0.3441745340824127
+[timing] sample processed in 343.64s
+
+=== PROFILER ===
+Sampling:          227.99s
+Logprob forward:   32.03s
+Reward + Adv:      14.35s
+Backward:          68.25s
+John plants a plot of 3 trees by 4 trees.  Each tree gives 5 apples.  He sells each apple for $.5.  How much money does he make, in dollars?
+answer is 30
+⚠️ Sampling slow: 67.1s, steps=94
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -0.6325, -1.2649], device='mps:0')
+grpo_loss is -0.01765381172299385 and kl is 0.0
+[timing] sample processed in 101.31s
+
+=== PROFILER ===
+Sampling:          67.12s
+Logprob forward:   5.95s
+Reward + Adv:      3.06s
+Backward:          24.11s
+An Italian restaurant earns $600 every weekday and twice as much on the weekend. How much money does it earn by the end of the month?
+answer is 21600
+⚠️ Sampling slow: 52.2s, steps=155
+advantages is tensor([ 1.2649,  0.6325, -1.2649,  0.0000, -0.6325], device='mps:0')
+grpo_loss is 0.28775134682655334 and kl is 0.00047647953033447266
+[timing] sample processed in 95.91s
+
+=== PROFILER ===
+Sampling:          52.16s
+Logprob forward:   4.47s
+Reward + Adv:      3.70s
+Backward:          34.89s
+Larry and Barry want to pick apples out of the tree, but neither is tall enough to reach the apples.  Barry can reach apples that are 5 feet high.  Larry is 5 feet tall, but his shoulder height is 20% less than his full height.  If Barry stands on Larry's shoulders, how high can they reach?
+answer is 9
+⚠️ Sampling slow: 38.9s, steps=121
+advantages is tensor([-1.2649, -0.6325,  0.0000,  1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.14715732634067535 and kl is 0.0
+[timing] sample processed in 64.98s
+
+=== PROFILER ===
+Sampling:          38.95s
+Logprob forward:   4.74s
+Reward + Adv:      2.44s
+Backward:          18.42s
+Johns goes to the gym 3 times a week.  He spends 1 hour each day lifting weight. Additionally, he also spends a third of his weightlifting time warming up and doing cardio each day.  How many hours does he spend at the gym a week?

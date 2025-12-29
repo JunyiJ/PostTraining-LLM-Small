@@ -28,15 +28,15 @@ os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
-# LORA_CKPT = None
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
+LORA_CKPT = None
+# LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
-NUM_EPOCHS = 20
-EVAL_EVERY = 50
+NUM_EPOCHS = 10
+EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 0.9
 MAX_NEW_TOKENS = 400
 KL_COEF = 0.1
@@ -236,14 +236,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
         if global_step % 10 == 0:
-            all_equal = len(set(rewards)) == 1
-            all_pos = all(r > 0 for r in rewards)
-            all_neg = all(r < 0 for r in rewards)
-            if all_equal or all_pos or all_neg:
-                for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
-                    print(txt)
-                    print(f"reward is {r}")
-                    print(f"is result truncated? {tr}")
+            for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
+                print(txt)
+                print(f"reward is {r}")
+                print(f"is result truncated? {tr}")
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(sum_token_logprobs_new.dtype)
