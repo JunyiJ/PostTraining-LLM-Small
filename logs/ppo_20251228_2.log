@@ -2,3 +2,334 @@ Print found 2000 lines of training data
 LoRA checkpoint None not found; training from base model.
 
 === Epoch 1/10 ===
+[92m📊 [System Health] RAM: 63.4% | Swap Used: 4.67 GB[0m
+Sansa is a famous artist, she can draw a portrait and sell it according to its size. She sells an 8-inch portrait for $5, and a 16-inch portrait for twice the price of the 8-inch portrait. If she sells three 8-inch portraits and five 16-inch portraits per day, how many does she earns every 3 days? Please reason step-by-step,  then give: Final answer.
+195
+
+
+**Reasoning Step-by-Step**
+
+1. **Price of a 16-inch portrait:** Since a 16-inch portrait is twice the price of an 8-inch portrait, it costs $5 * 2 = $10.
+
+2. **Earnings from 8-inch portraits:** She earns $5 per 8-inch portrait, so she earns $5 * 3 = $15 per day from 8-inch portraits.
+
+3. **Earnings from 16-inch portraits:** She earns $10 per 16-inch portrait, so she earns $10 * 5 = $50 per day from 16-inch portraits.
+
+4. **Total daily earnings:**  Her total daily earnings are $15 + $50 = $65.
+
+5. **Total earnings in 3 days:** Her earnings in 3 days will be $65/day * 3 days = $195
+
+**Final answer:** Sansa earns $195 every 3 days. 
+
+===
+Archibald eats 1 apple a day for two weeks. Over the next three weeks, he eats the same number of apples as the total of the first two weeks. Over the next two weeks, he eats 3 apples a day. Over these 7 weeks, how many apples does he average a week? Please reason step-by-step,  then give: Final answer.
+10
+ 
+
+
+This problem requires understanding and applying arithmetic to solve in order.
+
+**Step 1: First Two Weeks**
+
+* Archibald eats 1 apple per day for 2 weeks. 
+* This means he eats 1 * 14 = 14 apples.
+
+**Step 2: Third Week**
+
+* Archibald eats the same number of apples as the first two weeks combined.
+* So he eats 14 apples.
+
+**Step 3: Next Two Weeks**
+
+* Archibald eats 3 apples per day for two weeks.
+* The total number of apples eaten over this period is 3 * 14 = 42 apples
+
+**Step 4: Total and Average**
+
+* Archibald eats a total of 14 + 14 + 42 = 70 apples across the seven weeks.
+* The average number of apples he eats per week is 70 / 7 = **10 apples per week**.
+
+**Final Answer:** Archibald eats an average of 10 apples per week. 
+
+
+
+Let me know if you have any other similar problems! 
+===
+Susie has $200 in her piggy bank. If she puts 20% more money into her piggy bank, how much money she will have? Please reason step-by-step,  then give: Final answer.
+240
+
+
+**Step 1: Calculate the amount of money added.**
+
+* 20% of $200 is (20/100) * $200 = $40
+
+**Step 2: Add the extra money to the original amount.**
+
+* Susie's total will be $200 + $40 = $240
+
+
+**Final answer:** Susie will have $240 in her piggy bank. 
+===
+Benny bought  2 soft drinks for$ 4 each and 5 candy bars. He spent a total of 28 dollars. How much did each candy bar cost? Please reason step-by-step,  then give: Final answer.
+4
+ 
+
+===
+Jack has a stack of books that is 12 inches thick. He knows from experience that 80 pages is one inch thick. If he has 6 books, how many pages is each one on average? Please reason step-by-step,  then give: Final answer.
+160
+ 
+
+
+**Step-by-Step Reasoning**
+
+1. **Calculate the total number of pages:** Since Jack has 6 books and each book has 80 pages per inch, he has 6 books * 80 pages/book = 480 pages.
+
+2. **Calculate the average number of pages per book:**  The average number of pages per book is 480 pages / 6 books = 80 pages/book.
+
+
+**Final Answer** 
+
+Each book, on average, has 80 pages. 
+
+===
+Wickham is throwing a huge Christmas party. He invites 30 people. Everyone attends the party, and half of the guests bring a plus one (one other person). He plans to serve a 3-course meal for the guests. If he uses a new plate for every course, how many plates does he need in total for his guests? Please reason step-by-step,  then give: Final answer.
+135
+
+
+**Reasoning:**
+
+1. **Guests with Plus Ones:** Half the guests bring a plus one, meaning he has 30 / 2 = 15 guests with plus ones.
+2. **Total Guests with plus Ones:** There are 15 guests with plus ones.
+3. **Total Guests:** Therefore, there are 30 guests total.
+4. **Total Plates:** He needs one plate for each guest.  30 guests. Therefore, he needs a total of 30 plates.
+
+
+**Final Answer:** 30 plates.
+===
+There are some lions in Londolozi at first. Lion cubs are born at the rate of 5 per month and lions die at the rate of 1 per month. If there are 148 lions in Londolozi after 1 year, how many lions were there in Londolozi at first? Please reason step-by-step,  then give: Final answer.
+100
+
+
+Here's how to solve the problem:
+
+**1. Consider the birth rate:**
+
+* Lions are born at a rate of 5 per month.
+
+**2.  Calculate the total number of cubs born in a year:**
+
+* There are 12 months in a year.
+* Total cubs born in a year: 5 cubs/month * 12 months = 60 cubs.
+
+**3. Consider the death rate:**
+
+*  Lions die at a rate of 1 per month.
+
+**4. Calculate the total number of lions that died in a year:**
+
+* Total lions that died in a year: 1 lion/month * 12 months = 12 lions.
+
+**5. Calculate the starting number of lions:**
+
+* The total number of cubs born (60) minus the lions that died (12) gives the final number of lions in Londolozi at the beginning. 
+* Final answer: 60 - 12 = 48. 
+
+ 
+ **Final Answer: There were 48 lions at first in Londolozi.** 
+
+===
+John volunteers at a shelter twice a month for 3 hours at a time.  How many hours does he volunteer per year? Please reason step-by-step,  then give: Final answer.
+72
+
+
+
+**Step 1: Hours per month**
+
+* John volunteers twice a month.
+
+* He volunteers for 3 hours each time.
+
+* Therefore, he volunteers for 2 * 3 = 6 hours per month.
+
+**Step 2:  Hours per year**
+
+* There are 12 months in a year.
+
+* He volunteers 6 hours per month.
+
+* Therefore, he volunteers for 12 * 6 = 72 hours per year. 
+
+
+**Final Answer:** John volunteers 72 hours per year. 
+
+===
+0
+{'prompt_id_length': 98, 'tokens_shape': (8, 338), 'attention_mask_shape': (8, 338), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 240, 'ratio_mean': tensor(1.0001, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0055, device='mps:0'), 'reward_mean': tensor(-0.0008, device='mps:0'), 'policy_loss': -0.001463026273995638, 'value_loss': 0.035905610769987106}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0000571418
+Step: 1 | Loss: -0.0011 | KL: -0.0002
+[timing] sample processed in 276.79s
+
+=== PROFILER ===
+Sampling:          122.81s
+Logprob forward:   37.42s
+Reward + Adv:      17.12s
+Backward:          90.24s
+[92m📊 [System Health] RAM: 56.3% | Swap Used: 20.18 GB[0m
+1
+{'prompt_id_length': 115, 'tokens_shape': (8, 445), 'attention_mask_shape': (8, 445), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 330, 'ratio_mean': tensor(0.9998, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0133, device='mps:0'), 'reward_mean': tensor(-0.0005, device='mps:0'), 'policy_loss': -3.759352330234833e-05, 'value_loss': 0.03197683393955231}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000295349
+Average Critic Gradient Magnitude: 0.0000738236
+Step: 2 | Loss: 0.0003 | KL: -0.0005
+[timing] sample processed in 375.28s
+
+=== PROFILER ===
+Sampling:          182.08s
+Logprob forward:   58.76s
+Reward + Adv:      16.93s
+Backward:          111.14s
+[92m📊 [System Health] RAM: 51.6% | Swap Used: 22.98 GB[0m
+2
+{'prompt_id_length': 113, 'tokens_shape': (8, 390), 'attention_mask_shape': (8, 390), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 277, 'ratio_mean': tensor(1.0000, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0333, device='mps:0'), 'reward_mean': tensor(-0.0017, device='mps:0'), 'policy_loss': 0.00024191479315049946, 'value_loss': 0.0285340566188097}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0001377794
+Step: 3 | Loss: 0.0005 | KL: -0.0004
+[timing] sample processed in 314.08s
+
+=== PROFILER ===
+Sampling:          153.93s
+Logprob forward:   50.14s
+Reward + Adv:      15.80s
+Backward:          87.40s
+[92m📊 [System Health] RAM: 58.7% | Swap Used: 21.94 GB[0m
+3
+{'prompt_id_length': 111, 'tokens_shape': (8, 281), 'attention_mask_shape': (8, 281), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 170, 'ratio_mean': tensor(1.0005, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0741, device='mps:0'), 'reward_mean': tensor(-0.0038, device='mps:0'), 'policy_loss': -3.7460697058122605e-05, 'value_loss': 0.03736228868365288}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0002674535
+Step: 4 | Loss: 0.0003 | KL: -0.0007
+[timing] sample processed in 224.13s
+
+=== PROFILER ===
+Sampling:          98.51s
+Logprob forward:   32.75s
+Reward + Adv:      14.37s
+Backward:          77.63s
+[92m📊 [System Health] RAM: 66.2% | Swap Used: 17.62 GB[0m
+4
+{'prompt_id_length': 135, 'tokens_shape': (8, 535), 'attention_mask_shape': (8, 535), 'truncated': [False, False, False, False, False, True, False, False], 'steps_taken': 400, 'ratio_mean': tensor(1.0009, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0522, device='mps:0'), 'reward_mean': tensor(-0.0030, device='mps:0'), 'policy_loss': 0.00018431611533742398, 'value_loss': 0.03123980388045311}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0002286797
+Average Critic Gradient Magnitude: 0.0002077296
+Step: 5 | Loss: 0.0005 | KL: -0.0000
+[timing] sample processed in 471.58s
+
+=== PROFILER ===
+Sampling:          222.93s
+Logprob forward:   77.91s
+Reward + Adv:      22.57s
+Backward:          137.38s
+[92m📊 [System Health] RAM: 55.9% | Swap Used: 24.50 GB[0m
+5
+{'prompt_id_length': 113, 'tokens_shape': (8, 394), 'attention_mask_shape': (8, 394), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 281, 'ratio_mean': tensor(1.0009, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(0.0502, device='mps:0'), 'reward_mean': tensor(0.0039, device='mps:0'), 'policy_loss': 0.0005906166625209153, 'value_loss': 0.028605645522475243}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0002121433
+Average Critic Gradient Magnitude: 0.0001953747
+Step: 6 | Loss: 0.0009 | KL: 0.0004
+[timing] sample processed in 337.75s
+
+=== PROFILER ===
+Sampling:          160.02s
+Logprob forward:   69.68s
+Reward + Adv:      11.63s
+Backward:          91.09s
+[92m📊 [System Health] RAM: 51.0% | Swap Used: 22.81 GB[0m
+6
+{'prompt_id_length': 98, 'tokens_shape': (8, 361), 'attention_mask_shape': (8, 361), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 263, 'ratio_mean': tensor(1.0010, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(0.0292, device='mps:0'), 'reward_mean': tensor(0.0024, device='mps:0'), 'policy_loss': 0.00014398481289390475, 'value_loss': 0.031023317947983742}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0002142242
+Average Critic Gradient Magnitude: 0.0001249509
+Step: 7 | Loss: 0.0005 | KL: 0.0008
+[timing] sample processed in 293.44s
+
+=== PROFILER ===
+Sampling:          143.04s
+Logprob forward:   41.77s
+Reward + Adv:      20.27s
+Backward:          81.45s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 14.93 GB[0m
+7
+{'prompt_id_length': 88, 'tokens_shape': (8, 328), 'attention_mask_shape': (8, 328), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 240, 'ratio_mean': tensor(1.0000, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0165, device='mps:0'), 'reward_mean': tensor(-0.0005, device='mps:0'), 'policy_loss': -0.00016873219283297658, 'value_loss': 0.03137744218111038}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0000881418
+Step: 8 | Loss: 0.0001 | KL: -0.0007
+[timing] sample processed in 279.14s
+
+=== PROFILER ===
+Sampling:          130.53s
+Logprob forward:   45.86s
+Reward + Adv:      14.66s
+Backward:          80.21s
+[92m📊 [System Health] RAM: 48.4% | Swap Used: 18.53 GB[0m
+8
+{'prompt_id_length': 116, 'tokens_shape': (8, 354), 'attention_mask_shape': (8, 354), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 238, 'ratio_mean': tensor(0.9999, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0514, device='mps:0'), 'reward_mean': tensor(-0.0022, device='mps:0'), 'policy_loss': -0.0005338593036867678, 'value_loss': 0.036353759467601776}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0001943950
+Step: 9 | Loss: -0.0002 | KL: 0.0005
+[timing] sample processed in 303.04s
+
+=== PROFILER ===
+Sampling:          132.33s
+Logprob forward:   39.29s
+Reward + Adv:      17.15s
+Backward:          106.38s
+[92m📊 [System Health] RAM: 53.8% | Swap Used: 16.98 GB[0m
+9
+{'prompt_id_length': 89, 'tokens_shape': (8, 399), 'attention_mask_shape': (8, 399), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 310, 'ratio_mean': tensor(1.0002, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0413, device='mps:0'), 'reward_mean': tensor(-0.0022, device='mps:0'), 'policy_loss': 0.0002716839371714741, 'value_loss': 0.037071891129016876}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0001738248
+Step: 10 | Loss: 0.0006 | KL: 0.0001
+[timing] sample processed in 362.83s
+
+=== PROFILER ===
+Sampling:          168.88s
+Logprob forward:   56.48s
+Reward + Adv:      15.65s
+Backward:          115.54s
+[92m📊 [System Health] RAM: 54.3% | Swap Used: 23.93 GB[0m
+10
+{'prompt_id_length': 82, 'tokens_shape': (8, 305), 'attention_mask_shape': (8, 305), 'truncated': [False, False, False, False, False, False, False, False], 'steps_taken': 223, 'ratio_mean': tensor(1.0000, device='mps:0', grad_fn=<DivBackward0>), 'adv_mean': tensor(-0.0352, device='mps:0'), 'reward_mean': tensor(-0.0014, device='mps:0'), 'policy_loss': -0.0003847073530778289, 'value_loss': 0.03283844143152237}
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000000000
+Average Critic Gradient Magnitude: 0.0001365966
+Step: 11 | Loss: -0.0001 | KL: 0.0007
+[step 11] avg_loss=0.0002 acc=0.4773
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 km/h * 2 = 124 km/h) for 3 hours, so the distance is 124 km/h * 3 h = 372 km.
+
+3. **Total distance:** The total distance is the sum of the distances from both legs: 124 km + 372 km = 496 km.
+
+**Final answer:** 496 km 
+
+[timing] sample processed in 296.71s
+
+=== PROFILER ===
+Sampling:          121.62s
+Logprob forward:   34.93s
+Reward + Adv:      21.92s
+Backward:          88.47s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch1_step11.pt
+==end-of-epoch 1==
+
+=== Epoch 2/10 ===

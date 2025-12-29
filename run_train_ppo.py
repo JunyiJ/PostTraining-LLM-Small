@@ -92,7 +92,7 @@ else:
 
 model.to(DEVICE)
 # Setup optimizer and scheduler
-params = get_optimizer_params(model, lora_lr=5e-5, critic_lr=1e-4, weight_decay=0.01)
+params = get_optimizer_params(model, lora_lr=2e-4, critic_lr=1e-4, weight_decay=0.01)
 optimizer = torch.optim.AdamW(params, eps=1e-6)
 
 total_steps = min(len(test_data), NUM_TRAINING_DATA * NUM_EPOCHS) // BATCH_SIZE * NUM_EPOCHS

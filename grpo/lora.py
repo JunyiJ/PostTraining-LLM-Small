@@ -4,6 +4,33 @@ import torch.nn.init as init
 from typing import Iterable, Tuple
 
 import torch
+from contextlib import contextmanager
+
+class ModelAdapterWrapper(nn.Module):
+    def __init__(self, base_model):
+        super().__init__()
+        self.base_model = base_model
+
+    def forward(self, *args, **kwargs):
+        # Preserve user args/kwargs
+        return self.base_model(*args, **kwargs)
+
+    def generate(self, *args, **kwargs):
+        return self.base_model.generate(*args, **kwargs)
+
+    @contextmanager
+    def disable_adapter(self):
+        # Temporarily disable LoRA adapters (used for reference/pass-through runs)
+        lora_modules = []
+        for module in self.modules():
+            if isinstance(module, LoRALinear):
+                lora_modules.append((module, module._lora_enabled))
+                module._lora_enabled = False
+        try:
+            yield
+        finally:
+            for module, prev in lora_modules:
+                module._lora_enabled = prev
 
 class LoRALinear(nn.Module):
     """
@@ -25,6 +52,7 @@ class LoRALinear(nn.Module):
         self.alpha = alpha
         self.scaling = alpha / float(r)
         self.dropout = nn.Dropout(dropout)
+        self._lora_enabled = True
 
         # Low-rank adapters
         self.A = nn.Linear(self.base.in_features, r, bias=False)
@@ -34,6 +62,8 @@ class LoRALinear(nn.Module):
         
     def forward(self, x):
         base_out = self.base(x)
+        if not self._lora_enabled:
+            return base_out
         lora_out = self.B(self.dropout(self.A(x))) * self.scaling
         return base_out + lora_out
 

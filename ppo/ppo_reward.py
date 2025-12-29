@@ -179,13 +179,13 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # This helps the model if it's off by a tiny rounding error
     if pred is None:
         # Penalty for failing to follow the format 'Final answer: <num>'
-        num_r = -1.2
+        num_r = -0.5
     else:
         rel_error = abs(pred - gold) / max(1.0, abs(gold))
         if rel_error < 0.01:
-            num_r = 1.0
+            num_r = 2.0
         elif rel_error < 0.05: # Near miss
-            num_r = 0.2
+            num_r = 0.5
         else:
             num_r = -1.0
 
@@ -198,8 +198,10 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # 4. Format/Structure Bonus
     # Reward the model slightly for actually using the step-by-step format
     format_r = 0.0
-    # if "Step 1" in text or "1." in text:
-    #     format_r += 0.05
+    if "final answer" in text.lower():
+        format_r += 0.2  # Reward for following the output protocol
+    if "Step 1" in text or "1." in text:
+        format_r += 0.1
 
     # 5. Soft Truncation Penalty
     # We lowered this to -0.05 per your latest update, which is good.
@@ -214,4 +216,4 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     total = num_r + eq_r + format_r + trunc_r - length_penalty
 
     # Clip to ensure advantages don't explode
-    return max(-1.5, min(1.5, total))
+    return max(-2.0, min(2.5, total))
