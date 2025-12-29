@@ -36,13 +36,13 @@ CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 80
 BATCH_SIZE = 8
-NUM_EPOCHS = 1
+NUM_EPOCHS = 2
 EVAL_EVERY = 1
 MAX_INPUT_TOKENS = 150
 MAX_NEW_TOKENS = 400
 TARGET_KL = 6.0
 BETA = 0.05
-VF_COEF = 0.1
+VF_COEF = 0.01
 ENT_COEF = 0.0
 DEVICE = torch.device("mps")
 EPS = 0.2
@@ -92,11 +92,11 @@ else:
 
 model.to(DEVICE)
 # Setup optimizer and scheduler
-params = get_optimizer_params(model, lora_lr=2e-5, critic_lr=1e-4, weight_decay=0.01)
+params = get_optimizer_params(model, lora_lr=5e-5, critic_lr=1e-4, weight_decay=0.01)
 optimizer = torch.optim.AdamW(params, eps=1e-6)
 
-total_steps = len(test_data) // BATCH_SIZE * NUM_EPOCHS
-warmup_steps = int(0.1 * total_steps) # 10% warmup is a safe default
+total_steps = min(len(test_data), NUM_TRAINING_DATA * NUM_EPOCHS) // BATCH_SIZE * NUM_EPOCHS
+warmup_steps = int(0.05 * total_steps) # 5% warmup is a safe default
 # 3. Setup Scheduler
 scheduler = get_cosine_schedule_with_warmup(
     optimizer=optimizer,
@@ -264,6 +264,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     print(q)
                     print(a)
                     print(t)
+                    print("===")
+            print(global_step)
             print(
                 {
                     "prompt_id_length": res.get("prompt_id_length"),
