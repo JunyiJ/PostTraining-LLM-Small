@@ -34,10 +34,10 @@ LORA_CKPT = None
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_TRAINING_DATA = 80
+NUM_TRAINING_DATA = 88
 BATCH_SIZE = 8
-NUM_EPOCHS = 2
-EVAL_EVERY = 1
+NUM_EPOCHS = 10
+EVAL_EVERY = 11
 MAX_INPUT_TOKENS = 150
 MAX_NEW_TOKENS = 400
 TARGET_KL = 6.0
@@ -182,7 +182,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)
 
             with model.disable_adapter():
-                ## Get reference policy logprobs.
+            ## Get reference policy logprobs.
                 ref_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask, return_values=False)
                 # [B, T_max, vocab]
                 logits_ref = ref_out.logits
@@ -228,7 +228,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
             final_rewards_t = torch.tensor(final_rewards, device=rewards.device, dtype=rewards.dtype)
             rewards[batch_indices, eos_reward_idx] += final_rewards_t
             # Get advantage
-            advantages = advantage_gae(rewards, masked_values_old).detach()
+            advantages = advantage_gae(rewards, old_values, res["truncated"]).detach()
+            returns = (advantages + masked_values_old) * answer_mask
             # Filter out advantages belonging to padding tokens for mean/std calc
             active_advs = advantages[answer_mask > 0]
             adv_mean = active_advs.mean()
@@ -238,7 +239,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
             advantages = (advantages - adv_mean) / (adv_std + 1e-8)
             advantages = advantages * answer_mask # Ensure padding stays 0
             # Target for the critic
-            returns = (advantages + masked_values_old) * answer_mask
+            
             t5 = time.perf_counter()
         # Calculate loss
         with torch.enable_grad():
