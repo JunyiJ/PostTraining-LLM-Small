@@ -97,6 +97,7 @@ The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
 * GRPO + LORA Model checkpoint (base): Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00% (before running optimization)
 * GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 199 Correct: 118 Accuracy: 59.3%.
 * GRPO + LORA Model checkpoint(Train on 200 harder hand curated + AI generated examples, with efficiency improvement, MAX_NEW_TOKENS=400, TEMP=0.9, NUM_SAMPLES=5, lr=2*1e-4, KL_COEFF=0.1): Gemma 2B Instruct + LoRA Total: 200 Correct: 132 Accuracy: 66.00%
+* PPO + Critic (single layer) + LORA(Actor) (Initial trial with 160 training examples, batch_size=8, VF_COEFF=0.01, EPS=0.1): Model: Gemma 2B Instruct + LoRA Total: 200 Correct: 126 Accuracy: 63.00%
 
 ### Qwen2.5-Math-1.5B-Instruct as base model
 * Baseline Model: Total: 200 Correct: 16 Accuracy: 8.00%

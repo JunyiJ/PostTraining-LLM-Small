@@ -1,4 +1,3 @@
-
 import torch
 import torch.nn as nn
 import torch.nn.init as init
@@ -10,9 +9,18 @@ class Critic(nn.Module):
         super().__init__()
         self.base_model = base_model
         ref = next(base_model.parameters())
-        self.value_layer = nn.Linear(base_model.config.hidden_size, 1, device=ref.device, dtype=ref.dtype)
-        init.normal_(self.value_layer.weight, mean=0.0, std=0.02)
-        init.zeros_(self.value_layer.bias)
+        self.value_layer = nn.Sequential(
+            nn.Linear(base_model.config.hidden_size, base_model.config.hidden_size // 2),
+            nn.Tanh(),
+            nn.Linear(base_model.config.hidden_size//2, 1)
+        ).to(device=ref.device, dtype=ref.dtype)
+        # Initialize the first linear layer properly for Tanh
+        init.xavier_uniform_(self.value_layer[0].weight)
+        init.constant_(self.value_layer[0].bias, 0)
+
+        # Initialize the final layer to be very small
+        init.uniform_(self.value_layer[-1].weight, a=-0.01, b=0.01)
+        init.constant_(self.value_layer[-1].bias, 0)
 
     def forward(self, *args, return_values=True, **kwargs):
         # Preserve user args/kwargs while ensuring hidden states for value head
@@ -22,7 +30,7 @@ class Critic(nn.Module):
         outs = self.base_model(*args, **kwargs)
         if not return_values:
             return outs
-        hidden = outs.hidden_states[-1]
+        hidden = outs.hidden_states[-1].detach()
         values = self.value_layer(hidden).squeeze(-1)
         return outs, values
 
@@ -122,8 +130,10 @@ def freeze_non_lora_critic_params(model: nn.Module) -> None:
             module.lora_A.weight.requires_grad = True
             module.lora_B.weight.requires_grad = True
         if isinstance(module, Critic):
-            module.value_layer.weight.requires_grad = True
-            module.value_layer.bias.requires_grad = True
+            module.value_layer[0].weight.requires_grad = True
+            module.value_layer[0].bias.requires_grad = True
+            module.value_layer[-1].weight.requires_grad = True
+            module.value_layer[-1].bias.requires_grad = True
 
 def get_optimizer_params(model, lora_lr, critic_lr, weight_decay):
     no_decay = ["bias", "LayerNorm.weight", "layernorm.weight"]
