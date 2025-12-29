@@ -57,30 +57,37 @@ advantage = (reward - mean(reward)) / (std(reward) + 0.00001) for a group of ans
 KL_divergency ~= sum(log_prob_new / log_prob_old) per token and then take the mean of all samples
 
 ### Overview of PPO
-Unlike GRPO, which is critic-less and relies on group relative rewards, PPO (Proximal Policy Optimization) is a traditional Actor-Critic algorithm. It simultaneously optimizes a policy (the Actor) and a value function (the Critic).
+Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) and a value head (critic).
 
-- **Total loss**: multi-part objective  
-  \(L_{\text{total}} = L_{\text{CLIP}} + c_1 L_{\text{VF}} + c_2 L_{\text{ENT}}\)  
-  \(L_{\text{CLIP}}\): nudges policy toward better-than-expected actions with update clipping.  
-  \(L_{\text{VF}}\): critic MSE on returns.  
-  \(L_{\text{ENT}}\): optional entropy bonus to encourage exploration.
+- **Total loss** (multi-part):  
+  ```
+  L_total = L_CLIP + c1 * L_VF + c2 * L_ENT
+  ```
+  where `L_CLIP` is the clipped policy loss, `L_VF` the value loss, and `L_ENT` an optional entropy bonus.
 
-- **Actor / policy loss**: clipped surrogate for stability  
-  \(r_t = \exp(\log P_{\text{new}} - \log P_{\text{old}})\)  
-  \(\text{Policy Loss} = -\min(r_t \hat{A}_t,\; \text{clip}(r_t, 1-\epsilon, 1+\epsilon)\hat{A}_t)\)  
-  \(\hat{A}_t\): advantage (how much better an action is than expected).
+- **Actor / policy loss** (clipped surrogate):  
+  ```
+  r_t = exp(log P_new - log P_old)
+  PolicyLoss = -min(r_t * Â_t, clip(r_t, 1-ε, 1+ε) * Â_t)
+  ```
+  `Â_t` is the advantage for token/time step `t`.
 
 - **Critic / value loss**:  
-  Value head predicts \(V_s\). Value loss \(L_{\text{VF}} = (V_{\text{new}} - R_{\text{target}})^2\) (often with clipping). Target return commonly \(V_{\text{old}} + \hat{A}_t\).
+  Value head predicts `V_s`. A common target is `R_target = V_old + Â_t`, and value loss is MSE (often with clipping) between `V_new` and `R_target`.
 
 - **Generalized Advantage Estimation (GAE)**:  
-  \(\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)\)  
-  \(\hat{A}_t = \delta_t + (\gamma \lambda) \delta_{t+1} + \dots + (\gamma \lambda)^{T-t+1} \delta_{T-1}\)  
-  Use \(V_{\text{old}}\) from data collection for a consistent “surprise” signal.
+  ```
+  δ_t = r_t + γ * V(s_{t+1}) - V(s_t)
+  Â_t = δ_t + (γλ) δ_{t+1} + ... + (γλ)^{T-t+1} δ_{T-1}
+  ```
+  Use `V_old` from data collection to reflect surprise under the generating policy.
 
 - **Token-level rewards & KL penalty** (LLM setting):  
-  \(R_t = \text{Heuristic/Reward\_Model} - \beta \cdot D_{KL}\), with \(D_{KL} \approx \log P_{\text{new}} - \log P_{\text{ref}}\).  
-  Typically every token gets the KL penalty, while only the final token gets the task reward (e.g., correctness/helpfulness), to combat reward sparsity and keep the policy near a reference model.
+  ```
+  R_t = HeuristicReward - β * D_KL
+  D_KL ≈ log P_new - log P_ref
+  ```
+  Typically every token gets the KL penalty; only the final token gets the task reward (e.g., correctness/helpfulness) to handle sparse rewards and keep the policy near a reference model.
 
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
