@@ -65,29 +65,31 @@ Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) an
   ```
   where `L_CLIP` is the clipped policy loss, `L_VF` the value loss, and `L_ENT` an optional entropy bonus.
 
-- **Actor / policy loss** (clipped surrogate):  
+- **Actor / policy loss** (clipped surrogate):
+
+The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
   ```
   r_t = exp(log P_new - log P_old)
   PolicyLoss = -min(r_t * Â_t, clip(r_t, 1-ε, 1+ε) * Â_t)
   ```
-  `Â_t` is the advantage for token/time step `t`.
+  `Â_t` is the advantage for token/time step `t` and it represents how much better an action is compared to state baseline.
 
 - **Critic / value loss**:  
-  Value head predicts `V_s`. A common target is `R_target = V_old + Â_t`, and value loss is MSE (often with clipping) between `V_new` and `R_target`.
+  The Critic is typically a Value Head—a linear layer added to the final hidden state of the base model that outputs a single scalar value predicts `V_s`. A common target is `R_target = V_old + Â_t`, and value loss is MSE (often with clipping) between `V_new` and `R_target`.
 
 - **Generalized Advantage Estimation (GAE)**:  
   ```
   δ_t = r_t + γ * V(s_{t+1}) - V(s_t)
   Â_t = δ_t + (γλ) δ_{t+1} + ... + (γλ)^{T-t+1} δ_{T-1}
   ```
-  Use `V_old` from data collection to reflect surprise under the generating policy.
+  Use `V_old` from data collection to reflect surprise under the generating policy. GAE is basically the TD lambda implementation based on token level rewards (see below) and value estimation.
 
 - **Token-level rewards & KL penalty** (LLM setting):  
   ```
   R_t = HeuristicReward - β * D_KL
   D_KL ≈ log P_new - log P_ref
   ```
-  Typically every token gets the KL penalty; only the final token gets the task reward (e.g., correctness/helpfulness) to handle sparse rewards and keep the policy near a reference model.
+  Typically every token gets the KL penalty; only the final token gets the task reward (e.g., correctness/helpfulness) to handle sparse rewards and keep the policy near a reference model. A reference model is used for KL divergency: This prevents the model from drifting too far from a frozen reference model (the "base" or "SFT" model).
 
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
