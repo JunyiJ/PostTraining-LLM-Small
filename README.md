@@ -16,6 +16,7 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
 - `models/` — local model download (e.g., Gemma 2B Instruct).
 - `logs/` — training logs.
 - `checkpoints/` — saved LoRA checkpoints.
+- `ppo/` — PPO utilities: sampler, advantage, reward helpers, LoRA critic wrapper.
 
 ## Setup
 1) Create/activate env (example):
@@ -54,6 +55,32 @@ and model learns from update.
 loss = - advantage * (prob_new / prob_old) + KL_weight * KL_divergency
 advantage = (reward - mean(reward)) / (std(reward) + 0.00001) for a group of answers (e.g. sample k answers)
 KL_divergency ~= sum(log_prob_new / log_prob_old) per token and then take the mean of all samples
+
+### Overview of PPO
+Unlike GRPO, which is critic-less and relies on group relative rewards, PPO (Proximal Policy Optimization) is a traditional Actor-Critic algorithm. It simultaneously optimizes a policy (the Actor) and a value function (the Critic).
+
+- **Total loss**: multi-part objective  
+  \(L_{\text{total}} = L_{\text{CLIP}} + c_1 L_{\text{VF}} + c_2 L_{\text{ENT}}\)  
+  \(L_{\text{CLIP}}\): nudges policy toward better-than-expected actions with update clipping.  
+  \(L_{\text{VF}}\): critic MSE on returns.  
+  \(L_{\text{ENT}}\): optional entropy bonus to encourage exploration.
+
+- **Actor / policy loss**: clipped surrogate for stability  
+  \(r_t = \exp(\log P_{\text{new}} - \log P_{\text{old}})\)  
+  \(\text{Policy Loss} = -\min(r_t \hat{A}_t,\; \text{clip}(r_t, 1-\epsilon, 1+\epsilon)\hat{A}_t)\)  
+  \(\hat{A}_t\): advantage (how much better an action is than expected).
+
+- **Critic / value loss**:  
+  Value head predicts \(V_s\). Value loss \(L_{\text{VF}} = (V_{\text{new}} - R_{\text{target}})^2\) (often with clipping). Target return commonly \(V_{\text{old}} + \hat{A}_t\).
+
+- **Generalized Advantage Estimation (GAE)**:  
+  \(\delta_t = r_t + \gamma V(s_{t+1}) - V(s_t)\)  
+  \(\hat{A}_t = \delta_t + (\gamma \lambda) \delta_{t+1} + \dots + (\gamma \lambda)^{T-t+1} \delta_{T-1}\)  
+  Use \(V_{\text{old}}\) from data collection for a consistent “surprise” signal.
+
+- **Token-level rewards & KL penalty** (LLM setting):  
+  \(R_t = \text{Heuristic/Reward\_Model} - \beta \cdot D_{KL}\), with \(D_{KL} \approx \log P_{\text{new}} - \log P_{\text{ref}}\).  
+  Typically every token gets the KL penalty, while only the final token gets the task reward (e.g., correctness/helpfulness), to combat reward sparsity and keep the policy near a reference model.
 
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
@@ -105,4 +132,3 @@ causes NaN issue probably due to a known unstability of Gemma model on MPS.
 After the optimization step above (combining, 1/2/3/4), the overall training time is able to reduce 
 by 3-4x.
 3) TODO: update to larger batches.
-
