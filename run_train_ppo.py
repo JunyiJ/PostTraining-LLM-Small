@@ -310,7 +310,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 total_loss = policy_loss + VF_COEF * value_loss + entropy_loss
                 t3 = time.perf_counter()
                 if ppo_epoch == PPO_EPOCHS - 1:
-                    print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | KL: {kl_loss.item():.3f}")
+                    print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | Val: {value_loss.item():.3f}")
                     print(
                         {
                             "tokens_shape": tuple(b_tokens.shape),

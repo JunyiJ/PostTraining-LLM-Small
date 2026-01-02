@@ -2,5 +2,42 @@ Print found 2000 lines of training data
 LoRA checkpoint None not found; training from base model.
 
 === Epoch 1/10 ===
-[92m📊 [System Health] RAM: 60.2% | Swap Used: 1.35 GB[0m
+[92m📊 [System Health] RAM: 59.1% | Swap Used: 0.93 GB[0m
 Collecting experience for step 0...
+PPO optimization step 0...
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001568251
+Average Critic Gradient Magnitude: 0.0004661605
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001916967
+Average Critic Gradient Magnitude: 0.0002579326
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0002068557
+Average Critic Gradient Magnitude: 0.0003782902
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001760848
+Average Critic Gradient Magnitude: 0.0006323457
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001376912
+Average Critic Gradient Magnitude: 0.0004575606
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0018642784
+Average Critic Gradient Magnitude: 0.0005998593
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001005823
+Average Critic Gradient Magnitude: 0.0002230713
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000928211
+Average Critic Gradient Magnitude: 0.0003305282
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0001433859
+Average Critic Gradient Magnitude: 0.0001743631
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000656493
+Average Critic Gradient Magnitude: 0.0002545938
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000904295
+Average Critic Gradient Magnitude: 0.0004527625
+--- Gradient Check ---
+Average LoRA Gradient Magnitude: 0.0000507479
+Average Critic Gradient Magnitude: 0.0002264082
