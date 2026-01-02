@@ -18,7 +18,7 @@ from grpo.utils import load_model
 from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage, compute_rank_advantage
 from grpo.reward import compute_reward, advanced_cot_reward,refined_advanced_cot_reward
-from grpo.lora import apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
+from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
 # This hapens because hugging face automatically runs FP16 warmup allocations
@@ -53,6 +53,7 @@ model = apply_lora_to_model(
     target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
     dropout=0.05,
 )
+model = ModelAdapterWrapper(model)
 freeze_non_lora_params(model)
 if LORA_CKPT and LORA_CKPT.exists():
     ckpt = torch.load(LORA_CKPT, map_location="cpu")
@@ -167,10 +168,15 @@ for epoch in range(1, NUM_EPOCHS + 1):
             old_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
             logits_old = old_out.logits[:, :-1, :]   # [B, T-1, V]
             shifted_log_probs_old = F.log_softmax(logits_old / SAMPLING_TEMPERATURE, dim=-1)
-
             # Gather logprobs of the actually generated tokens
             log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)  # [B, T-1]
-            # Second pass (enable gradient) to get each answer token's sum_logprob_new.
+            with model.disable_adapter():
+                ref_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
+                logits_ref = ref_out.logits[:, :-1, :]   # [B, T-1, V]
+                shifted_log_probs_ref = F.log_softmax(logits_ref / SAMPLING_TEMPERATURE, dim=-1)
+                log_probs_ref = shifted_log_probs_ref.gather(-1, targets).squeeze(-1)  # [B, T-1]
+
+        # Second pass (enable gradient) to get each answer token's sum_logprob_new.
         model.train()
         with torch.enable_grad():
             out_new = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
@@ -183,6 +189,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Mask out padded tokens
         masked_log_probs_old = log_probs_old * answer_mask
         masked_log_probs_new = log_probs_new * answer_mask
+        masked_log_probs_ref = log_probs_ref * answer_mask
         sum_token_logprobs_old = masked_log_probs_old.sum(dim=1)
         sum_token_logprobs_new = masked_log_probs_new.sum(dim=1)
         t3 = time.perf_counter()
@@ -247,7 +254,19 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Compute GRPO loss
         log_prob_ratio = sum_token_logprobs_new - sum_token_logprobs_old
         ratio = log_prob_ratio.exp()
-        kl_loss = (masked_log_probs_old.detach() - masked_log_probs_new).sum(dim=1).mean()
+        ## KL divergency
+        # Using the more stable Schulman approximation
+        log_ratio = masked_log_probs_ref.detach() - masked_log_probs_new
+        kl_per_token = torch.exp(log_ratio) - log_ratio - 1
+
+        # 2. Sum the KL per sample, then normalize by the actual number of tokens
+        # We use answer_mask.sum(dim=1) to get the true length of each generated sequence
+        sum_kl = (kl_per_token * answer_mask).sum(dim=1)
+        actual_lengths = answer_mask.sum(dim=1).clamp(min=1.0)
+        avg_kl_per_sample = sum_kl / actual_lengths
+
+        # 3. Final KL loss is the mean over the batch
+        kl_loss = avg_kl_per_sample.mean()
         kl_loss = torch.clamp(kl_loss, 0.0, 5.0)
         grpo_loss = -(advantages * ratio).mean()
         loss = grpo_loss + KL_COEF * kl_loss
@@ -260,24 +279,29 @@ for epoch in range(1, NUM_EPOCHS + 1):
         global_step += 1
         # Backprop
         t6 = time.perf_counter()
-        # pre-backprop cleanup. adding set_to_none is more memory efficiency
-        optimizer.zero_grad(set_to_none=True)
-        loss.backward()
-        # For MPS gradient stability
-        torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
-        for param in lora_params:
-            if param.grad is not None:
-                param.grad.data = param.grad.data.contiguous()
-        optimizer.step()
-        t7 = time.perf_counter()
+        if max(rewards) < 0:
+            print("All rewards are negative; skipping gradient update.")
+            t7 = t6
+        else:
+            # pre-backprop cleanup. adding set_to_none is more memory efficiency
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            # For MPS gradient stability
+            torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+            for param in lora_params:
+                if param.grad is not None:
+                    param.grad.data = param.grad.data.contiguous()
+            optimizer.step()
+            t7 = time.perf_counter()
         # --- THE DEEP CLEAN BLOCK ---
         # Tensors from the Forward Passes (The biggest memory hogs)
-        del logits_new, logits_old
-        del shifted_log_probs_new, shifted_log_probs_old
-        del old_out, out_new
+        del logits_new, logits_old, logits_ref
+        del shifted_log_probs_new, shifted_log_probs_old, shifted_log_probs_ref
+        del old_out, out_new, ref_out
+        del log_probs_new, log_probs_old, log_probs_ref
 
         # Tensors from Log-prob calculations
-        del masked_log_probs_new, masked_log_probs_old
+        del masked_log_probs_new, masked_log_probs_old, masked_log_probs_ref
         del sum_token_logprobs_new, sum_token_logprobs_old
         del log_prob_ratio, ratio
 
