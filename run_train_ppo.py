@@ -307,12 +307,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 entropy = -(torch.exp(log_probs_new) * log_probs_new * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
                 entropy_loss = -ENT_COEF * entropy
 
-                # KL Penalty Loss (CORRECTED CALCULATION)
-                # Ensure the new policy doesn't drift too far from reference
-                kl_divergence = (log_probs_new - b_ref_log_probs) * b_answer_mask
-                kl_loss = BETA * kl_divergence.sum() / (b_answer_mask.sum() + 1e-8)
-
-                total_loss = policy_loss + VF_COEF * value_loss + entropy_loss + kl_loss
+                total_loss = policy_loss + VF_COEF * value_loss + entropy_loss
                 t3 = time.perf_counter()
                 if ppo_epoch == PPO_EPOCHS - 1:
                     print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | KL: {kl_loss.item():.3f}")
@@ -353,18 +348,10 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 optimizer.step()
                 scheduler.step()
                 t5 = time.perf_counter()
-                with torch.no_grad():
-                    valid_kl = (kl_divergence * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
-                    print(f"Step: {global_step} | Loss: {total_loss.item():.4f} | KL: {valid_kl.item():.4f}")
-                    # SAFETY: Stop if KL explodes
-                    if valid_kl.item() > 15.0:
-                        print("!!! ALERT: KL Exploded. Saving and exiting.")
-                        save_lora_checkpoint(model, optimizer, epoch, global_step)
-                        break
                 # Cleanup GPU for next mini-batch
                 del b_tokens, b_mask, b_old_log_probs, b_ref_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
-                del total_loss, kl_divergence
+                del total_loss
                 torch.mps.empty_cache()
 
             global_step += 1
