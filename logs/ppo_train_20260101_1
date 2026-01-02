@@ -1,0 +1,6 @@
+Print found 2000 lines of training data
+LoRA checkpoint None not found; training from base model.
+
+=== Epoch 1/10 ===
+[93m📊 [System Health] RAM: 85.4% | Swap Used: 14.50 GB[0m
+Collecting experience for step 0...

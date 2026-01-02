@@ -15,9 +15,9 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_lora_epoch2_step20.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_lora_epoch4_step44.pt")
 USE_LORA = True  # set False to eval base model only
-BATCH_SIZE = 20
+BATCH_SIZE = 8
 MAX_NEW_TOKENS = 300
 TOL = 1e-1
 
@@ -105,7 +105,8 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
             do_sample=False,  # greedy decode; temperature/top-k/p ignored
             pad_token_id=tokenizer.pad_token_id,
             eos_token_id=tokenizer.eos_token_id,
-            use_cache=True # Critical for speed
+            use_cache=True, # Critical for speed
+            repetition_penalty=1.2
         )
         texts = tokenizer.batch_decode(outputs[:, input_len:], skip_special_tokens=True)
 

@@ -279,16 +279,20 @@ for epoch in range(1, NUM_EPOCHS + 1):
         global_step += 1
         # Backprop
         t6 = time.perf_counter()
-        # pre-backprop cleanup. adding set_to_none is more memory efficiency
-        optimizer.zero_grad(set_to_none=True)
-        loss.backward()
-        # For MPS gradient stability
-        torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
-        for param in lora_params:
-            if param.grad is not None:
-                param.grad.data = param.grad.data.contiguous()
-        optimizer.step()
-        t7 = time.perf_counter()
+        if max(rewards) < 0:
+            print("All rewards are negative; skipping gradient update.")
+            t7 = t6
+        else:
+            # pre-backprop cleanup. adding set_to_none is more memory efficiency
+            optimizer.zero_grad(set_to_none=True)
+            loss.backward()
+            # For MPS gradient stability
+            torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+            for param in lora_params:
+                if param.grad is not None:
+                    param.grad.data = param.grad.data.contiguous()
+            optimizer.step()
+            t7 = time.perf_counter()
         # --- THE DEEP CLEAN BLOCK ---
         # Tensors from the Forward Passes (The biggest memory hogs)
         del logits_new, logits_old, logits_ref
