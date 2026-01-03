@@ -36,7 +36,7 @@ def advantage_gae_vectorized(rewards, values, truncated, gamma=0.99, gae_lambda=
     last_values = torch.where(trunc_mask, values[:, -1], torch.zeros_like(values[:, -1]))
     next_values = torch.cat([values[:, 1:-1], last_values.unsqueeze(1)], dim=1)  # [B, T-1]
 
-    deltas = rewards + gamma * next_values - values[:, :-1]  # [B, T]
+    deltas = rewards + gamma * next_values - values[:, :-1]  # [B, T-1]
 
 
     idx = torch.arange(T-1, device=values.device)
@@ -49,5 +49,5 @@ def advantage_gae_vectorized(rewards, values, truncated, gamma=0.99, gae_lambda=
 
     # For each timestep i, weights[i, j] is the factor for delta_j when j >= i
     # advantages[:, i] = sum_j deltas[:, j] * weights[i, j]
-    advantages = deltas @ weights.T  # [B, T]
+    advantages = deltas @ weights.T  # [B, T-1s]
     return advantages
