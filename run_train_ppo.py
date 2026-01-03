@@ -1,5 +1,5 @@
 """
-Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
+Script to load a pretrained model and do PPO with math data to fine-tune the model with LoRA
 """
 import gc
 import json
