@@ -1,0 +1,635 @@
+Print found 2000 lines of training data
+LoRA checkpoint None not found; training from base model.
+
+=== Epoch 1/10 ===
+[92m📊 [System Health] RAM: 59.8% | Swap Used: 2.63 GB[0m
+Collecting experience for step 0...
+PPO optimization step 0...
+Step 0 | Loss: -0.640 | Pol: -0.642 | Val: 0.212
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9995564818382263, 'adv_mean': 0.1431698501110077, 'policy_loss': -0.6416386961936951, 'value_loss': 0.2123619019985199}
+Step 0 | Loss: -0.047 | Pol: -0.048 | Val: 0.125
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001453161239624, 'adv_mean': 0.01122445147484541, 'policy_loss': -0.04777732491493225, 'value_loss': 0.12479209154844284}
+Step 0 | Loss: -0.229 | Pol: -0.230 | Val: 0.112
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0010653734207153, 'adv_mean': 0.09884334355592728, 'policy_loss': -0.22971145808696747, 'value_loss': 0.11213069409132004}
+Step 0 | Loss: 0.040 | Pol: 0.040 | Val: 0.066
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9986749887466431, 'adv_mean': -0.015226766467094421, 'policy_loss': 0.03966359794139862, 'value_loss': 0.06626071780920029}
+Step 0 | Loss: 0.039 | Pol: 0.038 | Val: 0.080
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.999931812286377, 'adv_mean': -0.014837589114904404, 'policy_loss': 0.038434356451034546, 'value_loss': 0.07983304560184479}
+Step 0 | Loss: -0.025 | Pol: -0.026 | Val: 0.112
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9998779296875, 'adv_mean': 0.006624834146350622, 'policy_loss': -0.026472395285964012, 'value_loss': 0.11164267361164093}
+Step 0 | Loss: 0.337 | Pol: 0.337 | Val: 0.021
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.002331256866455, 'adv_mean': -0.12421450763940811, 'policy_loss': 0.3365700840950012, 'value_loss': 0.020535152405500412}
+Step 0 | Loss: 0.076 | Pol: 0.075 | Val: 0.067
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001251220703125, 'adv_mean': -0.037820253521203995, 'policy_loss': 0.07543648779392242, 'value_loss': 0.06709259003400803}
+Step 0 | Loss: -0.012 | Pol: -0.013 | Val: 0.094
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0007526874542236, 'adv_mean': 0.00444525433704257, 'policy_loss': -0.012536795809864998, 'value_loss': 0.09411147981882095}
+Step 0 | Loss: 0.025 | Pol: 0.024 | Val: 0.094
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9985126256942749, 'adv_mean': -0.005906608887016773, 'policy_loss': 0.024275362491607666, 'value_loss': 0.0942290797829628}
+Step 0 | Loss: 0.070 | Pol: 0.069 | Val: 0.071
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0016754865646362, 'adv_mean': -0.02673777937889099, 'policy_loss': 0.06902767717838287, 'value_loss': 0.07125032693147659}
+Step 0 | Loss: 0.207 | Pol: 0.207 | Val: 0.023
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0012844800949097, 'adv_mean': -0.07476188242435455, 'policy_loss': 0.2068076878786087, 'value_loss': 0.02281896583735943}
+Step 0 | Loss: 0.388 | Pol: 0.387 | Val: 0.028
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000494122505188, 'adv_mean': -0.12587936222553253, 'policy_loss': 0.3873671591281891, 'value_loss': 0.027959663420915604}
+Step 0 | Loss: -0.613 | Pol: -0.615 | Val: 0.206
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001240611076355, 'adv_mean': 0.1407085806131363, 'policy_loss': -0.6154851913452148, 'value_loss': 0.20643438398838043}
+Step 0 | Loss: -0.036 | Pol: -0.037 | Val: 0.087
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.99869304895401, 'adv_mean': 0.009893917478621006, 'policy_loss': -0.03680631145834923, 'value_loss': 0.08714687079191208}
+Step 0 | Loss: -0.041 | Pol: -0.042 | Val: 0.117
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.002255916595459, 'adv_mean': 0.01047456357628107, 'policy_loss': -0.0419769287109375, 'value_loss': 0.11728090792894363}
+[timing] sample processed in 1785.49s
+
+=== PROFILER ===
+Sampling:          439.51s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1345.98s
+[92m📊 [System Health] RAM: 68.0% | Swap Used: 5.27 GB[0m
+Collecting experience for step 4...
+PPO optimization step 4...
+[timing] sample processed in 1843.53s
+
+=== PROFILER ===
+Sampling:          477.06s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1366.43s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch1_step8.pt
+==end-of-epoch 1==
+
+=== Epoch 2/10 ===
+[92m📊 [System Health] RAM: 75.5% | Swap Used: 5.32 GB[0m
+Collecting experience for step 8...
+PPO optimization step 8...
+Step 8 | Loss: 0.770 | Pol: 0.770 | Val: 0.059
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9995707273483276, 'adv_mean': -0.06856238096952438, 'policy_loss': 0.7697935104370117, 'value_loss': 0.05923612788319588}
+Step 8 | Loss: -0.055 | Pol: -0.056 | Val: 0.075
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001585483551025, 'adv_mean': 0.01869913749396801, 'policy_loss': -0.055972158908843994, 'value_loss': 0.07508271932601929}
+Step 8 | Loss: -0.378 | Pol: -0.380 | Val: 0.183
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.998383641242981, 'adv_mean': 0.09757465869188309, 'policy_loss': -0.3798615038394928, 'value_loss': 0.1831318885087967}
+Step 8 | Loss: -0.088 | Pol: -0.089 | Val: 0.097
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.002718210220337, 'adv_mean': 0.01958714984357357, 'policy_loss': -0.08932976424694061, 'value_loss': 0.09650294482707977}
+Step 8 | Loss: -0.244 | Pol: -0.245 | Val: 0.141
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9994303584098816, 'adv_mean': 0.0804843157529831, 'policy_loss': -0.24515460431575775, 'value_loss': 0.1405148059129715}
+Step 8 | Loss: 0.112 | Pol: 0.111 | Val: 0.067
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0002192258834839, 'adv_mean': -0.04276842623949051, 'policy_loss': 0.11099326610565186, 'value_loss': 0.06747113168239594}
+Step 8 | Loss: -0.413 | Pol: -0.415 | Val: 0.183
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.999907374382019, 'adv_mean': 0.10278158634901047, 'policy_loss': -0.4152149260044098, 'value_loss': 0.18305550515651703}
+Step 8 | Loss: 0.445 | Pol: 0.445 | Val: 0.025
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.00149405002594, 'adv_mean': -0.21805830299854279, 'policy_loss': 0.4449703097343445, 'value_loss': 0.024966338649392128}
+Step 8 | Loss: 0.065 | Pol: 0.064 | Val: 0.085
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000802278518677, 'adv_mean': -0.018641462549567223, 'policy_loss': 0.06444457173347473, 'value_loss': 0.08488539606332779}
+Step 8 | Loss: 0.096 | Pol: 0.095 | Val: 0.108
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9998211860656738, 'adv_mean': -0.026239344850182533, 'policy_loss': 0.09495601058006287, 'value_loss': 0.10764872282743454}
+Step 8 | Loss: -0.252 | Pol: -0.253 | Val: 0.136
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000700831413269, 'adv_mean': 0.08413207530975342, 'policy_loss': -0.2533659040927887, 'value_loss': 0.1356504261493683}
+Step 8 | Loss: -0.106 | Pol: -0.107 | Val: 0.104
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0005362033843994, 'adv_mean': 0.04816463589668274, 'policy_loss': -0.10694430023431778, 'value_loss': 0.10440964996814728}
+Step 8 | Loss: 0.153 | Pol: 0.152 | Val: 0.085
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0002689361572266, 'adv_mean': -0.045840393751859665, 'policy_loss': 0.1519353687763214, 'value_loss': 0.08484290540218353}
+Step 8 | Loss: 0.003 | Pol: 0.002 | Val: 0.139
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0018863677978516, 'adv_mean': -0.000615343393292278, 'policy_loss': 0.002096000825986266, 'value_loss': 0.13895882666110992}
+Step 8 | Loss: -0.070 | Pol: -0.070 | Val: 0.075
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9996689558029175, 'adv_mean': 0.02410266362130642, 'policy_loss': -0.07027065753936768, 'value_loss': 0.07473445683717728}
+Step 8 | Loss: 0.145 | Pol: 0.144 | Val: 0.077
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0022811889648438, 'adv_mean': -0.05480045825242996, 'policy_loss': 0.14439043402671814, 'value_loss': 0.07694617658853531}
+[step 11] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Reasoning:**
+
+1. **First leg:** The car travels 62 km/h * 2 hours = 124 km.
+2. **Second leg:** The car travels 62 km/h * 2 * 3 hours = 372 km.
+3. **Total distance:** 124 km + 372 km = 596 km.
+
+**Final answer:** 596 km 
+
+[timing] sample processed in 3360.14s
+
+=== PROFILER ===
+Sampling:          695.68s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2664.43s
+[92m📊 [System Health] RAM: 68.0% | Swap Used: 5.02 GB[0m
+Collecting experience for step 12...
+PPO optimization step 12...
+[timing] sample processed in 3428.40s
+
+=== PROFILER ===
+Sampling:          1027.58s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2400.77s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch2_step16.pt
+==end-of-epoch 2==
+
+=== Epoch 3/10 ===
+[92m📊 [System Health] RAM: 74.4% | Swap Used: 5.78 GB[0m
+Collecting experience for step 16...
+PPO optimization step 16...
+Step 16 | Loss: -0.023 | Pol: -0.024 | Val: 0.113
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0004372596740723, 'adv_mean': 0.006243437994271517, 'policy_loss': -0.024133356288075447, 'value_loss': 0.11264853179454803}
+Step 16 | Loss: 0.342 | Pol: 0.342 | Val: 0.028
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9988558292388916, 'adv_mean': -0.14584855735301971, 'policy_loss': 0.34179773926734924, 'value_loss': 0.027656501159071922}
+Step 16 | Loss: -0.277 | Pol: -0.278 | Val: 0.101
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9990738034248352, 'adv_mean': 0.10566078126430511, 'policy_loss': -0.2782001197338104, 'value_loss': 0.1010042354464531}
+Step 16 | Loss: 0.338 | Pol: 0.338 | Val: 0.026
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9995555877685547, 'adv_mean': -0.16552115976810455, 'policy_loss': 0.33766767382621765, 'value_loss': 0.02602982707321644}
+Step 16 | Loss: -0.021 | Pol: -0.022 | Val: 0.101
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9989321827888489, 'adv_mean': 0.005708879791200161, 'policy_loss': -0.021582264453172684, 'value_loss': 0.10090768337249756}
+Step 16 | Loss: -0.019 | Pol: -0.020 | Val: 0.096
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997411370277405, 'adv_mean': 0.006611484102904797, 'policy_loss': -0.020189624279737473, 'value_loss': 0.0964626744389534}
+Step 16 | Loss: 0.019 | Pol: 0.018 | Val: 0.076
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0011663436889648, 'adv_mean': -0.006545861251652241, 'policy_loss': 0.018369868397712708, 'value_loss': 0.07579673081636429}
+Step 16 | Loss: -0.499 | Pol: -0.501 | Val: 0.159
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0003199577331543, 'adv_mean': 0.1433885097503662, 'policy_loss': -0.5007637739181519, 'value_loss': 0.1588880717754364}
+Step 16 | Loss: -0.628 | Pol: -0.630 | Val: 0.194
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9989866614341736, 'adv_mean': 0.14778323471546173, 'policy_loss': -0.6301942467689514, 'value_loss': 0.19417840242385864}
+Step 16 | Loss: -0.288 | Pol: -0.289 | Val: 0.115
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.997314453125, 'adv_mean': 0.10833819210529327, 'policy_loss': -0.2894933521747589, 'value_loss': 0.11511514335870743}
+Step 16 | Loss: 0.350 | Pol: 0.349 | Val: 0.027
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001493215560913, 'adv_mean': -0.12298551946878433, 'policy_loss': 0.3493226170539856, 'value_loss': 0.02714957483112812}
+Step 16 | Loss: -0.054 | Pol: -0.055 | Val: 0.118
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0014549493789673, 'adv_mean': 0.013210148550570011, 'policy_loss': -0.05531606823205948, 'value_loss': 0.11821542680263519}
+Step 16 | Loss: 0.315 | Pol: 0.315 | Val: 0.023
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0008891820907593, 'adv_mean': -0.11361435055732727, 'policy_loss': 0.31484177708625793, 'value_loss': 0.02306651510298252}
+Step 16 | Loss: 0.000 | Pol: -0.000 | Val: 0.063
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000408411026001, 'adv_mean': -0.0005744212539866567, 'policy_loss': -0.0004543753166217357, 'value_loss': 0.06326548755168915}
+Step 16 | Loss: -0.096 | Pol: -0.097 | Val: 0.124
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0004863739013672, 'adv_mean': 0.02434394881129265, 'policy_loss': -0.09748169779777527, 'value_loss': 0.12415050715208054}
+Step 16 | Loss: 0.017 | Pol: 0.016 | Val: 0.077
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0022836923599243, 'adv_mean': -0.0061988309025764465, 'policy_loss': 0.015871413052082062, 'value_loss': 0.07696962356567383}
+[timing] sample processed in 3994.62s
+
+=== PROFILER ===
+Sampling:          1098.21s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2896.36s
+[92m📊 [System Health] RAM: 75.4% | Swap Used: 6.45 GB[0m
+Collecting experience for step 20...
+PPO optimization step 20...
+[step 22] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Reasoning:**
+
+1. **First leg:** The car travels 62 km/h * 2 hours = 124 km.
+2. **Second leg:** The car travels 62 km/h * 2 * 3 hours = 372 km.
+3. **Total distance:** 124 km + 372 km = 596 km.
+
+**Final answer:** 596 km 
+
+[timing] sample processed in 3812.79s
+
+=== PROFILER ===
+Sampling:          1040.12s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2772.61s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch3_step24.pt
+==end-of-epoch 3==
+
+=== Epoch 4/10 ===
+[92m📊 [System Health] RAM: 74.3% | Swap Used: 6.09 GB[0m
+Collecting experience for step 24...
+PPO optimization step 24...
+Step 24 | Loss: -0.349 | Pol: -0.350 | Val: 0.116
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9995830655097961, 'adv_mean': 0.12186115980148315, 'policy_loss': -0.3496904969215393, 'value_loss': 0.1158003881573677}
+Step 24 | Loss: -0.041 | Pol: -0.041 | Val: 0.066
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0008385181427002, 'adv_mean': 0.014269568957388401, 'policy_loss': -0.04123619943857193, 'value_loss': 0.06578133255243301}
+Step 24 | Loss: -0.036 | Pol: -0.037 | Val: 0.082
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0004682540893555, 'adv_mean': 0.011461750604212284, 'policy_loss': -0.036756064742803574, 'value_loss': 0.08242770284414291}
+Step 24 | Loss: 0.155 | Pol: 0.154 | Val: 0.100
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0008022785186768, 'adv_mean': -0.04397376999258995, 'policy_loss': 0.15416188538074493, 'value_loss': 0.10022716224193573}
+Step 24 | Loss: -0.026 | Pol: -0.027 | Val: 0.063
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.00174081325531, 'adv_mean': 0.009015843272209167, 'policy_loss': -0.02662406861782074, 'value_loss': 0.06298743933439255}
+Step 24 | Loss: 0.022 | Pol: 0.021 | Val: 0.079
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9999555349349976, 'adv_mean': -0.009090563282370567, 'policy_loss': 0.02125680074095726, 'value_loss': 0.07924812287092209}
+Step 24 | Loss: 0.439 | Pol: 0.439 | Val: 0.032
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0021060705184937, 'adv_mean': -0.14242926239967346, 'policy_loss': 0.438535213470459, 'value_loss': 0.03170260414481163}
+Step 24 | Loss: -0.724 | Pol: -0.726 | Val: 0.191
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9996588230133057, 'adv_mean': 0.16274957358837128, 'policy_loss': -0.726382851600647, 'value_loss': 0.1910865753889084}
+Step 24 | Loss: 0.338 | Pol: 0.337 | Val: 0.024
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997114539146423, 'adv_mean': -0.18329432606697083, 'policy_loss': 0.3374409079551697, 'value_loss': 0.023714663460850716}
+Step 24 | Loss: -0.581 | Pol: -0.582 | Val: 0.171
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0011574029922485, 'adv_mean': 0.1386500746011734, 'policy_loss': -0.5823702216148376, 'value_loss': 0.1712026447057724}
+Step 24 | Loss: -0.008 | Pol: -0.009 | Val: 0.081
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0002319812774658, 'adv_mean': 0.0031046755611896515, 'policy_loss': -0.009149330668151379, 'value_loss': 0.08146005868911743}
+Step 24 | Loss: -0.328 | Pol: -0.329 | Val: 0.120
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9990699291229248, 'adv_mean': 0.12171126902103424, 'policy_loss': -0.32944455742836, 'value_loss': 0.12036620080471039}
+Step 24 | Loss: 0.227 | Pol: 0.226 | Val: 0.053
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0023170709609985, 'adv_mean': -0.08422187715768814, 'policy_loss': 0.226224884390831, 'value_loss': 0.053066983819007874}
+Step 24 | Loss: 0.310 | Pol: 0.310 | Val: 0.022
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9986866116523743, 'adv_mean': -0.14020058512687683, 'policy_loss': 0.31014278531074524, 'value_loss': 0.02197759971022606}
+Step 24 | Loss: -0.020 | Pol: -0.021 | Val: 0.111
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.002405047416687, 'adv_mean': 0.006158163771033287, 'policy_loss': -0.020705750212073326, 'value_loss': 0.1105760931968689}
+Step 24 | Loss: -0.076 | Pol: -0.077 | Val: 0.116
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0006026029586792, 'adv_mean': 0.01422837283462286, 'policy_loss': -0.07747549563646317, 'value_loss': 0.11555545032024384}
+[timing] sample processed in 4001.74s
+
+=== PROFILER ===
+Sampling:          1050.17s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2951.53s
+[92m📊 [System Health] RAM: 70.0% | Swap Used: 7.65 GB[0m
+Collecting experience for step 28...
+PPO optimization step 28...
+[timing] sample processed in 3165.81s
+
+=== PROFILER ===
+Sampling:          998.13s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2167.62s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch4_step32.pt
+==end-of-epoch 4==
+
+=== Epoch 5/10 ===
+[92m📊 [System Health] RAM: 67.2% | Swap Used: 6.35 GB[0m
+Collecting experience for step 32...
+PPO optimization step 32...
+Step 32 | Loss: 0.332 | Pol: 0.332 | Val: 0.030
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0006654262542725, 'adv_mean': -0.10231440514326096, 'policy_loss': 0.3316652774810791, 'value_loss': 0.02998065948486328}
+Step 32 | Loss: 0.347 | Pol: 0.347 | Val: 0.040
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9983368515968323, 'adv_mean': -0.12151012569665909, 'policy_loss': 0.3466523587703705, 'value_loss': 0.040073055773973465}
+Step 32 | Loss: 0.295 | Pol: 0.294 | Val: 0.032
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0018140077590942, 'adv_mean': -0.10880238562822342, 'policy_loss': 0.29436203837394714, 'value_loss': 0.03168638050556183}
+Step 32 | Loss: -0.307 | Pol: -0.308 | Val: 0.070
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000742673873901, 'adv_mean': 0.1745564490556717, 'policy_loss': -0.3081841766834259, 'value_loss': 0.07020971179008484}
+Step 32 | Loss: 0.156 | Pol: 0.156 | Val: 0.023
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001509189605713, 'adv_mean': -0.060104429721832275, 'policy_loss': 0.155622199177742, 'value_loss': 0.022712968289852142}
+Step 32 | Loss: -0.604 | Pol: -0.605 | Val: 0.107
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0003681182861328, 'adv_mean': 0.22653600573539734, 'policy_loss': -0.6046686768531799, 'value_loss': 0.10720235854387283}
+Step 32 | Loss: 0.213 | Pol: 0.212 | Val: 0.035
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0009217262268066, 'adv_mean': -0.07388907670974731, 'policy_loss': 0.21230410039424896, 'value_loss': 0.035220853984355927}
+Step 32 | Loss: -0.675 | Pol: -0.676 | Val: 0.124
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.999120831489563, 'adv_mean': 0.23185177147388458, 'policy_loss': -0.6762278079986572, 'value_loss': 0.12369140982627869}
+Step 32 | Loss: -0.823 | Pol: -0.824 | Val: 0.171
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.00234055519104, 'adv_mean': 0.19534367322921753, 'policy_loss': -0.8242310881614685, 'value_loss': 0.17110566794872284}
+Step 32 | Loss: 0.349 | Pol: 0.349 | Val: 0.031
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9996258616447449, 'adv_mean': -0.17852771282196045, 'policy_loss': 0.34891995787620544, 'value_loss': 0.030772505328059196}
+Step 32 | Loss: 0.296 | Pol: 0.296 | Val: 0.036
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.99969881772995, 'adv_mean': -0.12397125363349915, 'policy_loss': 0.29576581716537476, 'value_loss': 0.03642493486404419}
+Step 32 | Loss: -0.614 | Pol: -0.616 | Val: 0.141
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9985223412513733, 'adv_mean': 0.16134929656982422, 'policy_loss': -0.6156334280967712, 'value_loss': 0.14120732247829437}
+Step 32 | Loss: -0.153 | Pol: -0.154 | Val: 0.054
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000878930091858, 'adv_mean': 0.06628715246915817, 'policy_loss': -0.15396447479724884, 'value_loss': 0.05367761850357056}
+Step 32 | Loss: 0.420 | Pol: 0.419 | Val: 0.048
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0018260478973389, 'adv_mean': -0.10085511207580566, 'policy_loss': 0.41948869824409485, 'value_loss': 0.04846245050430298}
+Step 32 | Loss: 0.223 | Pol: 0.223 | Val: 0.027
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0023082494735718, 'adv_mean': -0.08649331331253052, 'policy_loss': 0.22289757430553436, 'value_loss': 0.027432918548583984}
+Step 32 | Loss: 0.359 | Pol: 0.358 | Val: 0.044
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0004676580429077, 'adv_mean': -0.09945648908615112, 'policy_loss': 0.35815486311912537, 'value_loss': 0.04360981285572052}
+[step 33] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+* Distance = Speed x Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total Distance = Distance 1 + Distance 2
+* Total Distance = 124 km + 372 km = 496 km
+
+**Final answer:** The total distance traveled by the car is 496 km. 
+
+[timing] sample processed in 3993.32s
+
+=== PROFILER ===
+Sampling:          1097.64s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2895.65s
+[92m📊 [System Health] RAM: 81.3% | Swap Used: 6.83 GB[0m
+Collecting experience for step 36...
+PPO optimization step 36...
+[timing] sample processed in 3160.33s
+
+=== PROFILER ===
+Sampling:          1308.94s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1851.32s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch5_step40.pt
+==end-of-epoch 5==
+
+=== Epoch 6/10 ===
+[92m📊 [System Health] RAM: 83.0% | Swap Used: 7.49 GB[0m
+Collecting experience for step 40...
+PPO optimization step 40...
+Step 40 | Loss: 0.446 | Pol: 0.445 | Val: 0.061
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0014450550079346, 'adv_mean': -0.15004542469978333, 'policy_loss': 0.44497451186180115, 'value_loss': 0.06113168224692345}
+Step 40 | Loss: 0.305 | Pol: 0.303 | Val: 0.117
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000897645950317, 'adv_mean': -0.10262523591518402, 'policy_loss': 0.30347728729248047, 'value_loss': 0.11653073877096176}
+Step 40 | Loss: -0.181 | Pol: -0.182 | Val: 0.088
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0012277364730835, 'adv_mean': 0.062284573912620544, 'policy_loss': -0.1823735535144806, 'value_loss': 0.08806677907705307}
+Step 40 | Loss: 0.286 | Pol: 0.286 | Val: 0.047
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.999031662940979, 'adv_mean': -0.13351476192474365, 'policy_loss': 0.28557029366493225, 'value_loss': 0.04660825431346893}
+Step 40 | Loss: 0.192 | Pol: 0.191 | Val: 0.084
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0009264945983887, 'adv_mean': -0.0871526300907135, 'policy_loss': 0.1912587434053421, 'value_loss': 0.08443088829517365}
+Step 40 | Loss: -0.393 | Pol: -0.395 | Val: 0.111
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000763177871704, 'adv_mean': 0.15090104937553406, 'policy_loss': -0.39457887411117554, 'value_loss': 0.11055899411439896}
+Step 40 | Loss: -0.052 | Pol: -0.053 | Val: 0.068
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0002154111862183, 'adv_mean': 0.021416237577795982, 'policy_loss': -0.052956122905015945, 'value_loss': 0.0683002769947052}
+Step 40 | Loss: -0.408 | Pol: -0.409 | Val: 0.095
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001076579093933, 'adv_mean': 0.10028670728206635, 'policy_loss': -0.4085928797721863, 'value_loss': 0.09454389661550522}
+Step 40 | Loss: 0.309 | Pol: 0.309 | Val: 0.051
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9994542598724365, 'adv_mean': -0.12347080558538437, 'policy_loss': 0.30857160687446594, 'value_loss': 0.05136362835764885}
+Step 40 | Loss: 0.014 | Pol: 0.013 | Val: 0.071
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000135898590088, 'adv_mean': -0.005419240333139896, 'policy_loss': 0.01343531534075737, 'value_loss': 0.07140712440013885}
+Step 40 | Loss: -0.199 | Pol: -0.199 | Val: 0.029
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0016536712646484, 'adv_mean': 0.11650754511356354, 'policy_loss': -0.19882021844387054, 'value_loss': 0.02895020879805088}
+Step 40 | Loss: -0.009 | Pol: -0.010 | Val: 0.054
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000462293624878, 'adv_mean': 0.006369665265083313, 'policy_loss': -0.009929394349455833, 'value_loss': 0.05442344769835472}
+Step 40 | Loss: 0.092 | Pol: 0.092 | Val: 0.030
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9996809959411621, 'adv_mean': -0.054266609251499176, 'policy_loss': 0.09164060652256012, 'value_loss': 0.029516620561480522}
+Step 40 | Loss: -0.408 | Pol: -0.409 | Val: 0.084
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9999605417251587, 'adv_mean': 0.1590244174003601, 'policy_loss': -0.4085548520088196, 'value_loss': 0.08440767973661423}
+Step 40 | Loss: -0.126 | Pol: -0.126 | Val: 0.035
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0009782314300537, 'adv_mean': 0.0736459493637085, 'policy_loss': -0.12588928639888763, 'value_loss': 0.03507719561457634}
+Step 40 | Loss: 0.061 | Pol: 0.061 | Val: 0.091
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0011461973190308, 'adv_mean': -0.03394164517521858, 'policy_loss': 0.06053150072693825, 'value_loss': 0.0905456617474556}
+[step 44] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+* Distance = Speed x Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total distance = Distance 1 + Distance 2
+* Total distance = 124 km + 372 km = 496 km
+
+**Final answer:** The total distance traveled by the car is 496 km. 
+
+[timing] sample processed in 2121.87s
+
+=== PROFILER ===
+Sampling:          640.83s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1481.00s
+[92m📊 [System Health] RAM: 74.5% | Swap Used: 6.10 GB[0m
+Collecting experience for step 44...
+PPO optimization step 44...
+[timing] sample processed in 1882.62s
+
+=== PROFILER ===
+Sampling:          589.63s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1292.98s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch6_step48.pt
+==end-of-epoch 6==
+
+=== Epoch 7/10 ===
+[92m📊 [System Health] RAM: 77.4% | Swap Used: 7.21 GB[0m
+Collecting experience for step 48...
+PPO optimization step 48...
+Step 48 | Loss: -0.453 | Pol: -0.454 | Val: 0.120
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.998110830783844, 'adv_mean': 0.17579016089439392, 'policy_loss': -0.4539967179298401, 'value_loss': 0.11982029676437378}
+Step 48 | Loss: 0.531 | Pol: 0.530 | Val: 0.055
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997135400772095, 'adv_mean': -0.31066596508026123, 'policy_loss': 0.5300365090370178, 'value_loss': 0.05516665056347847}
+Step 48 | Loss: -0.036 | Pol: -0.036 | Val: 0.074
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.998951256275177, 'adv_mean': 0.01909196935594082, 'policy_loss': -0.036384087055921555, 'value_loss': 0.07419654726982117}
+Step 48 | Loss: -0.164 | Pol: -0.165 | Val: 0.094
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9992042779922485, 'adv_mean': 0.06095181033015251, 'policy_loss': -0.16467368602752686, 'value_loss': 0.09418608993291855}
+Step 48 | Loss: 0.095 | Pol: 0.094 | Val: 0.099
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000208616256714, 'adv_mean': -0.03507044538855553, 'policy_loss': 0.09448207169771194, 'value_loss': 0.09864840656518936}
+Step 48 | Loss: 0.086 | Pol: 0.085 | Val: 0.072
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0002578496932983, 'adv_mean': -0.03433503583073616, 'policy_loss': 0.08528037369251251, 'value_loss': 0.07173779606819153}
+Step 48 | Loss: -0.228 | Pol: -0.229 | Val: 0.101
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9998695254325867, 'adv_mean': 0.10573200136423111, 'policy_loss': -0.22869566082954407, 'value_loss': 0.10122223198413849}
+Step 48 | Loss: 0.307 | Pol: 0.307 | Val: 0.032
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0027883052825928, 'adv_mean': -0.09079775959253311, 'policy_loss': 0.3067564070224762, 'value_loss': 0.03239165619015694}
+Step 48 | Loss: -0.054 | Pol: -0.055 | Val: 0.079
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0016679763793945, 'adv_mean': 0.0210335124284029, 'policy_loss': -0.05502087250351906, 'value_loss': 0.078653983771801}
+Step 48 | Loss: 0.102 | Pol: 0.101 | Val: 0.094
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9985673427581787, 'adv_mean': -0.034907855093479156, 'policy_loss': 0.10104328393936157, 'value_loss': 0.09439562261104584}
+Step 48 | Loss: 0.131 | Pol: 0.130 | Val: 0.097
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0044541358947754, 'adv_mean': -0.048406414687633514, 'policy_loss': 0.13043326139450073, 'value_loss': 0.097312331199646}
+Step 48 | Loss: -0.119 | Pol: -0.120 | Val: 0.090
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000873804092407, 'adv_mean': 0.03718869388103485, 'policy_loss': -0.11990910023450851, 'value_loss': 0.08973591029644012}
+Step 48 | Loss: -0.342 | Pol: -0.343 | Val: 0.093
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.998276948928833, 'adv_mean': 0.13384442031383514, 'policy_loss': -0.3430629372596741, 'value_loss': 0.0928289070725441}
+Step 48 | Loss: 0.038 | Pol: 0.037 | Val: 0.093
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9981138706207275, 'adv_mean': -0.01466078869998455, 'policy_loss': 0.0368664488196373, 'value_loss': 0.09257384389638901}
+Step 48 | Loss: -0.048 | Pol: -0.049 | Val: 0.059
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0009914636611938, 'adv_mean': 0.022027024999260902, 'policy_loss': -0.04856410250067711, 'value_loss': 0.05870332196354866}
+Step 48 | Loss: 0.018 | Pol: 0.017 | Val: 0.074
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0022962093353271, 'adv_mean': -0.006815353874117136, 'policy_loss': 0.016786985099315643, 'value_loss': 0.07440619170665741}
+[timing] sample processed in 2197.35s
+
+=== PROFILER ===
+Sampling:          607.24s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1590.08s
+[92m📊 [System Health] RAM: 77.8% | Swap Used: 8.91 GB[0m
+Collecting experience for step 52...
+PPO optimization step 52...
+[step 55] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+* Distance = Speed x Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total distance = Distance 1 + Distance 2
+* Total distance = 124 km + 372 km = 496 km
+
+**Final answer:** The total distance traveled by the car is 496 km. 
+
+[timing] sample processed in 1860.25s
+
+=== PROFILER ===
+Sampling:          529.58s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1330.63s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch7_step56.pt
+==end-of-epoch 7==
+
+=== Epoch 8/10 ===
+[92m📊 [System Health] RAM: 68.7% | Swap Used: 8.91 GB[0m
+Collecting experience for step 56...
+PPO optimization step 56...
+Step 56 | Loss: -0.440 | Pol: -0.442 | Val: 0.182
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9984729886054993, 'adv_mean': 0.09497290849685669, 'policy_loss': -0.44204050302505493, 'value_loss': 0.18172727525234222}
+Step 56 | Loss: -0.356 | Pol: -0.358 | Val: 0.162
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997616410255432, 'adv_mean': 0.10399556905031204, 'policy_loss': -0.3577207624912262, 'value_loss': 0.16217118501663208}
+Step 56 | Loss: 0.451 | Pol: 0.451 | Val: 0.031
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0017523765563965, 'adv_mean': -0.18815720081329346, 'policy_loss': 0.4509735703468323, 'value_loss': 0.030861293897032738}
+Step 56 | Loss: 0.151 | Pol: 0.150 | Val: 0.076
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997683763504028, 'adv_mean': -0.07363245636224747, 'policy_loss': 0.149802565574646, 'value_loss': 0.07584641873836517}
+Step 56 | Loss: 0.108 | Pol: 0.107 | Val: 0.061
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9998281002044678, 'adv_mean': -0.042792223393917084, 'policy_loss': 0.10689091682434082, 'value_loss': 0.061158597469329834}
+Step 56 | Loss: 0.370 | Pol: 0.369 | Val: 0.079
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997787475585938, 'adv_mean': -0.1660834401845932, 'policy_loss': 0.3687484860420227, 'value_loss': 0.07909167557954788}
+Step 56 | Loss: -0.195 | Pol: -0.196 | Val: 0.126
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9987972974777222, 'adv_mean': 0.07232631742954254, 'policy_loss': -0.1963718980550766, 'value_loss': 0.12591849267482758}
+Step 56 | Loss: -0.014 | Pol: -0.015 | Val: 0.079
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9991933703422546, 'adv_mean': 0.007933012209832668, 'policy_loss': -0.014872145839035511, 'value_loss': 0.07885338366031647}
+Step 56 | Loss: -0.145 | Pol: -0.147 | Val: 0.127
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9984948635101318, 'adv_mean': 0.046806395053863525, 'policy_loss': -0.14676721394062042, 'value_loss': 0.12693288922309875}
+Step 56 | Loss: -0.391 | Pol: -0.392 | Val: 0.148
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9994686245918274, 'adv_mean': 0.10425147414207458, 'policy_loss': -0.3920286297798157, 'value_loss': 0.14842702448368073}
+Step 56 | Loss: 0.183 | Pol: 0.182 | Val: 0.078
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9997488856315613, 'adv_mean': -0.0741361528635025, 'policy_loss': 0.1820019632577896, 'value_loss': 0.07804422080516815}
+Step 56 | Loss: -0.123 | Pol: -0.124 | Val: 0.098
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9995404481887817, 'adv_mean': 0.05309020355343819, 'policy_loss': -0.12404421716928482, 'value_loss': 0.09754316508769989}
+Step 56 | Loss: 0.110 | Pol: 0.109 | Val: 0.081
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001670479774475, 'adv_mean': -0.032669808715581894, 'policy_loss': 0.10901999473571777, 'value_loss': 0.08124814182519913}
+Step 56 | Loss: -0.090 | Pol: -0.091 | Val: 0.097
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0000176429748535, 'adv_mean': 0.03904317691922188, 'policy_loss': -0.09080495685338974, 'value_loss': 0.09686064720153809}
+Step 56 | Loss: -0.471 | Pol: -0.473 | Val: 0.174
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001168251037598, 'adv_mean': 0.10836665332317352, 'policy_loss': -0.47312861680984497, 'value_loss': 0.17422884702682495}
+Step 56 | Loss: 0.138 | Pol: 0.137 | Val: 0.072
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9998134970664978, 'adv_mean': -0.05331431329250336, 'policy_loss': 0.13718324899673462, 'value_loss': 0.07150492817163467}
+[timing] sample processed in 1896.28s
+
+=== PROFILER ===
+Sampling:          503.29s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1392.96s
+[92m📊 [System Health] RAM: 73.8% | Swap Used: 9.89 GB[0m
+Collecting experience for step 60...
+PPO optimization step 60...
+[timing] sample processed in 1875.21s
+
+=== PROFILER ===
+Sampling:          515.30s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1359.88s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch8_step64.pt
+==end-of-epoch 8==
+
+=== Epoch 9/10 ===
+[92m📊 [System Health] RAM: 68.3% | Swap Used: 9.14 GB[0m
+Collecting experience for step 64...
+PPO optimization step 64...
+Step 64 | Loss: -0.378 | Pol: -0.379 | Val: 0.120
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9993013143539429, 'adv_mean': 0.0912114679813385, 'policy_loss': -0.37904059886932373, 'value_loss': 0.11964099854230881}
+Step 64 | Loss: 0.153 | Pol: 0.152 | Val: 0.068
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001146793365479, 'adv_mean': -0.07056385278701782, 'policy_loss': 0.15222328901290894, 'value_loss': 0.06825000792741776}
+Step 64 | Loss: -0.227 | Pol: -0.228 | Val: 0.093
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9990915656089783, 'adv_mean': 0.10604415088891983, 'policy_loss': -0.22837944328784943, 'value_loss': 0.09309639781713486}
+Step 64 | Loss: 0.536 | Pol: 0.536 | Val: 0.038
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0, 'adv_mean': -0.27857956290245056, 'policy_loss': 0.5357449054718018, 'value_loss': 0.03799636289477348}
+Step 64 | Loss: -0.244 | Pol: -0.245 | Val: 0.095
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0008795261383057, 'adv_mean': 0.1084197536110878, 'policy_loss': -0.24528789520263672, 'value_loss': 0.09483063220977783}
+Step 64 | Loss: 0.075 | Pol: 0.074 | Val: 0.076
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0011543035507202, 'adv_mean': -0.030010947957634926, 'policy_loss': 0.0739893689751625, 'value_loss': 0.07624322921037674}
+Step 64 | Loss: 0.001 | Pol: 0.001 | Val: 0.062
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0021792650222778, 'adv_mean': -0.0002680133329704404, 'policy_loss': 0.0006558881141245365, 'value_loss': 0.061674267053604126}
+Step 64 | Loss: 0.323 | Pol: 0.323 | Val: 0.030
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000747799873352, 'adv_mean': -0.14005281031131744, 'policy_loss': 0.3228151202201843, 'value_loss': 0.030395859852433205}
+Step 64 | Loss: 0.018 | Pol: 0.017 | Val: 0.061
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9989464282989502, 'adv_mean': -0.006300162058323622, 'policy_loss': 0.01712827757000923, 'value_loss': 0.0608220174908638}
+Step 64 | Loss: 0.070 | Pol: 0.069 | Val: 0.055
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0020840167999268, 'adv_mean': -0.02417929470539093, 'policy_loss': 0.06903833150863647, 'value_loss': 0.0546737015247345}
+Step 64 | Loss: -0.129 | Pol: -0.129 | Val: 0.084
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.002610206604004, 'adv_mean': 0.055028051137924194, 'policy_loss': -0.12940137088298798, 'value_loss': 0.08436302840709686}
+Step 64 | Loss: 0.394 | Pol: 0.394 | Val: 0.034
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0012385845184326, 'adv_mean': -0.14162084460258484, 'policy_loss': 0.3935059607028961, 'value_loss': 0.033767327666282654}
+Step 64 | Loss: 0.013 | Pol: 0.012 | Val: 0.104
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0014277696609497, 'adv_mean': -0.0031956846360117197, 'policy_loss': 0.011502653360366821, 'value_loss': 0.1038750633597374}
+Step 64 | Loss: -0.427 | Pol: -0.429 | Val: 0.164
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000784158706665, 'adv_mean': 0.11531464755535126, 'policy_loss': -0.42852455377578735, 'value_loss': 0.16388234496116638}
+Step 64 | Loss: -0.406 | Pol: -0.407 | Val: 0.185
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000548243522644, 'adv_mean': 0.09057649224996567, 'policy_loss': -0.4074336886405945, 'value_loss': 0.18456920981407166}
+Step 64 | Loss: -0.599 | Pol: -0.600 | Val: 0.171
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0032432079315186, 'adv_mean': 0.12817659974098206, 'policy_loss': -0.6003280878067017, 'value_loss': 0.17136792838573456}
+[step 66] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Reasoning:**
+
+1. **First leg:**
+   - Distance = Speed x Time
+   - Distance = 62 km/h * 2 h = 124 km
+
+2. **Second leg:**
+   - Speed = 62 km/h * 2 = 124 km/h
+   - Distance = Speed x Time
+   - Distance = 124 km/h * 3 h = 372 km
+
+3. **Total distance:**
+   - Total distance = Distance (first leg) + Distance (second leg)
+   - Total distance = 124 km + 372 km = 496 km
+
+**Final answer:** The total distance traveled by the car is 496 km. 
+
+[timing] sample processed in 2253.43s
+
+=== PROFILER ===
+Sampling:          498.78s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1754.61s
+[92m📊 [System Health] RAM: 81.6% | Swap Used: 8.94 GB[0m
+Collecting experience for step 68...
+PPO optimization step 68...
+[timing] sample processed in 3079.56s
+
+=== PROFILER ===
+Sampling:          883.74s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2195.78s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch9_step72.pt
+==end-of-epoch 9==
+
+=== Epoch 10/10 ===
+[92m📊 [System Health] RAM: 78.7% | Swap Used: 8.83 GB[0m
+Collecting experience for step 72...
+PPO optimization step 72...
+Step 72 | Loss: 0.059 | Pol: 0.058 | Val: 0.068
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001145601272583, 'adv_mean': -0.019931651651859283, 'policy_loss': 0.05834181234240532, 'value_loss': 0.06773115694522858}
+Step 72 | Loss: 0.097 | Pol: 0.096 | Val: 0.066
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0009206533432007, 'adv_mean': -0.027948645874857903, 'policy_loss': 0.09645400196313858, 'value_loss': 0.06597529351711273}
+Step 72 | Loss: 0.160 | Pol: 0.160 | Val: 0.081
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001587867736816, 'adv_mean': -0.05741054564714432, 'policy_loss': 0.15963859856128693, 'value_loss': 0.08124102652072906}
+Step 72 | Loss: 0.170 | Pol: 0.169 | Val: 0.085
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9992053508758545, 'adv_mean': -0.06756927818059921, 'policy_loss': 0.16868126392364502, 'value_loss': 0.08468248695135117}
+Step 72 | Loss: 0.329 | Pol: 0.329 | Val: 0.040
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9991952180862427, 'adv_mean': -0.12836720049381256, 'policy_loss': 0.3289557099342346, 'value_loss': 0.04018792137503624}
+Step 72 | Loss: -0.327 | Pol: -0.328 | Val: 0.098
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.000043272972107, 'adv_mean': 0.11548401415348053, 'policy_loss': -0.32801759243011475, 'value_loss': 0.09808390587568283}
+Step 72 | Loss: -0.113 | Pol: -0.114 | Val: 0.104
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0021753311157227, 'adv_mean': 0.018609827384352684, 'policy_loss': -0.11374081671237946, 'value_loss': 0.1037217453122139}
+Step 72 | Loss: -0.255 | Pol: -0.257 | Val: 0.110
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9992501139640808, 'adv_mean': 0.08742262423038483, 'policy_loss': -0.25657397508621216, 'value_loss': 0.10953804850578308}
+Step 72 | Loss: -0.248 | Pol: -0.249 | Val: 0.094
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9990425705909729, 'adv_mean': 0.09969556331634521, 'policy_loss': -0.24916274845600128, 'value_loss': 0.09412916749715805}
+Step 72 | Loss: 0.330 | Pol: 0.329 | Val: 0.107
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0001670122146606, 'adv_mean': -0.13572344183921814, 'policy_loss': 0.3291075825691223, 'value_loss': 0.10714630782604218}
+Step 72 | Loss: 0.123 | Pol: 0.122 | Val: 0.069
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.001387357711792, 'adv_mean': -0.04709950089454651, 'policy_loss': 0.12221705913543701, 'value_loss': 0.06935776025056839}
+Step 72 | Loss: -0.327 | Pol: -0.328 | Val: 0.117
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9991918206214905, 'adv_mean': 0.10272669792175293, 'policy_loss': -0.32779037952423096, 'value_loss': 0.1173146665096283}
+Step 72 | Loss: 0.081 | Pol: 0.080 | Val: 0.074
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0012942552566528, 'adv_mean': -0.025766078382730484, 'policy_loss': 0.08045691251754761, 'value_loss': 0.0739804282784462}
+Step 72 | Loss: -0.123 | Pol: -0.124 | Val: 0.100
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9993524551391602, 'adv_mean': 0.04553629457950592, 'policy_loss': -0.12387680262327194, 'value_loss': 0.10011424869298935}
+Step 72 | Loss: 0.010 | Pol: 0.009 | Val: 0.105
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 1.0018229484558105, 'adv_mean': -0.002498412039130926, 'policy_loss': 0.009277819655835629, 'value_loss': 0.10474319756031036}
+Step 72 | Loss: -0.146 | Pol: -0.147 | Val: 0.092
+{'tokens_shape': (2, 512), 'attention_mask_shape': (2, 512), 'ratio_mean': 0.9994101524353027, 'adv_mean': 0.04283972084522247, 'policy_loss': -0.14726434648036957, 'value_loss': 0.09182526916265488}
+[timing] sample processed in 2876.14s
+
+=== PROFILER ===
+Sampling:          781.28s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   2094.84s
+[92m📊 [System Health] RAM: 68.7% | Swap Used: 8.75 GB[0m
+Collecting experience for step 76...

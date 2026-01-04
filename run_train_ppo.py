@@ -1,5 +1,5 @@
 """
-Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
+Script to load a pretrained model and do PPO with math data to fine-tune the model with LoRA
 """
 import gc
 import json
@@ -35,21 +35,57 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 64
-BATCH_SIZE = 8
-GRAD_ACCUM_STEPS = 4    # Accumulate 4 mini-batches (Total effective batch = 32)
+BATCH_SIZE = 2
+GRAD_ACCUM_STEPS = 16    # Accumulate 8 mini-batches (Total effective batch = 32)
 TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
 PPO_EPOCHS = 4          # Number of optimization passes per batch
 NUM_EPOCHS = 10
 EVAL_EVERY = 11
 MAX_INPUT_TOKENS = 150
-MAX_NEW_TOKENS = 400
+MAX_NEW_TOKENS = 300
 TARGET_KL = 6.0
 BETA = 0.1
 VF_COEF = 0.01
-ENT_COEF = 0.01
+ENT_COEF = 0
 DEVICE = torch.device("mps")
 EPS = 0.2
+# Define Fixed Length (MPS Compilation Target)
+TRAINING_CTX_LEN = 512
 PROMPT = " Please reason step-by-step,  then give: Final answer."
+
+def safe_pad(tensor, target_len, pad_val=0):
+    """
+    Pads the SECOND dimension (dim=1, the sequence length) 
+    regardless of whether the tensor is 2D or 3D.
+    """
+    # 1. Sanity check: We need at least [Batch, Time]
+    if tensor.dim() < 2:
+        return tensor
+
+    curr_len = tensor.shape[1]
+    diff = target_len - curr_len
+
+    if diff == 0:
+        return tensor
+
+    if diff > 0:
+        # PADDING
+        # F.pad format is (last_dim_left, last_dim_right, 2nd_last_left, ...)
+        
+        if tensor.dim() == 2: 
+            # Shape [B, T]. We want to pad T (the last dim).
+            # pad=(0, diff) -> Add 0 to left, 'diff' to right of last dim.
+            return F.pad(tensor, (0, diff), value=pad_val)
+            
+        elif tensor.dim() == 3:
+            # Shape [B, T, D]. We want to pad T (the 2nd to last dim).
+            # We do NOT want to pad D (last dim).
+            # pad=(0, 0, 0, diff) 
+            # (0,0) for dim D. (0, diff) for dim T.
+            return F.pad(tensor, (0, 0, 0, diff), value=pad_val)
+    # TRUNCATING
+    # Works for both 2D and 3D
+    return tensor[:, :target_len]
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
@@ -133,7 +169,6 @@ def save_lora_checkpoint(model, optimizer, epoch, global_step):
     print(f"Saved checkpoint to {ckpt_path}")
 
 
-
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
     start = (epoch - 1) * NUM_TRAINING_DATA
@@ -152,12 +187,12 @@ for epoch in range(1, NUM_EPOCHS + 1):
         model.eval()
         t0 = time.perf_counter()
         print(f"Collecting experience for step {global_step}...")
-        for idx in tqdm(range(0, len(chunk), BATCH_SIZE), desc=f"epoch {epoch} - mini-batch {i}", leave=False):
-            batch = train_samples[idx : idx + BATCH_SIZE]
-            questions = [sample["question"] + PROMPT for sample in batch]
-            golds = [str(sample["gold_answer"]).strip() for sample in batch]
-            model.eval()
-            with torch.no_grad():
+        with torch.no_grad():
+            for idx in tqdm(range(0, len(chunk), BATCH_SIZE), desc=f"epoch {epoch} - mini-batch {i}", leave=False):
+                batch = train_samples[idx : idx + BATCH_SIZE]
+                questions = [sample["question"] + PROMPT for sample in batch]
+                golds = [str(sample["gold_answer"]).strip() for sample in batch]
+                model.eval()
                 res = sample_batch(
                     model,
                     tokenizer,
@@ -167,7 +202,6 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     max_input_tokens=MAX_INPUT_TOKENS,
                     max_new_tokens=MAX_NEW_TOKENS
                 )
-                t1 = time.perf_counter()
                 B, T = res["tokens"].size()
                 prompt_len = res["prompt_id_length"]
                 padded_batch_tokens = res["tokens"].to(DEVICE)
@@ -204,45 +238,51 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     shifted_log_probs_ref = F.log_softmax(logits_ref, dim=-1)[:, :-1, :]
                     # [B, T_max-1]
                     log_probs_ref = shifted_log_probs_ref.gather(-1, targets).squeeze(-1)
-            masked_log_probs_ref = log_probs_ref * answer_mask
-            masked_log_probs_old = log_probs_old * answer_mask
-            kl_divergence_est = masked_log_probs_old - masked_log_probs_ref
-            kl_penalty_est = - BETA * kl_divergence_est
-            rewards = kl_penalty_est.detach().clone()
-            final_rewards = [
-                refined_advanced_cot_reward(
-                    txt,
-                    gold_answer,
-                    truncated=tr,
-                )
-                for txt, tr, gold_answer in zip(res["text"], res["truncated"], golds)
-            ]
-            batch_indices = torch.arange(B, device=DEVICE)
-            eos_reward_idx = torch.clamp(eos_pos - 1, min=0, max=rewards.size(1) - 1)
-            final_rewards_t = torch.tensor(final_rewards, device=rewards.device, dtype=rewards.dtype)
-            rewards[batch_indices, eos_reward_idx] += final_rewards_t
-            # Get advantage
-            advantages = advantage_gae(rewards, old_values, res["truncated"]).detach()
-            returns = (advantages + values_old) * answer_mask
-            buffer_memory.append({
-                    "tokens": padded_batch_tokens.cpu(),
-                    "attention_mask": attention_mask.cpu(),
-                    "old_log_probs": log_probs_old.cpu(),
-                    "ref_log_probs": log_probs_ref.cpu(), # Storing reference probs
-                    "old_values": values_old.cpu(),
-                    "advantages": advantages.cpu(),
-                    "returns": returns.cpu(),
-                    "answer_mask": answer_mask.cpu(),
-                    "rewards": rewards.cpu() 
-                })
-            # Cleanup GPU
-            del res, padded_batch_tokens, attention_mask, old_out, old_values, ref_out
-            del logits_old, log_probs_old, log_probs_ref, rewards, advantages, returns
-            torch.mps.empty_cache()
+                masked_log_probs_ref = log_probs_ref * answer_mask
+                masked_log_probs_old = log_probs_old * answer_mask
+                kl_divergence_est = masked_log_probs_old - masked_log_probs_ref
+                kl_penalty_est = - BETA * kl_divergence_est
+                rewards = kl_penalty_est.detach().clone()
+                final_rewards = [
+                    refined_advanced_cot_reward(
+                        txt,
+                        gold_answer,
+                        truncated=tr,
+                    )
+                    for txt, tr, gold_answer in zip(res["text"], res["truncated"], golds)
+                ]
+                batch_indices = torch.arange(B, device=DEVICE)
+                eos_reward_idx = torch.clamp(eos_pos - 1, min=0, max=rewards.size(1) - 1)
+                final_rewards_t = torch.tensor(final_rewards, device=rewards.device, dtype=rewards.dtype)
+                rewards[batch_indices, eos_reward_idx] += final_rewards_t
+                # Get advantage
+                advantages = advantage_gae(rewards, old_values, res["truncated"]).detach()
+                returns = (advantages + values_old) * answer_mask
+
+                p_tokens = safe_pad(padded_batch_tokens, TRAINING_CTX_LEN, pad_val=tokenizer.eos_token_id)
+                p_attention_mask = safe_pad(attention_mask, TRAINING_CTX_LEN, pad_val=0)
+                p_old_log_probs = safe_pad(log_probs_old, TRAINING_CTX_LEN, pad_val=0)
+                p_old_values = safe_pad(values_old, TRAINING_CTX_LEN, pad_val=0)
+                p_advantages = safe_pad(advantages, TRAINING_CTX_LEN, pad_val=0)
+                p_returns = safe_pad(returns, TRAINING_CTX_LEN, pad_val=0)
+                p_answer_mask = safe_pad(answer_mask, TRAINING_CTX_LEN, pad_val=0)
+
+                buffer_memory.append({
+                        "tokens": p_tokens.cpu(),
+                        "attention_mask": p_attention_mask.cpu(),
+                        "old_log_probs": p_old_log_probs.cpu(),
+                        "old_values": p_old_values.cpu(),
+                        "advantages": p_advantages.cpu(),
+                        "returns": p_returns.cpu(),
+                        "answer_mask": p_answer_mask.cpu(),
+                    })
+                # Cleanup GPU
+                del res, padded_batch_tokens, attention_mask, old_out, old_values, ref_out
+                del logits_old, log_probs_old, log_probs_ref, rewards, advantages, returns
+        t1 = time.perf_counter()
         # ====================================================
         # PHASE 2: GLOBAL ADVANTAGE NORMALIZATION
         # ====================================================
-        t2 = time.perf_counter()
         total_sum = torch.tensor(0.0)
         total_sq = torch.tensor(0.0)
         total_count = 0
@@ -265,6 +305,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # PHASE 3: PPO OPTIMIZATION (Multiple Epochs)
         # ====================================================
         print(f"PPO optimization step {global_step}...")
+        t2 = time.perf_counter()
         model.train()
         for ppo_epoch in range(PPO_EPOCHS):
             random.shuffle(buffer_memory)
@@ -273,7 +314,6 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 b_tokens = mini_batch["tokens"].to(DEVICE)
                 b_mask = mini_batch["attention_mask"].to(DEVICE)
                 b_old_log_probs = mini_batch["old_log_probs"].to(DEVICE)
-                b_ref_log_probs = mini_batch["ref_log_probs"].to(DEVICE) # Load Ref
                 b_old_values = mini_batch["old_values"].to(DEVICE)
                 b_advantages = mini_batch["advantages"].to(DEVICE)
                 b_returns = mini_batch["returns"].to(DEVICE)
@@ -287,85 +327,78 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     shifted_log_probs_new = F.log_softmax(logits_new, dim=-1)
                     # Gather logprobs of the actually generated tokens
                     log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)  # [B, T-1]
+                    # Align stored tensors to the T-1 time dimension
+                    seq_len = log_probs_new.size(1)
+                    b_old_log_probs = b_old_log_probs[:, :seq_len]
+                    b_old_values = b_old_values[:, :seq_len]
+                    b_advantages = b_advantages[:, :seq_len]
+                    b_returns = b_returns[:, :seq_len]
+                    b_answer_mask = b_answer_mask[:, :seq_len]
                     # Mask out padded tokens
-                    masked_values_new = values_new * b_answer_mask
+                    sliced_mask = b_answer_mask
+                    masked_values_new = values_new * sliced_mask
                     masked_values_old = b_old_values * b_answer_mask
-                    ratio = torch.exp(log_probs_new - b_old_log_probs) * b_answer_mask
+                    ratio = torch.exp(log_probs_new - b_old_log_probs) * sliced_mask
 
                 # Policy loss for actor based on ratio and advantage
                 surr1 = ratio * b_advantages
                 surr2 = torch.clamp(ratio, 1.0 - EPS, 1.0 + EPS) * b_advantages
-                policy_loss = -(torch.min(surr1, surr2) * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
+                policy_loss = -(torch.min(surr1, surr2) * sliced_mask).sum() / (sliced_mask.sum() + 1e-8)
                 
                 # Clipped MSE loss for critic
                 v_clipped = masked_values_old + torch.clamp(masked_values_new - masked_values_old, -EPS, EPS)
                 v_loss_1 = (masked_values_new - b_returns).pow(2)
                 v_loss_2 = (v_clipped - b_returns).pow(2)
-                value_loss = 0.5 * (torch.max(v_loss_1, v_loss_2) * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
+                value_loss = 0.5 * (torch.max(v_loss_1, v_loss_2) * sliced_mask).sum() / (sliced_mask.sum() + 1e-8)
 
                 # entropy loss to encourage exploration
-                entropy = -(torch.exp(log_probs_new) * log_probs_new * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
+                entropy = -(torch.exp(log_probs_new) * log_probs_new * sliced_mask).sum() / (sliced_mask.sum() + 1e-8)
                 entropy_loss = -ENT_COEF * entropy
 
-                # KL Penalty Loss (CORRECTED CALCULATION)
-                # Ensure the new policy doesn't drift too far from reference
-                kl_divergence = (log_probs_new - b_ref_log_probs) * b_answer_mask
-                kl_loss = BETA * kl_divergence.sum() / (b_answer_mask.sum() + 1e-8)
-
-                total_loss = policy_loss + VF_COEF * value_loss + entropy_loss + kl_loss
-                t3 = time.perf_counter()
-                if ppo_epoch == PPO_EPOCHS - 1:
-                    print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | KL: {kl_loss.item():.3f}")
+                total_loss = policy_loss + VF_COEF * value_loss + entropy_loss
+                if i == 0 and ppo_epoch == 0:
+                    print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | Val: {value_loss.item():.3f}")
                     print(
                         {
                             "tokens_shape": tuple(b_tokens.shape),
                             "attention_mask_shape": tuple(b_mask.shape),
-                            "ratio_mean": (ratio.sum() / (b_answer_mask.sum() + 1e-8)).item(),
+                            "ratio_mean": (ratio.sum() / (sliced_mask.sum() + 1e-8)).item(),
                             "adv_mean": b_advantages.mean().item(),
                             "policy_loss": policy_loss.item(),
                             "value_loss": value_loss.item(),
                         }
                     )
                 optimizer.zero_grad(set_to_none=True)
-                t4 = time.perf_counter()
                 total_loss.backward()
-                # Check if gradients are reaching the LoRA weights
-                lora_grads = []
-                critic_grads = []
-                for n, p in model.named_parameters():
-                    if p.requires_grad and ("lora_" in n): # Match your custom LoRA names
-                        if p.grad is not None:
-                            lora_grads.append(p.grad.abs().mean().item())
-                    if p.requires_grad and ("value_layer" in n):
-                        if p.grad is not None:
-                            critic_grads.append(p.grad.abs().mean().item())
+                # # Check if gradients are reaching the LoRA weights
+                # lora_grads = []
+                # critic_grads = []
+                # for n, p in model.named_parameters():
+                #     if p.requires_grad and ("lora_" in n): # Match your custom LoRA names
+                #         if p.grad is not None:
+                #             lora_grads.append(p.grad.abs().mean().item())
+                #     if p.requires_grad and ("value_layer" in n):
+                #         if p.grad is not None:
+                #             critic_grads.append(p.grad.abs().mean().item())
 
-                avg_lora_grad = sum(lora_grads) / len(lora_grads) if lora_grads else 0.0
-                avg_critic_grad = sum(critic_grads) / len(critic_grads) if critic_grads else 0.0
-                print(f"--- Gradient Check ---")
-                print(f"Average LoRA Gradient Magnitude: {avg_lora_grad:.10f}")
-                print(f"Average Critic Gradient Magnitude: {avg_critic_grad:.10f}")
+                # avg_lora_grad = sum(lora_grads) / len(lora_grads) if lora_grads else 0.0
+                # avg_critic_grad = sum(critic_grads) / len(critic_grads) if critic_grads else 0.0
+                # print(f"--- Gradient Check ---")
+                # print(f"Average LoRA Gradient Magnitude: {avg_lora_grad:.10f}")
+                # print(f"Average Critic Gradient Magnitude: {avg_critic_grad:.10f}")
                 # For MPS gradient stability
-                torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
-                for param in trainable_params:
-                    if param.grad is not None:
-                        param.grad.data = param.grad.data.contiguous()
-                optimizer.step()
-                scheduler.step()
-                t5 = time.perf_counter()
-                with torch.no_grad():
-                    valid_kl = (kl_divergence * b_answer_mask).sum() / (b_answer_mask.sum() + 1e-8)
-                    print(f"Step: {global_step} | Loss: {total_loss.item():.4f} | KL: {valid_kl.item():.4f}")
-                    # SAFETY: Stop if KL explodes
-                    if valid_kl.item() > 15.0:
-                        print("!!! ALERT: KL Exploded. Saving and exiting.")
-                        save_lora_checkpoint(model, optimizer, epoch, global_step)
-                        break
+            
                 # Cleanup GPU for next mini-batch
-                del b_tokens, b_mask, b_old_log_probs, b_ref_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
+                del b_tokens, b_mask, b_old_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
-                del total_loss, kl_divergence
+                del total_loss
                 torch.mps.empty_cache()
+            torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
+            for param in trainable_params:
+                if param.grad is not None:
+                    param.grad.data = param.grad.data.contiguous()
+            optimizer.step()
+            scheduler.step()
 
             global_step += 1
             if global_step % EVAL_EVERY == 0:
@@ -388,12 +421,13 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
                 model.train()
                 del eval_inputs, out
+                gc.collect()
                 torch.mps.empty_cache()
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
         print("\n=== PROFILER ===")
         print(f"Sampling:          {(t1-t0):.2f}s")
-        print(f"Logprob forward:   {(t3-t2):.2f}s")
-        print(f"Backward:          {(t5-t4):.2f}s")
+        print(f"Global Advantage Norm:          {(t2-t1):.2f}s")
+        print(f"Logprob forward & backward:   {(t_end-t2):.2f}s")
     save_lora_checkpoint(model, optimizer, epoch, global_step)
     print(f"==end-of-epoch {epoch}==")
