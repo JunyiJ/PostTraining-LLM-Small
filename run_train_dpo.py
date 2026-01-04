@@ -43,6 +43,7 @@ PROMPT = " Please reason step-by-step,  then give: Final answer. "
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer.padding_side = "right"
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
@@ -192,8 +193,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         torch.mps.empty_cache()
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
-            avg_loss = running_loss / max(global_step, 1)
-            acc = running_correct / max(running_total, 1)
+            avg_loss = running_loss / EVAL_EVERY
             print(f"[step {global_step}] avg_loss={avg_loss:.4f} acc={acc:.4f}")
             running_loss = 0.0
             running_correct = 0

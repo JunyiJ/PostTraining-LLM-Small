@@ -35,8 +35,8 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 64
-BATCH_SIZE = 4
-GRAD_ACCUM_STEPS = 8    # Accumulate 8 mini-batches (Total effective batch = 32)
+BATCH_SIZE = 2
+GRAD_ACCUM_STEPS = 16    # Accumulate 8 mini-batches (Total effective batch = 32)
 TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
 PPO_EPOCHS = 4          # Number of optimization passes per batch
 NUM_EPOCHS = 10
@@ -46,7 +46,7 @@ MAX_NEW_TOKENS = 300
 TARGET_KL = 6.0
 BETA = 0.1
 VF_COEF = 0.01
-ENT_COEF = 0.01
+ENT_COEF = 0
 DEVICE = torch.device("mps")
 EPS = 0.2
 # Define Fixed Length (MPS Compilation Target)
@@ -387,17 +387,18 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 # print(f"Average LoRA Gradient Magnitude: {avg_lora_grad:.10f}")
                 # print(f"Average Critic Gradient Magnitude: {avg_critic_grad:.10f}")
                 # For MPS gradient stability
-                torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
-                for param in trainable_params:
-                    if param.grad is not None:
-                        param.grad.data = param.grad.data.contiguous()
-                optimizer.step()
-                scheduler.step()
+            
                 # Cleanup GPU for next mini-batch
                 del b_tokens, b_mask, b_old_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
                 del total_loss
                 torch.mps.empty_cache()
+            torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
+            for param in trainable_params:
+                if param.grad is not None:
+                    param.grad.data = param.grad.data.contiguous()
+            optimizer.step()
+            scheduler.step()
 
             global_step += 1
             if global_step % EVAL_EVERY == 0:
