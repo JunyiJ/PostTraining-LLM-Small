@@ -5,6 +5,8 @@ from tqdm import tqdm
 
 from pathlib import Path
 
+PROMPT = " Please reason step-by-step,  then give: Final answer. "
+
 # --- CONFIGURATION ---
 # OPTION 1: specialized Step-DPO dataset (Recommended)
 DATASET_CONFIG = {
@@ -25,7 +27,7 @@ OUTPUT_FILE = "./data/gsm8k_dpo_pairs.jsonl"
 REPO_ROOT = Path(__file__).resolve().parents[1]
 MODEL_PATH = REPO_ROOT / "models" / "gemma-2-2b"
 MODEL_ID = str(MODEL_PATH) if MODEL_PATH.exists() else "google/gemma-2-2b"
-MAX_LENGTH = 300
+MAX_LENGTH = 400
 
 def process_dpo_data():
     print(f"Loading tokenizer: {MODEL_ID}...")
@@ -67,8 +69,8 @@ def process_dpo_data():
                 
             # 3. Length Check
             # Check chosen/rejected response length
-            len_c = len(tokenizer.encode(chosen, add_special_tokens=False))
-            len_r = len(tokenizer.encode(rejected, add_special_tokens=False))
+            len_c = len(tokenizer.encode(prompt + PROMPT + chosen, add_special_tokens=False))
+            len_r = len(tokenizer.encode(prompt + PROMPT + rejected, add_special_tokens=False))
             
             if len_c > MAX_LENGTH or len_r > MAX_LENGTH:
                 filtered_length += 1

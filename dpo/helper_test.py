@@ -46,14 +46,16 @@ class FakeTokenizer:
 def test_answer_mask_includes_response_and_eos():
     tokenizer = FakeTokenizer()
     device = torch.device("cpu")
-    prompt_lens = torch.tensor([3, 2], device=device)
+    prompts = ["p1 p2 p3", "q1 q2"]
     responses = [
         "p1 p2 p3 a1 a2 <eos>",
         "q1 q2 b1 <eos>",
+        "p1 p2 p3 c1 <eos>",
+        "q1 q2 d1 d2 <eos>",
     ]
 
     _, _, answer_mask = get_tokens_and_masks(
-        prompt_lens,
+        prompts,
         responses,
         tokenizer,
         device,
@@ -63,6 +65,8 @@ def test_answer_mask_includes_response_and_eos():
         [
             [0, 0, 1, 1, 1],
             [0, 1, 1, 0, 0],
+            [0, 0, 1, 1, 0],
+            [0, 1, 1, 1, 0],
         ],
         dtype=torch.float32,
     )
@@ -72,14 +76,16 @@ def test_answer_mask_includes_response_and_eos():
 def test_answer_mask_fallback_without_eos():
     tokenizer = FakeTokenizer()
     device = torch.device("cpu")
-    prompt_lens = torch.tensor([2, 1], device=device)
+    prompts = ["p1 p2", "q1"]
     responses = [
         "p1 p2 a1 a2",
         "q1 b1",
+        "p1 p2 c1",
+        "q1 d1 d2",
     ]
 
     _, _, answer_mask = get_tokens_and_masks(
-        prompt_lens,
+        prompts,
         responses,
         tokenizer,
         device,
@@ -89,6 +95,8 @@ def test_answer_mask_fallback_without_eos():
         [
             [0, 1, 1],
             [1, 0, 0],
+            [0, 1, 0],
+            [1, 1, 0],
         ],
         dtype=torch.float32,
     )

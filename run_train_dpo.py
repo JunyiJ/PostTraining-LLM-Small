@@ -16,7 +16,7 @@ from tqdm import tqdm
 
 from grpo.utils import load_model
 from dpo.dpo_loss import dpo_loss
-from dpo.helper import get_tokens_and_masks
+from dpo.helper import check_memory_health, save_lora_checkpoint, get_tokens_and_masks
 from dpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
@@ -32,17 +32,18 @@ LORA_CKPT = None
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_TRAINING_DATA = 2
-BATCH_SIZE = 2
-NUM_EPOCHS = 1
-EVAL_EVERY = 25
-MAX_INPUT_TOKENS = 500
+NUM_TRAINING_DATA = 100
+BATCH_SIZE = 4
+NUM_EPOCHS = 10
+EVAL_EVERY = 50
+MAX_INPUT_TOKENS = 412
 KL_COEF = 0.1
 DEVICE = torch.device("mps")
 PROMPT = " Please reason step-by-step,  then give: Final answer. "
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
+# Critical for correct identify the answer tokens from the prompt tokens
 tokenizer.padding_side = "right"
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
@@ -67,32 +68,13 @@ CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 global_step = 0
 running_loss = 0.0
-running_correct = 0
-running_total = 0
-
-def check_memory_health():
-    vmem = psutil.virtual_memory()
-    swap = psutil.swap_memory()
-    # Color coding the output for visibility
-    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
-    reset = "\033[0m"
-    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
-
-def save_lora_checkpoint(model, optimizer, epoch, global_step):
-    state = {
-        "epoch": epoch,
-        "global_step": global_step,
-        "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
-        "optimizer_state_dict": optimizer.state_dict(),
-    }
-    ckpt_path = CHECKPOINT_DIR / f"lora_epoch{epoch}_step{global_step}.pt"
-    torch.save(state, ckpt_path)
-    print(f"Saved checkpoint to {ckpt_path}")
 
 """
 load data
 load model (with LoRA enabled)
 for each batch:
+    get a pair of <chosen, rejected> prompt and get the log-prob sum of the answer
+    calculate the DPO loss and backpropogate.
 """
 # Load training data
 test_data = []
@@ -115,24 +97,11 @@ for epoch in range(1, NUM_EPOCHS + 1):
         t_start = time.perf_counter()
         batch = train_samples[idx : idx + BATCH_SIZE]
         prompts = [sample["prompt"] + PROMPT for sample in batch]
-        chosens = [sample["prompt"] + PROMPT + sample["chosen"] for sample in batch]
-        rejects = [sample["prompt"] + PROMPT + sample["rejected"] for sample in batch]
+        chosens = [sample["prompt"] + PROMPT + sample["chosen"] + tokenizer.eos_token for sample in batch]
+        rejects = [sample["prompt"] + PROMPT + sample["rejected"] + tokenizer.eos_token for sample in batch]
         responses = chosens + rejects
-        for prompt, chosen, rejected in zip(prompts, chosens, rejects):
-            print(f"CHOSEN: {chosen}")
-            print(f"REJECTED: {rejected}")
-        def _encode(texts):
-            kwargs = {"return_tensors": "pt", "padding": True, "truncation": True}
-            if MAX_INPUT_TOKENS is not None:
-                kwargs["max_length"] = MAX_INPUT_TOKENS
-            return tokenizer(texts, **kwargs)
-
-        prompt_enc = _encode(prompts)
-        prompt_attn = prompt_enc["attention_mask"].to(DEVICE)
-        prompt_lens = prompt_attn.sum(dim=1)
-        response_prompt_lens = prompt_lens.repeat(2)
         response_ids, response_attn, response_answer_mask = get_tokens_and_masks(
-            response_prompt_lens,
+            prompts,
             responses,
             tokenizer,
             DEVICE,
@@ -167,6 +136,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 (rejected_log_probs_ref * rejected_answer_mask).sum(dim=1),
                 beta=0.1
             )
+            print(f"[step {global_step}] chosen_rewards={chosen_rewards.item():.4f} rejected_rewards={rejected_rewards.item():.4f}")
 
         running_loss += loss.item()
         global_step += 1
@@ -189,15 +159,13 @@ for epoch in range(1, NUM_EPOCHS + 1):
         del policy_response, response_logits_policy, response_shifted_log_probs_policy, response_log_probs_policy
         del chosen_log_probs_ref, rejected_log_probs_ref, chosen_log_probs_policy, rejected_log_probs_policy
         del chosen_answer_mask, rejected_answer_mask
-        gc.collect()
         torch.mps.empty_cache()
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
+            gc.collect()
             avg_loss = running_loss / EVAL_EVERY
-            print(f"[step {global_step}] avg_loss={avg_loss:.4f} acc={acc:.4f}")
+            print(f"[step {global_step}] avg_loss={avg_loss:.4f}")
             running_loss = 0.0
-            running_correct = 0
-            running_total = 0
 
             eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
             eval_inputs = tokenizer(eval_prompt + PROMPT, return_tensors="pt").to(DEVICE)
@@ -214,5 +182,5 @@ for epoch in range(1, NUM_EPOCHS + 1):
             torch.mps.empty_cache()
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
-    save_lora_checkpoint(model, optimizer, epoch, global_step)
+    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR)
     print(f"==end-of-epoch {epoch}==")
