@@ -15,7 +15,7 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_lora_epoch4_step32.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_lora_epoch10_step80.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 300

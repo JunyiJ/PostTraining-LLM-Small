@@ -33,13 +33,16 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 100
-BATCH_SIZE = 4
-NUM_EPOCHS = 10
-EVAL_EVERY = 50
+MICRO_BATCH_SIZE = 2 
+# ACCUMULATION_STEPS: How many micro-batches to accumulate before updating weights
+# Effective Batch Size = MICRO_BATCH_SIZE * ACCUMULATION_STEPS
+ACCUMULATION_STEPS = 5
+NUM_EPOCHS = 50
+EVAL_EVERY = 10
 MAX_INPUT_TOKENS = 412
 KL_COEF = 0.1
 DEVICE = torch.device("mps")
-PROMPT = " Please reason step-by-step,  then give: Final answer. "
+PROMPT = " Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. "
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
@@ -85,17 +88,19 @@ with open(TRAIN_FILE) as f:
             continue
         test_data.append(json.loads(ln))
 print(f"Print found {len(test_data)} lines of training data")
-
+optimizer.zero_grad(set_to_none=True)
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
     start = (epoch - 1) * NUM_TRAINING_DATA
     end = start + NUM_TRAINING_DATA
     train_samples = test_data[start:end]
-    for idx in tqdm(range(0, len(train_samples), BATCH_SIZE), desc=f"epoch {epoch}", leave=False):
+    # Note: total iterations = len(train_samples) / MICRO_BATCH_SIZE
+    pbar = tqdm(range(0, len(train_samples), MICRO_BATCH_SIZE), desc=f"epoch {epoch}", leave=False)
+    for step_idx, idx in enumerate(pbar):
         if global_step % 10 == 0:
             check_memory_health()
         t_start = time.perf_counter()
-        batch = train_samples[idx : idx + BATCH_SIZE]
+        batch = train_samples[idx : idx + MICRO_BATCH_SIZE]
         prompts = [sample["prompt"] + PROMPT for sample in batch]
         chosens = [sample["prompt"] + PROMPT + sample["chosen"] + tokenizer.eos_token for sample in batch]
         rejects = [sample["prompt"] + PROMPT + sample["rejected"] + tokenizer.eos_token for sample in batch]
@@ -136,22 +141,24 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 (rejected_log_probs_ref * rejected_answer_mask).sum(dim=1),
                 beta=0.1
             )
-            print(f"[step {global_step}] chosen_rewards={chosen_rewards.item():.4f} rejected_rewards={rejected_rewards.item():.4f}")
+            loss = loss / ACCUMULATION_STEPS
+            loss.backward()
 
         running_loss += loss.item()
-        global_step += 1
-        # Backprop
-        t6 = time.perf_counter()
-        # pre-backprop cleanup. adding set_to_none is more memory efficiency
-        optimizer.zero_grad(set_to_none=True)
-        loss.backward()
-        # For MPS gradient stability
-        torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
-        for param in lora_params:
-            if param.grad is not None:
-                param.grad.data = param.grad.data.contiguous()
-        optimizer.step()
-        t7 = time.perf_counter()
+        is_update_step = ((step_idx + 1) % ACCUMULATION_STEPS == 0) or ((step_idx + 1) == len(pbar))
+        if is_update_step:
+            # Backprop
+            # pre-backprop cleanup. adding set_to_none is more memory efficiency
+            global_step += 1
+            # For MPS gradient stability
+            torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+            for param in lora_params:
+                if param.grad is not None:
+                    param.grad.data = param.grad.data.contiguous()
+            optimizer.step()
+            optimizer.zero_grad(set_to_none=True)
+            print(f"[step {global_step}] loss={running_loss/ACCUMULATION_STEPS:.4f} rewards(c/r)={chosen_rewards.mean().item():.2f}/{rejected_rewards.mean().item():.2f}")
+            running_loss = 0.0
         # --- THE DEEP CLEAN BLOCK ---
         # Tensors from the Forward Passes (The biggest memory hogs)
         del response_ids, response_attn, response_answer_mask, response_targets
@@ -161,7 +168,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         del chosen_answer_mask, rejected_answer_mask
         torch.mps.empty_cache()
         # periodically evaluate
-        if global_step % EVAL_EVERY == 0:
+        if is_update_step and global_step % EVAL_EVERY == 0:
             gc.collect()
             avg_loss = running_loss / EVAL_EVERY
             print(f"[step {global_step}] avg_loss={avg_loss:.4f}")

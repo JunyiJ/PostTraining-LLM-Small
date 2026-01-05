@@ -38,7 +38,7 @@ NUM_TRAINING_DATA = 64
 BATCH_SIZE = 2
 GRAD_ACCUM_STEPS = 16    # Accumulate 8 mini-batches (Total effective batch = 32)
 TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
-PPO_EPOCHS = 4          # Number of optimization passes per batch
+PPO_EPOCHS = 2          # Number of optimization passes per batch
 NUM_EPOCHS = 10
 EVAL_EVERY = 11
 MAX_INPUT_TOKENS = 150
@@ -51,7 +51,7 @@ DEVICE = torch.device("mps")
 EPS = 0.2
 # Define Fixed Length (MPS Compilation Target)
 TRAINING_CTX_LEN = 512
-PROMPT = " Please reason step-by-step,  then give: Final answer."
+PROMPT = " Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. "
 
 def safe_pad(tensor, target_len, pad_val=0):
     """
@@ -131,7 +131,7 @@ else:
 
 model.to(DEVICE)
 # Setup optimizer and scheduler
-params = get_optimizer_params(model, lora_lr=2e-4, critic_lr=1e-4, weight_decay=0.01)
+params = get_optimizer_params(model, lora_lr=2e-5, critic_lr=1e-4, weight_decay=0.01)
 optimizer = torch.optim.AdamW(params, eps=1e-6)
 
 total_steps = min(len(test_data), NUM_TRAINING_DATA * NUM_EPOCHS) // BATCH_SIZE * NUM_EPOCHS
