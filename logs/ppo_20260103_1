@@ -633,3 +633,31 @@ Global Advantage Norm:          0.01s
 Logprob forward & backward:   2094.84s
 [92m📊 [System Health] RAM: 68.7% | Swap Used: 8.75 GB[0m
 Collecting experience for step 76...
+PPO optimization step 76...
+[step 77] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Please reason step-by-step,  then give: Final answer.
+
+**Reasoning:**
+
+1. **First leg:**
+   - Distance = Speed x Time
+   - Distance = 62 km/h * 2 h = 124 km
+
+2. **Second leg:**
+   - Speed = 62 km/h * 2 = 124 km/h
+   - Time = 3 h
+   - Distance = 124 km/h * 3 h = 372 km
+
+3. **Total distance:**
+   - Total distance = 124 km + 372 km = 496 km
+
+**Final answer:** The total distance traveled by the car is 496 km. 
+
+[timing] sample processed in 2318.52s
+
+=== PROFILER ===
+Sampling:          492.84s
+Global Advantage Norm:          0.01s
+Logprob forward & backward:   1825.65s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_lora_epoch10_step80.pt
+==end-of-epoch 10==

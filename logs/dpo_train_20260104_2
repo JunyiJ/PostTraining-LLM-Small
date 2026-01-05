@@ -1,0 +1,3582 @@
+LoRA checkpoint None not found; training from base model.
+Print found 10471 lines of training data
+
+=== Epoch 1/50 ===
+[92m📊 [System Health] RAM: 56.4% | Swap Used: 0.90 GB[0m
+[timing] sample processed in 14.00s
+[92m📊 [System Health] RAM: 60.1% | Swap Used: 1.06 GB[0m
+[timing] sample processed in 6.83s
+[92m📊 [System Health] RAM: 60.8% | Swap Used: 1.42 GB[0m
+[timing] sample processed in 50.26s
+[92m📊 [System Health] RAM: 51.7% | Swap Used: 5.29 GB[0m
+[timing] sample processed in 13.22s
+[92m📊 [System Health] RAM: 54.2% | Swap Used: 1.10 GB[0m
+[step 1] loss=0.1386 rewards(c/r)=-0.03/-0.02
+[timing] sample processed in 46.50s
+[timing] sample processed in 52.70s
+[timing] sample processed in 24.59s
+[timing] sample processed in 17.21s
+[timing] sample processed in 19.38s
+[step 2] loss=0.1411 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 21.26s
+[timing] sample processed in 19.17s
+[timing] sample processed in 7.55s
+[timing] sample processed in 6.90s
+[timing] sample processed in 33.00s
+[step 3] loss=0.1400 rewards(c/r)=0.03/-0.01
+[timing] sample processed in 16.32s
+[timing] sample processed in 7.30s
+[timing] sample processed in 5.47s
+[timing] sample processed in 16.10s
+[timing] sample processed in 5.50s
+[step 4] loss=0.1399 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 9.28s
+[timing] sample processed in 14.76s
+[timing] sample processed in 20.94s
+[timing] sample processed in 18.24s
+[timing] sample processed in 12.67s
+[step 5] loss=0.1380 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 3.84s
+[timing] sample processed in 13.46s
+[timing] sample processed in 66.14s
+[timing] sample processed in 34.51s
+[timing] sample processed in 14.96s
+[step 6] loss=0.1389 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 16.70s
+[timing] sample processed in 19.78s
+[timing] sample processed in 5.58s
+[timing] sample processed in 8.37s
+[timing] sample processed in 15.35s
+[step 7] loss=0.1365 rewards(c/r)=0.04/0.02
+[timing] sample processed in 8.04s
+[timing] sample processed in 9.68s
+[timing] sample processed in 11.49s
+[timing] sample processed in 26.03s
+[timing] sample processed in 46.87s
+[step 8] loss=0.1380 rewards(c/r)=0.01/0.02
+[timing] sample processed in 15.47s
+[timing] sample processed in 11.30s
+[timing] sample processed in 20.05s
+[timing] sample processed in 14.00s
+[timing] sample processed in 11.71s
+[step 9] loss=0.1372 rewards(c/r)=0.04/-0.02
+[timing] sample processed in 6.76s
+[timing] sample processed in 13.40s
+[timing] sample processed in 7.36s
+[timing] sample processed in 8.08s
+[timing] sample processed in 10.71s
+[step 10] loss=0.1400 rewards(c/r)=-0.03/-0.03
+[timing] sample processed in 6.67s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch1_step10.pt
+==end-of-epoch 1==
+
+=== Epoch 2/50 ===
+[92m📊 [System Health] RAM: 46.3% | Swap Used: 1.95 GB[0m
+[timing] sample processed in 11.67s
+[92m📊 [System Health] RAM: 54.0% | Swap Used: 1.73 GB[0m
+[timing] sample processed in 4.25s
+[92m📊 [System Health] RAM: 66.3% | Swap Used: 1.82 GB[0m
+[timing] sample processed in 12.89s
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 1.97 GB[0m
+[timing] sample processed in 8.57s
+[92m📊 [System Health] RAM: 60.0% | Swap Used: 2.05 GB[0m
+[step 11] loss=0.1398 rewards(c/r)=0.00/0.01
+[timing] sample processed in 9.40s
+[timing] sample processed in 8.29s
+[timing] sample processed in 11.95s
+[timing] sample processed in 7.12s
+[timing] sample processed in 4.51s
+[step 12] loss=0.1394 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 12.98s
+[timing] sample processed in 12.59s
+[timing] sample processed in 13.97s
+[timing] sample processed in 67.74s
+[timing] sample processed in 21.80s
+[step 13] loss=0.1392 rewards(c/r)=0.02/0.01
+[timing] sample processed in 4.09s
+[timing] sample processed in 16.93s
+[timing] sample processed in 18.50s
+[timing] sample processed in 23.02s
+[timing] sample processed in 32.02s
+[step 14] loss=0.1378 rewards(c/r)=-0.01/-0.05
+[timing] sample processed in 21.44s
+[timing] sample processed in 6.75s
+[timing] sample processed in 4.00s
+[timing] sample processed in 27.21s
+[timing] sample processed in 7.83s
+[step 15] loss=0.1401 rewards(c/r)=-0.02/0.02
+[timing] sample processed in 10.90s
+[timing] sample processed in 7.63s
+[timing] sample processed in 22.89s
+[timing] sample processed in 14.79s
+[timing] sample processed in 45.38s
+[step 16] loss=0.1365 rewards(c/r)=0.03/0.00
+[timing] sample processed in 30.02s
+[timing] sample processed in 15.83s
+[timing] sample processed in 19.45s
+[timing] sample processed in 16.10s
+[timing] sample processed in 49.46s
+[step 17] loss=0.1392 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 16.96s
+[timing] sample processed in 39.72s
+[timing] sample processed in 10.31s
+[timing] sample processed in 24.42s
+[timing] sample processed in 11.95s
+[step 18] loss=0.1381 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 12.90s
+[timing] sample processed in 11.36s
+[timing] sample processed in 4.78s
+[timing] sample processed in 36.18s
+[timing] sample processed in 27.96s
+[step 19] loss=0.1361 rewards(c/r)=0.00/-0.04
+[timing] sample processed in 13.74s
+[timing] sample processed in 16.70s
+[timing] sample processed in 12.38s
+[timing] sample processed in 6.91s
+[timing] sample processed in 23.00s
+[step 20] loss=0.1377 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 17.04s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch2_step20.pt
+==end-of-epoch 2==
+
+=== Epoch 3/50 ===
+[92m📊 [System Health] RAM: 47.9% | Swap Used: 2.20 GB[0m
+[timing] sample processed in 12.48s
+[92m📊 [System Health] RAM: 56.8% | Swap Used: 2.02 GB[0m
+[timing] sample processed in 6.67s
+[92m📊 [System Health] RAM: 53.0% | Swap Used: 2.28 GB[0m
+[timing] sample processed in 6.76s
+[92m📊 [System Health] RAM: 48.7% | Swap Used: 2.22 GB[0m
+[timing] sample processed in 12.89s
+[92m📊 [System Health] RAM: 62.5% | Swap Used: 2.09 GB[0m
+[step 21] loss=0.1377 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 7.80s
+[timing] sample processed in 6.89s
+[timing] sample processed in 13.48s
+[timing] sample processed in 30.01s
+[timing] sample processed in 15.14s
+[step 22] loss=0.1384 rewards(c/r)=-0.01/-0.05
+[timing] sample processed in 7.08s
+[timing] sample processed in 32.20s
+[timing] sample processed in 15.99s
+[timing] sample processed in 17.34s
+[timing] sample processed in 11.08s
+[step 23] loss=0.1397 rewards(c/r)=-0.03/-0.00
+[timing] sample processed in 46.41s
+[timing] sample processed in 42.37s
+[timing] sample processed in 4.87s
+[timing] sample processed in 26.29s
+[timing] sample processed in 15.36s
+[step 24] loss=0.1380 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 15.73s
+[timing] sample processed in 7.79s
+[timing] sample processed in 6.26s
+[timing] sample processed in 7.37s
+[timing] sample processed in 64.76s
+[step 25] loss=0.1405 rewards(c/r)=0.01/0.02
+[timing] sample processed in 18.83s
+[timing] sample processed in 12.70s
+[timing] sample processed in 16.94s
+[timing] sample processed in 18.84s
+[timing] sample processed in 11.28s
+[step 26] loss=0.1380 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 31.82s
+[timing] sample processed in 19.49s
+[timing] sample processed in 16.18s
+[timing] sample processed in 13.49s
+[timing] sample processed in 18.33s
+[step 27] loss=0.1402 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 23.24s
+[timing] sample processed in 17.71s
+[timing] sample processed in 19.60s
+[timing] sample processed in 39.02s
+[timing] sample processed in 13.76s
+[step 28] loss=0.1389 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 6.55s
+[timing] sample processed in 50.96s
+[timing] sample processed in 18.02s
+[timing] sample processed in 24.86s
+[timing] sample processed in 17.07s
+[step 29] loss=0.1379 rewards(c/r)=0.02/0.02
+[timing] sample processed in 27.44s
+[timing] sample processed in 53.09s
+[timing] sample processed in 24.00s
+[timing] sample processed in 9.81s
+[timing] sample processed in 14.46s
+[step 30] loss=0.1384 rewards(c/r)=0.01/-0.00
+[timing] sample processed in 18.57s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch3_step30.pt
+==end-of-epoch 3==
+
+=== Epoch 4/50 ===
+[92m📊 [System Health] RAM: 51.1% | Swap Used: 2.57 GB[0m
+[timing] sample processed in 11.44s
+[92m📊 [System Health] RAM: 67.8% | Swap Used: 2.63 GB[0m
+[timing] sample processed in 21.77s
+[92m📊 [System Health] RAM: 72.5% | Swap Used: 3.00 GB[0m
+[timing] sample processed in 43.89s
+[92m📊 [System Health] RAM: 45.2% | Swap Used: 4.09 GB[0m
+[timing] sample processed in 55.10s
+[92m📊 [System Health] RAM: 43.3% | Swap Used: 5.01 GB[0m
+[step 31] loss=0.1387 rewards(c/r)=0.01/0.00
+[timing] sample processed in 29.41s
+[timing] sample processed in 34.51s
+[timing] sample processed in 14.70s
+[timing] sample processed in 24.79s
+[timing] sample processed in 20.54s
+[step 32] loss=0.1388 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 11.72s
+[timing] sample processed in 21.34s
+[timing] sample processed in 40.12s
+[timing] sample processed in 51.47s
+[timing] sample processed in 33.28s
+[step 33] loss=0.1402 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 15.97s
+[timing] sample processed in 78.91s
+[timing] sample processed in 27.64s
+[timing] sample processed in 29.98s
+[timing] sample processed in 9.97s
+[step 34] loss=0.1367 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 11.20s
+[timing] sample processed in 19.75s
+[timing] sample processed in 24.43s
+[timing] sample processed in 26.29s
+[timing] sample processed in 53.59s
+[step 35] loss=0.1382 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 30.51s
+[timing] sample processed in 51.47s
+[timing] sample processed in 39.50s
+[timing] sample processed in 27.20s
+[timing] sample processed in 17.96s
+[step 36] loss=0.1363 rewards(c/r)=0.02/0.01
+[timing] sample processed in 51.22s
+[timing] sample processed in 18.98s
+[timing] sample processed in 60.55s
+[timing] sample processed in 51.30s
+[timing] sample processed in 20.53s
+[step 37] loss=0.1368 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 24.23s
+[timing] sample processed in 12.58s
+[timing] sample processed in 23.03s
+[timing] sample processed in 27.11s
+[timing] sample processed in 26.50s
+[step 38] loss=0.1387 rewards(c/r)=0.00/0.02
+[timing] sample processed in 40.94s
+[timing] sample processed in 24.69s
+[timing] sample processed in 25.10s
+[timing] sample processed in 10.26s
+[timing] sample processed in 16.01s
+[step 39] loss=0.1384 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 36.51s
+[timing] sample processed in 28.51s
+[timing] sample processed in 83.72s
+[timing] sample processed in 18.35s
+[timing] sample processed in 20.96s
+[step 40] loss=0.1381 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 26.59s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch4_step40.pt
+==end-of-epoch 4==
+
+=== Epoch 5/50 ===
+[92m📊 [System Health] RAM: 50.6% | Swap Used: 3.09 GB[0m
+[timing] sample processed in 30.92s
+[92m📊 [System Health] RAM: 72.3% | Swap Used: 4.10 GB[0m
+[timing] sample processed in 22.09s
+[92m📊 [System Health] RAM: 67.7% | Swap Used: 3.02 GB[0m
+[timing] sample processed in 14.49s
+[92m📊 [System Health] RAM: 54.0% | Swap Used: 3.12 GB[0m
+[timing] sample processed in 20.42s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 3.04 GB[0m
+[step 41] loss=0.1391 rewards(c/r)=0.00/-0.00
+[timing] sample processed in 50.80s
+[timing] sample processed in 55.92s
+[timing] sample processed in 26.71s
+[timing] sample processed in 28.69s
+[timing] sample processed in 28.77s
+[step 42] loss=0.1382 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 16.37s
+[timing] sample processed in 28.04s
+[timing] sample processed in 31.03s
+[timing] sample processed in 24.81s
+[timing] sample processed in 24.74s
+[step 43] loss=0.1408 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 53.19s
+[timing] sample processed in 56.31s
+[timing] sample processed in 16.17s
+[timing] sample processed in 23.82s
+[timing] sample processed in 14.19s
+[step 44] loss=0.1386 rewards(c/r)=0.02/0.01
+[timing] sample processed in 16.45s
+[timing] sample processed in 10.27s
+[timing] sample processed in 7.93s
+[timing] sample processed in 7.43s
+[timing] sample processed in 10.18s
+[step 45] loss=0.1372 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 10.06s
+[timing] sample processed in 7.42s
+[timing] sample processed in 12.92s
+[timing] sample processed in 18.49s
+[timing] sample processed in 27.41s
+[step 46] loss=0.1381 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 12.74s
+[timing] sample processed in 21.46s
+[timing] sample processed in 17.52s
+[timing] sample processed in 13.37s
+[timing] sample processed in 21.09s
+[step 47] loss=0.1416 rewards(c/r)=-0.04/0.01
+[timing] sample processed in 51.05s
+[timing] sample processed in 22.40s
+[timing] sample processed in 15.29s
+[timing] sample processed in 10.22s
+[timing] sample processed in 23.19s
+[step 48] loss=0.1384 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 13.72s
+[timing] sample processed in 36.90s
+[timing] sample processed in 15.33s
+[timing] sample processed in 9.44s
+[timing] sample processed in 6.40s
+[step 49] loss=0.1380 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 13.12s
+[timing] sample processed in 27.57s
+[timing] sample processed in 7.67s
+[timing] sample processed in 7.96s
+[timing] sample processed in 18.49s
+[step 50] loss=0.1409 rewards(c/r)=-0.01/-0.01
+[step 50] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 23.21s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch5_step50.pt
+==end-of-epoch 5==
+
+=== Epoch 6/50 ===
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 2.96 GB[0m
+[timing] sample processed in 30.21s
+[92m📊 [System Health] RAM: 56.2% | Swap Used: 3.82 GB[0m
+[timing] sample processed in 8.10s
+[92m📊 [System Health] RAM: 63.8% | Swap Used: 3.34 GB[0m
+[timing] sample processed in 12.03s
+[92m📊 [System Health] RAM: 66.3% | Swap Used: 3.60 GB[0m
+[timing] sample processed in 10.27s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 3.73 GB[0m
+[step 51] loss=0.1361 rewards(c/r)=0.00/0.01
+[timing] sample processed in 19.28s
+[timing] sample processed in 16.10s
+[timing] sample processed in 19.57s
+[timing] sample processed in 19.83s
+[timing] sample processed in 17.75s
+[step 52] loss=0.1373 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 5.65s
+[timing] sample processed in 6.70s
+[timing] sample processed in 11.76s
+[timing] sample processed in 10.09s
+[timing] sample processed in 58.43s
+[step 53] loss=0.1378 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 29.84s
+[timing] sample processed in 4.99s
+[timing] sample processed in 20.23s
+[timing] sample processed in 28.71s
+[timing] sample processed in 17.18s
+[step 54] loss=0.1392 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 13.72s
+[timing] sample processed in 43.90s
+[timing] sample processed in 36.34s
+[timing] sample processed in 7.80s
+[timing] sample processed in 10.81s
+[step 55] loss=0.1387 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 53.37s
+[timing] sample processed in 28.53s
+[timing] sample processed in 11.22s
+[timing] sample processed in 11.88s
+[timing] sample processed in 4.19s
+[step 56] loss=0.1383 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 16.64s
+[timing] sample processed in 6.88s
+[timing] sample processed in 7.09s
+[timing] sample processed in 12.50s
+[timing] sample processed in 47.04s
+[step 57] loss=0.1373 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 64.34s
+[timing] sample processed in 33.76s
+[timing] sample processed in 15.47s
+[timing] sample processed in 11.33s
+[timing] sample processed in 17.69s
+[step 58] loss=0.1388 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 13.36s
+[timing] sample processed in 7.56s
+[timing] sample processed in 26.40s
+[timing] sample processed in 20.77s
+[timing] sample processed in 15.05s
+[step 59] loss=0.1389 rewards(c/r)=0.01/0.01
+[timing] sample processed in 8.65s
+[timing] sample processed in 25.85s
+[timing] sample processed in 8.45s
+[timing] sample processed in 15.72s
+[timing] sample processed in 43.30s
+[step 60] loss=0.1382 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 13.71s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch6_step60.pt
+==end-of-epoch 6==
+
+=== Epoch 7/50 ===
+[92m📊 [System Health] RAM: 44.2% | Swap Used: 3.81 GB[0m
+[timing] sample processed in 19.45s
+[92m📊 [System Health] RAM: 47.2% | Swap Used: 3.85 GB[0m
+[timing] sample processed in 28.58s
+[92m📊 [System Health] RAM: 53.8% | Swap Used: 5.15 GB[0m
+[timing] sample processed in 22.16s
+[92m📊 [System Health] RAM: 62.7% | Swap Used: 4.66 GB[0m
+[timing] sample processed in 26.88s
+[92m📊 [System Health] RAM: 53.3% | Swap Used: 4.09 GB[0m
+[step 61] loss=0.1381 rewards(c/r)=0.01/0.02
+[timing] sample processed in 14.86s
+[timing] sample processed in 31.42s
+[timing] sample processed in 16.49s
+[timing] sample processed in 19.99s
+[timing] sample processed in 16.09s
+[step 62] loss=0.1372 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 20.95s
+[timing] sample processed in 17.89s
+[timing] sample processed in 11.95s
+[timing] sample processed in 17.38s
+[timing] sample processed in 53.67s
+[step 63] loss=0.1417 rewards(c/r)=-0.02/0.06
+[timing] sample processed in 44.53s
+[timing] sample processed in 20.84s
+[timing] sample processed in 19.36s
+[timing] sample processed in 25.05s
+[timing] sample processed in 35.07s
+[step 64] loss=0.1364 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 23.15s
+[timing] sample processed in 10.97s
+[timing] sample processed in 21.59s
+[timing] sample processed in 17.41s
+[timing] sample processed in 10.95s
+[step 65] loss=0.1384 rewards(c/r)=-0.00/-0.05
+[timing] sample processed in 13.31s
+[timing] sample processed in 12.49s
+[timing] sample processed in 9.76s
+[timing] sample processed in 21.95s
+[timing] sample processed in 12.94s
+[step 66] loss=0.1383 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 38.53s
+[timing] sample processed in 11.84s
+[timing] sample processed in 20.85s
+[timing] sample processed in 69.13s
+[timing] sample processed in 42.34s
+[step 67] loss=0.1378 rewards(c/r)=0.01/0.01
+[timing] sample processed in 23.28s
+[timing] sample processed in 11.71s
+[timing] sample processed in 19.26s
+[timing] sample processed in 23.05s
+[timing] sample processed in 21.74s
+[step 68] loss=0.1391 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 10.75s
+[timing] sample processed in 10.98s
+[timing] sample processed in 37.45s
+[timing] sample processed in 39.53s
+[timing] sample processed in 23.96s
+[step 69] loss=0.1397 rewards(c/r)=-0.02/0.05
+[timing] sample processed in 29.24s
+[timing] sample processed in 23.53s
+[timing] sample processed in 36.73s
+[timing] sample processed in 15.60s
+[timing] sample processed in 21.82s
+[step 70] loss=0.1400 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 13.71s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch7_step70.pt
+==end-of-epoch 7==
+
+=== Epoch 8/50 ===
+[92m📊 [System Health] RAM: 47.8% | Swap Used: 4.14 GB[0m
+[timing] sample processed in 10.06s
+[92m📊 [System Health] RAM: 60.3% | Swap Used: 4.11 GB[0m
+[timing] sample processed in 31.81s
+[92m📊 [System Health] RAM: 61.7% | Swap Used: 5.25 GB[0m
+[timing] sample processed in 38.09s
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 5.49 GB[0m
+[timing] sample processed in 28.06s
+[92m📊 [System Health] RAM: 61.4% | Swap Used: 4.48 GB[0m
+[step 71] loss=0.1380 rewards(c/r)=0.00/0.01
+[timing] sample processed in 58.47s
+[timing] sample processed in 27.43s
+[timing] sample processed in 17.50s
+[timing] sample processed in 26.35s
+[timing] sample processed in 44.04s
+[step 72] loss=0.1376 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 23.29s
+[timing] sample processed in 23.47s
+[timing] sample processed in 46.48s
+[timing] sample processed in 20.58s
+[timing] sample processed in 22.55s
+[step 73] loss=0.1378 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 27.29s
+[timing] sample processed in 37.74s
+[timing] sample processed in 14.96s
+[timing] sample processed in 16.31s
+[timing] sample processed in 25.04s
+[step 74] loss=0.1389 rewards(c/r)=0.00/-0.00
+[timing] sample processed in 11.10s
+[timing] sample processed in 11.80s
+[timing] sample processed in 20.05s
+[timing] sample processed in 21.53s
+[timing] sample processed in 19.15s
+[step 75] loss=0.1390 rewards(c/r)=0.01/0.01
+[timing] sample processed in 11.18s
+[timing] sample processed in 21.61s
+[timing] sample processed in 47.81s
+[timing] sample processed in 19.88s
+[timing] sample processed in 25.52s
+[step 76] loss=0.1397 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 82.61s
+[timing] sample processed in 20.71s
+[timing] sample processed in 21.96s
+[timing] sample processed in 19.50s
+[timing] sample processed in 39.27s
+[step 77] loss=0.1389 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 73.02s
+[timing] sample processed in 18.65s
+[timing] sample processed in 24.66s
+[timing] sample processed in 32.72s
+[timing] sample processed in 19.74s
+[step 78] loss=0.1394 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 10.95s
+[timing] sample processed in 9.28s
+[timing] sample processed in 18.95s
+[timing] sample processed in 12.32s
+[timing] sample processed in 42.03s
+[step 79] loss=0.1379 rewards(c/r)=0.01/-0.03
+[timing] sample processed in 16.69s
+[timing] sample processed in 56.78s
+[timing] sample processed in 40.76s
+[timing] sample processed in 32.02s
+[timing] sample processed in 59.67s
+[step 80] loss=0.1396 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 44.49s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch8_step80.pt
+==end-of-epoch 8==
+
+=== Epoch 9/50 ===
+[92m📊 [System Health] RAM: 51.4% | Swap Used: 4.81 GB[0m
+[timing] sample processed in 12.46s
+[92m📊 [System Health] RAM: 64.0% | Swap Used: 3.88 GB[0m
+[timing] sample processed in 35.06s
+[92m📊 [System Health] RAM: 55.2% | Swap Used: 5.82 GB[0m
+[timing] sample processed in 37.75s
+[92m📊 [System Health] RAM: 48.0% | Swap Used: 5.95 GB[0m
+[timing] sample processed in 28.01s
+[92m📊 [System Health] RAM: 55.0% | Swap Used: 5.43 GB[0m
+[step 81] loss=0.1369 rewards(c/r)=0.01/0.02
+[timing] sample processed in 60.24s
+[timing] sample processed in 39.72s
+[timing] sample processed in 30.98s
+[timing] sample processed in 26.49s
+[timing] sample processed in 15.11s
+[step 82] loss=0.1403 rewards(c/r)=0.00/0.02
+[timing] sample processed in 10.80s
+[timing] sample processed in 26.64s
+[timing] sample processed in 34.78s
+[timing] sample processed in 14.52s
+[timing] sample processed in 77.11s
+[step 83] loss=0.1399 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 30.42s
+[timing] sample processed in 40.70s
+[timing] sample processed in 63.94s
+[timing] sample processed in 36.07s
+[timing] sample processed in 17.39s
+[step 84] loss=0.1396 rewards(c/r)=-0.06/0.02
+[timing] sample processed in 15.42s
+[timing] sample processed in 27.47s
+[timing] sample processed in 26.48s
+[timing] sample processed in 16.15s
+[timing] sample processed in 31.10s
+[step 85] loss=0.1365 rewards(c/r)=0.01/-0.06
+[timing] sample processed in 28.35s
+[timing] sample processed in 23.33s
+[timing] sample processed in 27.40s
+[timing] sample processed in 13.30s
+[timing] sample processed in 41.02s
+[step 86] loss=0.1377 rewards(c/r)=0.00/0.00
+[timing] sample processed in 15.22s
+[timing] sample processed in 72.14s
+[timing] sample processed in 26.96s
+[timing] sample processed in 27.71s
+[timing] sample processed in 34.26s
+[step 87] loss=0.1384 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 13.40s
+[timing] sample processed in 18.71s
+[timing] sample processed in 43.87s
+[timing] sample processed in 42.34s
+[timing] sample processed in 14.54s
+[step 88] loss=0.1374 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 14.94s
+[timing] sample processed in 30.52s
+[timing] sample processed in 18.97s
+[timing] sample processed in 43.34s
+[timing] sample processed in 33.09s
+[step 89] loss=0.1385 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 14.17s
+[timing] sample processed in 19.58s
+[timing] sample processed in 60.99s
+[timing] sample processed in 22.78s
+[timing] sample processed in 19.34s
+[step 90] loss=0.1394 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 26.61s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch9_step90.pt
+==end-of-epoch 9==
+
+=== Epoch 10/50 ===
+[92m📊 [System Health] RAM: 48.1% | Swap Used: 4.52 GB[0m
+[timing] sample processed in 26.84s
+[92m📊 [System Health] RAM: 62.1% | Swap Used: 4.44 GB[0m
+[timing] sample processed in 34.91s
+[92m📊 [System Health] RAM: 58.3% | Swap Used: 4.56 GB[0m
+[timing] sample processed in 27.60s
+[92m📊 [System Health] RAM: 64.3% | Swap Used: 4.58 GB[0m
+[timing] sample processed in 22.12s
+[92m📊 [System Health] RAM: 50.9% | Swap Used: 4.49 GB[0m
+[step 91] loss=0.1400 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 66.85s
+[timing] sample processed in 25.35s
+[timing] sample processed in 59.25s
+[timing] sample processed in 32.62s
+[timing] sample processed in 24.48s
+[step 92] loss=0.1356 rewards(c/r)=0.01/0.01
+[timing] sample processed in 25.71s
+[timing] sample processed in 14.42s
+[timing] sample processed in 46.20s
+[timing] sample processed in 35.94s
+[timing] sample processed in 19.94s
+[step 93] loss=0.1379 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 16.40s
+[timing] sample processed in 26.28s
+[timing] sample processed in 75.96s
+[timing] sample processed in 46.84s
+[timing] sample processed in 19.58s
+[step 94] loss=0.1399 rewards(c/r)=0.01/0.01
+[timing] sample processed in 69.22s
+[timing] sample processed in 38.08s
+[timing] sample processed in 64.10s
+[timing] sample processed in 25.08s
+[timing] sample processed in 24.37s
+[step 95] loss=0.1379 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 72.74s
+[timing] sample processed in 36.48s
+[timing] sample processed in 29.78s
+[timing] sample processed in 28.21s
+[timing] sample processed in 26.65s
+[step 96] loss=0.1394 rewards(c/r)=-0.02/0.02
+[timing] sample processed in 50.75s
+[timing] sample processed in 14.70s
+[timing] sample processed in 22.49s
+[timing] sample processed in 104.35s
+[timing] sample processed in 23.66s
+[step 97] loss=0.1392 rewards(c/r)=0.03/0.01
+[timing] sample processed in 12.00s
+[timing] sample processed in 30.89s
+[timing] sample processed in 103.91s
+[timing] sample processed in 37.00s
+[timing] sample processed in 16.30s
+[step 98] loss=0.1401 rewards(c/r)=-0.02/-0.00
+[timing] sample processed in 13.79s
+[timing] sample processed in 23.62s
+[timing] sample processed in 23.07s
+[timing] sample processed in 14.79s
+[timing] sample processed in 45.37s
+[step 99] loss=0.1381 rewards(c/r)=0.02/0.02
+[timing] sample processed in 28.67s
+[timing] sample processed in 15.33s
+[timing] sample processed in 16.05s
+[timing] sample processed in 15.87s
+[timing] sample processed in 24.68s
+[step 100] loss=0.1389 rewards(c/r)=0.00/-0.02
+[step 100] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 59.74s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch10_step100.pt
+==end-of-epoch 10==
+
+=== Epoch 11/50 ===
+[92m📊 [System Health] RAM: 59.3% | Swap Used: 3.45 GB[0m
+[timing] sample processed in 18.74s
+[92m📊 [System Health] RAM: 71.2% | Swap Used: 4.34 GB[0m
+[timing] sample processed in 25.15s
+[92m📊 [System Health] RAM: 61.5% | Swap Used: 4.52 GB[0m
+[timing] sample processed in 12.98s
+[92m📊 [System Health] RAM: 64.1% | Swap Used: 4.41 GB[0m
+[timing] sample processed in 37.84s
+[92m📊 [System Health] RAM: 45.1% | Swap Used: 6.08 GB[0m
+[step 101] loss=0.1376 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 56.30s
+[timing] sample processed in 31.54s
+[timing] sample processed in 18.10s
+[timing] sample processed in 28.00s
+[timing] sample processed in 22.65s
+[step 102] loss=0.1396 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 47.15s
+[timing] sample processed in 24.62s
+[timing] sample processed in 29.61s
+[timing] sample processed in 17.95s
+[timing] sample processed in 33.27s
+[step 103] loss=0.1407 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 25.13s
+[timing] sample processed in 20.79s
+[timing] sample processed in 21.78s
+[timing] sample processed in 19.32s
+[timing] sample processed in 22.42s
+[step 104] loss=0.1383 rewards(c/r)=0.02/0.00
+[timing] sample processed in 19.38s
+[timing] sample processed in 28.36s
+[timing] sample processed in 16.52s
+[timing] sample processed in 40.79s
+[timing] sample processed in 37.77s
+[step 105] loss=0.1397 rewards(c/r)=0.01/0.07
+[timing] sample processed in 42.94s
+[timing] sample processed in 22.64s
+[timing] sample processed in 13.83s
+[timing] sample processed in 27.89s
+[timing] sample processed in 17.59s
+[step 106] loss=0.1391 rewards(c/r)=0.01/0.01
+[timing] sample processed in 27.06s
+[timing] sample processed in 40.27s
+[timing] sample processed in 26.93s
+[timing] sample processed in 20.68s
+[timing] sample processed in 12.13s
+[step 107] loss=0.1362 rewards(c/r)=0.05/-0.04
+[timing] sample processed in 18.53s
+[timing] sample processed in 42.23s
+[timing] sample processed in 41.65s
+[timing] sample processed in 17.28s
+[timing] sample processed in 17.49s
+[step 108] loss=0.1403 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 39.51s
+[timing] sample processed in 23.95s
+[timing] sample processed in 12.63s
+[timing] sample processed in 29.02s
+[timing] sample processed in 10.78s
+[step 109] loss=0.1398 rewards(c/r)=0.02/0.05
+[timing] sample processed in 33.37s
+[timing] sample processed in 63.83s
+[timing] sample processed in 57.76s
+[timing] sample processed in 32.76s
+[timing] sample processed in 11.62s
+[step 110] loss=0.1406 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 32.58s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch11_step110.pt
+==end-of-epoch 11==
+
+=== Epoch 12/50 ===
+[92m📊 [System Health] RAM: 56.3% | Swap Used: 4.32 GB[0m
+[timing] sample processed in 28.05s
+[92m📊 [System Health] RAM: 55.3% | Swap Used: 4.48 GB[0m
+[timing] sample processed in 59.58s
+[92m📊 [System Health] RAM: 48.9% | Swap Used: 5.61 GB[0m
+[timing] sample processed in 35.81s
+[92m📊 [System Health] RAM: 68.1% | Swap Used: 7.39 GB[0m
+[timing] sample processed in 11.51s
+[92m📊 [System Health] RAM: 59.3% | Swap Used: 4.65 GB[0m
+[step 111] loss=0.1392 rewards(c/r)=0.01/0.03
+[timing] sample processed in 19.59s
+[timing] sample processed in 22.54s
+[timing] sample processed in 40.15s
+[timing] sample processed in 22.80s
+[timing] sample processed in 26.19s
+[step 112] loss=0.1385 rewards(c/r)=0.06/0.02
+[timing] sample processed in 48.89s
+[timing] sample processed in 14.38s
+[timing] sample processed in 25.15s
+[timing] sample processed in 12.14s
+[timing] sample processed in 70.74s
+[step 113] loss=0.1378 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 35.97s
+[timing] sample processed in 42.57s
+[timing] sample processed in 18.91s
+[timing] sample processed in 23.56s
+[timing] sample processed in 25.54s
+[step 114] loss=0.1392 rewards(c/r)=0.01/-0.00
+[timing] sample processed in 25.70s
+[timing] sample processed in 13.90s
+[timing] sample processed in 26.75s
+[timing] sample processed in 23.32s
+[timing] sample processed in 18.29s
+[step 115] loss=0.1412 rewards(c/r)=-0.03/-0.01
+[timing] sample processed in 21.97s
+[timing] sample processed in 15.02s
+[timing] sample processed in 40.50s
+[timing] sample processed in 46.98s
+[timing] sample processed in 17.18s
+[step 116] loss=0.1374 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 22.00s
+[timing] sample processed in 40.82s
+[timing] sample processed in 19.94s
+[timing] sample processed in 40.85s
+[timing] sample processed in 24.06s
+[step 117] loss=0.1388 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 28.48s
+[timing] sample processed in 23.08s
+[timing] sample processed in 30.02s
+[timing] sample processed in 27.43s
+[timing] sample processed in 14.73s
+[step 118] loss=0.1386 rewards(c/r)=0.00/0.01
+[timing] sample processed in 42.42s
+[timing] sample processed in 14.24s
+[timing] sample processed in 29.21s
+[timing] sample processed in 18.66s
+[timing] sample processed in 40.93s
+[step 119] loss=0.1389 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 35.52s
+[timing] sample processed in 32.07s
+[timing] sample processed in 61.05s
+[timing] sample processed in 15.80s
+[timing] sample processed in 9.06s
+[step 120] loss=0.1380 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 14.81s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch12_step120.pt
+==end-of-epoch 12==
+
+=== Epoch 13/50 ===
+[92m📊 [System Health] RAM: 57.8% | Swap Used: 4.71 GB[0m
+[timing] sample processed in 20.26s
+[92m📊 [System Health] RAM: 67.1% | Swap Used: 4.51 GB[0m
+[timing] sample processed in 19.83s
+[92m📊 [System Health] RAM: 67.0% | Swap Used: 4.87 GB[0m
+[timing] sample processed in 32.01s
+[92m📊 [System Health] RAM: 53.5% | Swap Used: 5.09 GB[0m
+[timing] sample processed in 16.89s
+[92m📊 [System Health] RAM: 57.8% | Swap Used: 4.84 GB[0m
+[step 121] loss=0.1366 rewards(c/r)=0.03/-0.03
+[timing] sample processed in 48.03s
+[timing] sample processed in 56.22s
+[timing] sample processed in 43.19s
+[timing] sample processed in 64.46s
+[timing] sample processed in 42.49s
+[step 122] loss=0.1383 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 64.83s
+[timing] sample processed in 13.61s
+[timing] sample processed in 59.46s
+[timing] sample processed in 77.90s
+[timing] sample processed in 47.98s
+[step 123] loss=0.1385 rewards(c/r)=0.01/0.02
+[timing] sample processed in 32.40s
+[timing] sample processed in 45.10s
+[timing] sample processed in 28.39s
+[timing] sample processed in 14.54s
+[timing] sample processed in 57.58s
+[step 124] loss=0.1384 rewards(c/r)=0.01/0.00
+[timing] sample processed in 22.33s
+[timing] sample processed in 19.67s
+[timing] sample processed in 35.49s
+[timing] sample processed in 82.05s
+[timing] sample processed in 79.00s
+[step 125] loss=0.1370 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 63.84s
+[timing] sample processed in 31.11s
+[timing] sample processed in 17.62s
+[timing] sample processed in 14.87s
+[timing] sample processed in 32.60s
+[step 126] loss=0.1389 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 24.07s
+[timing] sample processed in 60.07s
+[timing] sample processed in 32.76s
+[timing] sample processed in 14.96s
+[timing] sample processed in 29.04s
+[step 127] loss=0.1388 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 22.26s
+[timing] sample processed in 62.50s
+[timing] sample processed in 14.66s
+[timing] sample processed in 47.56s
+[timing] sample processed in 28.01s
+[step 128] loss=0.1407 rewards(c/r)=0.03/-0.01
+[timing] sample processed in 24.77s
+[timing] sample processed in 25.64s
+[timing] sample processed in 41.70s
+[timing] sample processed in 10.37s
+[timing] sample processed in 11.49s
+[step 129] loss=0.1412 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 54.70s
+[timing] sample processed in 18.89s
+[timing] sample processed in 40.95s
+[timing] sample processed in 12.49s
+[timing] sample processed in 21.31s
+[step 130] loss=0.1389 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 90.01s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch13_step130.pt
+==end-of-epoch 13==
+
+=== Epoch 14/50 ===
+[92m📊 [System Health] RAM: 45.8% | Swap Used: 6.19 GB[0m
+[timing] sample processed in 19.80s
+[92m📊 [System Health] RAM: 67.2% | Swap Used: 4.72 GB[0m
+[timing] sample processed in 19.73s
+[92m📊 [System Health] RAM: 70.3% | Swap Used: 4.91 GB[0m
+[timing] sample processed in 36.17s
+[92m📊 [System Health] RAM: 54.8% | Swap Used: 7.13 GB[0m
+[timing] sample processed in 24.48s
+[92m📊 [System Health] RAM: 61.1% | Swap Used: 4.91 GB[0m
+[step 131] loss=0.1397 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 40.51s
+[timing] sample processed in 16.98s
+[timing] sample processed in 37.41s
+[timing] sample processed in 47.25s
+[timing] sample processed in 30.52s
+[step 132] loss=0.1395 rewards(c/r)=-0.04/-0.01
+[timing] sample processed in 58.57s
+[timing] sample processed in 47.61s
+[timing] sample processed in 80.54s
+[timing] sample processed in 48.02s
+[timing] sample processed in 58.07s
+[step 133] loss=0.1429 rewards(c/r)=-0.03/0.03
+[timing] sample processed in 49.71s
+[timing] sample processed in 16.93s
+[timing] sample processed in 27.75s
+[timing] sample processed in 18.59s
+[timing] sample processed in 37.24s
+[step 134] loss=0.1384 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 25.61s
+[timing] sample processed in 14.37s
+[timing] sample processed in 20.28s
+[timing] sample processed in 70.26s
+[timing] sample processed in 25.25s
+[step 135] loss=0.1396 rewards(c/r)=0.01/0.04
+[timing] sample processed in 19.62s
+[timing] sample processed in 23.41s
+[timing] sample processed in 24.59s
+[timing] sample processed in 20.49s
+[timing] sample processed in 27.32s
+[step 136] loss=0.1377 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 13.27s
+[timing] sample processed in 34.86s
+[timing] sample processed in 25.86s
+[timing] sample processed in 11.32s
+[timing] sample processed in 19.23s
+[step 137] loss=0.1384 rewards(c/r)=-0.00/-0.03
+[timing] sample processed in 16.87s
+[timing] sample processed in 40.63s
+[timing] sample processed in 25.99s
+[timing] sample processed in 21.42s
+[timing] sample processed in 20.88s
+[step 138] loss=0.1380 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 35.62s
+[timing] sample processed in 33.36s
+[timing] sample processed in 34.87s
+[timing] sample processed in 20.39s
+[timing] sample processed in 22.19s
+[step 139] loss=0.1383 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 23.20s
+[timing] sample processed in 36.11s
+[timing] sample processed in 13.40s
+[timing] sample processed in 35.13s
+[timing] sample processed in 64.36s
+[step 140] loss=0.1378 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 21.04s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch14_step140.pt
+==end-of-epoch 14==
+
+=== Epoch 15/50 ===
+[92m📊 [System Health] RAM: 42.1% | Swap Used: 6.59 GB[0m
+[timing] sample processed in 30.43s
+[92m📊 [System Health] RAM: 65.5% | Swap Used: 5.67 GB[0m
+[timing] sample processed in 25.33s
+[92m📊 [System Health] RAM: 56.1% | Swap Used: 5.08 GB[0m
+[timing] sample processed in 46.21s
+[92m📊 [System Health] RAM: 64.8% | Swap Used: 6.32 GB[0m
+[timing] sample processed in 23.16s
+[92m📊 [System Health] RAM: 61.2% | Swap Used: 5.14 GB[0m
+[step 141] loss=0.1386 rewards(c/r)=0.03/-0.03
+[timing] sample processed in 23.84s
+[timing] sample processed in 24.62s
+[timing] sample processed in 13.97s
+[timing] sample processed in 22.18s
+[timing] sample processed in 14.88s
+[step 142] loss=0.1392 rewards(c/r)=0.00/0.04
+[timing] sample processed in 49.43s
+[timing] sample processed in 19.55s
+[timing] sample processed in 26.54s
+[timing] sample processed in 18.55s
+[timing] sample processed in 41.88s
+[step 143] loss=0.1426 rewards(c/r)=-0.04/0.03
+[timing] sample processed in 37.94s
+[timing] sample processed in 86.80s
+[timing] sample processed in 13.98s
+[timing] sample processed in 13.75s
+[timing] sample processed in 22.49s
+[step 144] loss=0.1381 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 16.58s
+[timing] sample processed in 73.95s
+[timing] sample processed in 35.11s
+[timing] sample processed in 20.00s
+[timing] sample processed in 26.65s
+[step 145] loss=0.1392 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 58.69s
+[timing] sample processed in 14.62s
+[timing] sample processed in 19.48s
+[timing] sample processed in 60.64s
+[timing] sample processed in 36.28s
+[step 146] loss=0.1384 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 58.94s
+[timing] sample processed in 37.48s
+[timing] sample processed in 38.33s
+[timing] sample processed in 21.61s
+[timing] sample processed in 17.90s
+[step 147] loss=0.1401 rewards(c/r)=0.02/0.01
+[timing] sample processed in 18.20s
+[timing] sample processed in 20.81s
+[timing] sample processed in 33.53s
+[timing] sample processed in 13.08s
+[timing] sample processed in 19.14s
+[step 148] loss=0.1373 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 42.11s
+[timing] sample processed in 21.24s
+[timing] sample processed in 13.02s
+[timing] sample processed in 32.62s
+[timing] sample processed in 36.49s
+[step 149] loss=0.1405 rewards(c/r)=0.02/0.00
+[timing] sample processed in 28.50s
+[timing] sample processed in 20.08s
+[timing] sample processed in 31.09s
+[timing] sample processed in 40.94s
+[timing] sample processed in 26.07s
+[step 150] loss=0.1392 rewards(c/r)=-0.01/-0.01
+[step 150] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 63.83s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch15_step150.pt
+==end-of-epoch 15==
+
+=== Epoch 16/50 ===
+[92m📊 [System Health] RAM: 58.5% | Swap Used: 4.13 GB[0m
+[timing] sample processed in 30.63s
+[92m📊 [System Health] RAM: 55.6% | Swap Used: 5.47 GB[0m
+[timing] sample processed in 25.59s
+[92m📊 [System Health] RAM: 62.7% | Swap Used: 5.21 GB[0m
+[timing] sample processed in 25.32s
+[92m📊 [System Health] RAM: 61.1% | Swap Used: 5.18 GB[0m
+[timing] sample processed in 23.01s
+[92m📊 [System Health] RAM: 58.4% | Swap Used: 5.22 GB[0m
+[step 151] loss=0.1374 rewards(c/r)=0.03/-0.01
+[timing] sample processed in 41.19s
+[timing] sample processed in 51.38s
+[timing] sample processed in 103.74s
+[timing] sample processed in 23.81s
+[timing] sample processed in 25.99s
+[step 152] loss=0.1374 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 18.92s
+[timing] sample processed in 19.88s
+[timing] sample processed in 41.32s
+[timing] sample processed in 20.82s
+[timing] sample processed in 33.34s
+[step 153] loss=0.1410 rewards(c/r)=-0.04/0.03
+[timing] sample processed in 28.85s
+[timing] sample processed in 20.78s
+[timing] sample processed in 45.82s
+[timing] sample processed in 42.83s
+[timing] sample processed in 35.50s
+[step 154] loss=0.1393 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 13.88s
+[timing] sample processed in 23.68s
+[timing] sample processed in 17.90s
+[timing] sample processed in 36.56s
+[timing] sample processed in 16.90s
+[step 155] loss=0.1375 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 38.64s
+[timing] sample processed in 42.29s
+[timing] sample processed in 39.33s
+[timing] sample processed in 42.64s
+[timing] sample processed in 63.75s
+[step 156] loss=0.1384 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 20.88s
+[timing] sample processed in 35.61s
+[timing] sample processed in 18.51s
+[timing] sample processed in 77.79s
+[timing] sample processed in 19.00s
+[step 157] loss=0.1392 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 61.39s
+[timing] sample processed in 57.76s
+[timing] sample processed in 14.76s
+[timing] sample processed in 29.53s
+[timing] sample processed in 13.36s
+[step 158] loss=0.1374 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 21.41s
+[timing] sample processed in 24.25s
+[timing] sample processed in 29.01s
+[timing] sample processed in 66.93s
+[timing] sample processed in 25.82s
+[step 159] loss=0.1402 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 24.89s
+[timing] sample processed in 21.70s
+[timing] sample processed in 27.48s
+[timing] sample processed in 29.05s
+[timing] sample processed in 13.56s
+[step 160] loss=0.1383 rewards(c/r)=0.01/0.01
+[timing] sample processed in 22.87s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch16_step160.pt
+==end-of-epoch 16==
+
+=== Epoch 17/50 ===
+[92m📊 [System Health] RAM: 49.1% | Swap Used: 5.13 GB[0m
+[timing] sample processed in 44.76s
+[92m📊 [System Health] RAM: 70.7% | Swap Used: 7.19 GB[0m
+[timing] sample processed in 21.18s
+[92m📊 [System Health] RAM: 50.6% | Swap Used: 5.32 GB[0m
+[timing] sample processed in 45.17s
+[92m📊 [System Health] RAM: 55.5% | Swap Used: 5.94 GB[0m
+[timing] sample processed in 28.40s
+[92m📊 [System Health] RAM: 46.7% | Swap Used: 5.26 GB[0m
+[step 161] loss=0.1366 rewards(c/r)=0.03/-0.07
+[timing] sample processed in 19.49s
+[timing] sample processed in 27.15s
+[timing] sample processed in 19.40s
+[timing] sample processed in 31.07s
+[timing] sample processed in 12.88s
+[step 162] loss=0.1394 rewards(c/r)=-0.02/-0.00
+[timing] sample processed in 33.92s
+[timing] sample processed in 40.00s
+[timing] sample processed in 22.63s
+[timing] sample processed in 21.76s
+[timing] sample processed in 34.94s
+[step 163] loss=0.1376 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 40.07s
+[timing] sample processed in 19.75s
+[timing] sample processed in 49.96s
+[timing] sample processed in 25.27s
+[timing] sample processed in 45.68s
+[step 164] loss=0.1385 rewards(c/r)=0.01/0.01
+[timing] sample processed in 50.33s
+[timing] sample processed in 15.99s
+[timing] sample processed in 21.96s
+[timing] sample processed in 46.85s
+[timing] sample processed in 50.21s
+[step 165] loss=0.1364 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 20.88s
+[timing] sample processed in 108.88s
+[timing] sample processed in 66.85s
+[timing] sample processed in 33.03s
+[timing] sample processed in 23.45s
+[step 166] loss=0.1351 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 16.39s
+[timing] sample processed in 14.02s
+[timing] sample processed in 12.55s
+[timing] sample processed in 41.65s
+[timing] sample processed in 15.26s
+[step 167] loss=0.1390 rewards(c/r)=0.04/-0.00
+[timing] sample processed in 19.51s
+[timing] sample processed in 17.37s
+[timing] sample processed in 64.79s
+[timing] sample processed in 31.57s
+[timing] sample processed in 25.55s
+[step 168] loss=0.1391 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 67.08s
+[timing] sample processed in 40.18s
+[timing] sample processed in 30.04s
+[timing] sample processed in 19.65s
+[timing] sample processed in 42.43s
+[step 169] loss=0.1384 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 22.70s
+[timing] sample processed in 68.16s
+[timing] sample processed in 37.20s
+[timing] sample processed in 25.73s
+[timing] sample processed in 35.74s
+[step 170] loss=0.1393 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 29.77s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch17_step170.pt
+==end-of-epoch 17==
+
+=== Epoch 18/50 ===
+[92m📊 [System Health] RAM: 52.5% | Swap Used: 5.35 GB[0m
+[timing] sample processed in 36.73s
+[92m📊 [System Health] RAM: 64.7% | Swap Used: 5.42 GB[0m
+[timing] sample processed in 42.02s
+[92m📊 [System Health] RAM: 47.9% | Swap Used: 7.67 GB[0m
+[timing] sample processed in 23.96s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 5.34 GB[0m
+[timing] sample processed in 18.71s
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 5.40 GB[0m
+[step 171] loss=0.1387 rewards(c/r)=0.02/0.00
+[timing] sample processed in 32.36s
+[timing] sample processed in 31.47s
+[timing] sample processed in 52.43s
+[timing] sample processed in 22.79s
+[timing] sample processed in 12.13s
+[step 172] loss=0.1405 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 51.20s
+[timing] sample processed in 47.24s
+[timing] sample processed in 37.35s
+[timing] sample processed in 41.73s
+[timing] sample processed in 29.72s
+[step 173] loss=0.1377 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 55.90s
+[timing] sample processed in 54.60s
+[timing] sample processed in 64.08s
+[timing] sample processed in 58.94s
+[timing] sample processed in 38.79s
+[step 174] loss=0.1359 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 28.05s
+[timing] sample processed in 45.42s
+[timing] sample processed in 22.73s
+[timing] sample processed in 41.06s
+[timing] sample processed in 17.09s
+[step 175] loss=0.1409 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 15.95s
+[timing] sample processed in 35.69s
+[timing] sample processed in 16.61s
+[timing] sample processed in 19.81s
+[timing] sample processed in 19.47s
+[step 176] loss=0.1395 rewards(c/r)=0.01/-0.05
+[timing] sample processed in 49.06s
+[timing] sample processed in 38.61s
+[timing] sample processed in 67.62s
+[timing] sample processed in 23.86s
+[timing] sample processed in 22.90s
+[step 177] loss=0.1401 rewards(c/r)=-0.04/-0.00
+[timing] sample processed in 39.90s
+[timing] sample processed in 13.55s
+[timing] sample processed in 11.58s
+[timing] sample processed in 44.34s
+[timing] sample processed in 13.37s
+[step 178] loss=0.1372 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 28.08s
+[timing] sample processed in 14.89s
+[timing] sample processed in 30.61s
+[timing] sample processed in 24.57s
+[timing] sample processed in 13.36s
+[step 179] loss=0.1384 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 11.08s
+[timing] sample processed in 18.99s
+[timing] sample processed in 46.53s
+[timing] sample processed in 26.91s
+[timing] sample processed in 20.73s
+[step 180] loss=0.1375 rewards(c/r)=0.01/0.01
+[timing] sample processed in 12.70s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch18_step180.pt
+==end-of-epoch 18==
+
+=== Epoch 19/50 ===
+[92m📊 [System Health] RAM: 47.3% | Swap Used: 5.35 GB[0m
+[timing] sample processed in 13.74s
+[92m📊 [System Health] RAM: 54.2% | Swap Used: 5.43 GB[0m
+[timing] sample processed in 20.07s
+[92m📊 [System Health] RAM: 66.2% | Swap Used: 5.29 GB[0m
+[timing] sample processed in 41.08s
+[92m📊 [System Health] RAM: 46.6% | Swap Used: 7.96 GB[0m
+[timing] sample processed in 52.30s
+[92m📊 [System Health] RAM: 49.6% | Swap Used: 6.22 GB[0m
+[step 181] loss=0.1397 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 26.61s
+[timing] sample processed in 31.03s
+[timing] sample processed in 38.47s
+[timing] sample processed in 34.66s
+[timing] sample processed in 61.98s
+[step 182] loss=0.1385 rewards(c/r)=0.07/0.01
+[timing] sample processed in 22.21s
+[timing] sample processed in 21.34s
+[timing] sample processed in 41.77s
+[timing] sample processed in 24.22s
+[timing] sample processed in 19.55s
+[step 183] loss=0.1395 rewards(c/r)=0.01/0.00
+[timing] sample processed in 20.74s
+[timing] sample processed in 38.19s
+[timing] sample processed in 44.21s
+[timing] sample processed in 27.22s
+[timing] sample processed in 16.78s
+[step 184] loss=0.1362 rewards(c/r)=0.01/-0.03
+[timing] sample processed in 17.54s
+[timing] sample processed in 35.76s
+[timing] sample processed in 25.80s
+[timing] sample processed in 12.13s
+[timing] sample processed in 11.80s
+[step 185] loss=0.1385 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 16.58s
+[timing] sample processed in 34.24s
+[timing] sample processed in 29.26s
+[timing] sample processed in 20.49s
+[timing] sample processed in 45.52s
+[step 186] loss=0.1407 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 24.08s
+[timing] sample processed in 43.41s
+[timing] sample processed in 25.39s
+[timing] sample processed in 44.23s
+[timing] sample processed in 63.97s
+[step 187] loss=0.1415 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 48.15s
+[timing] sample processed in 45.12s
+[timing] sample processed in 16.25s
+[timing] sample processed in 27.59s
+[timing] sample processed in 38.54s
+[step 188] loss=0.1396 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 15.38s
+[timing] sample processed in 22.90s
+[timing] sample processed in 38.35s
+[timing] sample processed in 20.55s
+[timing] sample processed in 22.79s
+[step 189] loss=0.1407 rewards(c/r)=0.03/0.03
+[timing] sample processed in 15.35s
+[timing] sample processed in 17.67s
+[timing] sample processed in 37.15s
+[timing] sample processed in 50.84s
+[timing] sample processed in 29.72s
+[step 190] loss=0.1374 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 27.29s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch19_step190.pt
+==end-of-epoch 19==
+
+=== Epoch 20/50 ===
+[92m📊 [System Health] RAM: 46.6% | Swap Used: 5.56 GB[0m
+[timing] sample processed in 15.11s
+[92m📊 [System Health] RAM: 58.8% | Swap Used: 5.40 GB[0m
+[timing] sample processed in 21.81s
+[92m📊 [System Health] RAM: 54.4% | Swap Used: 5.46 GB[0m
+[timing] sample processed in 24.44s
+[92m📊 [System Health] RAM: 56.0% | Swap Used: 5.50 GB[0m
+[timing] sample processed in 18.50s
+[92m📊 [System Health] RAM: 62.5% | Swap Used: 5.50 GB[0m
+[step 191] loss=0.1388 rewards(c/r)=-0.00/0.04
+[timing] sample processed in 42.08s
+[timing] sample processed in 44.88s
+[timing] sample processed in 17.45s
+[timing] sample processed in 26.75s
+[timing] sample processed in 19.81s
+[step 192] loss=0.1397 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 14.68s
+[timing] sample processed in 26.87s
+[timing] sample processed in 12.50s
+[timing] sample processed in 17.30s
+[timing] sample processed in 67.98s
+[step 193] loss=0.1392 rewards(c/r)=0.02/0.02
+[timing] sample processed in 23.51s
+[timing] sample processed in 47.56s
+[timing] sample processed in 21.54s
+[timing] sample processed in 92.10s
+[timing] sample processed in 15.27s
+[step 194] loss=0.1377 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 14.65s
+[timing] sample processed in 16.77s
+[timing] sample processed in 45.94s
+[timing] sample processed in 21.46s
+[timing] sample processed in 66.02s
+[step 195] loss=0.1388 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 22.54s
+[timing] sample processed in 43.72s
+[timing] sample processed in 20.05s
+[timing] sample processed in 59.04s
+[timing] sample processed in 38.44s
+[step 196] loss=0.1381 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 13.97s
+[timing] sample processed in 20.02s
+[timing] sample processed in 11.92s
+[timing] sample processed in 42.77s
+[timing] sample processed in 19.81s
+[step 197] loss=0.1369 rewards(c/r)=-0.02/0.02
+[timing] sample processed in 15.93s
+[timing] sample processed in 12.78s
+[timing] sample processed in 23.45s
+[timing] sample processed in 15.35s
+[timing] sample processed in 20.71s
+[step 198] loss=0.1396 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 46.55s
+[timing] sample processed in 43.71s
+[timing] sample processed in 14.00s
+[timing] sample processed in 27.63s
+[timing] sample processed in 28.73s
+[step 199] loss=0.1409 rewards(c/r)=-0.04/0.01
+[timing] sample processed in 57.91s
+[timing] sample processed in 38.44s
+[timing] sample processed in 63.00s
+[timing] sample processed in 71.43s
+[timing] sample processed in 38.52s
+[step 200] loss=0.1369 rewards(c/r)=0.00/0.01
+[step 200] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 51.29s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch20_step200.pt
+==end-of-epoch 20==
+
+=== Epoch 21/50 ===
+[92m📊 [System Health] RAM: 61.7% | Swap Used: 4.27 GB[0m
+[timing] sample processed in 28.87s
+[92m📊 [System Health] RAM: 58.2% | Swap Used: 6.27 GB[0m
+[timing] sample processed in 21.74s
+[92m📊 [System Health] RAM: 65.7% | Swap Used: 5.54 GB[0m
+[timing] sample processed in 26.93s
+[92m📊 [System Health] RAM: 66.1% | Swap Used: 5.49 GB[0m
+[timing] sample processed in 29.23s
+[92m📊 [System Health] RAM: 60.9% | Swap Used: 5.65 GB[0m
+[step 201] loss=0.1377 rewards(c/r)=0.00/0.01
+[timing] sample processed in 23.89s
+[timing] sample processed in 30.03s
+[timing] sample processed in 40.18s
+[timing] sample processed in 22.45s
+[timing] sample processed in 12.66s
+[step 202] loss=0.1377 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 22.16s
+[timing] sample processed in 28.10s
+[timing] sample processed in 25.92s
+[timing] sample processed in 37.84s
+[timing] sample processed in 19.55s
+[step 203] loss=0.1385 rewards(c/r)=-0.02/0.03
+[timing] sample processed in 26.04s
+[timing] sample processed in 29.32s
+[timing] sample processed in 13.23s
+[timing] sample processed in 19.35s
+[timing] sample processed in 30.79s
+[step 204] loss=0.1380 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 17.63s
+[timing] sample processed in 14.51s
+[timing] sample processed in 23.57s
+[timing] sample processed in 19.20s
+[timing] sample processed in 15.58s
+[step 205] loss=0.1387 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 17.54s
+[timing] sample processed in 24.82s
+[timing] sample processed in 24.81s
+[timing] sample processed in 41.55s
+[timing] sample processed in 14.78s
+[step 206] loss=0.1385 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 36.74s
+[timing] sample processed in 11.11s
+[timing] sample processed in 24.27s
+[timing] sample processed in 14.19s
+[timing] sample processed in 19.49s
+[step 207] loss=0.1384 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 26.29s
+[timing] sample processed in 18.45s
+[timing] sample processed in 62.74s
+[timing] sample processed in 30.88s
+[timing] sample processed in 24.31s
+[step 208] loss=0.1382 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 14.55s
+[timing] sample processed in 22.48s
+[timing] sample processed in 28.45s
+[timing] sample processed in 19.52s
+[timing] sample processed in 16.86s
+[step 209] loss=0.1383 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 15.08s
+[timing] sample processed in 42.79s
+[timing] sample processed in 25.27s
+[timing] sample processed in 24.83s
+[timing] sample processed in 20.54s
+[step 210] loss=0.1392 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 12.48s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch21_step210.pt
+==end-of-epoch 21==
+
+=== Epoch 22/50 ===
+[92m📊 [System Health] RAM: 48.1% | Swap Used: 5.40 GB[0m
+[timing] sample processed in 11.21s
+[92m📊 [System Health] RAM: 68.6% | Swap Used: 5.21 GB[0m
+[timing] sample processed in 13.84s
+[92m📊 [System Health] RAM: 59.5% | Swap Used: 5.44 GB[0m
+[timing] sample processed in 19.79s
+[92m📊 [System Health] RAM: 59.1% | Swap Used: 5.46 GB[0m
+[timing] sample processed in 17.76s
+[92m📊 [System Health] RAM: 58.8% | Swap Used: 5.58 GB[0m
+[step 211] loss=0.1384 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 12.44s
+[timing] sample processed in 16.23s
+[timing] sample processed in 21.70s
+[timing] sample processed in 11.71s
+[timing] sample processed in 12.72s
+[step 212] loss=0.1374 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 72.19s
+[timing] sample processed in 65.40s
+[timing] sample processed in 15.34s
+[timing] sample processed in 18.32s
+[timing] sample processed in 12.86s
+[step 213] loss=0.1393 rewards(c/r)=0.00/-0.00
+[timing] sample processed in 20.91s
+[timing] sample processed in 22.24s
+[timing] sample processed in 15.77s
+[timing] sample processed in 20.37s
+[timing] sample processed in 13.40s
+[step 214] loss=0.1405 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 15.96s
+[timing] sample processed in 9.85s
+[timing] sample processed in 80.60s
+[timing] sample processed in 41.61s
+[timing] sample processed in 14.90s
+[step 215] loss=0.1374 rewards(c/r)=0.01/-0.00
+[timing] sample processed in 55.00s
+[timing] sample processed in 81.88s
+[timing] sample processed in 23.87s
+[timing] sample processed in 15.64s
+[timing] sample processed in 15.87s
+[step 216] loss=0.1388 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 19.10s
+[timing] sample processed in 62.48s
+[timing] sample processed in 48.92s
+[timing] sample processed in 50.93s
+[timing] sample processed in 89.70s
+[step 217] loss=0.1376 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 54.59s
+[timing] sample processed in 28.97s
+[timing] sample processed in 39.93s
+[timing] sample processed in 27.00s
+[timing] sample processed in 44.12s
+[step 218] loss=0.1380 rewards(c/r)=0.03/-0.03
+[timing] sample processed in 19.02s
+[timing] sample processed in 36.25s
+[timing] sample processed in 13.01s
+[timing] sample processed in 29.90s
+[timing] sample processed in 49.37s
+[step 219] loss=0.1378 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 11.53s
+[timing] sample processed in 27.28s
+[timing] sample processed in 14.52s
+[timing] sample processed in 25.82s
+[timing] sample processed in 80.36s
+[step 220] loss=0.1377 rewards(c/r)=-0.04/-0.01
+[timing] sample processed in 36.41s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch22_step220.pt
+==end-of-epoch 22==
+
+=== Epoch 23/50 ===
+[92m📊 [System Health] RAM: 50.6% | Swap Used: 6.69 GB[0m
+[timing] sample processed in 27.91s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 5.88 GB[0m
+[timing] sample processed in 21.61s
+[92m📊 [System Health] RAM: 52.1% | Swap Used: 5.82 GB[0m
+[timing] sample processed in 41.55s
+[92m📊 [System Health] RAM: 65.8% | Swap Used: 5.85 GB[0m
+[timing] sample processed in 39.92s
+[92m📊 [System Health] RAM: 62.1% | Swap Used: 6.48 GB[0m
+[step 221] loss=0.1404 rewards(c/r)=0.01/0.00
+[timing] sample processed in 20.90s
+[timing] sample processed in 19.38s
+[timing] sample processed in 12.07s
+[timing] sample processed in 32.89s
+[timing] sample processed in 22.28s
+[step 222] loss=0.1383 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 15.97s
+[timing] sample processed in 25.69s
+[timing] sample processed in 13.52s
+[timing] sample processed in 26.74s
+[timing] sample processed in 39.01s
+[step 223] loss=0.1387 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 15.84s
+[timing] sample processed in 10.09s
+[timing] sample processed in 76.65s
+[timing] sample processed in 49.50s
+[timing] sample processed in 27.68s
+[step 224] loss=0.1385 rewards(c/r)=0.00/0.02
+[timing] sample processed in 19.60s
+[timing] sample processed in 17.37s
+[timing] sample processed in 17.34s
+[timing] sample processed in 16.27s
+[timing] sample processed in 19.44s
+[step 225] loss=0.1382 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 31.19s
+[timing] sample processed in 15.84s
+[timing] sample processed in 12.15s
+[timing] sample processed in 33.60s
+[timing] sample processed in 29.08s
+[step 226] loss=0.1391 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 24.82s
+[timing] sample processed in 28.17s
+[timing] sample processed in 19.47s
+[timing] sample processed in 26.08s
+[timing] sample processed in 11.40s
+[step 227] loss=0.1385 rewards(c/r)=0.01/0.00
+[timing] sample processed in 14.87s
+[timing] sample processed in 16.43s
+[timing] sample processed in 27.65s
+[timing] sample processed in 15.72s
+[timing] sample processed in 29.99s
+[step 228] loss=0.1388 rewards(c/r)=0.04/0.01
+[timing] sample processed in 30.20s
+[timing] sample processed in 36.55s
+[timing] sample processed in 12.20s
+[timing] sample processed in 23.31s
+[timing] sample processed in 13.75s
+[step 229] loss=0.1381 rewards(c/r)=0.02/0.03
+[timing] sample processed in 19.40s
+[timing] sample processed in 50.60s
+[timing] sample processed in 18.77s
+[timing] sample processed in 26.35s
+[timing] sample processed in 50.27s
+[step 230] loss=0.1396 rewards(c/r)=-0.04/-0.01
+[timing] sample processed in 17.34s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch23_step230.pt
+==end-of-epoch 23==
+
+=== Epoch 24/50 ===
+[92m📊 [System Health] RAM: 52.8% | Swap Used: 5.52 GB[0m
+[timing] sample processed in 19.24s
+[92m📊 [System Health] RAM: 63.1% | Swap Used: 5.58 GB[0m
+[timing] sample processed in 21.89s
+[92m📊 [System Health] RAM: 60.7% | Swap Used: 5.61 GB[0m
+[timing] sample processed in 34.24s
+[92m📊 [System Health] RAM: 67.4% | Swap Used: 7.17 GB[0m
+[timing] sample processed in 31.70s
+[92m📊 [System Health] RAM: 57.3% | Swap Used: 5.78 GB[0m
+[step 231] loss=0.1382 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 18.04s
+[timing] sample processed in 11.53s
+[timing] sample processed in 38.63s
+[timing] sample processed in 59.06s
+[timing] sample processed in 41.94s
+[step 232] loss=0.1393 rewards(c/r)=0.05/0.04
+[timing] sample processed in 36.79s
+[timing] sample processed in 100.45s
+[timing] sample processed in 19.42s
+[timing] sample processed in 82.09s
+[timing] sample processed in 47.20s
+[step 233] loss=0.1371 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 46.24s
+[timing] sample processed in 44.22s
+[timing] sample processed in 20.88s
+[timing] sample processed in 52.25s
+[timing] sample processed in 38.56s
+[step 234] loss=0.1394 rewards(c/r)=-0.02/-0.00
+[timing] sample processed in 38.14s
+[timing] sample processed in 45.67s
+[timing] sample processed in 29.77s
+[timing] sample processed in 9.19s
+[timing] sample processed in 57.57s
+[step 235] loss=0.1382 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 32.49s
+[timing] sample processed in 53.76s
+[timing] sample processed in 60.04s
+[timing] sample processed in 20.88s
+[timing] sample processed in 53.79s
+[step 236] loss=0.1391 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 21.36s
+[timing] sample processed in 28.08s
+[timing] sample processed in 28.29s
+[timing] sample processed in 15.49s
+[timing] sample processed in 27.81s
+[step 237] loss=0.1378 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 18.54s
+[timing] sample processed in 18.26s
+[timing] sample processed in 29.18s
+[timing] sample processed in 21.54s
+[timing] sample processed in 68.00s
+[step 238] loss=0.1365 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 41.00s
+[timing] sample processed in 38.89s
+[timing] sample processed in 17.99s
+[timing] sample processed in 32.55s
+[timing] sample processed in 15.94s
+[step 239] loss=0.1399 rewards(c/r)=-0.00/-0.04
+[timing] sample processed in 28.95s
+[timing] sample processed in 84.68s
+[timing] sample processed in 19.36s
+[timing] sample processed in 15.52s
+[timing] sample processed in 18.83s
+[step 240] loss=0.1377 rewards(c/r)=0.04/-0.02
+[timing] sample processed in 26.85s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch24_step240.pt
+==end-of-epoch 24==
+
+=== Epoch 25/50 ===
+[92m📊 [System Health] RAM: 51.9% | Swap Used: 6.08 GB[0m
+[timing] sample processed in 22.17s
+[92m📊 [System Health] RAM: 63.7% | Swap Used: 5.83 GB[0m
+[timing] sample processed in 24.68s
+[92m📊 [System Health] RAM: 72.6% | Swap Used: 6.21 GB[0m
+[timing] sample processed in 35.70s
+[92m📊 [System Health] RAM: 63.1% | Swap Used: 6.79 GB[0m
+[timing] sample processed in 18.97s
+[92m📊 [System Health] RAM: 58.8% | Swap Used: 5.79 GB[0m
+[step 241] loss=0.1375 rewards(c/r)=0.00/-0.05
+[timing] sample processed in 27.01s
+[timing] sample processed in 23.39s
+[timing] sample processed in 22.20s
+[timing] sample processed in 16.14s
+[timing] sample processed in 33.94s
+[step 242] loss=0.1400 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 23.65s
+[timing] sample processed in 51.47s
+[timing] sample processed in 11.43s
+[timing] sample processed in 50.05s
+[timing] sample processed in 11.97s
+[step 243] loss=0.1386 rewards(c/r)=-0.03/0.00
+[timing] sample processed in 55.91s
+[timing] sample processed in 37.49s
+[timing] sample processed in 14.99s
+[timing] sample processed in 10.80s
+[timing] sample processed in 14.65s
+[step 244] loss=0.1388 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 17.97s
+[timing] sample processed in 14.83s
+[timing] sample processed in 24.72s
+[timing] sample processed in 22.12s
+[timing] sample processed in 25.12s
+[step 245] loss=0.1397 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 28.27s
+[timing] sample processed in 19.90s
+[timing] sample processed in 24.30s
+[timing] sample processed in 65.50s
+[timing] sample processed in 27.05s
+[step 246] loss=0.1396 rewards(c/r)=0.03/0.02
+[timing] sample processed in 27.22s
+[timing] sample processed in 37.62s
+[timing] sample processed in 24.68s
+[timing] sample processed in 24.46s
+[timing] sample processed in 15.57s
+[step 247] loss=0.1393 rewards(c/r)=0.01/0.01
+[timing] sample processed in 41.57s
+[timing] sample processed in 23.45s
+[timing] sample processed in 34.50s
+[timing] sample processed in 16.50s
+[timing] sample processed in 47.96s
+[step 248] loss=0.1398 rewards(c/r)=0.01/0.02
+[timing] sample processed in 19.57s
+[timing] sample processed in 20.43s
+[timing] sample processed in 17.49s
+[timing] sample processed in 23.70s
+[timing] sample processed in 13.33s
+[step 249] loss=0.1391 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 17.91s
+[timing] sample processed in 56.14s
+[timing] sample processed in 22.63s
+[timing] sample processed in 36.97s
+[timing] sample processed in 26.90s
+[step 250] loss=0.1374 rewards(c/r)=0.02/0.01
+[step 250] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 42.53s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch25_step250.pt
+==end-of-epoch 25==
+
+=== Epoch 26/50 ===
+[92m📊 [System Health] RAM: 68.8% | Swap Used: 4.62 GB[0m
+[timing] sample processed in 18.73s
+[92m📊 [System Health] RAM: 63.9% | Swap Used: 6.65 GB[0m
+[timing] sample processed in 16.79s
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 6.18 GB[0m
+[timing] sample processed in 7.06s
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 5.98 GB[0m
+[timing] sample processed in 5.21s
+[92m📊 [System Health] RAM: 50.6% | Swap Used: 5.96 GB[0m
+[step 251] loss=0.1385 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 7.37s
+[timing] sample processed in 6.84s
+[timing] sample processed in 97.33s
+[timing] sample processed in 38.71s
+[timing] sample processed in 12.64s
+[step 252] loss=0.1403 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 10.07s
+[timing] sample processed in 10.06s
+[timing] sample processed in 6.78s
+[timing] sample processed in 15.08s
+[timing] sample processed in 7.60s
+[step 253] loss=0.1378 rewards(c/r)=0.03/0.01
+[timing] sample processed in 29.41s
+[timing] sample processed in 7.40s
+[timing] sample processed in 8.38s
+[timing] sample processed in 23.04s
+[timing] sample processed in 11.76s
+[step 254] loss=0.1411 rewards(c/r)=-0.03/0.03
+[timing] sample processed in 17.16s
+[timing] sample processed in 12.80s
+[timing] sample processed in 15.00s
+[timing] sample processed in 12.02s
+[timing] sample processed in 22.52s
+[step 255] loss=0.1398 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 6.97s
+[timing] sample processed in 11.72s
+[timing] sample processed in 13.20s
+[timing] sample processed in 10.61s
+[timing] sample processed in 6.77s
+[step 256] loss=0.1396 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 64.01s
+[timing] sample processed in 9.71s
+[timing] sample processed in 5.77s
+[timing] sample processed in 9.96s
+[timing] sample processed in 18.80s
+[step 257] loss=0.1388 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 17.45s
+[timing] sample processed in 12.17s
+[timing] sample processed in 9.78s
+[timing] sample processed in 15.02s
+[timing] sample processed in 7.70s
+[step 258] loss=0.1392 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 15.51s
+[timing] sample processed in 6.26s
+[timing] sample processed in 14.62s
+[timing] sample processed in 9.49s
+[timing] sample processed in 8.42s
+[step 259] loss=0.1384 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 7.72s
+[timing] sample processed in 7.66s
+[timing] sample processed in 4.65s
+[timing] sample processed in 15.01s
+[timing] sample processed in 9.09s
+[step 260] loss=0.1382 rewards(c/r)=-0.03/-0.01
+[timing] sample processed in 22.51s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch26_step260.pt
+==end-of-epoch 26==
+
+=== Epoch 27/50 ===
+[92m📊 [System Health] RAM: 43.4% | Swap Used: 7.23 GB[0m
+[timing] sample processed in 12.03s
+[92m📊 [System Health] RAM: 64.7% | Swap Used: 5.65 GB[0m
+[timing] sample processed in 9.59s
+[92m📊 [System Health] RAM: 63.6% | Swap Used: 5.94 GB[0m
+[timing] sample processed in 11.59s
+[92m📊 [System Health] RAM: 62.9% | Swap Used: 5.94 GB[0m
+[timing] sample processed in 12.05s
+[92m📊 [System Health] RAM: 58.0% | Swap Used: 5.88 GB[0m
+[step 261] loss=0.1397 rewards(c/r)=0.00/0.00
+[timing] sample processed in 16.46s
+[timing] sample processed in 18.68s
+[timing] sample processed in 17.79s
+[timing] sample processed in 33.90s
+[timing] sample processed in 16.75s
+[step 262] loss=0.1363 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 13.42s
+[timing] sample processed in 16.57s
+[timing] sample processed in 4.34s
+[timing] sample processed in 10.71s
+[timing] sample processed in 17.38s
+[step 263] loss=0.1400 rewards(c/r)=-0.03/-0.00
+[timing] sample processed in 10.66s
+[timing] sample processed in 7.32s
+[timing] sample processed in 6.61s
+[timing] sample processed in 10.90s
+[timing] sample processed in 17.04s
+[step 264] loss=0.1383 rewards(c/r)=0.01/-0.00
+[timing] sample processed in 15.27s
+[timing] sample processed in 22.02s
+[timing] sample processed in 17.96s
+[timing] sample processed in 15.38s
+[timing] sample processed in 12.88s
+[step 265] loss=0.1374 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 12.15s
+[timing] sample processed in 7.45s
+[timing] sample processed in 5.80s
+[timing] sample processed in 7.51s
+[timing] sample processed in 15.70s
+[step 266] loss=0.1382 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 49.42s
+[timing] sample processed in 16.35s
+[timing] sample processed in 17.04s
+[timing] sample processed in 12.69s
+[timing] sample processed in 11.16s
+[step 267] loss=0.1393 rewards(c/r)=0.04/-0.03
+[timing] sample processed in 16.26s
+[timing] sample processed in 18.34s
+[timing] sample processed in 12.47s
+[timing] sample processed in 23.79s
+[timing] sample processed in 7.06s
+[step 268] loss=0.1391 rewards(c/r)=0.04/0.02
+[timing] sample processed in 58.63s
+[timing] sample processed in 23.08s
+[timing] sample processed in 24.61s
+[timing] sample processed in 28.94s
+[timing] sample processed in 5.89s
+[step 269] loss=0.1394 rewards(c/r)=-0.05/0.04
+[timing] sample processed in 28.87s
+[timing] sample processed in 25.46s
+[timing] sample processed in 28.02s
+[timing] sample processed in 7.21s
+[timing] sample processed in 12.65s
+[step 270] loss=0.1402 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 17.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch27_step270.pt
+==end-of-epoch 27==
+
+=== Epoch 28/50 ===
+[92m📊 [System Health] RAM: 50.4% | Swap Used: 6.86 GB[0m
+[timing] sample processed in 14.71s
+[92m📊 [System Health] RAM: 62.8% | Swap Used: 6.00 GB[0m
+[timing] sample processed in 16.29s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 5.80 GB[0m
+[timing] sample processed in 14.28s
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 5.88 GB[0m
+[timing] sample processed in 22.27s
+[92m📊 [System Health] RAM: 69.0% | Swap Used: 8.05 GB[0m
+[step 271] loss=0.1411 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 13.58s
+[timing] sample processed in 22.03s
+[timing] sample processed in 33.05s
+[timing] sample processed in 35.19s
+[timing] sample processed in 11.96s
+[step 272] loss=0.1379 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 4.58s
+[timing] sample processed in 12.27s
+[timing] sample processed in 31.34s
+[timing] sample processed in 8.66s
+[timing] sample processed in 10.06s
+[step 273] loss=0.1378 rewards(c/r)=0.02/0.03
+[timing] sample processed in 15.52s
+[timing] sample processed in 4.09s
+[timing] sample processed in 25.19s
+[timing] sample processed in 17.70s
+[timing] sample processed in 12.29s
+[step 274] loss=0.1400 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 7.67s
+[timing] sample processed in 9.68s
+[timing] sample processed in 12.74s
+[timing] sample processed in 15.62s
+[timing] sample processed in 6.92s
+[step 275] loss=0.1393 rewards(c/r)=0.00/0.02
+[timing] sample processed in 7.05s
+[timing] sample processed in 13.77s
+[timing] sample processed in 8.34s
+[timing] sample processed in 10.83s
+[timing] sample processed in 7.51s
+[step 276] loss=0.1387 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 15.89s
+[timing] sample processed in 21.63s
+[timing] sample processed in 19.61s
+[timing] sample processed in 10.50s
+[timing] sample processed in 21.62s
+[step 277] loss=0.1396 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 11.87s
+[timing] sample processed in 17.12s
+[timing] sample processed in 6.27s
+[timing] sample processed in 4.75s
+[timing] sample processed in 26.66s
+[step 278] loss=0.1377 rewards(c/r)=-0.02/-0.00
+[timing] sample processed in 17.01s
+[timing] sample processed in 19.07s
+[timing] sample processed in 13.57s
+[timing] sample processed in 3.77s
+[timing] sample processed in 21.19s
+[step 279] loss=0.1358 rewards(c/r)=0.00/0.01
+[timing] sample processed in 14.65s
+[timing] sample processed in 6.80s
+[timing] sample processed in 13.76s
+[timing] sample processed in 5.39s
+[timing] sample processed in 61.74s
+[step 280] loss=0.1389 rewards(c/r)=0.04/0.00
+[timing] sample processed in 17.09s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch28_step280.pt
+==end-of-epoch 28==
+
+=== Epoch 29/50 ===
+[92m📊 [System Health] RAM: 40.1% | Swap Used: 5.87 GB[0m
+[timing] sample processed in 6.67s
+[92m📊 [System Health] RAM: 60.7% | Swap Used: 5.91 GB[0m
+[timing] sample processed in 13.05s
+[92m📊 [System Health] RAM: 65.0% | Swap Used: 5.95 GB[0m
+[timing] sample processed in 12.60s
+[92m📊 [System Health] RAM: 51.5% | Swap Used: 5.88 GB[0m
+[timing] sample processed in 21.48s
+[92m📊 [System Health] RAM: 51.4% | Swap Used: 7.85 GB[0m
+[step 281] loss=0.1375 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 77.78s
+[timing] sample processed in 18.95s
+[timing] sample processed in 13.09s
+[timing] sample processed in 14.69s
+[timing] sample processed in 7.77s
+[step 282] loss=0.1370 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 8.07s
+[timing] sample processed in 4.75s
+[timing] sample processed in 12.59s
+[timing] sample processed in 7.03s
+[timing] sample processed in 15.68s
+[step 283] loss=0.1380 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 22.31s
+[timing] sample processed in 14.51s
+[timing] sample processed in 7.23s
+[timing] sample processed in 12.52s
+[timing] sample processed in 36.86s
+[step 284] loss=0.1389 rewards(c/r)=0.02/0.03
+[timing] sample processed in 18.32s
+[timing] sample processed in 12.53s
+[timing] sample processed in 21.58s
+[timing] sample processed in 28.87s
+[timing] sample processed in 26.03s
+[step 285] loss=0.1391 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 3.89s
+[timing] sample processed in 5.78s
+[timing] sample processed in 6.51s
+[timing] sample processed in 10.58s
+[timing] sample processed in 8.83s
+[step 286] loss=0.1390 rewards(c/r)=-0.03/0.02
+[timing] sample processed in 38.30s
+[timing] sample processed in 72.12s
+[timing] sample processed in 8.96s
+[timing] sample processed in 17.54s
+[timing] sample processed in 17.58s
+[step 287] loss=0.1402 rewards(c/r)=0.00/0.04
+[timing] sample processed in 19.24s
+[timing] sample processed in 13.81s
+[timing] sample processed in 10.84s
+[timing] sample processed in 9.98s
+[timing] sample processed in 15.75s
+[step 288] loss=0.1400 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 9.18s
+[timing] sample processed in 13.41s
+[timing] sample processed in 6.87s
+[timing] sample processed in 14.98s
+[timing] sample processed in 16.09s
+[step 289] loss=0.1383 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 4.35s
+[timing] sample processed in 60.68s
+[timing] sample processed in 22.45s
+[timing] sample processed in 6.28s
+[timing] sample processed in 4.04s
+[step 290] loss=0.1370 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 21.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch29_step290.pt
+==end-of-epoch 29==
+
+=== Epoch 30/50 ===
+[92m📊 [System Health] RAM: 50.8% | Swap Used: 6.50 GB[0m
+[timing] sample processed in 6.27s
+[92m📊 [System Health] RAM: 57.9% | Swap Used: 6.17 GB[0m
+[timing] sample processed in 15.69s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 6.74 GB[0m
+[timing] sample processed in 13.34s
+[92m📊 [System Health] RAM: 59.0% | Swap Used: 5.92 GB[0m
+[timing] sample processed in 21.84s
+[92m📊 [System Health] RAM: 49.6% | Swap Used: 7.97 GB[0m
+[step 291] loss=0.1416 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 13.68s
+[timing] sample processed in 13.39s
+[timing] sample processed in 7.19s
+[timing] sample processed in 17.61s
+[timing] sample processed in 13.12s
+[step 292] loss=0.1388 rewards(c/r)=0.02/-0.02
+[timing] sample processed in 15.36s
+[timing] sample processed in 49.44s
+[timing] sample processed in 11.45s
+[timing] sample processed in 9.33s
+[timing] sample processed in 6.98s
+[step 293] loss=0.1389 rewards(c/r)=0.03/0.01
+[timing] sample processed in 19.42s
+[timing] sample processed in 48.33s
+[timing] sample processed in 31.80s
+[timing] sample processed in 4.80s
+[timing] sample processed in 9.89s
+[step 294] loss=0.1371 rewards(c/r)=0.04/-0.01
+[timing] sample processed in 26.03s
+[timing] sample processed in 8.54s
+[timing] sample processed in 11.30s
+[timing] sample processed in 22.80s
+[timing] sample processed in 46.41s
+[step 295] loss=0.1382 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 16.76s
+[timing] sample processed in 7.11s
+[timing] sample processed in 3.84s
+[timing] sample processed in 24.02s
+[timing] sample processed in 10.68s
+[step 296] loss=0.1397 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 18.15s
+[timing] sample processed in 12.66s
+[timing] sample processed in 12.55s
+[timing] sample processed in 19.99s
+[timing] sample processed in 77.97s
+[step 297] loss=0.1391 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 11.21s
+[timing] sample processed in 39.57s
+[timing] sample processed in 11.34s
+[timing] sample processed in 11.28s
+[timing] sample processed in 16.23s
+[step 298] loss=0.1390 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 11.34s
+[timing] sample processed in 4.44s
+[timing] sample processed in 23.94s
+[timing] sample processed in 11.72s
+[timing] sample processed in 23.46s
+[step 299] loss=0.1402 rewards(c/r)=0.00/0.02
+[timing] sample processed in 16.62s
+[timing] sample processed in 11.45s
+[timing] sample processed in 67.34s
+[timing] sample processed in 15.54s
+[timing] sample processed in 26.93s
+[step 300] loss=0.1385 rewards(c/r)=-0.01/-0.00
+[step 300] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 18.17s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch30_step300.pt
+==end-of-epoch 30==
+
+=== Epoch 31/50 ===
+[92m📊 [System Health] RAM: 60.7% | Swap Used: 4.88 GB[0m
+[timing] sample processed in 15.67s
+[92m📊 [System Health] RAM: 62.5% | Swap Used: 5.97 GB[0m
+[timing] sample processed in 9.75s
+[92m📊 [System Health] RAM: 56.0% | Swap Used: 5.98 GB[0m
+[timing] sample processed in 6.55s
+[92m📊 [System Health] RAM: 64.6% | Swap Used: 6.01 GB[0m
+[timing] sample processed in 14.18s
+[92m📊 [System Health] RAM: 66.3% | Swap Used: 6.53 GB[0m
+[step 301] loss=0.1395 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 22.83s
+[timing] sample processed in 7.88s
+[timing] sample processed in 15.42s
+[timing] sample processed in 7.34s
+[timing] sample processed in 13.69s
+[step 302] loss=0.1392 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 6.02s
+[timing] sample processed in 7.36s
+[timing] sample processed in 16.44s
+[timing] sample processed in 12.90s
+[timing] sample processed in 22.26s
+[step 303] loss=0.1397 rewards(c/r)=0.00/0.02
+[timing] sample processed in 29.40s
+[timing] sample processed in 19.53s
+[timing] sample processed in 16.37s
+[timing] sample processed in 17.10s
+[timing] sample processed in 32.08s
+[step 304] loss=0.1380 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 16.34s
+[timing] sample processed in 28.78s
+[timing] sample processed in 9.01s
+[timing] sample processed in 6.42s
+[timing] sample processed in 7.15s
+[step 305] loss=0.1379 rewards(c/r)=-0.00/-0.04
+[timing] sample processed in 21.66s
+[timing] sample processed in 7.80s
+[timing] sample processed in 18.33s
+[timing] sample processed in 33.28s
+[timing] sample processed in 72.23s
+[step 306] loss=0.1383 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 26.17s
+[timing] sample processed in 22.53s
+[timing] sample processed in 8.29s
+[timing] sample processed in 7.45s
+[timing] sample processed in 11.21s
+[step 307] loss=0.1385 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 6.47s
+[timing] sample processed in 6.74s
+[timing] sample processed in 14.40s
+[timing] sample processed in 8.86s
+[timing] sample processed in 7.62s
+[step 308] loss=0.1388 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 22.31s
+[timing] sample processed in 13.79s
+[timing] sample processed in 78.09s
+[timing] sample processed in 22.61s
+[timing] sample processed in 45.76s
+[step 309] loss=0.1408 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 41.82s
+[timing] sample processed in 27.01s
+[timing] sample processed in 13.46s
+[timing] sample processed in 6.98s
+[timing] sample processed in 11.03s
+[step 310] loss=0.1392 rewards(c/r)=-0.03/0.03
+[timing] sample processed in 7.12s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch31_step310.pt
+==end-of-epoch 31==
+
+=== Epoch 32/50 ===
+[92m📊 [System Health] RAM: 47.7% | Swap Used: 5.93 GB[0m
+[timing] sample processed in 7.77s
+[92m📊 [System Health] RAM: 69.0% | Swap Used: 5.87 GB[0m
+[timing] sample processed in 7.29s
+[92m📊 [System Health] RAM: 69.1% | Swap Used: 5.98 GB[0m
+[timing] sample processed in 14.73s
+[92m📊 [System Health] RAM: 68.5% | Swap Used: 6.67 GB[0m
+[timing] sample processed in 21.21s
+[92m📊 [System Health] RAM: 61.2% | Swap Used: 6.96 GB[0m
+[step 311] loss=0.1376 rewards(c/r)=0.01/0.04
+[timing] sample processed in 16.34s
+[timing] sample processed in 15.55s
+[timing] sample processed in 6.92s
+[timing] sample processed in 7.05s
+[timing] sample processed in 12.70s
+[step 312] loss=0.1392 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 13.29s
+[timing] sample processed in 6.75s
+[timing] sample processed in 20.03s
+[timing] sample processed in 28.39s
+[timing] sample processed in 4.42s
+[step 313] loss=0.1405 rewards(c/r)=-0.05/-0.05
+[timing] sample processed in 22.20s
+[timing] sample processed in 8.65s
+[timing] sample processed in 12.30s
+[timing] sample processed in 20.86s
+[timing] sample processed in 11.26s
+[step 314] loss=0.1377 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 12.89s
+[timing] sample processed in 7.24s
+[timing] sample processed in 17.31s
+[timing] sample processed in 17.39s
+[timing] sample processed in 8.63s
+[step 315] loss=0.1368 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 11.35s
+[timing] sample processed in 15.96s
+[timing] sample processed in 33.52s
+[timing] sample processed in 8.71s
+[timing] sample processed in 6.41s
+[step 316] loss=0.1377 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 28.26s
+[timing] sample processed in 15.45s
+[timing] sample processed in 25.08s
+[timing] sample processed in 12.25s
+[timing] sample processed in 9.75s
+[step 317] loss=0.1378 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 59.98s
+[timing] sample processed in 21.59s
+[timing] sample processed in 10.98s
+[timing] sample processed in 12.00s
+[timing] sample processed in 11.97s
+[step 318] loss=0.1395 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 6.75s
+[timing] sample processed in 17.42s
+[timing] sample processed in 7.94s
+[timing] sample processed in 16.93s
+[timing] sample processed in 14.18s
+[step 319] loss=0.1367 rewards(c/r)=0.02/0.00
+[timing] sample processed in 13.22s
+[timing] sample processed in 6.85s
+[timing] sample processed in 12.80s
+[timing] sample processed in 4.30s
+[timing] sample processed in 12.72s
+[step 320] loss=0.1385 rewards(c/r)=0.03/-0.01
+[timing] sample processed in 7.14s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch32_step320.pt
+==end-of-epoch 32==
+
+=== Epoch 33/50 ===
+[92m📊 [System Health] RAM: 53.7% | Swap Used: 6.13 GB[0m
+[timing] sample processed in 11.72s
+[92m📊 [System Health] RAM: 63.4% | Swap Used: 5.96 GB[0m
+[timing] sample processed in 5.30s
+[92m📊 [System Health] RAM: 53.2% | Swap Used: 5.99 GB[0m
+[timing] sample processed in 13.20s
+[92m📊 [System Health] RAM: 44.9% | Swap Used: 5.96 GB[0m
+[timing] sample processed in 6.82s
+[92m📊 [System Health] RAM: 55.3% | Swap Used: 6.10 GB[0m
+[step 321] loss=0.1395 rewards(c/r)=0.01/0.01
+[timing] sample processed in 3.37s
+[timing] sample processed in 68.87s
+[timing] sample processed in 17.37s
+[timing] sample processed in 11.05s
+[timing] sample processed in 21.24s
+[step 322] loss=0.1408 rewards(c/r)=-0.01/0.03
+[timing] sample processed in 25.25s
+[timing] sample processed in 13.82s
+[timing] sample processed in 7.40s
+[timing] sample processed in 19.81s
+[timing] sample processed in 7.07s
+[step 323] loss=0.1402 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 18.66s
+[timing] sample processed in 27.76s
+[timing] sample processed in 8.18s
+[timing] sample processed in 32.23s
+[timing] sample processed in 24.04s
+[step 324] loss=0.1404 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 32.36s
+[timing] sample processed in 19.31s
+[timing] sample processed in 15.83s
+[timing] sample processed in 10.92s
+[timing] sample processed in 19.37s
+[step 325] loss=0.1382 rewards(c/r)=0.05/0.02
+[timing] sample processed in 70.38s
+[timing] sample processed in 38.57s
+[timing] sample processed in 14.37s
+[timing] sample processed in 11.61s
+[timing] sample processed in 32.28s
+[step 326] loss=0.1386 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 46.11s
+[timing] sample processed in 31.28s
+[timing] sample processed in 18.13s
+[timing] sample processed in 7.34s
+[timing] sample processed in 16.11s
+[step 327] loss=0.1387 rewards(c/r)=-0.02/-0.04
+[timing] sample processed in 11.35s
+[timing] sample processed in 13.76s
+[timing] sample processed in 17.98s
+[timing] sample processed in 10.31s
+[timing] sample processed in 28.52s
+[step 328] loss=0.1378 rewards(c/r)=0.04/-0.01
+[timing] sample processed in 22.00s
+[timing] sample processed in 12.73s
+[timing] sample processed in 10.48s
+[timing] sample processed in 26.88s
+[timing] sample processed in 16.14s
+[step 329] loss=0.1409 rewards(c/r)=0.01/0.03
+[timing] sample processed in 22.86s
+[timing] sample processed in 15.35s
+[timing] sample processed in 9.82s
+[timing] sample processed in 6.89s
+[timing] sample processed in 7.09s
+[step 330] loss=0.1386 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 17.14s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch33_step330.pt
+==end-of-epoch 33==
+
+=== Epoch 34/50 ===
+[92m📊 [System Health] RAM: 51.1% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 14.68s
+[92m📊 [System Health] RAM: 59.6% | Swap Used: 6.19 GB[0m
+[timing] sample processed in 40.39s
+[92m📊 [System Health] RAM: 61.5% | Swap Used: 10.34 GB[0m
+[timing] sample processed in 10.28s
+[92m📊 [System Health] RAM: 60.1% | Swap Used: 5.92 GB[0m
+[timing] sample processed in 4.85s
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 6.05 GB[0m
+[step 331] loss=0.1403 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 9.83s
+[timing] sample processed in 19.96s
+[timing] sample processed in 15.59s
+[timing] sample processed in 5.97s
+[timing] sample processed in 17.44s
+[step 332] loss=0.1408 rewards(c/r)=0.02/0.00
+[timing] sample processed in 9.48s
+[timing] sample processed in 29.85s
+[timing] sample processed in 4.37s
+[timing] sample processed in 10.51s
+[timing] sample processed in 38.51s
+[step 333] loss=0.1385 rewards(c/r)=0.02/0.00
+[timing] sample processed in 13.21s
+[timing] sample processed in 13.30s
+[timing] sample processed in 30.80s
+[timing] sample processed in 37.23s
+[timing] sample processed in 19.07s
+[step 334] loss=0.1411 rewards(c/r)=0.00/0.01
+[timing] sample processed in 9.74s
+[timing] sample processed in 6.34s
+[timing] sample processed in 18.99s
+[timing] sample processed in 17.46s
+[timing] sample processed in 12.69s
+[step 335] loss=0.1394 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 12.04s
+[timing] sample processed in 17.12s
+[timing] sample processed in 10.67s
+[timing] sample processed in 7.19s
+[timing] sample processed in 21.37s
+[step 336] loss=0.1372 rewards(c/r)=0.01/0.00
+[timing] sample processed in 21.57s
+[timing] sample processed in 18.09s
+[timing] sample processed in 6.31s
+[timing] sample processed in 13.75s
+[timing] sample processed in 14.12s
+[step 337] loss=0.1390 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 10.72s
+[timing] sample processed in 13.86s
+[timing] sample processed in 50.09s
+[timing] sample processed in 20.18s
+[timing] sample processed in 4.63s
+[step 338] loss=0.1401 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 25.51s
+[timing] sample processed in 18.14s
+[timing] sample processed in 18.94s
+[timing] sample processed in 5.46s
+[timing] sample processed in 12.42s
+[step 339] loss=0.1372 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 4.07s
+[timing] sample processed in 6.75s
+[timing] sample processed in 21.28s
+[timing] sample processed in 17.20s
+[timing] sample processed in 14.45s
+[step 340] loss=0.1381 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 10.63s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch34_step340.pt
+==end-of-epoch 34==
+
+=== Epoch 35/50 ===
+[92m📊 [System Health] RAM: 52.4% | Swap Used: 6.22 GB[0m
+[timing] sample processed in 17.84s
+[92m📊 [System Health] RAM: 58.4% | Swap Used: 6.57 GB[0m
+[timing] sample processed in 20.81s
+[92m📊 [System Health] RAM: 54.4% | Swap Used: 7.19 GB[0m
+[timing] sample processed in 5.18s
+[92m📊 [System Health] RAM: 50.8% | Swap Used: 7.02 GB[0m
+[timing] sample processed in 7.79s
+[92m📊 [System Health] RAM: 62.3% | Swap Used: 6.17 GB[0m
+[step 341] loss=0.1379 rewards(c/r)=0.01/0.02
+[timing] sample processed in 14.20s
+[timing] sample processed in 4.96s
+[timing] sample processed in 11.23s
+[timing] sample processed in 7.16s
+[timing] sample processed in 6.93s
+[step 342] loss=0.1394 rewards(c/r)=0.00/0.02
+[timing] sample processed in 13.94s
+[timing] sample processed in 16.40s
+[timing] sample processed in 24.70s
+[timing] sample processed in 6.42s
+[timing] sample processed in 26.17s
+[step 343] loss=0.1388 rewards(c/r)=0.01/0.02
+[timing] sample processed in 38.59s
+[timing] sample processed in 32.74s
+[timing] sample processed in 19.10s
+[timing] sample processed in 36.07s
+[timing] sample processed in 12.59s
+[step 344] loss=0.1378 rewards(c/r)=0.02/0.01
+[timing] sample processed in 35.69s
+[timing] sample processed in 10.02s
+[timing] sample processed in 11.89s
+[timing] sample processed in 21.90s
+[timing] sample processed in 13.58s
+[step 345] loss=0.1365 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 17.31s
+[timing] sample processed in 9.49s
+[timing] sample processed in 45.39s
+[timing] sample processed in 18.85s
+[timing] sample processed in 7.17s
+[step 346] loss=0.1381 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 36.67s
+[timing] sample processed in 13.71s
+[timing] sample processed in 32.04s
+[timing] sample processed in 19.17s
+[timing] sample processed in 22.51s
+[step 347] loss=0.1387 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 18.63s
+[timing] sample processed in 13.78s
+[timing] sample processed in 7.16s
+[timing] sample processed in 30.86s
+[timing] sample processed in 16.37s
+[step 348] loss=0.1367 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 4.26s
+[timing] sample processed in 16.46s
+[timing] sample processed in 26.95s
+[timing] sample processed in 26.92s
+[timing] sample processed in 44.30s
+[step 349] loss=0.1376 rewards(c/r)=0.01/-0.03
+[timing] sample processed in 17.71s
+[timing] sample processed in 18.65s
+[timing] sample processed in 10.66s
+[timing] sample processed in 14.04s
+[timing] sample processed in 13.51s
+[step 350] loss=0.1394 rewards(c/r)=-0.00/0.01
+[step 350] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 29.17s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch35_step350.pt
+==end-of-epoch 35==
+
+=== Epoch 36/50 ===
+[92m📊 [System Health] RAM: 56.5% | Swap Used: 5.31 GB[0m
+[timing] sample processed in 11.35s
+[92m📊 [System Health] RAM: 67.3% | Swap Used: 5.96 GB[0m
+[timing] sample processed in 4.19s
+[92m📊 [System Health] RAM: 65.8% | Swap Used: 5.79 GB[0m
+[timing] sample processed in 11.08s
+[92m📊 [System Health] RAM: 52.0% | Swap Used: 6.09 GB[0m
+[timing] sample processed in 4.15s
+[92m📊 [System Health] RAM: 73.9% | Swap Used: 6.18 GB[0m
+[step 351] loss=0.1387 rewards(c/r)=0.01/0.03
+[timing] sample processed in 44.24s
+[timing] sample processed in 12.32s
+[timing] sample processed in 10.15s
+[timing] sample processed in 9.97s
+[timing] sample processed in 10.12s
+[step 352] loss=0.1393 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 12.60s
+[timing] sample processed in 16.33s
+[timing] sample processed in 7.55s
+[timing] sample processed in 6.82s
+[timing] sample processed in 12.77s
+[step 353] loss=0.1382 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 13.25s
+[timing] sample processed in 36.20s
+[timing] sample processed in 21.69s
+[timing] sample processed in 8.58s
+[timing] sample processed in 24.98s
+[step 354] loss=0.1405 rewards(c/r)=0.01/0.01
+[timing] sample processed in 12.11s
+[timing] sample processed in 31.75s
+[timing] sample processed in 15.61s
+[timing] sample processed in 14.25s
+[timing] sample processed in 7.12s
+[step 355] loss=0.1383 rewards(c/r)=0.03/0.01
+[timing] sample processed in 4.04s
+[timing] sample processed in 3.80s
+[timing] sample processed in 22.38s
+[timing] sample processed in 17.23s
+[timing] sample processed in 17.28s
+[step 356] loss=0.1384 rewards(c/r)=0.02/-0.02
+[timing] sample processed in 13.48s
+[timing] sample processed in 16.35s
+[timing] sample processed in 6.57s
+[timing] sample processed in 9.79s
+[timing] sample processed in 35.42s
+[step 357] loss=0.1377 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 6.05s
+[timing] sample processed in 23.17s
+[timing] sample processed in 13.99s
+[timing] sample processed in 21.29s
+[timing] sample processed in 23.96s
+[step 358] loss=0.1386 rewards(c/r)=0.00/0.00
+[timing] sample processed in 19.07s
+[timing] sample processed in 11.97s
+[timing] sample processed in 7.20s
+[timing] sample processed in 22.95s
+[timing] sample processed in 13.85s
+[step 359] loss=0.1384 rewards(c/r)=0.02/0.01
+[timing] sample processed in 21.02s
+[timing] sample processed in 29.10s
+[timing] sample processed in 9.57s
+[timing] sample processed in 11.68s
+[timing] sample processed in 15.29s
+[step 360] loss=0.1398 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 24.87s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch36_step360.pt
+==end-of-epoch 36==
+
+=== Epoch 37/50 ===
+[92m📊 [System Health] RAM: 49.9% | Swap Used: 8.37 GB[0m
+[timing] sample processed in 23.66s
+[92m📊 [System Health] RAM: 67.6% | Swap Used: 7.65 GB[0m
+[timing] sample processed in 26.72s
+[92m📊 [System Health] RAM: 66.2% | Swap Used: 9.15 GB[0m
+[timing] sample processed in 19.17s
+[92m📊 [System Health] RAM: 54.5% | Swap Used: 7.38 GB[0m
+[timing] sample processed in 13.71s
+[92m📊 [System Health] RAM: 53.3% | Swap Used: 6.22 GB[0m
+[step 361] loss=0.1391 rewards(c/r)=0.01/0.01
+[timing] sample processed in 13.46s
+[timing] sample processed in 12.48s
+[timing] sample processed in 16.75s
+[timing] sample processed in 17.77s
+[timing] sample processed in 83.73s
+[step 362] loss=0.1403 rewards(c/r)=0.01/0.01
+[timing] sample processed in 29.44s
+[timing] sample processed in 17.33s
+[timing] sample processed in 15.51s
+[timing] sample processed in 10.46s
+[timing] sample processed in 6.30s
+[step 363] loss=0.1377 rewards(c/r)=0.01/0.04
+[timing] sample processed in 4.30s
+[timing] sample processed in 12.70s
+[timing] sample processed in 48.75s
+[timing] sample processed in 9.29s
+[timing] sample processed in 17.64s
+[step 364] loss=0.1400 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 15.51s
+[timing] sample processed in 31.60s
+[timing] sample processed in 25.26s
+[timing] sample processed in 8.18s
+[timing] sample processed in 13.68s
+[step 365] loss=0.1370 rewards(c/r)=0.03/0.02
+[timing] sample processed in 7.90s
+[timing] sample processed in 13.12s
+[timing] sample processed in 11.26s
+[timing] sample processed in 11.09s
+[timing] sample processed in 11.68s
+[step 366] loss=0.1394 rewards(c/r)=0.01/0.03
+[timing] sample processed in 22.12s
+[timing] sample processed in 10.98s
+[timing] sample processed in 24.28s
+[timing] sample processed in 28.72s
+[timing] sample processed in 6.48s
+[step 367] loss=0.1370 rewards(c/r)=0.02/-0.02
+[timing] sample processed in 12.06s
+[timing] sample processed in 18.19s
+[timing] sample processed in 4.03s
+[timing] sample processed in 9.33s
+[timing] sample processed in 6.91s
+[step 368] loss=0.1371 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 7.64s
+[timing] sample processed in 6.38s
+[timing] sample processed in 12.36s
+[timing] sample processed in 22.22s
+[timing] sample processed in 13.51s
+[step 369] loss=0.1383 rewards(c/r)=0.05/-0.03
+[timing] sample processed in 7.34s
+[timing] sample processed in 13.04s
+[timing] sample processed in 18.10s
+[timing] sample processed in 23.31s
+[timing] sample processed in 7.99s
+[step 370] loss=0.1372 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 20.17s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch37_step370.pt
+==end-of-epoch 37==
+
+=== Epoch 38/50 ===
+[92m📊 [System Health] RAM: 49.1% | Swap Used: 7.80 GB[0m
+[timing] sample processed in 18.02s
+[92m📊 [System Health] RAM: 69.6% | Swap Used: 7.10 GB[0m
+[timing] sample processed in 15.74s
+[92m📊 [System Health] RAM: 52.3% | Swap Used: 6.26 GB[0m
+[timing] sample processed in 13.94s
+[92m📊 [System Health] RAM: 55.5% | Swap Used: 6.26 GB[0m
+[timing] sample processed in 10.90s
+[92m📊 [System Health] RAM: 58.2% | Swap Used: 6.31 GB[0m
+[step 371] loss=0.1374 rewards(c/r)=0.03/0.01
+[timing] sample processed in 12.91s
+[timing] sample processed in 10.04s
+[timing] sample processed in 26.43s
+[timing] sample processed in 20.44s
+[timing] sample processed in 24.47s
+[step 372] loss=0.1377 rewards(c/r)=-0.03/0.02
+[timing] sample processed in 16.21s
+[timing] sample processed in 4.01s
+[timing] sample processed in 42.20s
+[timing] sample processed in 29.23s
+[timing] sample processed in 5.86s
+[step 373] loss=0.1376 rewards(c/r)=0.00/0.02
+[timing] sample processed in 15.46s
+[timing] sample processed in 71.09s
+[timing] sample processed in 37.02s
+[timing] sample processed in 15.45s
+[timing] sample processed in 30.23s
+[step 374] loss=0.1416 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 21.51s
+[timing] sample processed in 19.17s
+[timing] sample processed in 22.13s
+[timing] sample processed in 40.20s
+[timing] sample processed in 11.27s
+[step 375] loss=0.1385 rewards(c/r)=0.01/0.00
+[timing] sample processed in 21.30s
+[timing] sample processed in 21.26s
+[timing] sample processed in 12.76s
+[timing] sample processed in 16.33s
+[timing] sample processed in 11.62s
+[step 376] loss=0.1395 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 7.46s
+[timing] sample processed in 4.14s
+[timing] sample processed in 12.69s
+[timing] sample processed in 69.41s
+[timing] sample processed in 33.28s
+[step 377] loss=0.1392 rewards(c/r)=-0.00/-0.01
+[timing] sample processed in 23.61s
+[timing] sample processed in 17.27s
+[timing] sample processed in 52.25s
+[timing] sample processed in 21.91s
+[timing] sample processed in 14.94s
+[step 378] loss=0.1378 rewards(c/r)=-0.03/0.02
+[timing] sample processed in 20.24s
+[timing] sample processed in 17.42s
+[timing] sample processed in 11.08s
+[timing] sample processed in 25.58s
+[timing] sample processed in 9.59s
+[step 379] loss=0.1399 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 7.85s
+[timing] sample processed in 17.83s
+[timing] sample processed in 24.91s
+[timing] sample processed in 8.92s
+[timing] sample processed in 10.84s
+[step 380] loss=0.1368 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 7.49s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch38_step380.pt
+==end-of-epoch 38==
+
+=== Epoch 39/50 ===
+[92m📊 [System Health] RAM: 42.3% | Swap Used: 6.56 GB[0m
+[timing] sample processed in 10.38s
+[92m📊 [System Health] RAM: 64.6% | Swap Used: 6.69 GB[0m
+[timing] sample processed in 4.00s
+[92m📊 [System Health] RAM: 78.4% | Swap Used: 6.52 GB[0m
+[timing] sample processed in 7.04s
+[92m📊 [System Health] RAM: 65.2% | Swap Used: 6.70 GB[0m
+[timing] sample processed in 5.31s
+[92m📊 [System Health] RAM: 58.7% | Swap Used: 6.74 GB[0m
+[step 381] loss=0.1385 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 12.64s
+[timing] sample processed in 3.51s
+[timing] sample processed in 12.93s
+[timing] sample processed in 29.30s
+[timing] sample processed in 18.00s
+[step 382] loss=0.1384 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 13.16s
+[timing] sample processed in 3.64s
+[timing] sample processed in 7.65s
+[timing] sample processed in 16.94s
+[timing] sample processed in 13.48s
+[step 383] loss=0.1386 rewards(c/r)=0.01/-0.03
+[timing] sample processed in 8.57s
+[timing] sample processed in 4.40s
+[timing] sample processed in 25.24s
+[timing] sample processed in 16.20s
+[timing] sample processed in 10.27s
+[step 384] loss=0.1396 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 20.04s
+[timing] sample processed in 14.40s
+[timing] sample processed in 3.89s
+[timing] sample processed in 10.88s
+[timing] sample processed in 12.01s
+[step 385] loss=0.1421 rewards(c/r)=-0.01/0.02
+[timing] sample processed in 9.11s
+[timing] sample processed in 9.88s
+[timing] sample processed in 13.76s
+[timing] sample processed in 6.70s
+[timing] sample processed in 15.61s
+[step 386] loss=0.1378 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 30.75s
+[timing] sample processed in 35.97s
+[timing] sample processed in 23.77s
+[timing] sample processed in 6.86s
+[timing] sample processed in 11.30s
+[step 387] loss=0.1373 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 10.86s
+[timing] sample processed in 11.38s
+[timing] sample processed in 7.38s
+[timing] sample processed in 21.90s
+[timing] sample processed in 54.26s
+[step 388] loss=0.1382 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 18.69s
+[timing] sample processed in 9.38s
+[timing] sample processed in 6.94s
+[timing] sample processed in 32.34s
+[timing] sample processed in 25.64s
+[step 389] loss=0.1417 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 12.33s
+[timing] sample processed in 6.87s
+[timing] sample processed in 3.91s
+[timing] sample processed in 3.87s
+[timing] sample processed in 12.20s
+[step 390] loss=0.1380 rewards(c/r)=-0.01/-0.04
+[timing] sample processed in 8.18s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch39_step390.pt
+==end-of-epoch 39==
+
+=== Epoch 40/50 ===
+[92m📊 [System Health] RAM: 55.4% | Swap Used: 6.34 GB[0m
+[timing] sample processed in 12.04s
+[92m📊 [System Health] RAM: 59.0% | Swap Used: 6.22 GB[0m
+[timing] sample processed in 38.24s
+[92m📊 [System Health] RAM: 54.9% | Swap Used: 9.96 GB[0m
+[timing] sample processed in 21.63s
+[92m📊 [System Health] RAM: 64.6% | Swap Used: 6.70 GB[0m
+[timing] sample processed in 9.56s
+[92m📊 [System Health] RAM: 67.0% | Swap Used: 6.89 GB[0m
+[step 391] loss=0.1384 rewards(c/r)=0.00/-0.03
+[timing] sample processed in 25.95s
+[timing] sample processed in 20.57s
+[timing] sample processed in 51.82s
+[timing] sample processed in 16.67s
+[timing] sample processed in 43.51s
+[step 392] loss=0.1379 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 32.09s
+[timing] sample processed in 7.99s
+[timing] sample processed in 3.86s
+[timing] sample processed in 14.51s
+[timing] sample processed in 9.01s
+[step 393] loss=0.1386 rewards(c/r)=0.02/-0.03
+[timing] sample processed in 11.28s
+[timing] sample processed in 16.03s
+[timing] sample processed in 12.66s
+[timing] sample processed in 11.84s
+[timing] sample processed in 29.90s
+[step 394] loss=0.1386 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 18.25s
+[timing] sample processed in 20.93s
+[timing] sample processed in 32.20s
+[timing] sample processed in 7.05s
+[timing] sample processed in 12.57s
+[step 395] loss=0.1402 rewards(c/r)=-0.00/0.00
+[timing] sample processed in 11.94s
+[timing] sample processed in 7.13s
+[timing] sample processed in 7.35s
+[timing] sample processed in 17.23s
+[timing] sample processed in 6.92s
+[step 396] loss=0.1372 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 67.32s
+[timing] sample processed in 11.72s
+[timing] sample processed in 19.79s
+[timing] sample processed in 9.05s
+[timing] sample processed in 16.29s
+[step 397] loss=0.1414 rewards(c/r)=-0.03/0.01
+[timing] sample processed in 15.23s
+[timing] sample processed in 7.17s
+[timing] sample processed in 32.07s
+[timing] sample processed in 8.02s
+[timing] sample processed in 38.13s
+[step 398] loss=0.1377 rewards(c/r)=-0.03/0.00
+[timing] sample processed in 10.18s
+[timing] sample processed in 15.12s
+[timing] sample processed in 22.74s
+[timing] sample processed in 15.65s
+[timing] sample processed in 15.17s
+[step 399] loss=0.1389 rewards(c/r)=0.03/0.03
+[timing] sample processed in 39.09s
+[timing] sample processed in 8.77s
+[timing] sample processed in 9.35s
+[timing] sample processed in 11.85s
+[timing] sample processed in 5.60s
+[step 400] loss=0.1377 rewards(c/r)=0.01/0.00
+[step 400] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 19.14s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch40_step400.pt
+==end-of-epoch 40==
+
+=== Epoch 41/50 ===
+[92m📊 [System Health] RAM: 57.8% | Swap Used: 5.32 GB[0m
+[timing] sample processed in 4.34s
+[92m📊 [System Health] RAM: 67.3% | Swap Used: 5.84 GB[0m
+[timing] sample processed in 23.47s
+[92m📊 [System Health] RAM: 58.7% | Swap Used: 8.26 GB[0m
+[timing] sample processed in 19.07s
+[92m📊 [System Health] RAM: 63.0% | Swap Used: 6.20 GB[0m
+[timing] sample processed in 6.80s
+[92m📊 [System Health] RAM: 49.5% | Swap Used: 6.24 GB[0m
+[step 401] loss=0.1404 rewards(c/r)=0.00/0.02
+[timing] sample processed in 15.23s
+[timing] sample processed in 25.76s
+[timing] sample processed in 6.42s
+[timing] sample processed in 44.40s
+[timing] sample processed in 17.22s
+[step 402] loss=0.1384 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 59.20s
+[timing] sample processed in 19.61s
+[timing] sample processed in 49.09s
+[timing] sample processed in 14.35s
+[timing] sample processed in 5.97s
+[step 403] loss=0.1410 rewards(c/r)=-0.05/0.01
+[timing] sample processed in 4.61s
+[timing] sample processed in 16.35s
+[timing] sample processed in 22.44s
+[timing] sample processed in 7.27s
+[timing] sample processed in 9.24s
+[step 404] loss=0.1389 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 63.14s
+[timing] sample processed in 33.49s
+[timing] sample processed in 8.47s
+[timing] sample processed in 9.52s
+[timing] sample processed in 24.35s
+[step 405] loss=0.1396 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 62.47s
+[timing] sample processed in 56.36s
+[timing] sample processed in 20.15s
+[timing] sample processed in 21.70s
+[timing] sample processed in 36.65s
+[step 406] loss=0.1377 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 16.70s
+[timing] sample processed in 10.82s
+[timing] sample processed in 14.79s
+[timing] sample processed in 10.02s
+[timing] sample processed in 15.59s
+[step 407] loss=0.1366 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 23.43s
+[timing] sample processed in 47.39s
+[timing] sample processed in 14.88s
+[timing] sample processed in 10.99s
+[timing] sample processed in 7.25s
+[step 408] loss=0.1412 rewards(c/r)=-0.03/-0.00
+[timing] sample processed in 51.21s
+[timing] sample processed in 20.01s
+[timing] sample processed in 23.81s
+[timing] sample processed in 14.60s
+[timing] sample processed in 16.93s
+[step 409] loss=0.1393 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 4.02s
+[timing] sample processed in 19.70s
+[timing] sample processed in 7.36s
+[timing] sample processed in 17.64s
+[timing] sample processed in 15.21s
+[step 410] loss=0.1383 rewards(c/r)=0.02/0.01
+[timing] sample processed in 15.97s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch41_step410.pt
+==end-of-epoch 41==
+
+=== Epoch 42/50 ===
+[92m📊 [System Health] RAM: 46.8% | Swap Used: 6.20 GB[0m
+[timing] sample processed in 12.83s
+[92m📊 [System Health] RAM: 50.5% | Swap Used: 6.23 GB[0m
+[timing] sample processed in 6.17s
+[92m📊 [System Health] RAM: 62.5% | Swap Used: 6.34 GB[0m
+[timing] sample processed in 21.13s
+[92m📊 [System Health] RAM: 49.3% | Swap Used: 8.08 GB[0m
+[timing] sample processed in 35.52s
+[92m📊 [System Health] RAM: 61.2% | Swap Used: 8.70 GB[0m
+[step 411] loss=0.1393 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 36.32s
+[timing] sample processed in 16.96s
+[timing] sample processed in 6.92s
+[timing] sample processed in 11.50s
+[timing] sample processed in 16.37s
+[step 412] loss=0.1383 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 16.19s
+[timing] sample processed in 6.58s
+[timing] sample processed in 9.44s
+[timing] sample processed in 11.67s
+[timing] sample processed in 9.99s
+[step 413] loss=0.1365 rewards(c/r)=0.03/0.01
+[timing] sample processed in 21.66s
+[timing] sample processed in 10.69s
+[timing] sample processed in 6.72s
+[timing] sample processed in 6.31s
+[timing] sample processed in 21.19s
+[step 414] loss=0.1401 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 14.30s
+[timing] sample processed in 10.64s
+[timing] sample processed in 36.46s
+[timing] sample processed in 5.41s
+[timing] sample processed in 18.45s
+[step 415] loss=0.1394 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 24.26s
+[timing] sample processed in 4.27s
+[timing] sample processed in 12.11s
+[timing] sample processed in 22.95s
+[timing] sample processed in 13.46s
+[step 416] loss=0.1389 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 17.47s
+[timing] sample processed in 32.50s
+[timing] sample processed in 9.98s
+[timing] sample processed in 45.42s
+[timing] sample processed in 52.90s
+[step 417] loss=0.1346 rewards(c/r)=0.03/0.00
+[timing] sample processed in 19.38s
+[timing] sample processed in 13.03s
+[timing] sample processed in 10.35s
+[timing] sample processed in 24.80s
+[timing] sample processed in 10.38s
+[step 418] loss=0.1375 rewards(c/r)=0.02/0.01
+[timing] sample processed in 12.70s
+[timing] sample processed in 9.25s
+[timing] sample processed in 16.91s
+[timing] sample processed in 22.58s
+[timing] sample processed in 7.45s
+[step 419] loss=0.1422 rewards(c/r)=-0.04/-0.01
+[timing] sample processed in 13.36s
+[timing] sample processed in 15.01s
+[timing] sample processed in 30.39s
+[timing] sample processed in 11.85s
+[timing] sample processed in 31.62s
+[step 420] loss=0.1375 rewards(c/r)=-0.02/0.03
+[timing] sample processed in 22.72s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch42_step420.pt
+==end-of-epoch 42==
+
+=== Epoch 43/50 ===
+[92m📊 [System Health] RAM: 46.8% | Swap Used: 8.11 GB[0m
+[timing] sample processed in 6.11s
+[92m📊 [System Health] RAM: 83.5% | Swap Used: 5.36 GB[0m
+[timing] sample processed in 7.24s
+[92m📊 [System Health] RAM: 58.3% | Swap Used: 5.39 GB[0m
+[timing] sample processed in 5.00s
+[92m📊 [System Health] RAM: 62.7% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 5.60s
+[92m📊 [System Health] RAM: 56.3% | Swap Used: 6.37 GB[0m
+[step 421] loss=0.1385 rewards(c/r)=0.01/0.01
+[timing] sample processed in 5.38s
+[timing] sample processed in 5.84s
+[timing] sample processed in 8.00s
+[timing] sample processed in 22.19s
+[timing] sample processed in 15.89s
+[step 422] loss=0.1396 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 16.38s
+[timing] sample processed in 20.21s
+[timing] sample processed in 38.72s
+[timing] sample processed in 8.25s
+[timing] sample processed in 5.42s
+[step 423] loss=0.1391 rewards(c/r)=0.02/0.02
+[timing] sample processed in 5.07s
+[timing] sample processed in 5.41s
+[timing] sample processed in 15.38s
+[timing] sample processed in 60.96s
+[timing] sample processed in 20.54s
+[step 424] loss=0.1395 rewards(c/r)=0.02/0.01
+[timing] sample processed in 10.08s
+[timing] sample processed in 12.28s
+[timing] sample processed in 13.09s
+[timing] sample processed in 16.49s
+[timing] sample processed in 14.84s
+[step 425] loss=0.1379 rewards(c/r)=-0.02/0.00
+[timing] sample processed in 8.39s
+[timing] sample processed in 4.41s
+[timing] sample processed in 22.32s
+[timing] sample processed in 18.78s
+[timing] sample processed in 30.57s
+[step 426] loss=0.1387 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 14.65s
+[timing] sample processed in 8.97s
+[timing] sample processed in 11.77s
+[timing] sample processed in 13.61s
+[timing] sample processed in 13.62s
+[step 427] loss=0.1401 rewards(c/r)=-0.03/-0.02
+[timing] sample processed in 7.42s
+[timing] sample processed in 18.74s
+[timing] sample processed in 15.33s
+[timing] sample processed in 13.70s
+[timing] sample processed in 29.35s
+[step 428] loss=0.1407 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 5.17s
+[timing] sample processed in 4.87s
+[timing] sample processed in 3.45s
+[timing] sample processed in 17.96s
+[timing] sample processed in 5.11s
+[step 429] loss=0.1407 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 17.30s
+[timing] sample processed in 55.40s
+[timing] sample processed in 24.78s
+[timing] sample processed in 16.58s
+[timing] sample processed in 12.75s
+[step 430] loss=0.1385 rewards(c/r)=0.05/0.01
+[timing] sample processed in 13.71s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch43_step430.pt
+==end-of-epoch 43==
+
+=== Epoch 44/50 ===
+[92m📊 [System Health] RAM: 51.2% | Swap Used: 6.58 GB[0m
+[timing] sample processed in 6.55s
+[92m📊 [System Health] RAM: 60.9% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 7.38s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 6.16 GB[0m
+[timing] sample processed in 4.10s
+[92m📊 [System Health] RAM: 77.5% | Swap Used: 6.03 GB[0m
+[timing] sample processed in 8.94s
+[92m📊 [System Health] RAM: 52.1% | Swap Used: 6.28 GB[0m
+[step 431] loss=0.1387 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 8.57s
+[timing] sample processed in 47.64s
+[timing] sample processed in 51.65s
+[timing] sample processed in 8.02s
+[timing] sample processed in 4.99s
+[step 432] loss=0.1393 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 4.57s
+[timing] sample processed in 8.01s
+[timing] sample processed in 7.98s
+[timing] sample processed in 4.15s
+[timing] sample processed in 15.56s
+[step 433] loss=0.1370 rewards(c/r)=0.04/-0.02
+[timing] sample processed in 12.05s
+[timing] sample processed in 6.10s
+[timing] sample processed in 7.15s
+[timing] sample processed in 15.39s
+[timing] sample processed in 4.59s
+[step 434] loss=0.1373 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 19.98s
+[timing] sample processed in 30.06s
+[timing] sample processed in 18.68s
+[timing] sample processed in 7.85s
+[timing] sample processed in 14.09s
+[step 435] loss=0.1383 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 4.98s
+[timing] sample processed in 29.32s
+[timing] sample processed in 23.50s
+[timing] sample processed in 33.40s
+[timing] sample processed in 15.58s
+[step 436] loss=0.1395 rewards(c/r)=0.01/0.01
+[timing] sample processed in 41.44s
+[timing] sample processed in 22.23s
+[timing] sample processed in 65.14s
+[timing] sample processed in 9.27s
+[timing] sample processed in 17.96s
+[step 437] loss=0.1381 rewards(c/r)=0.02/0.01
+[timing] sample processed in 38.30s
+[timing] sample processed in 10.41s
+[timing] sample processed in 28.48s
+[timing] sample processed in 9.50s
+[timing] sample processed in 15.83s
+[step 438] loss=0.1367 rewards(c/r)=0.01/-0.01
+[timing] sample processed in 23.89s
+[timing] sample processed in 17.95s
+[timing] sample processed in 18.73s
+[timing] sample processed in 4.64s
+[timing] sample processed in 14.11s
+[step 439] loss=0.1361 rewards(c/r)=0.01/0.01
+[timing] sample processed in 14.51s
+[timing] sample processed in 10.12s
+[timing] sample processed in 43.48s
+[timing] sample processed in 52.15s
+[timing] sample processed in 8.95s
+[step 440] loss=0.1394 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 6.01s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch44_step440.pt
+==end-of-epoch 44==
+
+=== Epoch 45/50 ===
+[92m📊 [System Health] RAM: 45.5% | Swap Used: 6.33 GB[0m
+[timing] sample processed in 8.34s
+[92m📊 [System Health] RAM: 54.1% | Swap Used: 6.33 GB[0m
+[timing] sample processed in 4.24s
+[92m📊 [System Health] RAM: 74.5% | Swap Used: 6.46 GB[0m
+[timing] sample processed in 17.05s
+[92m📊 [System Health] RAM: 61.5% | Swap Used: 7.01 GB[0m
+[timing] sample processed in 13.75s
+[92m📊 [System Health] RAM: 63.2% | Swap Used: 6.42 GB[0m
+[step 441] loss=0.1392 rewards(c/r)=-0.04/-0.02
+[timing] sample processed in 15.40s
+[timing] sample processed in 24.84s
+[timing] sample processed in 8.61s
+[timing] sample processed in 6.85s
+[timing] sample processed in 16.74s
+[step 442] loss=0.1395 rewards(c/r)=-0.02/-0.00
+[timing] sample processed in 22.34s
+[timing] sample processed in 13.53s
+[timing] sample processed in 6.98s
+[timing] sample processed in 21.55s
+[timing] sample processed in 8.39s
+[step 443] loss=0.1385 rewards(c/r)=0.00/0.02
+[timing] sample processed in 8.46s
+[timing] sample processed in 3.91s
+[timing] sample processed in 11.18s
+[timing] sample processed in 7.72s
+[timing] sample processed in 13.85s
+[step 444] loss=0.1389 rewards(c/r)=-0.02/-0.01
+[timing] sample processed in 77.96s
+[timing] sample processed in 23.57s
+[timing] sample processed in 46.79s
+[timing] sample processed in 8.24s
+[timing] sample processed in 39.08s
+[step 445] loss=0.1376 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 6.62s
+[timing] sample processed in 11.81s
+[timing] sample processed in 11.39s
+[timing] sample processed in 46.00s
+[timing] sample processed in 20.26s
+[step 446] loss=0.1372 rewards(c/r)=-0.00/-0.03
+[timing] sample processed in 7.87s
+[timing] sample processed in 15.68s
+[timing] sample processed in 17.20s
+[timing] sample processed in 6.03s
+[timing] sample processed in 23.72s
+[step 447] loss=0.1379 rewards(c/r)=-0.03/-0.01
+[timing] sample processed in 16.38s
+[timing] sample processed in 11.87s
+[timing] sample processed in 36.76s
+[timing] sample processed in 23.47s
+[timing] sample processed in 14.84s
+[step 448] loss=0.1381 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 8.69s
+[timing] sample processed in 6.46s
+[timing] sample processed in 27.85s
+[timing] sample processed in 15.32s
+[timing] sample processed in 21.96s
+[step 449] loss=0.1361 rewards(c/r)=0.01/0.02
+[timing] sample processed in 16.84s
+[timing] sample processed in 18.42s
+[timing] sample processed in 28.27s
+[timing] sample processed in 14.63s
+[timing] sample processed in 21.84s
+[step 450] loss=0.1402 rewards(c/r)=0.01/0.01
+[step 450] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 45.31s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch45_step450.pt
+==end-of-epoch 45==
+
+=== Epoch 46/50 ===
+[92m📊 [System Health] RAM: 61.4% | Swap Used: 5.43 GB[0m
+[timing] sample processed in 19.86s
+[92m📊 [System Health] RAM: 63.4% | Swap Used: 6.67 GB[0m
+[timing] sample processed in 5.17s
+[92m📊 [System Health] RAM: 68.8% | Swap Used: 6.47 GB[0m
+[timing] sample processed in 13.35s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 6.39 GB[0m
+[timing] sample processed in 18.20s
+[92m📊 [System Health] RAM: 57.9% | Swap Used: 6.69 GB[0m
+[step 451] loss=0.1385 rewards(c/r)=0.00/0.00
+[timing] sample processed in 10.25s
+[timing] sample processed in 13.46s
+[timing] sample processed in 48.74s
+[timing] sample processed in 8.94s
+[timing] sample processed in 5.92s
+[step 452] loss=0.1396 rewards(c/r)=0.01/0.04
+[timing] sample processed in 72.97s
+[timing] sample processed in 53.64s
+[timing] sample processed in 24.42s
+[timing] sample processed in 4.71s
+[timing] sample processed in 3.61s
+[step 453] loss=0.1363 rewards(c/r)=0.03/0.02
+[timing] sample processed in 30.02s
+[timing] sample processed in 13.85s
+[timing] sample processed in 9.85s
+[timing] sample processed in 4.37s
+[timing] sample processed in 6.38s
+[step 454] loss=0.1376 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 14.77s
+[timing] sample processed in 4.97s
+[timing] sample processed in 8.35s
+[timing] sample processed in 9.83s
+[timing] sample processed in 14.72s
+[step 455] loss=0.1382 rewards(c/r)=0.03/-0.00
+[timing] sample processed in 33.23s
+[timing] sample processed in 8.20s
+[timing] sample processed in 21.81s
+[timing] sample processed in 9.15s
+[timing] sample processed in 5.39s
+[step 456] loss=0.1380 rewards(c/r)=-0.00/-0.00
+[timing] sample processed in 17.14s
+[timing] sample processed in 14.38s
+[timing] sample processed in 13.06s
+[timing] sample processed in 18.30s
+[timing] sample processed in 6.73s
+[step 457] loss=0.1389 rewards(c/r)=0.02/0.02
+[timing] sample processed in 4.09s
+[timing] sample processed in 12.96s
+[timing] sample processed in 13.66s
+[timing] sample processed in 10.95s
+[timing] sample processed in 37.43s
+[step 458] loss=0.1387 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 11.83s
+[timing] sample processed in 13.75s
+[timing] sample processed in 28.32s
+[timing] sample processed in 19.33s
+[timing] sample processed in 3.93s
+[step 459] loss=0.1387 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 16.29s
+[timing] sample processed in 7.20s
+[timing] sample processed in 4.81s
+[timing] sample processed in 18.16s
+[timing] sample processed in 12.49s
+[step 460] loss=0.1379 rewards(c/r)=0.01/-0.03
+[timing] sample processed in 15.71s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch46_step460.pt
+==end-of-epoch 46==
+
+=== Epoch 47/50 ===
+[92m📊 [System Health] RAM: 45.8% | Swap Used: 6.44 GB[0m
+[timing] sample processed in 5.05s
+[92m📊 [System Health] RAM: 55.1% | Swap Used: 6.28 GB[0m
+[timing] sample processed in 23.30s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 7.82 GB[0m
+[timing] sample processed in 15.44s
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 10.88s
+[92m📊 [System Health] RAM: 47.5% | Swap Used: 6.46 GB[0m
+[step 461] loss=0.1376 rewards(c/r)=-0.01/-0.00
+[timing] sample processed in 3.99s
+[timing] sample processed in 19.33s
+[timing] sample processed in 17.11s
+[timing] sample processed in 10.54s
+[timing] sample processed in 13.68s
+[step 462] loss=0.1382 rewards(c/r)=-0.01/0.01
+[timing] sample processed in 29.86s
+[timing] sample processed in 22.37s
+[timing] sample processed in 16.30s
+[timing] sample processed in 13.83s
+[timing] sample processed in 12.06s
+[step 463] loss=0.1375 rewards(c/r)=0.01/-0.04
+[timing] sample processed in 14.55s
+[timing] sample processed in 46.07s
+[timing] sample processed in 12.19s
+[timing] sample processed in 29.44s
+[timing] sample processed in 18.63s
+[step 464] loss=0.1393 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 10.58s
+[timing] sample processed in 25.11s
+[timing] sample processed in 28.04s
+[timing] sample processed in 11.63s
+[timing] sample processed in 3.87s
+[step 465] loss=0.1385 rewards(c/r)=-0.01/-0.03
+[timing] sample processed in 22.97s
+[timing] sample processed in 23.98s
+[timing] sample processed in 10.02s
+[timing] sample processed in 12.74s
+[timing] sample processed in 15.30s
+[step 466] loss=0.1380 rewards(c/r)=0.02/0.01
+[timing] sample processed in 10.80s
+[timing] sample processed in 31.66s
+[timing] sample processed in 15.99s
+[timing] sample processed in 3.97s
+[timing] sample processed in 21.57s
+[step 467] loss=0.1395 rewards(c/r)=-0.05/-0.01
+[timing] sample processed in 78.74s
+[timing] sample processed in 44.94s
+[timing] sample processed in 34.23s
+[timing] sample processed in 17.63s
+[timing] sample processed in 7.15s
+[step 468] loss=0.1395 rewards(c/r)=0.00/0.07
+[timing] sample processed in 46.15s
+[timing] sample processed in 11.88s
+[timing] sample processed in 23.71s
+[timing] sample processed in 21.37s
+[timing] sample processed in 37.66s
+[step 469] loss=0.1398 rewards(c/r)=0.03/0.06
+[timing] sample processed in 20.06s
+[timing] sample processed in 34.84s
+[timing] sample processed in 5.01s
+[timing] sample processed in 22.84s
+[timing] sample processed in 5.46s
+[step 470] loss=0.1419 rewards(c/r)=0.00/0.00
+[timing] sample processed in 12.21s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch47_step470.pt
+==end-of-epoch 47==
+
+=== Epoch 48/50 ===
+[92m📊 [System Health] RAM: 48.0% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 13.07s
+[92m📊 [System Health] RAM: 51.8% | Swap Used: 6.39 GB[0m
+[timing] sample processed in 67.87s
+[92m📊 [System Health] RAM: 65.4% | Swap Used: 11.23 GB[0m
+[timing] sample processed in 14.58s
+[92m📊 [System Health] RAM: 63.7% | Swap Used: 7.02 GB[0m
+[timing] sample processed in 11.82s
+[92m📊 [System Health] RAM: 53.7% | Swap Used: 6.93 GB[0m
+[step 471] loss=0.1385 rewards(c/r)=0.01/0.02
+[timing] sample processed in 10.91s
+[timing] sample processed in 6.44s
+[timing] sample processed in 4.01s
+[timing] sample processed in 23.32s
+[timing] sample processed in 11.34s
+[step 472] loss=0.1391 rewards(c/r)=-0.00/0.02
+[timing] sample processed in 15.12s
+[timing] sample processed in 12.88s
+[timing] sample processed in 22.98s
+[timing] sample processed in 14.47s
+[timing] sample processed in 21.80s
+[step 473] loss=0.1391 rewards(c/r)=0.03/-0.05
+[timing] sample processed in 8.07s
+[timing] sample processed in 20.67s
+[timing] sample processed in 23.60s
+[timing] sample processed in 18.83s
+[timing] sample processed in 14.45s
+[step 474] loss=0.1395 rewards(c/r)=0.00/0.03
+[timing] sample processed in 10.20s
+[timing] sample processed in 24.35s
+[timing] sample processed in 14.69s
+[timing] sample processed in 23.83s
+[timing] sample processed in 10.87s
+[step 475] loss=0.1400 rewards(c/r)=0.02/0.04
+[timing] sample processed in 15.85s
+[timing] sample processed in 9.20s
+[timing] sample processed in 32.83s
+[timing] sample processed in 8.34s
+[timing] sample processed in 6.38s
+[step 476] loss=0.1374 rewards(c/r)=0.02/0.00
+[timing] sample processed in 17.68s
+[timing] sample processed in 18.30s
+[timing] sample processed in 12.46s
+[timing] sample processed in 23.25s
+[timing] sample processed in 9.12s
+[step 477] loss=0.1377 rewards(c/r)=0.00/-0.01
+[timing] sample processed in 5.11s
+[timing] sample processed in 13.91s
+[timing] sample processed in 29.77s
+[timing] sample processed in 11.11s
+[timing] sample processed in 12.42s
+[step 478] loss=0.1385 rewards(c/r)=-0.02/-0.02
+[timing] sample processed in 4.92s
+[timing] sample processed in 8.59s
+[timing] sample processed in 12.05s
+[timing] sample processed in 19.99s
+[timing] sample processed in 25.60s
+[step 479] loss=0.1377 rewards(c/r)=0.02/0.02
+[timing] sample processed in 23.68s
+[timing] sample processed in 9.57s
+[timing] sample processed in 53.85s
+[timing] sample processed in 20.82s
+[timing] sample processed in 11.40s
+[step 480] loss=0.1394 rewards(c/r)=-0.00/0.01
+[timing] sample processed in 12.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch48_step480.pt
+==end-of-epoch 48==
+
+=== Epoch 49/50 ===
+[92m📊 [System Health] RAM: 40.3% | Swap Used: 6.48 GB[0m
+[timing] sample processed in 21.70s
+[92m📊 [System Health] RAM: 53.9% | Swap Used: 8.19 GB[0m
+[timing] sample processed in 13.81s
+[92m📊 [System Health] RAM: 53.6% | Swap Used: 6.51 GB[0m
+[timing] sample processed in 13.90s
+[92m📊 [System Health] RAM: 46.9% | Swap Used: 6.49 GB[0m
+[timing] sample processed in 12.77s
+[92m📊 [System Health] RAM: 52.9% | Swap Used: 6.43 GB[0m
+[step 481] loss=0.1398 rewards(c/r)=-0.01/-0.01
+[timing] sample processed in 15.11s
+[timing] sample processed in 17.43s
+[timing] sample processed in 48.70s
+[timing] sample processed in 27.72s
+[timing] sample processed in 10.67s
+[step 482] loss=0.1383 rewards(c/r)=-0.03/0.00
+[timing] sample processed in 7.00s
+[timing] sample processed in 6.79s
+[timing] sample processed in 20.43s
+[timing] sample processed in 21.64s
+[timing] sample processed in 8.73s
+[step 483] loss=0.1373 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 17.77s
+[timing] sample processed in 4.15s
+[timing] sample processed in 27.36s
+[timing] sample processed in 15.01s
+[timing] sample processed in 6.30s
+[step 484] loss=0.1372 rewards(c/r)=0.00/-0.02
+[timing] sample processed in 10.25s
+[timing] sample processed in 4.08s
+[timing] sample processed in 6.17s
+[timing] sample processed in 8.56s
+[timing] sample processed in 14.88s
+[step 485] loss=0.1387 rewards(c/r)=0.02/-0.01
+[timing] sample processed in 16.01s
+[timing] sample processed in 8.77s
+[timing] sample processed in 45.19s
+[timing] sample processed in 20.47s
+[timing] sample processed in 4.05s
+[step 486] loss=0.1381 rewards(c/r)=0.01/-0.02
+[timing] sample processed in 6.47s
+[timing] sample processed in 10.05s
+[timing] sample processed in 6.78s
+[timing] sample processed in 17.92s
+[timing] sample processed in 16.80s
+[step 487] loss=0.1398 rewards(c/r)=0.00/0.00
+[timing] sample processed in 3.63s
+[timing] sample processed in 19.28s
+[timing] sample processed in 13.62s
+[timing] sample processed in 15.84s
+[timing] sample processed in 20.99s
+[step 488] loss=0.1350 rewards(c/r)=0.03/-0.01
+[timing] sample processed in 14.08s
+[timing] sample processed in 6.19s
+[timing] sample processed in 6.67s
+[timing] sample processed in 25.99s
+[timing] sample processed in 12.93s
+[step 489] loss=0.1386 rewards(c/r)=0.02/-0.00
+[timing] sample processed in 4.51s
+[timing] sample processed in 16.25s
+[timing] sample processed in 30.47s
+[timing] sample processed in 8.30s
+[timing] sample processed in 16.57s
+[step 490] loss=0.1392 rewards(c/r)=-0.01/0.00
+[timing] sample processed in 19.47s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch49_step490.pt
+==end-of-epoch 49==
+
+=== Epoch 50/50 ===
+[92m📊 [System Health] RAM: 49.6% | Swap Used: 8.34 GB[0m
+[timing] sample processed in 4.50s
+[92m📊 [System Health] RAM: 66.7% | Swap Used: 8.25 GB[0m
+[timing] sample processed in 12.80s
+[92m📊 [System Health] RAM: 73.5% | Swap Used: 6.48 GB[0m
+[timing] sample processed in 13.47s
+[92m📊 [System Health] RAM: 48.6% | Swap Used: 6.64 GB[0m
+[timing] sample processed in 17.45s
+[92m📊 [System Health] RAM: 59.3% | Swap Used: 7.07 GB[0m
+[step 491] loss=0.1403 rewards(c/r)=0.01/0.03
+[timing] sample processed in 4.17s
+[timing] sample processed in 7.26s
+[timing] sample processed in 11.19s
+[timing] sample processed in 12.21s
+[timing] sample processed in 9.37s
+[step 492] loss=0.1370 rewards(c/r)=0.01/-0.05
+[timing] sample processed in 12.86s
+[timing] sample processed in 5.76s
+[timing] sample processed in 9.15s
+[timing] sample processed in 20.48s
+[timing] sample processed in 42.25s
+[step 493] loss=0.1371 rewards(c/r)=0.00/-0.00
+[timing] sample processed in 28.99s
+[timing] sample processed in 5.16s
+[timing] sample processed in 28.24s
+[timing] sample processed in 8.86s
+[timing] sample processed in 12.64s
+[step 494] loss=0.1382 rewards(c/r)=-0.00/-0.02
+[timing] sample processed in 27.10s
+[timing] sample processed in 6.12s
+[timing] sample processed in 13.56s
+[timing] sample processed in 9.09s
+[timing] sample processed in 6.89s
+[step 495] loss=0.1368 rewards(c/r)=-0.01/-0.02
+[timing] sample processed in 30.45s
+[timing] sample processed in 6.64s
+[timing] sample processed in 3.72s
+[timing] sample processed in 22.17s
+[timing] sample processed in 11.96s
+[step 496] loss=0.1407 rewards(c/r)=-0.02/0.01
+[timing] sample processed in 11.68s
+[timing] sample processed in 16.83s
+[timing] sample processed in 17.11s
+[timing] sample processed in 21.27s
+[timing] sample processed in 4.87s
+[step 497] loss=0.1376 rewards(c/r)=-0.03/-0.05
+[timing] sample processed in 7.14s
+[timing] sample processed in 7.39s
+[timing] sample processed in 6.46s
+[timing] sample processed in 4.83s
+[timing] sample processed in 67.10s
+[step 498] loss=0.1384 rewards(c/r)=0.02/0.05
+[timing] sample processed in 17.51s
+[timing] sample processed in 17.92s
+[timing] sample processed in 25.81s
+[timing] sample processed in 38.72s
+[timing] sample processed in 11.03s
+[step 499] loss=0.1393 rewards(c/r)=0.01/0.00
+[timing] sample processed in 6.58s
+[timing] sample processed in 13.99s
+[timing] sample processed in 12.09s
+[timing] sample processed in 7.63s
+[timing] sample processed in 8.46s
+[step 500] loss=0.1381 rewards(c/r)=-0.01/-0.02
+[step 500] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+2. **Second leg:** The car travels twice the speed, so the speed is 62 km/h * 2 = 124 km/h.
+3. **Second leg time:** The car travels for 3 hours.
+4. **Second leg distance:** The distance is 124 km/h * 3 h = 372 km.
+5. **Total distance:** The total distance is 124 km + 372 km = 506 km.
+
+**Final Answer:** 506 km 
+
+[timing] sample processed in 19.74s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch50_step500.pt
+==end-of-epoch 50==
