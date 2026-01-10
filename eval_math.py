@@ -1,7 +1,7 @@
 """
 Script to evaluate the model's performance on the test math dataset
 """
-import json, re, gc
+import json, re, gc, time
 from pathlib import Path
 
 import torch
@@ -15,13 +15,13 @@ from grpo.lora import apply_lora_to_model, freeze_non_lora_params
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_lora_epoch10_step80.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/dpo_lora_epoch15_step150.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 300
 TOL = 1e-1
 
-prompt = " Please reason step-by-step,  then give: Final answer."
+prompt = "Reason step-by-step,  then give: Final answer."
 
 def extract_answer(text):
     if text is None:
@@ -72,6 +72,7 @@ model.to("mps")
 model.eval()
 
 correct, total = 0, 0
+start_time = time.perf_counter()
 
 with open(TEST_FILE) as f:
     test_data = [json.loads(line) for line in f]
@@ -85,6 +86,7 @@ MAX_INPUT_TOKENS = max(question_lengths) if question_lengths else 0
 print(f"Max question tokens: {MAX_INPUT_TOKENS}")
 
 for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
+    batch_start = time.perf_counter()
     batch = test_data[idx : idx + BATCH_SIZE]
     questions = [sample["question"] + prompt for sample in batch]
     golds = [str(sample["gold_answer"]).strip() for sample in batch]
@@ -106,16 +108,19 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
             pad_token_id=tokenizer.pad_token_id,
             eos_token_id=tokenizer.eos_token_id,
             use_cache=True, # Critical for speed
-            repetition_penalty=1.2
+            repetition_penalty=1.0
         )
         texts = tokenizer.batch_decode(outputs[:, input_len:], skip_special_tokens=True)
 
     for q, text, gold in zip(questions, texts, golds):
         print(f"Question is: {q}\n\n")
         print(f"model output is: {text}\n")
+        total += 1
         try:
-            gold_val = float(gold.replace(",", ""))
+            clean_gold = str(gold).replace(",", "").replace("$", "").replace("%", "").strip()
+            gold_val = float(clean_gold)
         except Exception:
+            print(f"⚠️ SKIPPING Question {idx}: Could not parse gold answer '{gold}'. Error: {e}")
             continue
         pred = extract_final_answer(text)
         if pred is None:
@@ -123,17 +128,23 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
         print("pred is {} and gold is {}".format(pred, gold))
         if abs(pred - gold_val) <= TOL:
             correct += 1
-        total += 1
         print(">>>>>>>>>>>>.")
     del inputs, outputs, texts
     gc.collect()
     torch.mps.empty_cache()
+    batch_elapsed = time.perf_counter() - batch_start
+    batch_count = len(batch)
+    avg_per_sample = batch_elapsed / batch_count if batch_count else 0.0
+    print(f"Batch time: {batch_elapsed:.2f}s ({batch_count} samples, {avg_per_sample:.2f}s/sample)")
     print("total questions processed is {} and correct answer is {}".format(total, correct))
 
 accuracy = correct / total * 100
 
+total_elapsed = time.perf_counter() - start_time
+avg_elapsed = total_elapsed / total if total else 0.0
 print(f"\n--- Baseline Evaluation ---")
 print(f"Model: Gemma 2B Instruct{' + LoRA' if USE_LORA and LORA_CKPT.exists() else ''}")
 print(f"Total: {total}")
 print(f"Correct: {correct}")
 print(f"Accuracy: {accuracy:.2f}%")
+print(f"Elapsed: {total_elapsed:.2f}s ({avg_elapsed:.2f}s/sample)")

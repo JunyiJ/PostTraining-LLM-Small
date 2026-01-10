@@ -250,52 +250,42 @@ NUMBER_PATTERN = re.compile(r"[-+]?\d*\.?\d+(?:/\d+)?")
 
 def extract_final_answer(text: str) -> Optional[float]:
     """
-    Robust answer extraction:
-    1) Prefer LAST explicit "Final Answer: <num>"
-    2) Otherwise prefer LAST "therefore ... <num>"
-    3) Otherwise use the LAST number in the text (e.g., "... = 72").
+    Parses the 'Final Answer' format.
+    - Handles '=': Takes the right side.
+    - Handles text: Takes the FIRST number found after the tag.
     """
-
     if not text:
         return None
 
-    # Split by the LAST "final answer" to avoid getting trapped by intermediate thoughts
-    parts = re.split(r"final\s*answer[:\s]*", text, flags=re.IGNORECASE)
-    if len(parts) > 1:
-        after_tag = parts[-1].strip()
-        num_match = re.search(r"([-+]?\d[0-9,./]*)", after_tag)
-        if num_match:
-            raw_num = num_match.group(1).replace(",", "").rstrip(".")
-            try:
-                if "/" in raw_num:
-                    n, d = raw_num.split("/")
-                    return float(n) / float(d)
-                return float(raw_num)
-            except:
-                pass
+    # 1. Find the "Final Answer" or "Answer" tag
+    # Use re.split to handle case variations and get the last occurrence
+    parts = re.split(r"(?:final\s+)?answer\s*[:=]\s*", text, flags=re.IGNORECASE)
+    
+    if len(parts) < 2:
+        return None  # No format = No reward (Forces model to use the tag)
 
-    # Try the last occurrence of "therefore ... <num>"
-    parts = re.split(r"therefore[:\s]*", text, flags=re.IGNORECASE)
-    if len(parts) > 1:
-        after_tag = parts[-1].strip()
-        num_match = re.search(r"([-+]?\d[0-9,./]*)", after_tag)
-        if num_match:
-            raw_num = num_match.group(1).replace(",", "").rstrip(".")
-            try:
-                if "/" in raw_num:
-                    n, d = raw_num.split("/")
-                    return float(n) / float(d)
-                return float(raw_num)
-            except:
-                pass
+    # Focus on the text after the last tag
+    after_tag = parts[-1].strip()
+    
+    # 2. Handle Equality Signs (e.g., "Final Answer: 2 + 2 = 4")
+    # If there is an '=', the answer is almost always on the right side.
+    if "=" in after_tag:
+        after_tag = after_tag.split("=")[-1].strip()
 
-    # Fallback to the very last number found anywhere
-    nums = re.findall(r"[-+]?\d[0-9,]*\.?\d*", text)
-    if nums:
+    # 3. Extract the FIRST number found
+    # We look for the first valid number (integer or float)
+    # This matches "100" in "100 hours for 4 workers"
+    # This ignores "4" in "100 hours for 4 workers"
+    match = re.search(r"([-+]?\d+(?:,\d{3})*(?:\.\d+)?)", after_tag)
+    
+    if match:
+        # Clean up the number (remove commas)
+        raw_num = match.group(1).replace(",", "")
         try:
-            return float(nums[-1].replace(",", "").rstrip("."))
+            return float(raw_num)
         except:
             return None
+            
     return None
 
 
@@ -379,6 +369,42 @@ def equation_bonus(text: str) -> float:
 
     return min(bonus, 0.10)   # cap at +0.1
 
+# ============================================================
+# NEW: Repetition Penalty
+# ============================================================
+
+def repetition_penalty(text: str) -> float:
+    """
+    Detects and penalizes repetitive loops.
+    Returns: -1.0 if repetition detected, 0.0 otherwise.
+    """
+    penalty = 0.0
+    
+    # 1. Line-based Repetition (e.g. "Step 1" appearing 5 times)
+    lines = [l.strip() for l in text.split('\n') if len(l.strip()) > 5]
+    if len(lines) > 5:
+        # Check if >30% of lines are duplicates
+        unique_lines = set(lines)
+        if len(unique_lines) / len(lines) < 0.7:
+            return -1.0
+            
+    # 2. N-gram Repetition (e.g. "calculate the cost calculate the cost")
+    words = text.lower().split()
+    if len(words) > 30:
+        trigrams = set()
+        count_repeats = 0
+        for i in range(len(words) - 5):
+            # Check 5-word phrases
+            phrase = tuple(words[i:i+5])
+            if phrase in trigrams:
+                count_repeats += 1
+            trigrams.add(phrase)
+        
+        # If we see the same 5-word phrase more than 3 times, penalize
+        if count_repeats > 3:
+            return -1.0
+            
+    return 0.0
 
 # ============================================================
 # FINAL COMBINED REWARD
@@ -450,6 +476,9 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     if len(text) > 20: 
         eq_r = equation_bonus(text)
 
+    # 4. NEW: Repetition Penalty
+    rep_r = repetition_penalty(text)
+
     # 4. Format/Structure Bonus
     # Reward the model slightly for actually using the step-by-step format
     format_r = 0.0
@@ -459,14 +488,14 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # 5. Soft Truncation Penalty
     # We lowered this to -0.05 per your latest update, which is good.
     # It stops the 'Builder Problem' from being a total loss.
-    trunc_r = -0.2 if truncated else 0.0
+    trunc_r = -0.5 if truncated else 0.0
 
     # 6. Efficiency Bonus (The Tie-Breaker)
     # Rewards the model for getting the answer in fewer tokens.
     # If two samples are correct, the shorter one ranks higher.
-    length_penalty = min(len(text) / 1000, 0.1)
+    length_penalty = min(len(text) / 500.0, 0.1)
 
-    total = num_r + eq_r + format_r + trunc_r - length_penalty
+    total = num_r + eq_r + rep_r + format_r + trunc_r - length_penalty
 
     # Clip to ensure advantages don't explode
     return max(-1.5, min(1.5, total))

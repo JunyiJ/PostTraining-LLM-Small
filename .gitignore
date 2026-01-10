@@ -1,6 +1,7 @@
 /models/*
 !/models/.gitkeep
 /checkpoints/*
+/logs/*
 /gemma-2-2b-checkpoints/*
 /Qwen2.5-Math-1.5B-Instruct-checkpoints/*
 /gemma-2-2b-checkpoints/

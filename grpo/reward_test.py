@@ -1,9 +1,10 @@
 import pytest
-from reward import (
+from grpo.reward import (
     compute_reward,
     MIN_REASON_TOKENS,
     advanced_cot_reward,
     refined_advanced_cot_reward,
+    extract_final_answer,
 )
 
 @pytest.mark.parametrize(
@@ -193,3 +194,18 @@ def test_refined_extraction_3():
     """
     base = refined_advanced_cot_reward(text, "10,000", truncated=False)
     assert base >= 0.9
+
+
+@pytest.mark.parametrize(
+    "text, expected",
+    [
+        ("Final Answer: 100 hours for 4 workers", 100.0),
+        ("Final Answer: 100", 100.0),
+        ("Final Answer: 2 + 2 = 4", 4.0),
+        ("Final Answer: The 4 workers take 100 hours", 4.0),
+        ("Final Answer: 4 (Hallucinated variable)", 4.0),
+        ("**Final answer:** 1000 people had not voted by 16:00.", 1000)
+    ],
+)
+def test_extract_final_answer_examples(text, expected):
+    assert extract_final_answer(text) == expected
