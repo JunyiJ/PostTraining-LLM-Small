@@ -37,11 +37,11 @@ NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.9
+SAMPLING_TEMPERATURE = 1.0
 MAX_NEW_TOKENS = 400
-KL_COEF = 0.1
+KL_COEF = 0.2
 DEVICE = torch.device("mps")
-PROMPT = " Please reason step-by-step,  then give: Final answer."
+PROMPT = " Reason step-by-step,  then give: Final answer."
 
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH))
@@ -86,7 +86,7 @@ def save_lora_checkpoint(model, optimizer, epoch, global_step):
         "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
         "optimizer_state_dict": optimizer.state_dict(),
     }
-    ckpt_path = CHECKPOINT_DIR / f"lora_epoch{epoch}_step{global_step}.pt"
+    ckpt_path = CHECKPOINT_DIR / f"2026_lora_epoch{epoch}_step{global_step}.pt"
     torch.save(state, ckpt_path)
     print(f"Saved checkpoint to {ckpt_path}")
 

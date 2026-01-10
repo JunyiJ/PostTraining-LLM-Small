@@ -2,3 +2,4091 @@ LoRA checkpoint None not found; training from base model.
 Print found 10471 lines of training data
 
 === Epoch 1/50 ===
+[92m📊 [System Health] RAM: 59.1% | Swap Used: 1.15 GB[0m
+[timing] sample processed in 18.37s
+[92m📊 [System Health] RAM: 64.6% | Swap Used: 1.37 GB[0m
+[timing] sample processed in 7.14s
+[92m📊 [System Health] RAM: 58.6% | Swap Used: 1.25 GB[0m
+[timing] sample processed in 58.55s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 6.22 GB[0m
+[timing] sample processed in 16.63s
+[92m📊 [System Health] RAM: 52.3% | Swap Used: 1.55 GB[0m
+[step 1] loss=0.1386 rewards(c/r)=-0.03/-0.02
+[timing] sample processed in 44.21s
+[timing] sample processed in 58.92s
+[timing] sample processed in 29.95s
+[timing] sample processed in 18.27s
+[timing] sample processed in 19.94s
+[step 2] loss=0.1423 rewards(c/r)=0.03/0.07
+[timing] sample processed in 20.14s
+[timing] sample processed in 19.37s
+[timing] sample processed in 8.46s
+[timing] sample processed in 8.85s
+[timing] sample processed in 36.82s
+[step 3] loss=0.1381 rewards(c/r)=-0.02/-0.03
+[timing] sample processed in 15.01s
+[timing] sample processed in 6.82s
+[timing] sample processed in 6.46s
+[timing] sample processed in 14.96s
+[timing] sample processed in 4.86s
+[step 4] loss=0.1411 rewards(c/r)=0.10/0.07
+[timing] sample processed in 11.80s
+[timing] sample processed in 13.87s
+[timing] sample processed in 23.49s
+[timing] sample processed in 18.89s
+[timing] sample processed in 17.36s
+[step 5] loss=0.1386 rewards(c/r)=-0.06/-0.03
+[timing] sample processed in 4.38s
+[timing] sample processed in 13.64s
+[timing] sample processed in 66.32s
+[timing] sample processed in 50.00s
+[timing] sample processed in 14.85s
+[step 6] loss=0.1296 rewards(c/r)=0.00/-0.10
+[timing] sample processed in 16.54s
+[timing] sample processed in 19.58s
+[timing] sample processed in 6.05s
+[timing] sample processed in 7.13s
+[timing] sample processed in 14.83s
+[step 7] loss=0.1394 rewards(c/r)=-0.14/-0.15
+[timing] sample processed in 7.53s
+[timing] sample processed in 9.03s
+[timing] sample processed in 9.09s
+[timing] sample processed in 31.30s
+[timing] sample processed in 65.34s
+[step 8] loss=0.1271 rewards(c/r)=-0.08/-0.27
+[timing] sample processed in 15.08s
+[timing] sample processed in 12.47s
+[timing] sample processed in 23.93s
+[timing] sample processed in 17.81s
+[timing] sample processed in 14.04s
+[step 9] loss=0.1461 rewards(c/r)=0.08/-0.05
+[timing] sample processed in 8.06s
+[timing] sample processed in 16.04s
+[timing] sample processed in 8.80s
+[timing] sample processed in 7.63s
+[timing] sample processed in 10.42s
+[step 10] loss=0.1316 rewards(c/r)=0.14/0.03
+[step 10] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 km/h * 2 = 124 km/h) for 3 hours, so the distance is 124 km/h * 3 h = 372 km.
+
+3. **Total distance:** The total distance is the sum of the distances from the first and second legs: 124 km + 372 km = 496 km.
+
+**Final Answer:** 496 km 
+
+[timing] sample processed in 21.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch1_step10.pt
+==end-of-epoch 1==
+
+=== Epoch 2/50 ===
+[92m📊 [System Health] RAM: 58.0% | Swap Used: 1.39 GB[0m
+[timing] sample processed in 14.27s
+[92m📊 [System Health] RAM: 56.5% | Swap Used: 1.88 GB[0m
+[timing] sample processed in 5.49s
+[92m📊 [System Health] RAM: 71.8% | Swap Used: 1.92 GB[0m
+[timing] sample processed in 17.92s
+[92m📊 [System Health] RAM: 70.7% | Swap Used: 2.01 GB[0m
+[timing] sample processed in 13.58s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 1.97 GB[0m
+[step 11] loss=0.1324 rewards(c/r)=0.12/0.12
+[timing] sample processed in 13.54s
+[timing] sample processed in 14.20s
+[timing] sample processed in 19.90s
+[timing] sample processed in 12.57s
+[timing] sample processed in 8.57s
+[step 12] loss=0.1237 rewards(c/r)=-0.03/-0.15
+[timing] sample processed in 21.95s
+[timing] sample processed in 21.81s
+[timing] sample processed in 21.79s
+[timing] sample processed in 65.74s
+[timing] sample processed in 26.11s
+[step 13] loss=0.1251 rewards(c/r)=0.09/-0.06
+[timing] sample processed in 10.82s
+[timing] sample processed in 21.73s
+[timing] sample processed in 29.91s
+[timing] sample processed in 31.54s
+[timing] sample processed in 44.10s
+[step 14] loss=0.1527 rewards(c/r)=0.01/-0.05
+[timing] sample processed in 35.33s
+[timing] sample processed in 10.98s
+[timing] sample processed in 8.45s
+[timing] sample processed in 44.36s
+[timing] sample processed in 19.85s
+[step 15] loss=0.1452 rewards(c/r)=-0.01/0.34
+[timing] sample processed in 19.34s
+[timing] sample processed in 13.40s
+[timing] sample processed in 43.07s
+[timing] sample processed in 20.94s
+[timing] sample processed in 48.30s
+[step 16] loss=0.1290 rewards(c/r)=-0.25/-0.29
+[timing] sample processed in 45.11s
+[timing] sample processed in 27.10s
+[timing] sample processed in 38.37s
+[timing] sample processed in 32.25s
+[timing] sample processed in 60.25s
+[step 17] loss=0.1198 rewards(c/r)=0.04/0.00
+[timing] sample processed in 27.45s
+[timing] sample processed in 60.16s
+[timing] sample processed in 24.89s
+[timing] sample processed in 50.09s
+[timing] sample processed in 19.84s
+[step 18] loss=0.1409 rewards(c/r)=-0.08/0.11
+[timing] sample processed in 26.60s
+[timing] sample processed in 18.97s
+[timing] sample processed in 15.31s
+[timing] sample processed in 61.95s
+[timing] sample processed in 49.07s
+[step 19] loss=0.1404 rewards(c/r)=0.24/0.30
+[timing] sample processed in 22.35s
+[timing] sample processed in 33.78s
+[timing] sample processed in 25.33s
+[timing] sample processed in 15.16s
+[timing] sample processed in 45.05s
+[step 20] loss=0.1253 rewards(c/r)=0.16/-0.04
+[step 20] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Step 1:** Calculate the distance traveled at 62 km/h for 2 hours.
+
+**Step 2:** Calculate the speed for the second part of the journey.
+
+**Step 3:** Calculate the distance traveled at the second part of the journey.
+
+**Step 4:** Calculate the total distance traveled.
+
+**Final Answer:**  km 
+
+[timing] sample processed in 47.52s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch2_step20.pt
+==end-of-epoch 2==
+
+=== Epoch 3/50 ===
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 1.76 GB[0m
+[timing] sample processed in 25.78s
+[92m📊 [System Health] RAM: 70.9% | Swap Used: 3.98 GB[0m
+[timing] sample processed in 18.71s
+[92m📊 [System Health] RAM: 71.9% | Swap Used: 2.56 GB[0m
+[timing] sample processed in 18.29s
+[92m📊 [System Health] RAM: 70.7% | Swap Used: 2.63 GB[0m
+[timing] sample processed in 25.77s
+[92m📊 [System Health] RAM: 73.4% | Swap Used: 2.82 GB[0m
+[step 21] loss=0.1173 rewards(c/r)=0.26/0.29
+[timing] sample processed in 21.20s
+[timing] sample processed in 18.59s
+[timing] sample processed in 32.25s
+[timing] sample processed in 57.32s
+[timing] sample processed in 29.05s
+[step 22] loss=0.1530 rewards(c/r)=-0.18/0.05
+[timing] sample processed in 20.50s
+[timing] sample processed in 54.51s
+[timing] sample processed in 30.54s
+[timing] sample processed in 32.27s
+[timing] sample processed in 21.71s
+[step 23] loss=0.1214 rewards(c/r)=-0.21/-0.26
+[timing] sample processed in 66.50s
+[timing] sample processed in 60.46s
+[timing] sample processed in 18.82s
+[timing] sample processed in 50.79s
+[timing] sample processed in 26.72s
+[step 24] loss=0.1576 rewards(c/r)=-0.53/-0.26
+[timing] sample processed in 27.72s
+[timing] sample processed in 18.12s
+[timing] sample processed in 19.18s
+[timing] sample processed in 18.21s
+[timing] sample processed in 84.85s
+[step 25] loss=0.1143 rewards(c/r)=0.17/-0.37
+[timing] sample processed in 37.80s
+[timing] sample processed in 26.06s
+[timing] sample processed in 34.83s
+[timing] sample processed in 33.54s
+[timing] sample processed in 23.78s
+[step 26] loss=0.1114 rewards(c/r)=-0.20/-0.58
+[timing] sample processed in 55.65s
+[timing] sample processed in 35.23s
+[timing] sample processed in 29.06s
+[timing] sample processed in 27.37s
+[timing] sample processed in 36.96s
+[step 27] loss=0.1033 rewards(c/r)=0.21/-0.28
+[timing] sample processed in 48.90s
+[timing] sample processed in 38.26s
+[timing] sample processed in 34.14s
+[timing] sample processed in 61.94s
+[timing] sample processed in 24.54s
+[step 28] loss=0.1646 rewards(c/r)=0.32/0.11
+[timing] sample processed in 14.53s
+[timing] sample processed in 83.88s
+[timing] sample processed in 28.52s
+[timing] sample processed in 36.73s
+[timing] sample processed in 23.28s
+[step 29] loss=0.0862 rewards(c/r)=-0.31/-1.30
+[timing] sample processed in 34.49s
+[timing] sample processed in 87.08s
+[timing] sample processed in 43.58s
+[timing] sample processed in 12.56s
+[timing] sample processed in 18.82s
+[step 30] loss=0.1404 rewards(c/r)=-0.62/-1.00
+[step 30] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's break down the problem:
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+Distance = Speed x Time
+Distance = 62 km/h * 2 h
+Distance = 124 km
+
+**Step 2: Calculate the speed for the second part of the journey**
+
+Speed = 62 km/h * 2
+Speed = 124 km/h
+
+**Step 3: Calculate the distance traveled at 124 km/h**
+
+Distance = Speed x Time
+Distance = 124 km/h * 3 h
+Distance = 372 km
+
+**Step 4: Calculate the total distance**
+
+Total Distance = Distance 1 + Distance 2
+Total Distance = 124 km + 372 km
+Total Distance = 496 km 
+
+
+
+[timing] sample processed in 65.53s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch3_step30.pt
+==end-of-epoch 3==
+
+=== Epoch 4/50 ===
+[92m📊 [System Health] RAM: 62.6% | Swap Used: 1.87 GB[0m
+[timing] sample processed in 17.58s
+[92m📊 [System Health] RAM: 70.1% | Swap Used: 2.69 GB[0m
+[timing] sample processed in 32.06s
+[92m📊 [System Health] RAM: 61.7% | Swap Used: 3.22 GB[0m
+[timing] sample processed in 65.96s
+[92m📊 [System Health] RAM: 46.6% | Swap Used: 4.51 GB[0m
+[timing] sample processed in 78.34s
+[92m📊 [System Health] RAM: 63.8% | Swap Used: 9.06 GB[0m
+[step 31] loss=0.1208 rewards(c/r)=-0.03/-0.99
+[timing] sample processed in 36.02s
+[timing] sample processed in 60.61s
+[timing] sample processed in 31.48s
+[timing] sample processed in 37.76s
+[timing] sample processed in 24.27s
+[step 32] loss=0.1868 rewards(c/r)=-1.40/-1.66
+[timing] sample processed in 16.90s
+[timing] sample processed in 27.81s
+[timing] sample processed in 38.39s
+[timing] sample processed in 54.47s
+[timing] sample processed in 43.40s
+[step 33] loss=0.1647 rewards(c/r)=-0.48/-0.01
+[timing] sample processed in 28.97s
+[timing] sample processed in 117.06s
+[timing] sample processed in 48.40s
+[timing] sample processed in 47.78s
+[timing] sample processed in 12.80s
+[step 34] loss=0.1344 rewards(c/r)=-0.67/-1.08
+[timing] sample processed in 17.71s
+[timing] sample processed in 27.21s
+[timing] sample processed in 32.21s
+[timing] sample processed in 32.93s
+[timing] sample processed in 80.46s
+[step 35] loss=0.1367 rewards(c/r)=-0.87/-0.73
+[timing] sample processed in 37.53s
+[timing] sample processed in 56.30s
+[timing] sample processed in 44.64s
+[timing] sample processed in 51.11s
+[timing] sample processed in 33.98s
+[step 36] loss=0.1363 rewards(c/r)=-1.30/-0.63
+[timing] sample processed in 81.96s
+[timing] sample processed in 25.45s
+[timing] sample processed in 93.33s
+[timing] sample processed in 64.15s
+[timing] sample processed in 22.93s
+[step 37] loss=0.1077 rewards(c/r)=-0.68/-0.69
+[timing] sample processed in 32.13s
+[timing] sample processed in 17.27s
+[timing] sample processed in 30.77s
+[timing] sample processed in 31.22s
+[timing] sample processed in 30.53s
+[step 38] loss=0.1263 rewards(c/r)=0.76/0.52
+[timing] sample processed in 44.95s
+[timing] sample processed in 24.16s
+[timing] sample processed in 31.59s
+[timing] sample processed in 13.71s
+[timing] sample processed in 24.92s
+[step 39] loss=0.1217 rewards(c/r)=-0.30/-0.78
+[timing] sample processed in 43.34s
+[timing] sample processed in 28.72s
+[timing] sample processed in 84.80s
+[timing] sample processed in 22.44s
+[timing] sample processed in 29.67s
+[step 40] loss=0.1038 rewards(c/r)=-0.71/-1.15
+[step 40] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Step 1:** Calculate the distance traveled at 62 km/h for 2 hours.
+
+**Step 2:** Calculate the speed for the second part of the journey.
+
+**Step 3:** Calculate the distance traveled at the second part of the journey.
+
+**Step 4:** Calculate the total distance traveled. 
+
+
+
+[timing] sample processed in 58.28s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch4_step40.pt
+==end-of-epoch 4==
+
+=== Epoch 5/50 ===
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 2.92 GB[0m
+[timing] sample processed in 45.90s
+[92m📊 [System Health] RAM: 63.0% | Swap Used: 3.45 GB[0m
+[timing] sample processed in 25.29s
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 3.35 GB[0m
+[timing] sample processed in 13.02s
+[92m📊 [System Health] RAM: 64.4% | Swap Used: 3.35 GB[0m
+[timing] sample processed in 22.40s
+[92m📊 [System Health] RAM: 67.9% | Swap Used: 3.31 GB[0m
+[step 41] loss=0.1342 rewards(c/r)=-0.20/-0.59
+[timing] sample processed in 62.68s
+[timing] sample processed in 83.09s
+[timing] sample processed in 49.61s
+[timing] sample processed in 34.57s
+[timing] sample processed in 29.31s
+[step 42] loss=0.1121 rewards(c/r)=-0.18/-1.06
+[timing] sample processed in 28.81s
+[timing] sample processed in 21.15s
+[timing] sample processed in 36.44s
+[timing] sample processed in 29.37s
+[timing] sample processed in 30.28s
+[step 43] loss=0.1020 rewards(c/r)=0.07/-0.91
+[timing] sample processed in 63.03s
+[timing] sample processed in 60.91s
+[timing] sample processed in 19.97s
+[timing] sample processed in 29.76s
+[timing] sample processed in 26.26s
+[step 44] loss=0.1324 rewards(c/r)=-0.79/-1.39
+[timing] sample processed in 32.66s
+[timing] sample processed in 22.10s
+[timing] sample processed in 16.53s
+[timing] sample processed in 15.86s
+[timing] sample processed in 23.91s
+[step 45] loss=0.1174 rewards(c/r)=0.35/-1.56
+[timing] sample processed in 22.97s
+[timing] sample processed in 17.82s
+[timing] sample processed in 25.33s
+[timing] sample processed in 32.69s
+[timing] sample processed in 37.66s
+[step 46] loss=0.1329 rewards(c/r)=-0.84/-0.61
+[timing] sample processed in 22.94s
+[timing] sample processed in 39.32s
+[timing] sample processed in 27.57s
+[timing] sample processed in 23.78s
+[timing] sample processed in 37.66s
+[step 47] loss=0.1347 rewards(c/r)=-0.93/-1.21
+[timing] sample processed in 87.38s
+[timing] sample processed in 53.13s
+[timing] sample processed in 39.45s
+[timing] sample processed in 27.92s
+[timing] sample processed in 39.11s
+[step 48] loss=0.1286 rewards(c/r)=-0.29/-0.13
+[timing] sample processed in 33.66s
+[timing] sample processed in 66.82s
+[timing] sample processed in 44.38s
+[timing] sample processed in 36.34s
+[timing] sample processed in 24.99s
+[step 49] loss=0.1305 rewards(c/r)=-0.47/-0.49
+[timing] sample processed in 40.25s
+[timing] sample processed in 66.12s
+[timing] sample processed in 22.52s
+[timing] sample processed in 19.84s
+[timing] sample processed in 36.99s
+[step 50] loss=0.1168 rewards(c/r)=-0.82/-0.94
+[step 50] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's denote the speed of the car as $v$ and the distance traveled as $d$.
+
+The distance traveled in the first part is $d_1 = v \cdot t_1 = 62 \cdot 2 = 124$ km.
+
+The distance traveled in the second part is $d_2 = v \cdot t_2 = 2 \cdot 62 \cdot 3 = 372$ km.
+
+The total distance is $d = d_1 + d_2 = 124 + 372 = \boxed{496}$ km. 
+
+[timing] sample processed in 48.42s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch5_step50.pt
+==end-of-epoch 5==
+
+=== Epoch 6/50 ===
+[92m📊 [System Health] RAM: 58.9% | Swap Used: 3.01 GB[0m
+[timing] sample processed in 66.35s
+[92m📊 [System Health] RAM: 63.4% | Swap Used: 4.62 GB[0m
+[timing] sample processed in 26.88s
+[92m📊 [System Health] RAM: 59.7% | Swap Used: 3.60 GB[0m
+[timing] sample processed in 33.24s
+[92m📊 [System Health] RAM: 68.7% | Swap Used: 3.69 GB[0m
+[timing] sample processed in 30.79s
+[92m📊 [System Health] RAM: 56.3% | Swap Used: 3.94 GB[0m
+[step 51] loss=0.1283 rewards(c/r)=-1.01/-1.16
+[timing] sample processed in 44.02s
+[timing] sample processed in 30.57s
+[timing] sample processed in 28.82s
+[timing] sample processed in 33.35s
+[timing] sample processed in 40.75s
+[step 52] loss=0.1018 rewards(c/r)=-0.21/-0.89
+[timing] sample processed in 22.29s
+[timing] sample processed in 27.93s
+[timing] sample processed in 39.92s
+[timing] sample processed in 30.27s
+[timing] sample processed in 58.92s
+[step 53] loss=0.1101 rewards(c/r)=-0.76/-1.57
+[timing] sample processed in 71.58s
+[timing] sample processed in 17.98s
+[timing] sample processed in 51.50s
+[timing] sample processed in 66.94s
+[timing] sample processed in 51.74s
+[step 54] loss=0.1342 rewards(c/r)=-0.77/-0.94
+[timing] sample processed in 44.54s
+[timing] sample processed in 68.42s
+[timing] sample processed in 80.29s
+[timing] sample processed in 30.14s
+[timing] sample processed in 40.39s
+[step 55] loss=0.0971 rewards(c/r)=-0.89/-1.39
+[timing] sample processed in 107.13s
+[timing] sample processed in 67.32s
+[timing] sample processed in 32.56s
+[timing] sample processed in 41.35s
+[timing] sample processed in 16.89s
+[step 56] loss=0.1166 rewards(c/r)=0.10/-0.24
+[timing] sample processed in 36.54s
+[timing] sample processed in 16.17s
+[timing] sample processed in 19.19s
+[timing] sample processed in 27.23s
+[timing] sample processed in 66.34s
+[step 57] loss=0.0972 rewards(c/r)=0.07/-0.84
+[timing] sample processed in 119.36s
+[timing] sample processed in 69.15s
+[timing] sample processed in 42.59s
+[timing] sample processed in 32.80s
+[timing] sample processed in 44.82s
+[step 58] loss=0.1067 rewards(c/r)=-0.29/-1.00
+[timing] sample processed in 21.51s
+[timing] sample processed in 19.66s
+[timing] sample processed in 66.69s
+[timing] sample processed in 54.94s
+[timing] sample processed in 41.49s
+[step 59] loss=0.1192 rewards(c/r)=0.35/-0.66
+[timing] sample processed in 28.17s
+[timing] sample processed in 60.40s
+[timing] sample processed in 16.08s
+[timing] sample processed in 33.64s
+[timing] sample processed in 74.74s
+[step 60] loss=0.1105 rewards(c/r)=-0.17/-0.42
+[step 60] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's denote the speed of the car as $v$ and the distance traveled as $d$.
+
+The distance traveled in the first part is $d_1 = v \cdot t_1 = 62 \cdot 2 = 124$ km.
+
+The distance traveled in the second part is $d_2 = v \cdot t_2 = 2 \cdot 62 \cdot 3 = 372$ km.
+
+The total distance is $d = d_1 + d_2 = 124 + 372 = \boxed{496}$ km. 
+
+[timing] sample processed in 57.74s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch6_step60.pt
+==end-of-epoch 6==
+
+=== Epoch 7/50 ===
+[92m📊 [System Health] RAM: 58.6% | Swap Used: 3.17 GB[0m
+[timing] sample processed in 23.17s
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 3.72 GB[0m
+[timing] sample processed in 51.15s
+[92m📊 [System Health] RAM: 56.5% | Swap Used: 4.45 GB[0m
+[timing] sample processed in 49.09s
+[92m📊 [System Health] RAM: 64.1% | Swap Used: 3.97 GB[0m
+[timing] sample processed in 54.87s
+[92m📊 [System Health] RAM: 58.7% | Swap Used: 4.78 GB[0m
+[step 61] loss=0.1184 rewards(c/r)=-1.00/-1.21
+[timing] sample processed in 30.84s
+[timing] sample processed in 45.70s
+[timing] sample processed in 32.79s
+[timing] sample processed in 39.93s
+[timing] sample processed in 32.88s
+[step 62] loss=0.1105 rewards(c/r)=-0.27/-0.62
+[timing] sample processed in 50.24s
+[timing] sample processed in 40.17s
+[timing] sample processed in 33.29s
+[timing] sample processed in 18.95s
+[timing] sample processed in 81.76s
+[step 63] loss=0.0946 rewards(c/r)=-0.29/-0.72
+[timing] sample processed in 86.00s
+[timing] sample processed in 42.35s
+[timing] sample processed in 37.14s
+[timing] sample processed in 47.78s
+[timing] sample processed in 66.88s
+[step 64] loss=0.1104 rewards(c/r)=0.61/0.14
+[timing] sample processed in 43.24s
+[timing] sample processed in 16.19s
+[timing] sample processed in 39.31s
+[timing] sample processed in 33.01s
+[timing] sample processed in 26.46s
+[step 65] loss=0.1188 rewards(c/r)=0.06/-1.09
+[timing] sample processed in 25.13s
+[timing] sample processed in 23.21s
+[timing] sample processed in 18.18s
+[timing] sample processed in 30.58s
+[timing] sample processed in 21.53s
+[step 66] loss=0.1181 rewards(c/r)=-0.16/-1.94
+[timing] sample processed in 73.89s
+[timing] sample processed in 32.02s
+[timing] sample processed in 52.73s
+[timing] sample processed in 115.16s
+[timing] sample processed in 73.06s
+[step 67] loss=0.0869 rewards(c/r)=-0.46/-0.99
+[timing] sample processed in 37.63s
+[timing] sample processed in 7.97s
+[timing] sample processed in 26.86s
+[timing] sample processed in 38.23s
+[timing] sample processed in 37.23s
+[step 68] loss=0.1263 rewards(c/r)=-0.50/-1.11
+[timing] sample processed in 21.45s
+[timing] sample processed in 26.55s
+[timing] sample processed in 64.00s
+[timing] sample processed in 41.78s
+[timing] sample processed in 32.74s
+[step 69] loss=0.1097 rewards(c/r)=0.88/1.22
+[timing] sample processed in 52.22s
+[timing] sample processed in 39.49s
+[timing] sample processed in 59.79s
+[timing] sample processed in 26.25s
+[timing] sample processed in 30.17s
+[step 70] loss=0.1100 rewards(c/r)=0.39/-0.65
+[step 70] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's denote the speed of the car as $v$ and the distance traveled as $d$.
+
+The distance traveled in the first part is $d_1 = v \cdot t_1 = 62 \cdot 2 = 124$ km.
+
+The distance traveled in the second part is $d_2 = v \cdot t_2 = 2 \cdot 62 \cdot 3 = 372$ km.
+
+The total distance is $d = d_1 + d_2 = 124 + 372 = \boxed{496}$ km. 
+
+[timing] sample processed in 43.37s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch7_step70.pt
+==end-of-epoch 7==
+
+=== Epoch 8/50 ===
+[92m📊 [System Health] RAM: 59.8% | Swap Used: 3.28 GB[0m
+[timing] sample processed in 14.05s
+[92m📊 [System Health] RAM: 64.0% | Swap Used: 3.91 GB[0m
+[timing] sample processed in 40.69s
+[92m📊 [System Health] RAM: 65.8% | Swap Used: 4.70 GB[0m
+[timing] sample processed in 45.06s
+[92m📊 [System Health] RAM: 68.8% | Swap Used: 4.31 GB[0m
+[timing] sample processed in 33.49s
+[92m📊 [System Health] RAM: 64.3% | Swap Used: 4.98 GB[0m
+[step 71] loss=0.1250 rewards(c/r)=-0.82/-0.70
+[timing] sample processed in 94.95s
+[timing] sample processed in 48.58s
+[timing] sample processed in 33.62s
+[timing] sample processed in 48.37s
+[timing] sample processed in 56.58s
+[step 72] loss=0.1086 rewards(c/r)=-0.39/-0.59
+[timing] sample processed in 23.43s
+[timing] sample processed in 25.51s
+[timing] sample processed in 71.70s
+[timing] sample processed in 26.40s
+[timing] sample processed in 29.95s
+[step 73] loss=0.1195 rewards(c/r)=0.05/0.32
+[timing] sample processed in 50.66s
+[timing] sample processed in 61.41s
+[timing] sample processed in 28.11s
+[timing] sample processed in 24.23s
+[timing] sample processed in 39.73s
+[step 74] loss=0.1232 rewards(c/r)=-0.58/-1.39
+[timing] sample processed in 16.90s
+[timing] sample processed in 17.46s
+[timing] sample processed in 34.62s
+[timing] sample processed in 37.66s
+[timing] sample processed in 24.11s
+[step 75] loss=0.1236 rewards(c/r)=-0.33/-0.25
+[timing] sample processed in 12.94s
+[timing] sample processed in 21.51s
+[timing] sample processed in 58.05s
+[timing] sample processed in 26.41s
+[timing] sample processed in 40.59s
+[step 76] loss=0.1051 rewards(c/r)=0.17/-0.90
+[timing] sample processed in 124.87s
+[timing] sample processed in 41.41s
+[timing] sample processed in 36.03s
+[timing] sample processed in 32.02s
+[timing] sample processed in 61.62s
+[step 77] loss=0.1063 rewards(c/r)=-0.11/-0.00
+[timing] sample processed in 47.42s
+[timing] sample processed in 17.03s
+[timing] sample processed in 17.98s
+[timing] sample processed in 47.72s
+[timing] sample processed in 23.84s
+[step 78] loss=0.1190 rewards(c/r)=-0.22/-0.23
+[timing] sample processed in 18.97s
+[timing] sample processed in 13.19s
+[timing] sample processed in 31.68s
+[timing] sample processed in 19.53s
+[timing] sample processed in 43.90s
+[step 79] loss=0.1242 rewards(c/r)=-1.73/-1.19
+[timing] sample processed in 22.08s
+[timing] sample processed in 100.34s
+[timing] sample processed in 70.84s
+[timing] sample processed in 50.88s
+[timing] sample processed in 71.61s
+[step 80] loss=0.1605 rewards(c/r)=0.72/1.42
+[step 80] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's break down the problem:
+
+**Step 1: Calculate distance traveled at 62 km/h**
+
+* Distance = Speed * Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate speed for the second part of the journey**
+
+* Speed = 62 km/h * 2 = 124 km/h
+
+**Step 3: Calculate distance traveled at 124 km/h**
+
+* Distance = Speed * Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 4: Calculate total distance**
+
+* Total Distance = Distance 1 + Distance 2
+* Total Distance = 124 km + 372 km = 496 km
+
+**Answer:** 496 km
+[timing] sample processed in 96.83s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch8_step80.pt
+==end-of-epoch 8==
+
+=== Epoch 9/50 ===
+[92m📊 [System Health] RAM: 63.4% | Swap Used: 3.16 GB[0m
+[timing] sample processed in 16.15s
+[92m📊 [System Health] RAM: 70.1% | Swap Used: 3.87 GB[0m
+[timing] sample processed in 36.90s
+[92m📊 [System Health] RAM: 64.3% | Swap Used: 6.26 GB[0m
+[timing] sample processed in 43.60s
+[92m📊 [System Health] RAM: 56.4% | Swap Used: 5.16 GB[0m
+[timing] sample processed in 30.27s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 4.93 GB[0m
+[step 81] loss=0.0994 rewards(c/r)=-0.28/-1.30
+[timing] sample processed in 63.39s
+[timing] sample processed in 42.37s
+[timing] sample processed in 32.95s
+[timing] sample processed in 38.54s
+[timing] sample processed in 27.37s
+[step 82] loss=0.0863 rewards(c/r)=-1.18/-2.30
+[timing] sample processed in 11.12s
+[timing] sample processed in 28.07s
+[timing] sample processed in 37.82s
+[timing] sample processed in 19.06s
+[timing] sample processed in 121.65s
+[step 83] loss=0.1213 rewards(c/r)=-1.02/-0.98
+[timing] sample processed in 40.65s
+[timing] sample processed in 42.68s
+[timing] sample processed in 67.27s
+[timing] sample processed in 42.35s
+[timing] sample processed in 22.16s
+[step 84] loss=0.1074 rewards(c/r)=-0.36/-0.74
+[timing] sample processed in 24.12s
+[timing] sample processed in 26.97s
+[timing] sample processed in 27.75s
+[timing] sample processed in 17.03s
+[timing] sample processed in 44.14s
+[step 85] loss=0.1038 rewards(c/r)=-1.19/-1.08
+[timing] sample processed in 58.63s
+[timing] sample processed in 38.75s
+[timing] sample processed in 42.43s
+[timing] sample processed in 21.86s
+[timing] sample processed in 59.96s
+[step 86] loss=0.1025 rewards(c/r)=-1.30/-1.01
+[timing] sample processed in 18.62s
+[timing] sample processed in 106.18s
+[timing] sample processed in 40.59s
+[timing] sample processed in 37.67s
+[timing] sample processed in 40.11s
+[step 87] loss=0.1107 rewards(c/r)=-1.68/-1.68
+[timing] sample processed in 14.75s
+[timing] sample processed in 24.30s
+[timing] sample processed in 37.34s
+[timing] sample processed in 43.39s
+[timing] sample processed in 20.77s
+[step 88] loss=0.1350 rewards(c/r)=-0.84/-1.40
+[timing] sample processed in 18.92s
+[timing] sample processed in 31.90s
+[timing] sample processed in 21.30s
+[timing] sample processed in 44.45s
+[timing] sample processed in 32.42s
+[step 89] loss=0.1057 rewards(c/r)=-1.84/-2.26
+[timing] sample processed in 21.29s
+[timing] sample processed in 31.10s
+[timing] sample processed in 78.91s
+[timing] sample processed in 24.21s
+[timing] sample processed in 34.49s
+[step 90] loss=0.0995 rewards(c/r)=-2.41/-2.63
+[step 90] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's break down the problem:
+
+**Step 1: Calculate distance traveled at 62 km/h**
+
+* Distance = Speed * Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate speed for the second part of the journey**
+
+* Speed = 62 km/h * 2 = 124 km/h
+
+**Step 3: Calculate distance traveled at 124 km/h**
+
+* Distance = Speed * Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 4: Calculate total distance**
+
+* Total Distance = Distance 1 + Distance 2
+* Total Distance = 124 km + 372 km = 496 km
+
+**Answer:** 496 km
+[timing] sample processed in 72.14s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch9_step90.pt
+==end-of-epoch 9==
+
+=== Epoch 10/50 ===
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 3.67 GB[0m
+[timing] sample processed in 45.07s
+[92m📊 [System Health] RAM: 63.8% | Swap Used: 5.58 GB[0m
+[timing] sample processed in 54.12s
+[92m📊 [System Health] RAM: 58.0% | Swap Used: 4.92 GB[0m
+[timing] sample processed in 44.15s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 4.71 GB[0m
+[timing] sample processed in 36.14s
+[92m📊 [System Health] RAM: 53.8% | Swap Used: 4.55 GB[0m
+[step 91] loss=0.1030 rewards(c/r)=0.06/-1.50
+[timing] sample processed in 58.52s
+[timing] sample processed in 52.40s
+[timing] sample processed in 74.93s
+[timing] sample processed in 36.61s
+[timing] sample processed in 25.83s
+[step 92] loss=0.1248 rewards(c/r)=-1.86/-1.63
+[timing] sample processed in 27.24s
+[timing] sample processed in 18.34s
+[timing] sample processed in 76.69s
+[timing] sample processed in 67.72s
+[timing] sample processed in 32.06s
+[step 93] loss=0.1453 rewards(c/r)=-2.31/-2.12
+[timing] sample processed in 26.13s
+[timing] sample processed in 46.54s
+[timing] sample processed in 107.08s
+[timing] sample processed in 75.14s
+[timing] sample processed in 27.75s
+[step 94] loss=0.0886 rewards(c/r)=-1.36/-2.02
+[timing] sample processed in 72.56s
+[timing] sample processed in 43.02s
+[timing] sample processed in 91.24s
+[timing] sample processed in 40.31s
+[timing] sample processed in 38.84s
+[step 95] loss=0.1339 rewards(c/r)=-0.58/-1.11
+[timing] sample processed in 88.73s
+[timing] sample processed in 42.77s
+[timing] sample processed in 32.01s
+[timing] sample processed in 49.56s
+[timing] sample processed in 22.43s
+[step 96] loss=0.1221 rewards(c/r)=-1.96/-2.79
+[timing] sample processed in 66.52s
+[timing] sample processed in 22.84s
+[timing] sample processed in 41.14s
+[timing] sample processed in 112.15s
+[timing] sample processed in 41.67s
+[step 97] loss=0.1591 rewards(c/r)=-2.23/-1.84
+[timing] sample processed in 16.18s
+[timing] sample processed in 56.28s
+[timing] sample processed in 118.44s
+[timing] sample processed in 64.92s
+[timing] sample processed in 31.61s
+[step 98] loss=0.1552 rewards(c/r)=-1.05/-1.35
+[timing] sample processed in 27.27s
+[timing] sample processed in 40.05s
+[timing] sample processed in 42.96s
+[timing] sample processed in 22.28s
+[timing] sample processed in 51.95s
+[step 99] loss=0.1120 rewards(c/r)=-2.33/-2.44
+[timing] sample processed in 55.16s
+[timing] sample processed in 24.47s
+[timing] sample processed in 21.21s
+[timing] sample processed in 20.31s
+[timing] sample processed in 38.20s
+[step 100] loss=0.1374 rewards(c/r)=0.14/-1.48
+[step 100] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 47.16s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch10_step100.pt
+==end-of-epoch 10==
+
+=== Epoch 11/50 ===
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 4.85 GB[0m
+[timing] sample processed in 23.89s
+[92m📊 [System Health] RAM: 70.2% | Swap Used: 4.79 GB[0m
+[timing] sample processed in 42.68s
+[92m📊 [System Health] RAM: 70.1% | Swap Used: 4.91 GB[0m
+[timing] sample processed in 16.22s
+[92m📊 [System Health] RAM: 67.2% | Swap Used: 4.72 GB[0m
+[timing] sample processed in 64.24s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 6.78 GB[0m
+[step 101] loss=0.1182 rewards(c/r)=-1.48/-2.10
+[timing] sample processed in 83.22s
+[timing] sample processed in 46.34s
+[timing] sample processed in 29.35s
+[timing] sample processed in 54.80s
+[timing] sample processed in 36.19s
+[step 102] loss=0.1201 rewards(c/r)=-0.33/-0.40
+[timing] sample processed in 57.60s
+[timing] sample processed in 30.71s
+[timing] sample processed in 36.88s
+[timing] sample processed in 25.07s
+[timing] sample processed in 44.13s
+[step 103] loss=0.1556 rewards(c/r)=-2.44/-2.40
+[timing] sample processed in 26.79s
+[timing] sample processed in 29.97s
+[timing] sample processed in 28.27s
+[timing] sample processed in 33.73s
+[timing] sample processed in 36.46s
+[step 104] loss=0.1074 rewards(c/r)=-0.77/-2.31
+[timing] sample processed in 33.20s
+[timing] sample processed in 41.89s
+[timing] sample processed in 21.42s
+[timing] sample processed in 61.29s
+[timing] sample processed in 55.14s
+[step 105] loss=0.1448 rewards(c/r)=-0.83/-2.03
+[timing] sample processed in 44.57s
+[timing] sample processed in 38.57s
+[timing] sample processed in 23.67s
+[timing] sample processed in 55.94s
+[timing] sample processed in 23.93s
+[step 106] loss=0.1081 rewards(c/r)=-1.48/-2.07
+[timing] sample processed in 44.72s
+[timing] sample processed in 68.95s
+[timing] sample processed in 54.15s
+[timing] sample processed in 40.36s
+[timing] sample processed in 26.16s
+[step 107] loss=0.0703 rewards(c/r)=-1.16/-1.90
+[timing] sample processed in 32.46s
+[timing] sample processed in 35.63s
+[timing] sample processed in 38.71s
+[timing] sample processed in 18.30s
+[timing] sample processed in 19.44s
+[step 108] loss=0.1084 rewards(c/r)=-2.98/-2.57
+[timing] sample processed in 60.21s
+[timing] sample processed in 41.74s
+[timing] sample processed in 22.05s
+[timing] sample processed in 54.01s
+[timing] sample processed in 17.06s
+[step 109] loss=0.1373 rewards(c/r)=-1.81/-1.42
+[timing] sample processed in 39.77s
+[timing] sample processed in 79.23s
+[timing] sample processed in 61.15s
+[timing] sample processed in 48.94s
+[timing] sample processed in 16.42s
+[step 110] loss=0.1046 rewards(c/r)=-0.69/-1.01
+[step 110] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's break down the problem:
+
+**Step 1: Calculate distance for the first part**
+
+* Speed: 62 km/h
+* Time: 2 hours
+* Distance = Speed * Time = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate speed for the second part**
+
+* Speed: 62 km/h * 2 = 124 km/h
+
+**Step 3: Calculate distance for the second part**
+
+* Speed: 124 km/h
+* Time: 3 hours
+* Distance = Speed * Time = 124 km/h * 3 h = 372 km
+
+**Step 4: Calculate total distance**
+
+* Total distance = Distance (part 1) + Distance (part 2) = 124 km + 372 km = 496 km
+
+**Answer:** 496 km
+[timing] sample processed in 65.94s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch11_step110.pt
+==end-of-epoch 11==
+
+=== Epoch 12/50 ===
+[92m📊 [System Health] RAM: 59.8% | Swap Used: 3.70 GB[0m
+[timing] sample processed in 29.51s
+[92m📊 [System Health] RAM: 61.5% | Swap Used: 4.38 GB[0m
+[timing] sample processed in 57.12s
+[92m📊 [System Health] RAM: 58.1% | Swap Used: 7.51 GB[0m
+[timing] sample processed in 61.79s
+[92m📊 [System Health] RAM: 53.9% | Swap Used: 7.00 GB[0m
+[timing] sample processed in 15.85s
+[92m📊 [System Health] RAM: 60.0% | Swap Used: 6.08 GB[0m
+[step 111] loss=0.1060 rewards(c/r)=-2.44/-2.53
+[timing] sample processed in 34.49s
+[timing] sample processed in 37.36s
+[timing] sample processed in 65.42s
+[timing] sample processed in 38.71s
+[timing] sample processed in 41.45s
+[step 112] loss=0.1313 rewards(c/r)=-2.03/-2.32
+[timing] sample processed in 68.33s
+[timing] sample processed in 17.57s
+[timing] sample processed in 54.41s
+[timing] sample processed in 23.08s
+[timing] sample processed in 101.82s
+[step 113] loss=0.1180 rewards(c/r)=-2.06/-2.08
+[timing] sample processed in 37.42s
+[timing] sample processed in 47.99s
+[timing] sample processed in 32.60s
+[timing] sample processed in 40.07s
+[timing] sample processed in 47.25s
+[step 114] loss=0.1293 rewards(c/r)=-2.22/-2.04
+[timing] sample processed in 45.69s
+[timing] sample processed in 26.99s
+[timing] sample processed in 53.32s
+[timing] sample processed in 40.36s
+[timing] sample processed in 33.75s
+[step 115] loss=0.0979 rewards(c/r)=-0.83/-1.67
+[timing] sample processed in 35.98s
+[timing] sample processed in 21.91s
+[timing] sample processed in 63.93s
+[timing] sample processed in 68.49s
+[timing] sample processed in 18.54s
+[step 116] loss=0.0994 rewards(c/r)=-1.11/-1.77
+[timing] sample processed in 37.12s
+[timing] sample processed in 72.75s
+[timing] sample processed in 33.99s
+[timing] sample processed in 61.30s
+[timing] sample processed in 47.53s
+[step 117] loss=0.1549 rewards(c/r)=-0.97/-1.88
+[timing] sample processed in 55.93s
+[timing] sample processed in 41.19s
+[timing] sample processed in 43.47s
+[timing] sample processed in 39.80s
+[timing] sample processed in 15.88s
+[step 118] loss=0.0988 rewards(c/r)=-0.97/-2.32
+[timing] sample processed in 57.26s
+[timing] sample processed in 35.21s
+[timing] sample processed in 51.33s
+[timing] sample processed in 32.54s
+[timing] sample processed in 51.94s
+[step 119] loss=0.1545 rewards(c/r)=-1.60/-1.48
+[timing] sample processed in 31.20s
+[timing] sample processed in 29.36s
+[timing] sample processed in 69.74s
+[timing] sample processed in 23.47s
+[timing] sample processed in 14.14s
+[step 120] loss=0.1212 rewards(c/r)=-1.08/-0.94
+[step 120] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+Let's break down the problem:
+
+**Step 1: Calculate distance for the first part**
+
+* Speed: 62 km/h
+* Time: 2 hours
+* Distance = Speed * Time = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate speed for the second part**
+
+* Speed: 62 km/h * 2 = 124 km/h
+
+**Step 3: Calculate distance for the second part**
+
+* Speed: 124 km/h
+* Time: 3 hours
+* Distance = Speed * Time = 124 km/h * 3 h = 372 km
+
+**Step 4: Calculate total distance**
+
+* Total distance = Distance (part 1) + Distance (part 2) = 124 km + 372 km = 496 km
+
+**Answer:** 496 km
+[timing] sample processed in 59.32s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch12_step120.pt
+==end-of-epoch 12==
+
+=== Epoch 13/50 ===
+[92m📊 [System Health] RAM: 63.0% | Swap Used: 3.79 GB[0m
+[timing] sample processed in 33.44s
+[92m📊 [System Health] RAM: 69.9% | Swap Used: 4.61 GB[0m
+[timing] sample processed in 32.59s
+[92m📊 [System Health] RAM: 54.6% | Swap Used: 5.06 GB[0m
+[timing] sample processed in 53.09s
+[92m📊 [System Health] RAM: 63.5% | Swap Used: 6.60 GB[0m
+[timing] sample processed in 35.80s
+[92m📊 [System Health] RAM: 63.8% | Swap Used: 5.02 GB[0m
+[step 121] loss=0.1238 rewards(c/r)=-1.69/-2.03
+[timing] sample processed in 79.91s
+[timing] sample processed in 93.48s
+[timing] sample processed in 63.50s
+[timing] sample processed in 59.87s
+[timing] sample processed in 45.37s
+[step 122] loss=0.1627 rewards(c/r)=-1.82/-1.46
+[timing] sample processed in 95.68s
+[timing] sample processed in 20.12s
+[timing] sample processed in 84.73s
+[timing] sample processed in 98.97s
+[timing] sample processed in 50.44s
+[step 123] loss=0.1044 rewards(c/r)=-1.99/-2.67
+[timing] sample processed in 35.66s
+[timing] sample processed in 58.86s
+[timing] sample processed in 51.15s
+[timing] sample processed in 27.48s
+[timing] sample processed in 97.18s
+[step 124] loss=0.0910 rewards(c/r)=-1.79/-1.90
+[timing] sample processed in 39.31s
+[timing] sample processed in 33.59s
+[timing] sample processed in 61.50s
+[timing] sample processed in 123.33s
+[timing] sample processed in 87.25s
+[step 125] loss=0.0927 rewards(c/r)=-2.36/-3.56
+[timing] sample processed in 65.71s
+[timing] sample processed in 50.17s
+[timing] sample processed in 34.17s
+[timing] sample processed in 27.38s
+[timing] sample processed in 55.87s
+[step 126] loss=0.1439 rewards(c/r)=-1.68/-1.53
+[timing] sample processed in 41.65s
+[timing] sample processed in 102.21s
+[timing] sample processed in 58.89s
+[timing] sample processed in 27.98s
+[timing] sample processed in 33.89s
+[step 127] loss=0.1228 rewards(c/r)=-1.16/-1.04
+[timing] sample processed in 25.10s
+[timing] sample processed in 52.82s
+[timing] sample processed in 20.81s
+[timing] sample processed in 69.56s
+[timing] sample processed in 52.96s
+[step 128] loss=0.1071 rewards(c/r)=-1.97/-2.18
+[timing] sample processed in 44.92s
+[timing] sample processed in 42.02s
+[timing] sample processed in 69.70s
+[timing] sample processed in 15.59s
+[timing] sample processed in 22.03s
+[step 129] loss=0.1011 rewards(c/r)=-0.56/-1.82
+[timing] sample processed in 63.28s
+[timing] sample processed in 17.87s
+[timing] sample processed in 45.49s
+[timing] sample processed in 23.12s
+[timing] sample processed in 29.46s
+[step 130] loss=0.0891 rewards(c/r)=-1.13/-2.13
+[step 130] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 126.31s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch13_step130.pt
+==end-of-epoch 13==
+
+=== Epoch 14/50 ===
+[92m📊 [System Health] RAM: 57.8% | Swap Used: 4.45 GB[0m
+[timing] sample processed in 19.20s
+[92m📊 [System Health] RAM: 63.3% | Swap Used: 4.71 GB[0m
+[timing] sample processed in 35.59s
+[92m📊 [System Health] RAM: 55.3% | Swap Used: 4.82 GB[0m
+[timing] sample processed in 52.34s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 7.04 GB[0m
+[timing] sample processed in 33.82s
+[92m📊 [System Health] RAM: 47.4% | Swap Used: 5.25 GB[0m
+[step 131] loss=0.1095 rewards(c/r)=-0.69/-2.31
+[timing] sample processed in 72.51s
+[timing] sample processed in 30.41s
+[timing] sample processed in 63.50s
+[timing] sample processed in 49.05s
+[timing] sample processed in 49.59s
+[step 132] loss=0.0874 rewards(c/r)=-1.31/-2.80
+[timing] sample processed in 63.59s
+[timing] sample processed in 51.04s
+[timing] sample processed in 80.05s
+[timing] sample processed in 50.06s
+[timing] sample processed in 68.77s
+[step 133] loss=0.1052 rewards(c/r)=-0.17/-1.57
+[timing] sample processed in 87.35s
+[timing] sample processed in 36.44s
+[timing] sample processed in 32.46s
+[timing] sample processed in 23.71s
+[timing] sample processed in 22.90s
+[step 134] loss=0.0820 rewards(c/r)=-0.83/-2.81
+[timing] sample processed in 39.70s
+[timing] sample processed in 23.62s
+[timing] sample processed in 28.18s
+[timing] sample processed in 81.23s
+[timing] sample processed in 24.19s
+[step 135] loss=0.1092 rewards(c/r)=-1.22/-1.50
+[timing] sample processed in 18.52s
+[timing] sample processed in 25.08s
+[timing] sample processed in 24.44s
+[timing] sample processed in 19.33s
+[timing] sample processed in 29.66s
+[step 136] loss=0.1013 rewards(c/r)=-0.88/-2.34
+[timing] sample processed in 14.40s
+[timing] sample processed in 60.74s
+[timing] sample processed in 46.44s
+[timing] sample processed in 7.48s
+[timing] sample processed in 10.58s
+[step 137] loss=0.1150 rewards(c/r)=-1.46/-2.66
+[timing] sample processed in 9.49s
+[timing] sample processed in 27.54s
+[timing] sample processed in 15.53s
+[timing] sample processed in 13.67s
+[timing] sample processed in 14.26s
+[step 138] loss=0.1212 rewards(c/r)=-0.88/-1.02
+[timing] sample processed in 20.81s
+[timing] sample processed in 20.47s
+[timing] sample processed in 20.93s
+[timing] sample processed in 9.48s
+[timing] sample processed in 7.86s
+[step 139] loss=0.0994 rewards(c/r)=-0.59/-2.27
+[timing] sample processed in 17.57s
+[timing] sample processed in 24.63s
+[timing] sample processed in 10.71s
+[timing] sample processed in 21.69s
+[timing] sample processed in 24.17s
+[step 140] loss=0.1127 rewards(c/r)=-0.69/-2.08
+[step 140] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 20.92s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch14_step140.pt
+==end-of-epoch 14==
+
+=== Epoch 15/50 ===
+[92m📊 [System Health] RAM: 58.6% | Swap Used: 4.54 GB[0m
+[timing] sample processed in 18.37s
+[92m📊 [System Health] RAM: 54.4% | Swap Used: 5.65 GB[0m
+[timing] sample processed in 14.76s
+[92m📊 [System Health] RAM: 60.0% | Swap Used: 5.35 GB[0m
+[timing] sample processed in 26.59s
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 8.38 GB[0m
+[timing] sample processed in 13.78s
+[92m📊 [System Health] RAM: 65.0% | Swap Used: 5.67 GB[0m
+[step 141] loss=0.1117 rewards(c/r)=-1.05/-1.82
+[timing] sample processed in 15.52s
+[timing] sample processed in 16.52s
+[timing] sample processed in 9.09s
+[timing] sample processed in 18.24s
+[timing] sample processed in 12.48s
+[step 142] loss=0.0818 rewards(c/r)=-0.74/-2.88
+[timing] sample processed in 70.43s
+[timing] sample processed in 19.67s
+[timing] sample processed in 16.71s
+[timing] sample processed in 15.36s
+[timing] sample processed in 28.90s
+[step 143] loss=0.1318 rewards(c/r)=-2.44/-2.38
+[timing] sample processed in 20.87s
+[timing] sample processed in 72.80s
+[timing] sample processed in 12.29s
+[timing] sample processed in 14.07s
+[timing] sample processed in 22.91s
+[step 144] loss=0.1032 rewards(c/r)=-1.27/-2.60
+[timing] sample processed in 12.86s
+[timing] sample processed in 44.96s
+[timing] sample processed in 18.39s
+[timing] sample processed in 7.70s
+[timing] sample processed in 12.51s
+[step 145] loss=0.0839 rewards(c/r)=-0.88/-1.91
+[timing] sample processed in 43.99s
+[timing] sample processed in 7.17s
+[timing] sample processed in 9.70s
+[timing] sample processed in 38.87s
+[timing] sample processed in 16.90s
+[step 146] loss=0.1283 rewards(c/r)=-2.18/-1.78
+[timing] sample processed in 24.94s
+[timing] sample processed in 22.42s
+[timing] sample processed in 20.16s
+[timing] sample processed in 15.00s
+[timing] sample processed in 12.30s
+[step 147] loss=0.0975 rewards(c/r)=-2.14/-2.70
+[timing] sample processed in 12.97s
+[timing] sample processed in 11.94s
+[timing] sample processed in 19.14s
+[timing] sample processed in 4.59s
+[timing] sample processed in 12.21s
+[step 148] loss=0.1356 rewards(c/r)=-2.07/-1.41
+[timing] sample processed in 24.28s
+[timing] sample processed in 13.90s
+[timing] sample processed in 4.11s
+[timing] sample processed in 29.68s
+[timing] sample processed in 24.12s
+[step 149] loss=0.1345 rewards(c/r)=-2.47/-2.31
+[timing] sample processed in 19.27s
+[timing] sample processed in 8.81s
+[timing] sample processed in 17.23s
+[timing] sample processed in 21.33s
+[timing] sample processed in 7.13s
+[step 150] loss=0.1019 rewards(c/r)=-1.43/-1.81
+[step 150] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 26.16s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch15_step150.pt
+==end-of-epoch 15==
+
+=== Epoch 16/50 ===
+[92m📊 [System Health] RAM: 57.6% | Swap Used: 4.53 GB[0m
+[timing] sample processed in 20.64s
+[92m📊 [System Health] RAM: 70.4% | Swap Used: 6.65 GB[0m
+[timing] sample processed in 19.32s
+[92m📊 [System Health] RAM: 64.8% | Swap Used: 5.97 GB[0m
+[timing] sample processed in 14.25s
+[92m📊 [System Health] RAM: 50.0% | Swap Used: 5.36 GB[0m
+[timing] sample processed in 15.03s
+[92m📊 [System Health] RAM: 63.5% | Swap Used: 5.91 GB[0m
+[step 151] loss=0.1009 rewards(c/r)=-1.11/-2.12
+[timing] sample processed in 24.02s
+[timing] sample processed in 18.70s
+[timing] sample processed in 67.79s
+[timing] sample processed in 20.13s
+[timing] sample processed in 12.50s
+[step 152] loss=0.1223 rewards(c/r)=-2.37/-2.32
+[timing] sample processed in 8.01s
+[timing] sample processed in 9.91s
+[timing] sample processed in 23.68s
+[timing] sample processed in 13.73s
+[timing] sample processed in 25.48s
+[step 153] loss=0.1076 rewards(c/r)=-1.08/-1.41
+[timing] sample processed in 20.16s
+[timing] sample processed in 12.11s
+[timing] sample processed in 18.65s
+[timing] sample processed in 15.80s
+[timing] sample processed in 21.49s
+[step 154] loss=0.0938 rewards(c/r)=0.12/-1.11
+[timing] sample processed in 9.38s
+[timing] sample processed in 12.28s
+[timing] sample processed in 10.74s
+[timing] sample processed in 28.39s
+[timing] sample processed in 8.73s
+[step 155] loss=0.0902 rewards(c/r)=0.10/-2.57
+[timing] sample processed in 32.01s
+[timing] sample processed in 31.04s
+[timing] sample processed in 30.05s
+[timing] sample processed in 21.85s
+[timing] sample processed in 30.00s
+[step 156] loss=0.0977 rewards(c/r)=0.27/-3.03
+[timing] sample processed in 10.32s
+[timing] sample processed in 27.12s
+[timing] sample processed in 10.06s
+[timing] sample processed in 68.28s
+[timing] sample processed in 13.35s
+[step 157] loss=0.1059 rewards(c/r)=-0.55/-2.06
+[timing] sample processed in 25.79s
+[timing] sample processed in 25.93s
+[timing] sample processed in 11.03s
+[timing] sample processed in 16.47s
+[timing] sample processed in 11.92s
+[step 158] loss=0.1344 rewards(c/r)=-1.36/-1.58
+[timing] sample processed in 13.89s
+[timing] sample processed in 14.76s
+[timing] sample processed in 17.43s
+[timing] sample processed in 46.15s
+[timing] sample processed in 12.55s
+[step 159] loss=0.0935 rewards(c/r)=0.09/-1.38
+[timing] sample processed in 9.03s
+[timing] sample processed in 9.97s
+[timing] sample processed in 18.04s
+[timing] sample processed in 9.89s
+[timing] sample processed in 4.20s
+[step 160] loss=0.0792 rewards(c/r)=0.63/-2.76
+[step 160] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 23.47s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch16_step160.pt
+==end-of-epoch 16==
+
+=== Epoch 17/50 ===
+[92m📊 [System Health] RAM: 55.8% | Swap Used: 4.83 GB[0m
+[timing] sample processed in 25.48s
+[92m📊 [System Health] RAM: 50.9% | Swap Used: 7.05 GB[0m
+[timing] sample processed in 11.86s
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 5.48 GB[0m
+[timing] sample processed in 19.54s
+[92m📊 [System Health] RAM: 54.9% | Swap Used: 6.20 GB[0m
+[timing] sample processed in 14.45s
+[92m📊 [System Health] RAM: 48.9% | Swap Used: 5.47 GB[0m
+[step 161] loss=0.1351 rewards(c/r)=-3.04/-2.08
+[timing] sample processed in 12.42s
+[timing] sample processed in 29.36s
+[timing] sample processed in 12.35s
+[timing] sample processed in 22.56s
+[timing] sample processed in 5.88s
+[step 162] loss=0.1045 rewards(c/r)=-2.56/-2.10
+[timing] sample processed in 28.63s
+[timing] sample processed in 30.78s
+[timing] sample processed in 18.81s
+[timing] sample processed in 16.27s
+[timing] sample processed in 26.50s
+[step 163] loss=0.1136 rewards(c/r)=0.52/-3.75
+[timing] sample processed in 30.77s
+[timing] sample processed in 14.42s
+[timing] sample processed in 41.49s
+[timing] sample processed in 17.34s
+[timing] sample processed in 19.55s
+[step 164] loss=0.1204 rewards(c/r)=-3.79/-3.29
+[timing] sample processed in 21.97s
+[timing] sample processed in 13.51s
+[timing] sample processed in 17.05s
+[timing] sample processed in 34.75s
+[timing] sample processed in 47.45s
+[step 165] loss=0.1352 rewards(c/r)=-1.19/-1.68
+[timing] sample processed in 24.17s
+[timing] sample processed in 70.94s
+[timing] sample processed in 40.02s
+[timing] sample processed in 40.16s
+[timing] sample processed in 22.52s
+[step 166] loss=0.0751 rewards(c/r)=0.08/-2.83
+[timing] sample processed in 14.71s
+[timing] sample processed in 11.10s
+[timing] sample processed in 9.60s
+[timing] sample processed in 33.63s
+[timing] sample processed in 7.61s
+[step 167] loss=0.0914 rewards(c/r)=-2.25/-2.42
+[timing] sample processed in 9.76s
+[timing] sample processed in 7.08s
+[timing] sample processed in 87.16s
+[timing] sample processed in 30.68s
+[timing] sample processed in 17.78s
+[step 168] loss=0.0957 rewards(c/r)=-1.09/-3.44
+[timing] sample processed in 68.69s
+[timing] sample processed in 21.36s
+[timing] sample processed in 10.99s
+[timing] sample processed in 7.90s
+[timing] sample processed in 19.98s
+[step 169] loss=0.1183 rewards(c/r)=-1.63/-1.80
+[timing] sample processed in 14.97s
+[timing] sample processed in 82.37s
+[timing] sample processed in 29.44s
+[timing] sample processed in 14.62s
+[timing] sample processed in 23.21s
+[step 170] loss=0.0936 rewards(c/r)=-1.38/-1.83
+[step 170] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 21.51s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch17_step170.pt
+==end-of-epoch 17==
+
+=== Epoch 18/50 ===
+[92m📊 [System Health] RAM: 58.3% | Swap Used: 5.18 GB[0m
+[timing] sample processed in 13.76s
+[92m📊 [System Health] RAM: 46.1% | Swap Used: 5.98 GB[0m
+[timing] sample processed in 31.00s
+[92m📊 [System Health] RAM: 59.5% | Swap Used: 8.62 GB[0m
+[timing] sample processed in 14.63s
+[92m📊 [System Health] RAM: 46.9% | Swap Used: 5.95 GB[0m
+[timing] sample processed in 13.51s
+[92m📊 [System Health] RAM: 63.9% | Swap Used: 6.07 GB[0m
+[step 171] loss=0.0430 rewards(c/r)=-1.42/-3.32
+[timing] sample processed in 15.22s
+[timing] sample processed in 13.20s
+[timing] sample processed in 32.67s
+[timing] sample processed in 17.42s
+[timing] sample processed in 4.70s
+[step 172] loss=0.0802 rewards(c/r)=-0.18/-2.63
+[timing] sample processed in 26.16s
+[timing] sample processed in 14.84s
+[timing] sample processed in 13.28s
+[timing] sample processed in 14.76s
+[timing] sample processed in 17.03s
+[step 173] loss=0.0870 rewards(c/r)=0.58/-2.71
+[timing] sample processed in 45.90s
+[timing] sample processed in 37.93s
+[timing] sample processed in 26.10s
+[timing] sample processed in 27.12s
+[timing] sample processed in 15.47s
+[step 174] loss=0.0514 rewards(c/r)=-1.29/-3.51
+[timing] sample processed in 14.81s
+[timing] sample processed in 29.43s
+[timing] sample processed in 15.67s
+[timing] sample processed in 23.53s
+[timing] sample processed in 7.88s
+[step 175] loss=0.0928 rewards(c/r)=-2.43/-2.57
+[timing] sample processed in 9.95s
+[timing] sample processed in 27.04s
+[timing] sample processed in 11.58s
+[timing] sample processed in 12.20s
+[timing] sample processed in 10.45s
+[step 176] loss=0.1334 rewards(c/r)=-0.28/-3.53
+[timing] sample processed in 30.45s
+[timing] sample processed in 21.03s
+[timing] sample processed in 32.35s
+[timing] sample processed in 9.28s
+[timing] sample processed in 12.06s
+[step 177] loss=0.0738 rewards(c/r)=-0.98/-2.50
+[timing] sample processed in 35.83s
+[timing] sample processed in 5.66s
+[timing] sample processed in 4.55s
+[timing] sample processed in 30.61s
+[timing] sample processed in 6.92s
+[step 178] loss=0.1399 rewards(c/r)=-2.49/-3.40
+[timing] sample processed in 20.04s
+[timing] sample processed in 9.15s
+[timing] sample processed in 21.11s
+[timing] sample processed in 16.99s
+[timing] sample processed in 8.08s
+[step 179] loss=0.0730 rewards(c/r)=0.51/-2.77
+[timing] sample processed in 5.18s
+[timing] sample processed in 10.24s
+[timing] sample processed in 27.46s
+[timing] sample processed in 24.56s
+[timing] sample processed in 10.87s
+[step 180] loss=0.0726 rewards(c/r)=-3.55/-4.72
+[step 180] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 17.45s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch18_step180.pt
+==end-of-epoch 18==
+
+=== Epoch 19/50 ===
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 5.28 GB[0m
+[timing] sample processed in 5.14s
+[92m📊 [System Health] RAM: 63.2% | Swap Used: 5.97 GB[0m
+[timing] sample processed in 10.52s
+[92m📊 [System Health] RAM: 66.5% | Swap Used: 6.08 GB[0m
+[timing] sample processed in 23.16s
+[92m📊 [System Health] RAM: 53.0% | Swap Used: 8.28 GB[0m
+[timing] sample processed in 48.64s
+[92m📊 [System Health] RAM: 58.9% | Swap Used: 10.37 GB[0m
+[step 181] loss=0.1494 rewards(c/r)=-3.64/-3.13
+[timing] sample processed in 20.02s
+[timing] sample processed in 14.68s
+[timing] sample processed in 15.17s
+[timing] sample processed in 15.58s
+[timing] sample processed in 43.43s
+[step 182] loss=0.0687 rewards(c/r)=-0.45/-3.57
+[timing] sample processed in 12.02s
+[timing] sample processed in 8.76s
+[timing] sample processed in 21.00s
+[timing] sample processed in 15.62s
+[timing] sample processed in 13.48s
+[step 183] loss=0.1084 rewards(c/r)=-4.42/-4.54
+[timing] sample processed in 10.99s
+[timing] sample processed in 24.99s
+[timing] sample processed in 31.28s
+[timing] sample processed in 19.38s
+[timing] sample processed in 10.29s
+[step 184] loss=0.0947 rewards(c/r)=-3.47/-3.53
+[timing] sample processed in 14.49s
+[timing] sample processed in 17.97s
+[timing] sample processed in 18.47s
+[timing] sample processed in 8.88s
+[timing] sample processed in 7.14s
+[step 185] loss=0.0704 rewards(c/r)=0.07/-3.75
+[timing] sample processed in 14.32s
+[timing] sample processed in 22.86s
+[timing] sample processed in 23.29s
+[timing] sample processed in 16.70s
+[timing] sample processed in 35.83s
+[step 186] loss=0.1213 rewards(c/r)=-2.32/-2.43
+[timing] sample processed in 19.97s
+[timing] sample processed in 39.36s
+[timing] sample processed in 24.06s
+[timing] sample processed in 29.59s
+[timing] sample processed in 49.36s
+[step 187] loss=0.1143 rewards(c/r)=-1.68/-2.39
+[timing] sample processed in 44.85s
+[timing] sample processed in 25.46s
+[timing] sample processed in 10.24s
+[timing] sample processed in 12.65s
+[timing] sample processed in 20.44s
+[step 188] loss=0.0831 rewards(c/r)=-2.11/-3.45
+[timing] sample processed in 9.62s
+[timing] sample processed in 19.45s
+[timing] sample processed in 31.47s
+[timing] sample processed in 17.43s
+[timing] sample processed in 20.34s
+[step 189] loss=0.1235 rewards(c/r)=-2.70/-2.49
+[timing] sample processed in 13.06s
+[timing] sample processed in 14.38s
+[timing] sample processed in 36.94s
+[timing] sample processed in 51.60s
+[timing] sample processed in 26.30s
+[step 190] loss=0.0839 rewards(c/r)=-1.10/-2.25
+[step 190] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 44.57s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch19_step190.pt
+==end-of-epoch 19==
+
+=== Epoch 20/50 ===
+[92m📊 [System Health] RAM: 58.5% | Swap Used: 5.20 GB[0m
+[timing] sample processed in 11.77s
+[92m📊 [System Health] RAM: 58.7% | Swap Used: 5.73 GB[0m
+[timing] sample processed in 20.77s
+[92m📊 [System Health] RAM: 66.5% | Swap Used: 6.19 GB[0m
+[timing] sample processed in 19.56s
+[92m📊 [System Health] RAM: 61.4% | Swap Used: 6.20 GB[0m
+[timing] sample processed in 15.31s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 6.19 GB[0m
+[step 191] loss=0.0956 rewards(c/r)=-2.48/-3.11
+[timing] sample processed in 33.82s
+[timing] sample processed in 49.09s
+[timing] sample processed in 15.56s
+[timing] sample processed in 21.97s
+[timing] sample processed in 14.59s
+[step 192] loss=0.1563 rewards(c/r)=-4.85/-5.15
+[timing] sample processed in 11.61s
+[timing] sample processed in 15.90s
+[timing] sample processed in 14.28s
+[timing] sample processed in 15.04s
+[timing] sample processed in 53.88s
+[step 193] loss=0.0608 rewards(c/r)=-3.94/-4.17
+[timing] sample processed in 22.93s
+[timing] sample processed in 36.85s
+[timing] sample processed in 11.78s
+[timing] sample processed in 70.08s
+[timing] sample processed in 16.85s
+[step 194] loss=0.1446 rewards(c/r)=-3.99/-4.12
+[timing] sample processed in 13.64s
+[timing] sample processed in 15.96s
+[timing] sample processed in 46.07s
+[timing] sample processed in 19.58s
+[timing] sample processed in 54.01s
+[step 195] loss=0.0799 rewards(c/r)=-4.52/-3.88
+[timing] sample processed in 25.04s
+[timing] sample processed in 47.98s
+[timing] sample processed in 21.85s
+[timing] sample processed in 37.06s
+[timing] sample processed in 24.56s
+[step 196] loss=0.1251 rewards(c/r)=-1.90/-3.56
+[timing] sample processed in 15.45s
+[timing] sample processed in 16.47s
+[timing] sample processed in 9.57s
+[timing] sample processed in 36.39s
+[timing] sample processed in 18.28s
+[step 197] loss=0.0719 rewards(c/r)=-4.17/-5.50
+[timing] sample processed in 15.58s
+[timing] sample processed in 14.72s
+[timing] sample processed in 28.54s
+[timing] sample processed in 14.60s
+[timing] sample processed in 20.93s
+[step 198] loss=0.1369 rewards(c/r)=-0.95/-2.76
+[timing] sample processed in 51.56s
+[timing] sample processed in 38.81s
+[timing] sample processed in 12.42s
+[timing] sample processed in 28.22s
+[timing] sample processed in 27.79s
+[step 199] loss=0.1448 rewards(c/r)=-3.78/-2.75
+[timing] sample processed in 63.64s
+[timing] sample processed in 44.03s
+[timing] sample processed in 49.35s
+[timing] sample processed in 41.04s
+[timing] sample processed in 23.29s
+[step 200] loss=0.1099 rewards(c/r)=-1.64/-1.94
+[step 200] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 41.05s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch20_step200.pt
+==end-of-epoch 20==
+
+=== Epoch 21/50 ===
+[92m📊 [System Health] RAM: 60.0% | Swap Used: 5.15 GB[0m
+[timing] sample processed in 30.55s
+[92m📊 [System Health] RAM: 64.7% | Swap Used: 7.03 GB[0m
+[timing] sample processed in 19.26s
+[92m📊 [System Health] RAM: 54.3% | Swap Used: 6.24 GB[0m
+[timing] sample processed in 25.79s
+[92m📊 [System Health] RAM: 60.8% | Swap Used: 6.74 GB[0m
+[timing] sample processed in 30.52s
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 7.21 GB[0m
+[step 201] loss=0.1373 rewards(c/r)=-0.41/-2.13
+[timing] sample processed in 29.41s
+[timing] sample processed in 27.46s
+[timing] sample processed in 40.94s
+[timing] sample processed in 20.11s
+[timing] sample processed in 12.21s
+[step 202] loss=0.0411 rewards(c/r)=-1.93/-4.49
+[timing] sample processed in 22.89s
+[timing] sample processed in 28.45s
+[timing] sample processed in 26.19s
+[timing] sample processed in 43.44s
+[timing] sample processed in 22.35s
+[step 203] loss=0.1198 rewards(c/r)=-2.57/-2.61
+[timing] sample processed in 29.30s
+[timing] sample processed in 36.99s
+[timing] sample processed in 18.56s
+[timing] sample processed in 20.22s
+[timing] sample processed in 33.14s
+[step 204] loss=0.0830 rewards(c/r)=-4.21/-5.02
+[timing] sample processed in 21.10s
+[timing] sample processed in 14.68s
+[timing] sample processed in 21.97s
+[timing] sample processed in 19.32s
+[timing] sample processed in 15.89s
+[step 205] loss=0.0985 rewards(c/r)=-2.38/-2.05
+[timing] sample processed in 19.36s
+[timing] sample processed in 21.88s
+[timing] sample processed in 25.00s
+[timing] sample processed in 45.11s
+[timing] sample processed in 18.25s
+[step 206] loss=0.0866 rewards(c/r)=-3.64/-3.64
+[timing] sample processed in 41.19s
+[timing] sample processed in 12.31s
+[timing] sample processed in 26.14s
+[timing] sample processed in 15.26s
+[timing] sample processed in 22.14s
+[step 207] loss=0.1030 rewards(c/r)=0.52/-3.01
+[timing] sample processed in 25.83s
+[timing] sample processed in 20.91s
+[timing] sample processed in 60.97s
+[timing] sample processed in 30.05s
+[timing] sample processed in 25.64s
+[step 208] loss=0.0828 rewards(c/r)=-3.17/-4.28
+[timing] sample processed in 17.78s
+[timing] sample processed in 25.54s
+[timing] sample processed in 28.54s
+[timing] sample processed in 19.68s
+[timing] sample processed in 18.10s
+[step 209] loss=0.1138 rewards(c/r)=-3.70/-3.41
+[timing] sample processed in 17.35s
+[timing] sample processed in 45.89s
+[timing] sample processed in 22.89s
+[timing] sample processed in 24.54s
+[timing] sample processed in 20.97s
+[step 210] loss=0.1115 rewards(c/r)=-3.50/-3.43
+[step 210] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg of the journey:**
+   - Speed: 62 km/h
+   - Time: 2 hours
+   - Distance: Speed * Time = 62 km/h * 2 h = 124 km
+
+2. **Second leg of the journey:**
+   - Speed: 62 km/h * 2 = 124 km/h
+   - Time: 3 hours
+   - Distance: Speed * Time = 124 km/h * 3 h = 372 km
+
+3. **Total distance:**
+   - Distance of first leg + Distance of second leg = 124 km + 372 km = 496 km
+
+**Answer:** 496 
+
+[timing] sample processed in 40.13s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch21_step210.pt
+==end-of-epoch 21==
+
+=== Epoch 22/50 ===
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 5.03 GB[0m
+[timing] sample processed in 13.17s
+[92m📊 [System Health] RAM: 63.0% | Swap Used: 5.79 GB[0m
+[timing] sample processed in 17.77s
+[92m📊 [System Health] RAM: 64.0% | Swap Used: 5.98 GB[0m
+[timing] sample processed in 20.48s
+[92m📊 [System Health] RAM: 56.9% | Swap Used: 6.26 GB[0m
+[timing] sample processed in 21.80s
+[92m📊 [System Health] RAM: 70.4% | Swap Used: 6.23 GB[0m
+[step 211] loss=0.0953 rewards(c/r)=-5.22/-5.04
+[timing] sample processed in 16.34s
+[timing] sample processed in 20.46s
+[timing] sample processed in 27.52s
+[timing] sample processed in 11.96s
+[timing] sample processed in 15.48s
+[step 212] loss=0.1538 rewards(c/r)=-4.59/-3.84
+[timing] sample processed in 72.13s
+[timing] sample processed in 61.41s
+[timing] sample processed in 15.93s
+[timing] sample processed in 18.03s
+[timing] sample processed in 12.35s
+[step 213] loss=0.1468 rewards(c/r)=-1.20/-2.38
+[timing] sample processed in 22.37s
+[timing] sample processed in 23.87s
+[timing] sample processed in 16.26s
+[timing] sample processed in 19.79s
+[timing] sample processed in 14.93s
+[step 214] loss=0.0831 rewards(c/r)=-0.67/-1.61
+[timing] sample processed in 16.50s
+[timing] sample processed in 10.30s
+[timing] sample processed in 87.73s
+[timing] sample processed in 40.25s
+[timing] sample processed in 15.70s
+[step 215] loss=0.1285 rewards(c/r)=-3.54/-2.48
+[timing] sample processed in 38.59s
+[timing] sample processed in 57.98s
+[timing] sample processed in 24.81s
+[timing] sample processed in 16.52s
+[timing] sample processed in 18.50s
+[step 216] loss=0.0803 rewards(c/r)=-3.11/-3.71
+[timing] sample processed in 20.03s
+[timing] sample processed in 53.70s
+[timing] sample processed in 42.57s
+[timing] sample processed in 44.22s
+[timing] sample processed in 57.93s
+[step 217] loss=0.0881 rewards(c/r)=0.21/-3.61
+[timing] sample processed in 54.19s
+[timing] sample processed in 26.02s
+[timing] sample processed in 55.54s
+[timing] sample processed in 30.64s
+[timing] sample processed in 46.12s
+[step 218] loss=0.0994 rewards(c/r)=-1.85/-2.67
+[timing] sample processed in 20.54s
+[timing] sample processed in 39.58s
+[timing] sample processed in 12.28s
+[timing] sample processed in 27.51s
+[timing] sample processed in 49.38s
+[step 219] loss=0.1160 rewards(c/r)=-3.61/-3.53
+[timing] sample processed in 16.80s
+[timing] sample processed in 30.31s
+[timing] sample processed in 17.32s
+[timing] sample processed in 27.35s
+[timing] sample processed in 73.94s
+[step 220] loss=0.0845 rewards(c/r)=-2.71/-3.84
+[step 220] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 60.58s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch22_step220.pt
+==end-of-epoch 22==
+
+=== Epoch 23/50 ===
+[92m📊 [System Health] RAM: 59.6% | Swap Used: 5.32 GB[0m
+[timing] sample processed in 16.81s
+[92m📊 [System Health] RAM: 65.7% | Swap Used: 5.91 GB[0m
+[timing] sample processed in 15.63s
+[92m📊 [System Health] RAM: 55.7% | Swap Used: 6.22 GB[0m
+[timing] sample processed in 26.26s
+[92m📊 [System Health] RAM: 67.0% | Swap Used: 7.10 GB[0m
+[timing] sample processed in 31.82s
+[92m📊 [System Health] RAM: 60.9% | Swap Used: 6.47 GB[0m
+[step 221] loss=0.1327 rewards(c/r)=-1.31/-2.64
+[timing] sample processed in 22.53s
+[timing] sample processed in 19.49s
+[timing] sample processed in 12.62s
+[timing] sample processed in 34.61s
+[timing] sample processed in 24.58s
+[step 222] loss=0.1185 rewards(c/r)=-2.52/-2.74
+[timing] sample processed in 17.61s
+[timing] sample processed in 23.32s
+[timing] sample processed in 13.35s
+[timing] sample processed in 28.14s
+[timing] sample processed in 39.87s
+[step 223] loss=0.1216 rewards(c/r)=-2.60/-2.29
+[timing] sample processed in 16.32s
+[timing] sample processed in 9.37s
+[timing] sample processed in 84.28s
+[timing] sample processed in 45.74s
+[timing] sample processed in 39.79s
+[step 224] loss=0.1188 rewards(c/r)=-2.03/-1.56
+[timing] sample processed in 32.27s
+[timing] sample processed in 22.00s
+[timing] sample processed in 17.06s
+[timing] sample processed in 17.04s
+[timing] sample processed in 19.51s
+[step 225] loss=0.1253 rewards(c/r)=-5.41/-5.20
+[timing] sample processed in 34.96s
+[timing] sample processed in 17.66s
+[timing] sample processed in 14.94s
+[timing] sample processed in 36.55s
+[timing] sample processed in 18.36s
+[step 226] loss=0.0816 rewards(c/r)=-2.60/-3.11
+[timing] sample processed in 19.77s
+[timing] sample processed in 18.94s
+[timing] sample processed in 20.16s
+[timing] sample processed in 27.28s
+[timing] sample processed in 10.77s
+[step 227] loss=0.1428 rewards(c/r)=-1.72/-1.96
+[timing] sample processed in 14.60s
+[timing] sample processed in 17.11s
+[timing] sample processed in 28.57s
+[timing] sample processed in 14.74s
+[timing] sample processed in 34.37s
+[step 228] loss=0.0885 rewards(c/r)=-2.45/-3.90
+[timing] sample processed in 29.96s
+[timing] sample processed in 31.20s
+[timing] sample processed in 14.51s
+[timing] sample processed in 21.65s
+[timing] sample processed in 13.70s
+[step 229] loss=0.1120 rewards(c/r)=-1.14/-2.06
+[timing] sample processed in 21.14s
+[timing] sample processed in 59.64s
+[timing] sample processed in 21.76s
+[timing] sample processed in 26.46s
+[timing] sample processed in 46.80s
+[step 230] loss=0.0765 rewards(c/r)=-1.73/-2.73
+[step 230] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Second leg:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 42.56s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch23_step230.pt
+==end-of-epoch 23==
+
+=== Epoch 24/50 ===
+[92m📊 [System Health] RAM: 59.3% | Swap Used: 5.26 GB[0m
+[timing] sample processed in 18.81s
+[92m📊 [System Health] RAM: 49.1% | Swap Used: 5.95 GB[0m
+[timing] sample processed in 21.81s
+[92m📊 [System Health] RAM: 60.9% | Swap Used: 6.34 GB[0m
+[timing] sample processed in 39.24s
+[92m📊 [System Health] RAM: 56.0% | Swap Used: 8.18 GB[0m
+[timing] sample processed in 32.43s
+[92m📊 [System Health] RAM: 62.3% | Swap Used: 6.58 GB[0m
+[step 231] loss=0.1083 rewards(c/r)=-0.91/-3.20
+[timing] sample processed in 20.05s
+[timing] sample processed in 11.81s
+[timing] sample processed in 38.89s
+[timing] sample processed in 50.50s
+[timing] sample processed in 43.89s
+[step 232] loss=0.1097 rewards(c/r)=-2.00/-2.37
+[timing] sample processed in 30.02s
+[timing] sample processed in 85.57s
+[timing] sample processed in 31.42s
+[timing] sample processed in 100.62s
+[timing] sample processed in 35.67s
+[step 233] loss=0.1353 rewards(c/r)=-2.22/-2.53
+[timing] sample processed in 48.09s
+[timing] sample processed in 73.29s
+[timing] sample processed in 18.88s
+[timing] sample processed in 50.50s
+[timing] sample processed in 38.93s
+[step 234] loss=0.1004 rewards(c/r)=-1.62/-2.59
+[timing] sample processed in 43.95s
+[timing] sample processed in 57.67s
+[timing] sample processed in 26.50s
+[timing] sample processed in 13.70s
+[timing] sample processed in 35.20s
+[step 235] loss=0.1117 rewards(c/r)=-0.95/-2.51
+[timing] sample processed in 22.12s
+[timing] sample processed in 63.49s
+[timing] sample processed in 56.50s
+[timing] sample processed in 18.17s
+[timing] sample processed in 70.40s
+[step 236] loss=0.1096 rewards(c/r)=-3.15/-3.71
+[timing] sample processed in 27.85s
+[timing] sample processed in 38.56s
+[timing] sample processed in 30.38s
+[timing] sample processed in 16.99s
+[timing] sample processed in 24.63s
+[step 237] loss=0.1047 rewards(c/r)=-2.50/-3.48
+[timing] sample processed in 20.03s
+[timing] sample processed in 18.11s
+[timing] sample processed in 25.35s
+[timing] sample processed in 25.75s
+[timing] sample processed in 60.84s
+[step 238] loss=0.0588 rewards(c/r)=-1.95/-3.43
+[timing] sample processed in 46.52s
+[timing] sample processed in 30.99s
+[timing] sample processed in 14.56s
+[timing] sample processed in 22.14s
+[timing] sample processed in 12.94s
+[step 239] loss=0.0581 rewards(c/r)=-0.15/-3.24
+[timing] sample processed in 21.83s
+[timing] sample processed in 79.41s
+[timing] sample processed in 25.60s
+[timing] sample processed in 18.45s
+[timing] sample processed in 20.99s
+[step 240] loss=0.0745 rewards(c/r)=-1.76/-3.41
+[step 240] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Second leg:** The car travels at 62 * 2 = 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+3. **Total distance:** The total distance is 124 + 372 = 496 km.
+
+**Answer:** 496 
+
+[timing] sample processed in 55.15s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch24_step240.pt
+==end-of-epoch 24==
+
+=== Epoch 25/50 ===
+[92m📊 [System Health] RAM: 62.2% | Swap Used: 5.37 GB[0m
+[timing] sample processed in 24.17s
+[92m📊 [System Health] RAM: 58.9% | Swap Used: 6.50 GB[0m
+[timing] sample processed in 26.59s
+[92m📊 [System Health] RAM: 60.9% | Swap Used: 6.54 GB[0m
+[timing] sample processed in 38.32s
+[92m📊 [System Health] RAM: 63.6% | Swap Used: 8.58 GB[0m
+[timing] sample processed in 23.52s
+[92m📊 [System Health] RAM: 61.7% | Swap Used: 6.37 GB[0m
+[step 241] loss=0.1216 rewards(c/r)=-3.24/-4.82
+[timing] sample processed in 27.58s
+[timing] sample processed in 26.49s
+[timing] sample processed in 27.77s
+[timing] sample processed in 21.93s
+[timing] sample processed in 29.25s
+[step 242] loss=0.0688 rewards(c/r)=-3.60/-4.76
+[timing] sample processed in 24.93s
+[timing] sample processed in 56.53s
+[timing] sample processed in 12.58s
+[timing] sample processed in 46.15s
+[timing] sample processed in 11.24s
+[step 243] loss=0.1463 rewards(c/r)=-4.30/-3.44
+[timing] sample processed in 73.74s
+[timing] sample processed in 38.70s
+[timing] sample processed in 21.09s
+[timing] sample processed in 17.72s
+[timing] sample processed in 21.04s
+[step 244] loss=0.0987 rewards(c/r)=-0.41/-4.67
+[timing] sample processed in 25.24s
+[timing] sample processed in 14.79s
+[timing] sample processed in 23.99s
+[timing] sample processed in 21.49s
+[timing] sample processed in 23.75s
+[step 245] loss=0.1053 rewards(c/r)=-3.30/-3.43
+[timing] sample processed in 29.44s
+[timing] sample processed in 20.71s
+[timing] sample processed in 26.28s
+[timing] sample processed in 85.32s
+[timing] sample processed in 42.90s
+[step 246] loss=0.0779 rewards(c/r)=-4.01/-4.88
+[timing] sample processed in 42.37s
+[timing] sample processed in 46.82s
+[timing] sample processed in 27.40s
+[timing] sample processed in 26.76s
+[timing] sample processed in 16.59s
+[step 247] loss=0.1143 rewards(c/r)=-2.40/-5.36
+[timing] sample processed in 35.88s
+[timing] sample processed in 21.42s
+[timing] sample processed in 37.26s
+[timing] sample processed in 18.66s
+[timing] sample processed in 68.88s
+[step 248] loss=0.1251 rewards(c/r)=-4.13/-3.91
+[timing] sample processed in 12.16s
+[timing] sample processed in 16.67s
+[timing] sample processed in 20.06s
+[timing] sample processed in 23.37s
+[timing] sample processed in 13.39s
+[step 249] loss=0.0996 rewards(c/r)=-1.79/-3.90
+[timing] sample processed in 19.88s
+[timing] sample processed in 48.30s
+[timing] sample processed in 21.13s
+[timing] sample processed in 48.43s
+[timing] sample processed in 38.58s
+[step 250] loss=0.0887 rewards(c/r)=-3.16/-3.68
+[step 250] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+### Solution:
+
+Let's break down the problem into two parts:
+
+**Part 1:**
+
+* Speed: 62 km/h
+* Time: 2 hours
+
+* Distance = Speed * Time = 62 km/h * 2 h = 124 km
+
+**Part 2:**
+
+* Speed: 62 km/h * 2 = 124 km/h
+* Time: 3 hours
+
+* Distance = Speed * Time = 124 km/h * 3 h = 372 km
+
+**Total Distance:**
+
+* Total Distance = Distance (Part 1) + Distance (Part 2) = 124 km + 372 km = 496 km
+
+
+### Answer: 496 
+
+[timing] sample processed in 47.99s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch25_step250.pt
+==end-of-epoch 25==
+
+=== Epoch 26/50 ===
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 5.30 GB[0m
+[timing] sample processed in 26.81s
+[92m📊 [System Health] RAM: 64.2% | Swap Used: 7.40 GB[0m
+[timing] sample processed in 28.49s
+[92m📊 [System Health] RAM: 73.2% | Swap Used: 7.36 GB[0m
+[timing] sample processed in 14.73s
+[92m📊 [System Health] RAM: 60.1% | Swap Used: 7.09 GB[0m
+[timing] sample processed in 10.53s
+[92m📊 [System Health] RAM: 61.4% | Swap Used: 6.94 GB[0m
+[step 251] loss=0.0827 rewards(c/r)=-1.15/-4.00
+[timing] sample processed in 14.53s
+[timing] sample processed in 16.69s
+[timing] sample processed in 88.98s
+[timing] sample processed in 47.48s
+[timing] sample processed in 23.29s
+[step 252] loss=0.0773 rewards(c/r)=-3.35/-5.20
+[timing] sample processed in 20.67s
+[timing] sample processed in 20.44s
+[timing] sample processed in 14.75s
+[timing] sample processed in 29.39s
+[timing] sample processed in 19.25s
+[step 253] loss=0.0924 rewards(c/r)=-4.54/-4.22
+[timing] sample processed in 42.31s
+[timing] sample processed in 15.05s
+[timing] sample processed in 18.83s
+[timing] sample processed in 39.53s
+[timing] sample processed in 20.95s
+[step 254] loss=0.1010 rewards(c/r)=-5.24/-6.23
+[timing] sample processed in 33.09s
+[timing] sample processed in 26.21s
+[timing] sample processed in 26.24s
+[timing] sample processed in 21.69s
+[timing] sample processed in 39.30s
+[step 255] loss=0.0639 rewards(c/r)=-2.71/-4.09
+[timing] sample processed in 17.37s
+[timing] sample processed in 19.91s
+[timing] sample processed in 25.26s
+[timing] sample processed in 19.10s
+[timing] sample processed in 15.91s
+[step 256] loss=0.0989 rewards(c/r)=-3.00/-3.02
+[timing] sample processed in 73.41s
+[timing] sample processed in 17.19s
+[timing] sample processed in 17.46s
+[timing] sample processed in 21.08s
+[timing] sample processed in 37.09s
+[step 257] loss=0.0501 rewards(c/r)=-4.69/-5.84
+[timing] sample processed in 34.98s
+[timing] sample processed in 29.41s
+[timing] sample processed in 27.51s
+[timing] sample processed in 19.86s
+[timing] sample processed in 13.43s
+[step 258] loss=0.1039 rewards(c/r)=-6.27/-6.44
+[timing] sample processed in 23.96s
+[timing] sample processed in 17.62s
+[timing] sample processed in 24.67s
+[timing] sample processed in 18.29s
+[timing] sample processed in 15.52s
+[step 259] loss=0.1477 rewards(c/r)=-3.69/-2.82
+[timing] sample processed in 12.80s
+[timing] sample processed in 15.21s
+[timing] sample processed in 14.32s
+[timing] sample processed in 26.15s
+[timing] sample processed in 18.14s
+[step 260] loss=0.1426 rewards(c/r)=-4.91/-4.88
+[step 260] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+### Solution:
+
+Let's break down the problem into two parts:
+
+**Part 1:**
+
+* Speed: 62 km/h
+* Time: 2 hours
+
+* Distance = Speed * Time = 62 km/h * 2 h = 124 km
+
+**Part 2:**
+
+* Speed: 62 km/h * 2 = 124 km/h
+* Time: 3 hours
+
+* Distance = Speed * Time = 124 km/h * 3 h = 372 km
+
+**Total Distance:**
+
+* Total Distance = Distance (Part 1) + Distance (Part 2) = 124 km + 372 km = 496 km
+
+
+### 
+
+[timing] sample processed in 70.39s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch26_step260.pt
+==end-of-epoch 26==
+
+=== Epoch 27/50 ===
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 5.54 GB[0m
+[timing] sample processed in 20.79s
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 6.13 GB[0m
+[timing] sample processed in 21.24s
+[92m📊 [System Health] RAM: 63.6% | Swap Used: 6.48 GB[0m
+[timing] sample processed in 21.45s
+[92m📊 [System Health] RAM: 62.3% | Swap Used: 6.58 GB[0m
+[timing] sample processed in 29.11s
+[92m📊 [System Health] RAM: 61.7% | Swap Used: 6.59 GB[0m
+[step 261] loss=0.0639 rewards(c/r)=-2.29/-4.14
+[timing] sample processed in 28.83s
+[timing] sample processed in 39.52s
+[timing] sample processed in 34.36s
+[timing] sample processed in 71.27s
+[timing] sample processed in 44.80s
+[step 262] loss=0.0748 rewards(c/r)=-6.09/-6.48
+[timing] sample processed in 27.50s
+[timing] sample processed in 28.53s
+[timing] sample processed in 13.53s
+[timing] sample processed in 22.68s
+[timing] sample processed in 30.04s
+[step 263] loss=0.1013 rewards(c/r)=-2.78/-4.37
+[timing] sample processed in 19.59s
+[timing] sample processed in 15.51s
+[timing] sample processed in 12.97s
+[timing] sample processed in 17.89s
+[timing] sample processed in 32.37s
+[step 264] loss=0.0719 rewards(c/r)=-4.10/-5.85
+[timing] sample processed in 33.75s
+[timing] sample processed in 37.53s
+[timing] sample processed in 28.79s
+[timing] sample processed in 24.49s
+[timing] sample processed in 26.41s
+[step 265] loss=0.0610 rewards(c/r)=-3.15/-4.79
+[timing] sample processed in 22.58s
+[timing] sample processed in 14.24s
+[timing] sample processed in 11.39s
+[timing] sample processed in 14.37s
+[timing] sample processed in 27.47s
+[step 266] loss=0.0744 rewards(c/r)=-2.86/-4.21
+[timing] sample processed in 69.83s
+[timing] sample processed in 27.69s
+[timing] sample processed in 32.49s
+[timing] sample processed in 23.12s
+[timing] sample processed in 20.31s
+[step 267] loss=0.1022 rewards(c/r)=-2.70/-4.58
+[timing] sample processed in 28.52s
+[timing] sample processed in 35.25s
+[timing] sample processed in 25.56s
+[timing] sample processed in 42.30s
+[timing] sample processed in 16.94s
+[step 268] loss=0.0776 rewards(c/r)=-4.41/-4.48
+[timing] sample processed in 74.09s
+[timing] sample processed in 33.34s
+[timing] sample processed in 56.86s
+[timing] sample processed in 80.54s
+[timing] sample processed in 24.80s
+[step 269] loss=0.1373 rewards(c/r)=-5.03/-5.17
+[timing] sample processed in 41.56s
+[timing] sample processed in 41.33s
+[timing] sample processed in 42.01s
+[timing] sample processed in 17.18s
+[timing] sample processed in 32.84s
+[step 270] loss=0.1602 rewards(c/r)=-6.91/-6.77
+[step 270] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+### Solution
+
+**1. Calculate distance traveled at 62 km/h:**
+
+* Distance = Speed * Time
+* Distance = 62 km/h * 2 h 
+* Distance = 124 km
+
+**2. Calculate speed for the second part of the journey:**
+
+* Speed = 62 km/h * 2
+* Speed = 124 km/h
+
+**3. Calculate distance traveled at 124 km/h:**
+
+* Distance = Speed * Time
+* Distance = 124 km/h * 3 h
+* Distance = 372 km
+
+**4. Calculate total distance:**
+
+* Total Distance = Distance 1 + Distance 2
+* Total Distance = 124 km + 372 km
+* Total Distance = 496 km
+
+
+### Answer: 496 
+
+[timing] sample processed in 81.78s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch27_step270.pt
+==end-of-epoch 27==
+
+=== Epoch 28/50 ===
+[92m📊 [System Health] RAM: 60.5% | Swap Used: 5.37 GB[0m
+[timing] sample processed in 22.70s
+[92m📊 [System Health] RAM: 58.1% | Swap Used: 6.13 GB[0m
+[timing] sample processed in 30.34s
+[92m📊 [System Health] RAM: 55.5% | Swap Used: 6.68 GB[0m
+[timing] sample processed in 32.91s
+[92m📊 [System Health] RAM: 57.7% | Swap Used: 6.82 GB[0m
+[timing] sample processed in 60.96s
+[92m📊 [System Health] RAM: 55.2% | Swap Used: 9.12 GB[0m
+[step 271] loss=0.1716 rewards(c/r)=-6.08/-3.96
+[timing] sample processed in 22.58s
+[timing] sample processed in 33.09s
+[timing] sample processed in 47.11s
+[timing] sample processed in 52.47s
+[timing] sample processed in 33.36s
+[step 272] loss=0.0835 rewards(c/r)=-2.83/-6.08
+[timing] sample processed in 18.87s
+[timing] sample processed in 28.77s
+[timing] sample processed in 53.77s
+[timing] sample processed in 20.25s
+[timing] sample processed in 19.93s
+[step 273] loss=0.0963 rewards(c/r)=-4.64/-4.22
+[timing] sample processed in 27.67s
+[timing] sample processed in 11.13s
+[timing] sample processed in 43.06s
+[timing] sample processed in 33.60s
+[timing] sample processed in 19.10s
+[step 274] loss=0.1415 rewards(c/r)=-3.40/-3.04
+[timing] sample processed in 16.19s
+[timing] sample processed in 19.13s
+[timing] sample processed in 25.46s
+[timing] sample processed in 29.25s
+[timing] sample processed in 17.58s
+[step 275] loss=0.1286 rewards(c/r)=-3.83/-4.32
+[timing] sample processed in 15.75s
+[timing] sample processed in 21.99s
+[timing] sample processed in 14.85s
+[timing] sample processed in 18.53s
+[timing] sample processed in 15.80s
+[step 276] loss=0.1092 rewards(c/r)=-5.35/-5.33
+[timing] sample processed in 27.17s
+[timing] sample processed in 40.00s
+[timing] sample processed in 29.63s
+[timing] sample processed in 19.52s
+[timing] sample processed in 36.46s
+[step 277] loss=0.1063 rewards(c/r)=-3.02/-3.11
+[timing] sample processed in 20.71s
+[timing] sample processed in 30.32s
+[timing] sample processed in 12.53s
+[timing] sample processed in 13.08s
+[timing] sample processed in 40.69s
+[step 278] loss=0.1522 rewards(c/r)=-4.39/-4.63
+[timing] sample processed in 30.13s
+[timing] sample processed in 29.98s
+[timing] sample processed in 21.86s
+[timing] sample processed in 11.46s
+[timing] sample processed in 41.90s
+[step 279] loss=0.1017 rewards(c/r)=-2.84/-3.82
+[timing] sample processed in 27.14s
+[timing] sample processed in 16.09s
+[timing] sample processed in 21.99s
+[timing] sample processed in 11.53s
+[timing] sample processed in 74.49s
+[step 280] loss=0.1006 rewards(c/r)=-2.88/-3.04
+[step 280] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 366 km.
+4. **Total Distance:** The total distance is the sum of the distances from step 1 and step 2, so the total distance is 124 + 366 = 490 km.
+
+**Answer:** 490 
+
+
+
+[timing] sample processed in 60.76s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch28_step280.pt
+==end-of-epoch 28==
+
+=== Epoch 29/50 ===
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 5.52 GB[0m
+[timing] sample processed in 14.86s
+[92m📊 [System Health] RAM: 67.7% | Swap Used: 6.18 GB[0m
+[timing] sample processed in 23.37s
+[92m📊 [System Health] RAM: 60.4% | Swap Used: 6.51 GB[0m
+[timing] sample processed in 22.84s
+[92m📊 [System Health] RAM: 62.0% | Swap Used: 6.64 GB[0m
+[timing] sample processed in 43.31s
+[92m📊 [System Health] RAM: 57.2% | Swap Used: 9.16 GB[0m
+[step 281] loss=0.0661 rewards(c/r)=-1.61/-3.67
+[timing] sample processed in 88.65s
+[timing] sample processed in 34.10s
+[timing] sample processed in 39.64s
+[timing] sample processed in 44.78s
+[timing] sample processed in 17.84s
+[step 282] loss=0.1411 rewards(c/r)=-4.45/-4.83
+[timing] sample processed in 15.39s
+[timing] sample processed in 12.44s
+[timing] sample processed in 21.93s
+[timing] sample processed in 15.86s
+[timing] sample processed in 25.42s
+[step 283] loss=0.0665 rewards(c/r)=-1.68/-3.71
+[timing] sample processed in 44.33s
+[timing] sample processed in 26.12s
+[timing] sample processed in 15.78s
+[timing] sample processed in 20.00s
+[timing] sample processed in 51.85s
+[step 284] loss=0.0990 rewards(c/r)=-2.78/-2.60
+[timing] sample processed in 29.14s
+[timing] sample processed in 23.78s
+[timing] sample processed in 39.18s
+[timing] sample processed in 49.57s
+[timing] sample processed in 39.76s
+[step 285] loss=0.0849 rewards(c/r)=-2.31/-3.07
+[timing] sample processed in 11.96s
+[timing] sample processed in 12.94s
+[timing] sample processed in 15.78s
+[timing] sample processed in 20.51s
+[timing] sample processed in 20.38s
+[step 286] loss=0.1086 rewards(c/r)=-2.94/-3.77
+[timing] sample processed in 51.58s
+[timing] sample processed in 86.89s
+[timing] sample processed in 20.32s
+[timing] sample processed in 44.40s
+[timing] sample processed in 47.48s
+[step 287] loss=0.1396 rewards(c/r)=-4.09/-4.12
+[timing] sample processed in 44.49s
+[timing] sample processed in 23.06s
+[timing] sample processed in 22.05s
+[timing] sample processed in 20.72s
+[timing] sample processed in 28.61s
+[step 288] loss=0.0968 rewards(c/r)=-2.28/-4.18
+[timing] sample processed in 21.17s
+[timing] sample processed in 27.77s
+[timing] sample processed in 16.43s
+[timing] sample processed in 40.71s
+[timing] sample processed in 33.48s
+[step 289] loss=0.0665 rewards(c/r)=-2.59/-3.23
+[timing] sample processed in 14.12s
+[timing] sample processed in 69.48s
+[timing] sample processed in 26.03s
+[timing] sample processed in 7.63s
+[timing] sample processed in 4.08s
+[step 290] loss=0.0853 rewards(c/r)=-2.13/-3.61
+[step 290] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels at 62 * 2 = 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 496 km. 
+
+**Answer:** 496
+
+
+[timing] sample processed in 33.96s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch29_step290.pt
+==end-of-epoch 29==
+
+=== Epoch 30/50 ===
+[92m📊 [System Health] RAM: 62.9% | Swap Used: 6.10 GB[0m
+[timing] sample processed in 5.54s
+[92m📊 [System Health] RAM: 60.6% | Swap Used: 6.60 GB[0m
+[timing] sample processed in 15.24s
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 6.81 GB[0m
+[timing] sample processed in 13.11s
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 6.82 GB[0m
+[timing] sample processed in 24.53s
+[92m📊 [System Health] RAM: 53.3% | Swap Used: 8.64 GB[0m
+[step 291] loss=0.1891 rewards(c/r)=-3.55/-3.53
+[timing] sample processed in 15.02s
+[timing] sample processed in 14.38s
+[timing] sample processed in 7.88s
+[timing] sample processed in 17.31s
+[timing] sample processed in 13.15s
+[step 292] loss=0.1303 rewards(c/r)=-0.01/-3.15
+[timing] sample processed in 14.19s
+[timing] sample processed in 40.48s
+[timing] sample processed in 6.61s
+[timing] sample processed in 9.59s
+[timing] sample processed in 6.52s
+[step 293] loss=0.0807 rewards(c/r)=-6.35/-7.21
+[timing] sample processed in 18.88s
+[timing] sample processed in 52.03s
+[timing] sample processed in 32.04s
+[timing] sample processed in 4.50s
+[timing] sample processed in 11.27s
+[step 294] loss=0.0988 rewards(c/r)=-2.29/-4.21
+[timing] sample processed in 26.33s
+[timing] sample processed in 7.10s
+[timing] sample processed in 14.25s
+[timing] sample processed in 21.57s
+[timing] sample processed in 51.60s
+[step 295] loss=0.0944 rewards(c/r)=-4.08/-5.07
+[timing] sample processed in 20.61s
+[timing] sample processed in 6.24s
+[timing] sample processed in 3.90s
+[timing] sample processed in 26.07s
+[timing] sample processed in 12.83s
+[step 296] loss=0.0610 rewards(c/r)=-1.62/-2.39
+[timing] sample processed in 19.98s
+[timing] sample processed in 13.72s
+[timing] sample processed in 13.69s
+[timing] sample processed in 24.45s
+[timing] sample processed in 55.43s
+[step 297] loss=0.0921 rewards(c/r)=-0.46/-2.57
+[timing] sample processed in 10.68s
+[timing] sample processed in 51.45s
+[timing] sample processed in 13.52s
+[timing] sample processed in 11.87s
+[timing] sample processed in 17.45s
+[step 298] loss=0.1290 rewards(c/r)=-3.50/-5.02
+[timing] sample processed in 13.81s
+[timing] sample processed in 5.07s
+[timing] sample processed in 23.84s
+[timing] sample processed in 10.56s
+[timing] sample processed in 24.29s
+[step 299] loss=0.0669 rewards(c/r)=-4.18/-3.95
+[timing] sample processed in 18.09s
+[timing] sample processed in 9.33s
+[timing] sample processed in 68.71s
+[timing] sample processed in 19.66s
+[timing] sample processed in 29.83s
+[step 300] loss=0.0616 rewards(c/r)=-1.56/-4.03
+[step 300] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels at 124 km/h * 2 = 248 km/h for 3 hours, so the distance is 248 * 3 = 744 km.
+
+3. **Total distance:** The total distance is 124 + 744 = 868 km.
+
+**Answer:** 868 
+
+
+
+[timing] sample processed in 15.10s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch30_step300.pt
+==end-of-epoch 30==
+
+=== Epoch 31/50 ===
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 5.89 GB[0m
+[timing] sample processed in 17.95s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 7.22 GB[0m
+[timing] sample processed in 10.56s
+[92m📊 [System Health] RAM: 62.6% | Swap Used: 6.58 GB[0m
+[timing] sample processed in 7.25s
+[92m📊 [System Health] RAM: 66.0% | Swap Used: 6.79 GB[0m
+[timing] sample processed in 16.33s
+[92m📊 [System Health] RAM: 53.7% | Swap Used: 6.88 GB[0m
+[step 301] loss=0.1412 rewards(c/r)=-4.48/-3.62
+[timing] sample processed in 23.72s
+[timing] sample processed in 7.79s
+[timing] sample processed in 13.85s
+[timing] sample processed in 7.39s
+[timing] sample processed in 13.77s
+[step 302] loss=0.0981 rewards(c/r)=-2.49/-4.22
+[timing] sample processed in 7.32s
+[timing] sample processed in 6.61s
+[timing] sample processed in 17.85s
+[timing] sample processed in 13.38s
+[timing] sample processed in 24.58s
+[step 303] loss=0.0818 rewards(c/r)=-4.89/-6.86
+[timing] sample processed in 36.48s
+[timing] sample processed in 19.41s
+[timing] sample processed in 15.93s
+[timing] sample processed in 16.02s
+[timing] sample processed in 36.51s
+[step 304] loss=0.0910 rewards(c/r)=-2.18/-3.25
+[timing] sample processed in 17.91s
+[timing] sample processed in 31.51s
+[timing] sample processed in 11.04s
+[timing] sample processed in 10.29s
+[timing] sample processed in 10.68s
+[step 305] loss=0.1057 rewards(c/r)=-3.98/-4.60
+[timing] sample processed in 24.58s
+[timing] sample processed in 10.47s
+[timing] sample processed in 20.19s
+[timing] sample processed in 25.13s
+[timing] sample processed in 67.88s
+[step 306] loss=0.1300 rewards(c/r)=-2.51/-2.81
+[timing] sample processed in 31.56s
+[timing] sample processed in 24.12s
+[timing] sample processed in 7.15s
+[timing] sample processed in 6.86s
+[timing] sample processed in 13.58s
+[step 307] loss=0.0901 rewards(c/r)=-2.24/-2.06
+[timing] sample processed in 7.39s
+[timing] sample processed in 7.99s
+[timing] sample processed in 13.57s
+[timing] sample processed in 11.51s
+[timing] sample processed in 7.42s
+[step 308] loss=0.1031 rewards(c/r)=-4.32/-3.86
+[timing] sample processed in 23.64s
+[timing] sample processed in 16.25s
+[timing] sample processed in 68.57s
+[timing] sample processed in 20.39s
+[timing] sample processed in 38.23s
+[step 309] loss=0.1178 rewards(c/r)=-0.41/-2.59
+[timing] sample processed in 44.04s
+[timing] sample processed in 29.76s
+[timing] sample processed in 14.53s
+[timing] sample processed in 8.03s
+[timing] sample processed in 13.83s
+[step 310] loss=0.0844 rewards(c/r)=-2.67/-3.49
+[step 310] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 9.99s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch31_step310.pt
+==end-of-epoch 31==
+
+=== Epoch 32/50 ===
+[92m📊 [System Health] RAM: 59.2% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 6.64s
+[92m📊 [System Health] RAM: 52.8% | Swap Used: 6.51 GB[0m
+[timing] sample processed in 7.24s
+[92m📊 [System Health] RAM: 60.0% | Swap Used: 6.71 GB[0m
+[timing] sample processed in 13.51s
+[92m📊 [System Health] RAM: 57.8% | Swap Used: 6.79 GB[0m
+[timing] sample processed in 18.76s
+[92m📊 [System Health] RAM: 52.0% | Swap Used: 7.91 GB[0m
+[step 311] loss=0.1119 rewards(c/r)=-3.68/-4.29
+[timing] sample processed in 16.70s
+[timing] sample processed in 15.97s
+[timing] sample processed in 6.98s
+[timing] sample processed in 7.83s
+[timing] sample processed in 12.86s
+[step 312] loss=0.1019 rewards(c/r)=-4.16/-4.96
+[timing] sample processed in 12.49s
+[timing] sample processed in 7.17s
+[timing] sample processed in 21.67s
+[timing] sample processed in 37.01s
+[timing] sample processed in 6.91s
+[step 313] loss=0.1028 rewards(c/r)=-1.69/-3.91
+[timing] sample processed in 24.06s
+[timing] sample processed in 9.72s
+[timing] sample processed in 12.08s
+[timing] sample processed in 24.57s
+[timing] sample processed in 13.38s
+[step 314] loss=0.0794 rewards(c/r)=-3.08/-4.33
+[timing] sample processed in 15.00s
+[timing] sample processed in 7.09s
+[timing] sample processed in 14.51s
+[timing] sample processed in 17.70s
+[timing] sample processed in 9.07s
+[step 315] loss=0.0810 rewards(c/r)=-2.98/-3.39
+[timing] sample processed in 10.60s
+[timing] sample processed in 15.60s
+[timing] sample processed in 42.33s
+[timing] sample processed in 8.06s
+[timing] sample processed in 5.13s
+[step 316] loss=0.1093 rewards(c/r)=-2.09/-3.22
+[timing] sample processed in 35.97s
+[timing] sample processed in 12.53s
+[timing] sample processed in 31.44s
+[timing] sample processed in 16.05s
+[timing] sample processed in 13.07s
+[step 317] loss=0.1018 rewards(c/r)=-3.35/-3.27
+[timing] sample processed in 66.44s
+[timing] sample processed in 30.03s
+[timing] sample processed in 13.55s
+[timing] sample processed in 10.98s
+[timing] sample processed in 11.68s
+[step 318] loss=0.1134 rewards(c/r)=-3.42/-4.04
+[timing] sample processed in 7.31s
+[timing] sample processed in 17.56s
+[timing] sample processed in 9.21s
+[timing] sample processed in 14.84s
+[timing] sample processed in 13.19s
+[step 319] loss=0.1195 rewards(c/r)=-3.82/-3.10
+[timing] sample processed in 11.15s
+[timing] sample processed in 6.88s
+[timing] sample processed in 11.46s
+[timing] sample processed in 4.32s
+[timing] sample processed in 10.95s
+[step 320] loss=0.0690 rewards(c/r)=-1.99/-3.97
+[step 320] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 8.08s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch32_step320.pt
+==end-of-epoch 32==
+
+=== Epoch 33/50 ===
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 6.58 GB[0m
+[timing] sample processed in 10.43s
+[92m📊 [System Health] RAM: 63.1% | Swap Used: 6.49 GB[0m
+[timing] sample processed in 4.45s
+[92m📊 [System Health] RAM: 75.9% | Swap Used: 6.81 GB[0m
+[timing] sample processed in 13.12s
+[92m📊 [System Health] RAM: 47.9% | Swap Used: 6.59 GB[0m
+[timing] sample processed in 7.26s
+[92m📊 [System Health] RAM: 56.8% | Swap Used: 6.83 GB[0m
+[step 321] loss=0.0731 rewards(c/r)=-2.76/-3.02
+[timing] sample processed in 3.79s
+[timing] sample processed in 76.01s
+[timing] sample processed in 17.92s
+[timing] sample processed in 11.93s
+[timing] sample processed in 22.69s
+[step 322] loss=0.0851 rewards(c/r)=-2.63/-3.79
+[timing] sample processed in 33.00s
+[timing] sample processed in 14.57s
+[timing] sample processed in 7.62s
+[timing] sample processed in 18.07s
+[timing] sample processed in 8.10s
+[step 323] loss=0.0627 rewards(c/r)=-1.76/-3.72
+[timing] sample processed in 21.29s
+[timing] sample processed in 25.31s
+[timing] sample processed in 11.52s
+[timing] sample processed in 46.47s
+[timing] sample processed in 28.72s
+[step 324] loss=0.0825 rewards(c/r)=-1.73/-2.44
+[timing] sample processed in 39.78s
+[timing] sample processed in 20.80s
+[timing] sample processed in 15.12s
+[timing] sample processed in 11.15s
+[timing] sample processed in 18.70s
+[step 325] loss=0.0829 rewards(c/r)=-2.04/-2.68
+[timing] sample processed in 61.99s
+[timing] sample processed in 29.59s
+[timing] sample processed in 13.97s
+[timing] sample processed in 14.19s
+[timing] sample processed in 40.68s
+[step 326] loss=0.0555 rewards(c/r)=-2.42/-4.36
+[timing] sample processed in 42.56s
+[timing] sample processed in 40.31s
+[timing] sample processed in 18.10s
+[timing] sample processed in 7.67s
+[timing] sample processed in 17.62s
+[step 327] loss=0.1407 rewards(c/r)=-2.50/-3.08
+[timing] sample processed in 15.70s
+[timing] sample processed in 16.17s
+[timing] sample processed in 23.39s
+[timing] sample processed in 12.17s
+[timing] sample processed in 28.11s
+[step 328] loss=0.1118 rewards(c/r)=-4.16/-5.45
+[timing] sample processed in 24.91s
+[timing] sample processed in 11.62s
+[timing] sample processed in 9.99s
+[timing] sample processed in 36.14s
+[timing] sample processed in 15.96s
+[step 329] loss=0.1083 rewards(c/r)=-2.34/-2.56
+[timing] sample processed in 24.47s
+[timing] sample processed in 14.70s
+[timing] sample processed in 8.74s
+[timing] sample processed in 7.11s
+[timing] sample processed in 7.51s
+[step 330] loss=0.0783 rewards(c/r)=-1.75/-3.85
+[step 330] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 19.04s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch33_step330.pt
+==end-of-epoch 33==
+
+=== Epoch 34/50 ===
+[92m📊 [System Health] RAM: 54.7% | Swap Used: 7.34 GB[0m
+[timing] sample processed in 15.82s
+[92m📊 [System Health] RAM: 47.7% | Swap Used: 6.93 GB[0m
+[timing] sample processed in 57.43s
+[92m📊 [System Health] RAM: 59.9% | Swap Used: 10.10 GB[0m
+[timing] sample processed in 12.59s
+[92m📊 [System Health] RAM: 72.3% | Swap Used: 6.55 GB[0m
+[timing] sample processed in 5.65s
+[92m📊 [System Health] RAM: 61.1% | Swap Used: 6.69 GB[0m
+[step 331] loss=0.0959 rewards(c/r)=-3.27/-5.81
+[timing] sample processed in 9.41s
+[timing] sample processed in 23.22s
+[timing] sample processed in 17.14s
+[timing] sample processed in 6.44s
+[timing] sample processed in 18.65s
+[step 332] loss=0.1179 rewards(c/r)=-1.84/-4.24
+[timing] sample processed in 9.92s
+[timing] sample processed in 30.59s
+[timing] sample processed in 4.83s
+[timing] sample processed in 10.00s
+[timing] sample processed in 34.66s
+[step 333] loss=0.1224 rewards(c/r)=-2.21/-2.82
+[timing] sample processed in 13.34s
+[timing] sample processed in 13.31s
+[timing] sample processed in 28.75s
+[timing] sample processed in 37.86s
+[timing] sample processed in 22.50s
+[step 334] loss=0.0690 rewards(c/r)=-3.80/-3.90
+[timing] sample processed in 12.64s
+[timing] sample processed in 7.32s
+[timing] sample processed in 20.59s
+[timing] sample processed in 17.55s
+[timing] sample processed in 16.38s
+[step 335] loss=0.0667 rewards(c/r)=-0.43/-3.33
+[timing] sample processed in 17.06s
+[timing] sample processed in 19.58s
+[timing] sample processed in 11.22s
+[timing] sample processed in 7.73s
+[timing] sample processed in 22.13s
+[step 336] loss=0.1402 rewards(c/r)=-5.07/-4.43
+[timing] sample processed in 25.88s
+[timing] sample processed in 19.19s
+[timing] sample processed in 6.21s
+[timing] sample processed in 14.22s
+[timing] sample processed in 16.22s
+[step 337] loss=0.1101 rewards(c/r)=-1.87/-1.01
+[timing] sample processed in 11.63s
+[timing] sample processed in 13.21s
+[timing] sample processed in 49.91s
+[timing] sample processed in 21.88s
+[timing] sample processed in 8.02s
+[step 338] loss=0.1137 rewards(c/r)=-1.77/-3.08
+[timing] sample processed in 24.84s
+[timing] sample processed in 18.91s
+[timing] sample processed in 20.61s
+[timing] sample processed in 7.73s
+[timing] sample processed in 10.35s
+[step 339] loss=0.1183 rewards(c/r)=-4.27/-3.83
+[timing] sample processed in 4.32s
+[timing] sample processed in 6.64s
+[timing] sample processed in 22.02s
+[timing] sample processed in 15.45s
+[timing] sample processed in 14.45s
+[step 340] loss=0.0647 rewards(c/r)=-2.40/-4.83
+[step 340] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 12.08s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch34_step340.pt
+==end-of-epoch 34==
+
+=== Epoch 35/50 ===
+[92m📊 [System Health] RAM: 58.9% | Swap Used: 6.48 GB[0m
+[timing] sample processed in 17.01s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 7.05 GB[0m
+[timing] sample processed in 24.10s
+[92m📊 [System Health] RAM: 53.3% | Swap Used: 8.34 GB[0m
+[timing] sample processed in 5.49s
+[92m📊 [System Health] RAM: 50.0% | Swap Used: 8.19 GB[0m
+[timing] sample processed in 6.22s
+[92m📊 [System Health] RAM: 57.6% | Swap Used: 8.28 GB[0m
+[step 341] loss=0.0836 rewards(c/r)=-0.67/-2.73
+[timing] sample processed in 17.36s
+[timing] sample processed in 4.90s
+[timing] sample processed in 10.67s
+[timing] sample processed in 8.21s
+[timing] sample processed in 5.11s
+[step 342] loss=0.1464 rewards(c/r)=-3.41/-2.84
+[timing] sample processed in 12.30s
+[timing] sample processed in 17.87s
+[timing] sample processed in 24.25s
+[timing] sample processed in 4.99s
+[timing] sample processed in 26.31s
+[step 343] loss=0.0836 rewards(c/r)=-1.50/-3.51
+[timing] sample processed in 46.41s
+[timing] sample processed in 43.22s
+[timing] sample processed in 20.82s
+[timing] sample processed in 34.03s
+[timing] sample processed in 12.29s
+[step 344] loss=0.0452 rewards(c/r)=-2.58/-4.23
+[timing] sample processed in 37.49s
+[timing] sample processed in 10.87s
+[timing] sample processed in 10.92s
+[timing] sample processed in 27.38s
+[timing] sample processed in 13.75s
+[step 345] loss=0.0573 rewards(c/r)=-1.46/-2.58
+[timing] sample processed in 16.62s
+[timing] sample processed in 11.60s
+[timing] sample processed in 54.30s
+[timing] sample processed in 23.73s
+[timing] sample processed in 9.01s
+[step 346] loss=0.0832 rewards(c/r)=-2.71/-3.26
+[timing] sample processed in 48.54s
+[timing] sample processed in 15.10s
+[timing] sample processed in 32.42s
+[timing] sample processed in 18.44s
+[timing] sample processed in 23.52s
+[step 347] loss=0.1096 rewards(c/r)=-3.74/-4.34
+[timing] sample processed in 20.32s
+[timing] sample processed in 13.26s
+[timing] sample processed in 6.69s
+[timing] sample processed in 37.61s
+[timing] sample processed in 15.76s
+[step 348] loss=0.0998 rewards(c/r)=-5.12/-5.06
+[timing] sample processed in 4.34s
+[timing] sample processed in 14.72s
+[timing] sample processed in 28.40s
+[timing] sample processed in 24.52s
+[timing] sample processed in 36.02s
+[step 349] loss=0.1331 rewards(c/r)=-1.23/-3.86
+[timing] sample processed in 16.54s
+[timing] sample processed in 21.00s
+[timing] sample processed in 11.52s
+[timing] sample processed in 13.33s
+[timing] sample processed in 12.85s
+[step 350] loss=0.1332 rewards(c/r)=-1.44/-1.31
+[step 350] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Solution:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Second leg:** The car travels at 62 * 2 = 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+
+3. **Total distance:** The total distance is 124 + 372 = 596 km. 
+
+[timing] sample processed in 32.25s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch35_step350.pt
+==end-of-epoch 35==
+
+=== Epoch 36/50 ===
+[92m📊 [System Health] RAM: 58.1% | Swap Used: 6.09 GB[0m
+[timing] sample processed in 10.72s
+[92m📊 [System Health] RAM: 58.9% | Swap Used: 6.64 GB[0m
+[timing] sample processed in 4.22s
+[92m📊 [System Health] RAM: 78.9% | Swap Used: 6.44 GB[0m
+[timing] sample processed in 12.62s
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 7.21 GB[0m
+[timing] sample processed in 4.25s
+[92m📊 [System Health] RAM: 76.4% | Swap Used: 6.90 GB[0m
+[step 351] loss=0.1103 rewards(c/r)=-1.75/-2.93
+[timing] sample processed in 56.66s
+[timing] sample processed in 13.64s
+[timing] sample processed in 9.05s
+[timing] sample processed in 11.75s
+[timing] sample processed in 11.85s
+[step 352] loss=0.0626 rewards(c/r)=-1.68/-4.37
+[timing] sample processed in 11.19s
+[timing] sample processed in 16.27s
+[timing] sample processed in 7.55s
+[timing] sample processed in 6.30s
+[timing] sample processed in 15.14s
+[step 353] loss=0.0597 rewards(c/r)=-4.03/-4.23
+[timing] sample processed in 14.16s
+[timing] sample processed in 38.09s
+[timing] sample processed in 20.71s
+[timing] sample processed in 13.16s
+[timing] sample processed in 21.92s
+[step 354] loss=0.1213 rewards(c/r)=-4.49/-4.53
+[timing] sample processed in 8.68s
+[timing] sample processed in 28.01s
+[timing] sample processed in 16.31s
+[timing] sample processed in 17.27s
+[timing] sample processed in 8.61s
+[step 355] loss=0.0813 rewards(c/r)=-3.54/-4.28
+[timing] sample processed in 4.73s
+[timing] sample processed in 3.88s
+[timing] sample processed in 23.28s
+[timing] sample processed in 16.01s
+[timing] sample processed in 18.86s
+[step 356] loss=0.1344 rewards(c/r)=-2.13/-5.06
+[timing] sample processed in 13.61s
+[timing] sample processed in 16.12s
+[timing] sample processed in 6.98s
+[timing] sample processed in 12.29s
+[timing] sample processed in 32.05s
+[step 357] loss=0.0608 rewards(c/r)=-5.45/-5.52
+[timing] sample processed in 6.23s
+[timing] sample processed in 24.73s
+[timing] sample processed in 13.01s
+[timing] sample processed in 26.58s
+[timing] sample processed in 23.81s
+[step 358] loss=0.0553 rewards(c/r)=0.35/-4.94
+[timing] sample processed in 20.19s
+[timing] sample processed in 12.93s
+[timing] sample processed in 7.61s
+[timing] sample processed in 23.60s
+[timing] sample processed in 16.19s
+[step 359] loss=0.0790 rewards(c/r)=-1.45/-3.97
+[timing] sample processed in 24.13s
+[timing] sample processed in 32.25s
+[timing] sample processed in 9.66s
+[timing] sample processed in 15.81s
+[timing] sample processed in 19.88s
+[step 360] loss=0.0927 rewards(c/r)=-4.04/-3.81
+[step 360] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, which is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 43.90s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch36_step360.pt
+==end-of-epoch 36==
+
+=== Epoch 37/50 ===
+[92m📊 [System Health] RAM: 59.8% | Swap Used: 6.38 GB[0m
+[timing] sample processed in 29.73s
+[92m📊 [System Health] RAM: 60.6% | Swap Used: 8.02 GB[0m
+[timing] sample processed in 25.08s
+[92m📊 [System Health] RAM: 53.1% | Swap Used: 8.52 GB[0m
+[timing] sample processed in 20.31s
+[92m📊 [System Health] RAM: 60.8% | Swap Used: 8.05 GB[0m
+[timing] sample processed in 13.61s
+[92m📊 [System Health] RAM: 65.8% | Swap Used: 6.97 GB[0m
+[step 361] loss=0.0620 rewards(c/r)=-3.42/-3.82
+[timing] sample processed in 14.25s
+[timing] sample processed in 13.23s
+[timing] sample processed in 17.84s
+[timing] sample processed in 17.63s
+[timing] sample processed in 65.28s
+[step 362] loss=0.0917 rewards(c/r)=-4.13/-3.55
+[timing] sample processed in 27.74s
+[timing] sample processed in 18.38s
+[timing] sample processed in 17.31s
+[timing] sample processed in 9.97s
+[timing] sample processed in 7.25s
+[step 363] loss=0.1059 rewards(c/r)=-2.45/-3.61
+[timing] sample processed in 4.35s
+[timing] sample processed in 10.94s
+[timing] sample processed in 53.41s
+[timing] sample processed in 9.17s
+[timing] sample processed in 18.20s
+[step 364] loss=0.0922 rewards(c/r)=-3.99/-3.73
+[timing] sample processed in 14.62s
+[timing] sample processed in 32.90s
+[timing] sample processed in 25.46s
+[timing] sample processed in 10.70s
+[timing] sample processed in 15.82s
+[step 365] loss=0.0543 rewards(c/r)=-3.98/-4.47
+[timing] sample processed in 6.46s
+[timing] sample processed in 14.39s
+[timing] sample processed in 10.58s
+[timing] sample processed in 12.49s
+[timing] sample processed in 11.65s
+[step 366] loss=0.0840 rewards(c/r)=-2.35/-4.85
+[timing] sample processed in 25.18s
+[timing] sample processed in 8.43s
+[timing] sample processed in 27.24s
+[timing] sample processed in 27.28s
+[timing] sample processed in 10.40s
+[step 367] loss=0.0845 rewards(c/r)=-2.28/-2.23
+[timing] sample processed in 14.24s
+[timing] sample processed in 17.39s
+[timing] sample processed in 4.14s
+[timing] sample processed in 10.02s
+[timing] sample processed in 6.89s
+[step 368] loss=0.1268 rewards(c/r)=-4.54/-4.12
+[timing] sample processed in 7.94s
+[timing] sample processed in 6.94s
+[timing] sample processed in 10.84s
+[timing] sample processed in 24.34s
+[timing] sample processed in 11.95s
+[step 369] loss=0.1113 rewards(c/r)=-3.05/-5.27
+[timing] sample processed in 6.11s
+[timing] sample processed in 11.55s
+[timing] sample processed in 16.57s
+[timing] sample processed in 23.24s
+[timing] sample processed in 8.85s
+[step 370] loss=0.1662 rewards(c/r)=-3.99/-4.52
+[step 370] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 35.02s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch37_step370.pt
+==end-of-epoch 37==
+
+=== Epoch 38/50 ===
+[92m📊 [System Health] RAM: 58.5% | Swap Used: 6.17 GB[0m
+[timing] sample processed in 17.11s
+[92m📊 [System Health] RAM: 65.9% | Swap Used: 7.73 GB[0m
+[timing] sample processed in 15.30s
+[92m📊 [System Health] RAM: 44.2% | Swap Used: 6.88 GB[0m
+[timing] sample processed in 13.63s
+[92m📊 [System Health] RAM: 51.6% | Swap Used: 6.96 GB[0m
+[timing] sample processed in 9.17s
+[92m📊 [System Health] RAM: 51.8% | Swap Used: 7.02 GB[0m
+[step 371] loss=0.1374 rewards(c/r)=-2.04/-3.27
+[timing] sample processed in 10.63s
+[timing] sample processed in 9.18s
+[timing] sample processed in 26.76s
+[timing] sample processed in 19.76s
+[timing] sample processed in 24.81s
+[step 372] loss=0.1201 rewards(c/r)=-2.60/-3.15
+[timing] sample processed in 13.55s
+[timing] sample processed in 5.40s
+[timing] sample processed in 57.36s
+[timing] sample processed in 32.74s
+[timing] sample processed in 4.54s
+[step 373] loss=0.1316 rewards(c/r)=-1.87/-4.03
+[timing] sample processed in 17.85s
+[timing] sample processed in 66.70s
+[timing] sample processed in 32.75s
+[timing] sample processed in 14.53s
+[timing] sample processed in 34.50s
+[step 374] loss=0.1178 rewards(c/r)=-1.76/-2.22
+[timing] sample processed in 27.52s
+[timing] sample processed in 23.44s
+[timing] sample processed in 25.61s
+[timing] sample processed in 41.56s
+[timing] sample processed in 13.03s
+[step 375] loss=0.0869 rewards(c/r)=0.44/-4.35
+[timing] sample processed in 24.10s
+[timing] sample processed in 24.99s
+[timing] sample processed in 15.96s
+[timing] sample processed in 19.29s
+[timing] sample processed in 14.00s
+[step 376] loss=0.1176 rewards(c/r)=-4.72/-5.51
+[timing] sample processed in 7.07s
+[timing] sample processed in 3.98s
+[timing] sample processed in 12.04s
+[timing] sample processed in 68.00s
+[timing] sample processed in 31.49s
+[step 377] loss=0.0631 rewards(c/r)=-4.22/-4.60
+[timing] sample processed in 23.02s
+[timing] sample processed in 20.57s
+[timing] sample processed in 48.39s
+[timing] sample processed in 20.27s
+[timing] sample processed in 15.25s
+[step 378] loss=0.1015 rewards(c/r)=-3.04/-4.08
+[timing] sample processed in 24.67s
+[timing] sample processed in 18.61s
+[timing] sample processed in 9.31s
+[timing] sample processed in 23.34s
+[timing] sample processed in 9.50s
+[step 379] loss=0.0820 rewards(c/r)=-1.65/-2.78
+[timing] sample processed in 8.31s
+[timing] sample processed in 17.91s
+[timing] sample processed in 25.34s
+[timing] sample processed in 11.57s
+[timing] sample processed in 11.65s
+[step 380] loss=0.0606 rewards(c/r)=-2.11/-4.56
+[step 380] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 21.42s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch38_step380.pt
+==end-of-epoch 38==
+
+=== Epoch 39/50 ===
+[92m📊 [System Health] RAM: 56.9% | Swap Used: 6.66 GB[0m
+[timing] sample processed in 10.54s
+[92m📊 [System Health] RAM: 60.3% | Swap Used: 7.08 GB[0m
+[timing] sample processed in 4.48s
+[92m📊 [System Health] RAM: 77.5% | Swap Used: 7.31 GB[0m
+[timing] sample processed in 6.08s
+[92m📊 [System Health] RAM: 59.6% | Swap Used: 7.47 GB[0m
+[timing] sample processed in 3.91s
+[92m📊 [System Health] RAM: 79.4% | Swap Used: 7.32 GB[0m
+[step 381] loss=0.0662 rewards(c/r)=-2.44/-2.91
+[timing] sample processed in 12.25s
+[timing] sample processed in 3.62s
+[timing] sample processed in 13.05s
+[timing] sample processed in 29.02s
+[timing] sample processed in 19.12s
+[step 382] loss=0.0705 rewards(c/r)=-0.95/-3.75
+[timing] sample processed in 14.01s
+[timing] sample processed in 3.58s
+[timing] sample processed in 6.17s
+[timing] sample processed in 20.60s
+[timing] sample processed in 16.99s
+[step 383] loss=0.1268 rewards(c/r)=-3.74/-3.59
+[timing] sample processed in 9.18s
+[timing] sample processed in 5.20s
+[timing] sample processed in 20.74s
+[timing] sample processed in 16.68s
+[timing] sample processed in 10.97s
+[step 384] loss=0.0632 rewards(c/r)=-2.30/-3.90
+[timing] sample processed in 20.27s
+[timing] sample processed in 14.47s
+[timing] sample processed in 3.76s
+[timing] sample processed in 11.51s
+[timing] sample processed in 13.49s
+[step 385] loss=0.1166 rewards(c/r)=-3.28/-3.96
+[timing] sample processed in 8.31s
+[timing] sample processed in 9.88s
+[timing] sample processed in 12.16s
+[timing] sample processed in 7.65s
+[timing] sample processed in 16.59s
+[step 386] loss=0.0612 rewards(c/r)=-2.93/-4.60
+[timing] sample processed in 30.59s
+[timing] sample processed in 35.84s
+[timing] sample processed in 25.50s
+[timing] sample processed in 10.36s
+[timing] sample processed in 11.98s
+[step 387] loss=0.0404 rewards(c/r)=0.80/-4.97
+[timing] sample processed in 13.00s
+[timing] sample processed in 14.62s
+[timing] sample processed in 8.09s
+[timing] sample processed in 22.66s
+[timing] sample processed in 56.57s
+[step 388] loss=0.0925 rewards(c/r)=-5.74/-6.79
+[timing] sample processed in 17.08s
+[timing] sample processed in 11.06s
+[timing] sample processed in 6.07s
+[timing] sample processed in 30.56s
+[timing] sample processed in 25.90s
+[step 389] loss=0.0749 rewards(c/r)=-2.01/-4.32
+[timing] sample processed in 13.76s
+[timing] sample processed in 8.85s
+[timing] sample processed in 4.07s
+[timing] sample processed in 4.17s
+[timing] sample processed in 12.85s
+[step 390] loss=0.0728 rewards(c/r)=-2.55/-2.42
+[step 390] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 20.47s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch39_step390.pt
+==end-of-epoch 39==
+
+=== Epoch 40/50 ===
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 6.19 GB[0m
+[timing] sample processed in 9.87s
+[92m📊 [System Health] RAM: 53.1% | Swap Used: 6.93 GB[0m
+[timing] sample processed in 35.79s
+[92m📊 [System Health] RAM: 55.7% | Swap Used: 9.75 GB[0m
+[timing] sample processed in 21.48s
+[92m📊 [System Health] RAM: 47.5% | Swap Used: 7.01 GB[0m
+[timing] sample processed in 10.72s
+[92m📊 [System Health] RAM: 59.9% | Swap Used: 7.11 GB[0m
+[step 391] loss=0.1491 rewards(c/r)=0.02/-1.98
+[timing] sample processed in 28.63s
+[timing] sample processed in 22.66s
+[timing] sample processed in 57.59s
+[timing] sample processed in 16.30s
+[timing] sample processed in 42.72s
+[step 392] loss=0.0718 rewards(c/r)=-2.75/-5.49
+[timing] sample processed in 46.85s
+[timing] sample processed in 9.44s
+[timing] sample processed in 5.05s
+[timing] sample processed in 15.31s
+[timing] sample processed in 11.60s
+[step 393] loss=0.0367 rewards(c/r)=-5.81/-8.55
+[timing] sample processed in 14.44s
+[timing] sample processed in 17.02s
+[timing] sample processed in 13.46s
+[timing] sample processed in 13.98s
+[timing] sample processed in 27.81s
+[step 394] loss=0.1989 rewards(c/r)=-5.08/-5.82
+[timing] sample processed in 20.70s
+[timing] sample processed in 21.50s
+[timing] sample processed in 30.36s
+[timing] sample processed in 13.12s
+[timing] sample processed in 16.03s
+[step 395] loss=0.1455 rewards(c/r)=-3.21/-3.97
+[timing] sample processed in 15.62s
+[timing] sample processed in 6.56s
+[timing] sample processed in 6.51s
+[timing] sample processed in 20.82s
+[timing] sample processed in 7.52s
+[step 396] loss=0.1031 rewards(c/r)=-4.38/-4.81
+[timing] sample processed in 63.86s
+[timing] sample processed in 12.32s
+[timing] sample processed in 21.85s
+[timing] sample processed in 8.86s
+[timing] sample processed in 16.35s
+[step 397] loss=0.1276 rewards(c/r)=-2.17/-3.35
+[timing] sample processed in 15.83s
+[timing] sample processed in 8.87s
+[timing] sample processed in 34.11s
+[timing] sample processed in 8.38s
+[timing] sample processed in 62.13s
+[step 398] loss=0.1257 rewards(c/r)=-4.80/-4.80
+[timing] sample processed in 11.69s
+[timing] sample processed in 15.35s
+[timing] sample processed in 25.93s
+[timing] sample processed in 14.99s
+[timing] sample processed in 9.85s
+[step 399] loss=0.1927 rewards(c/r)=-3.39/-3.84
+[timing] sample processed in 49.06s
+[timing] sample processed in 10.00s
+[timing] sample processed in 10.76s
+[timing] sample processed in 12.23s
+[timing] sample processed in 6.07s
+[step 400] loss=0.1410 rewards(c/r)=-1.37/-3.82
+[step 400] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 20.79s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch40_step400.pt
+==end-of-epoch 40==
+
+=== Epoch 41/50 ===
+[92m📊 [System Health] RAM: 58.8% | Swap Used: 6.13 GB[0m
+[timing] sample processed in 5.23s
+[92m📊 [System Health] RAM: 54.5% | Swap Used: 6.47 GB[0m
+[timing] sample processed in 23.97s
+[92m📊 [System Health] RAM: 55.7% | Swap Used: 9.15 GB[0m
+[timing] sample processed in 18.56s
+[92m📊 [System Health] RAM: 64.0% | Swap Used: 8.23 GB[0m
+[timing] sample processed in 7.99s
+[92m📊 [System Health] RAM: 54.2% | Swap Used: 7.89 GB[0m
+[step 401] loss=0.0456 rewards(c/r)=-3.61/-5.42
+[timing] sample processed in 16.83s
+[timing] sample processed in 36.16s
+[timing] sample processed in 7.93s
+[timing] sample processed in 43.75s
+[timing] sample processed in 16.45s
+[step 402] loss=0.0667 rewards(c/r)=-1.52/-3.81
+[timing] sample processed in 45.46s
+[timing] sample processed in 19.83s
+[timing] sample processed in 64.56s
+[timing] sample processed in 16.36s
+[timing] sample processed in 7.25s
+[step 403] loss=0.1309 rewards(c/r)=-4.74/-4.39
+[timing] sample processed in 5.13s
+[timing] sample processed in 16.21s
+[timing] sample processed in 21.55s
+[timing] sample processed in 9.20s
+[timing] sample processed in 12.89s
+[step 404] loss=0.0706 rewards(c/r)=-3.05/-4.46
+[timing] sample processed in 80.91s
+[timing] sample processed in 38.53s
+[timing] sample processed in 8.97s
+[timing] sample processed in 9.01s
+[timing] sample processed in 23.35s
+[step 405] loss=0.0677 rewards(c/r)=-3.04/-4.52
+[timing] sample processed in 70.57s
+[timing] sample processed in 41.05s
+[timing] sample processed in 22.07s
+[timing] sample processed in 26.16s
+[timing] sample processed in 46.53s
+[step 406] loss=0.1176 rewards(c/r)=-2.68/-1.60
+[timing] sample processed in 21.76s
+[timing] sample processed in 10.03s
+[timing] sample processed in 15.09s
+[timing] sample processed in 11.61s
+[timing] sample processed in 15.36s
+[step 407] loss=0.0956 rewards(c/r)=-3.14/-3.28
+[timing] sample processed in 23.87s
+[timing] sample processed in 41.33s
+[timing] sample processed in 15.34s
+[timing] sample processed in 15.42s
+[timing] sample processed in 6.81s
+[step 408] loss=0.0437 rewards(c/r)=-1.94/-4.10
+[timing] sample processed in 42.46s
+[timing] sample processed in 19.63s
+[timing] sample processed in 24.48s
+[timing] sample processed in 17.03s
+[timing] sample processed in 17.22s
+[step 409] loss=0.1362 rewards(c/r)=-0.06/-3.28
+[timing] sample processed in 4.55s
+[timing] sample processed in 23.62s
+[timing] sample processed in 10.96s
+[timing] sample processed in 18.26s
+[timing] sample processed in 14.66s
+[step 410] loss=0.0932 rewards(c/r)=-3.11/-4.40
+[step 410] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance for the first part:**
+   - Distance = Speed x Time
+   - Distance = 62 km/h * 2 h = 124 km
+
+2. **Speed for the second part:**
+   - Speed = 62 km/h * 2 = 124 km/h
+
+3. **Distance for the second part:**
+   - Distance = Speed x Time
+   - Distance = 124 km/h * 3 h = 372 km
+
+4. **Total distance:**
+   - Total distance = Distance1 + Distance2
+   - Total distance = 124 km + 372 km = 596 km
+
+**Answer:** 596 
+
+[timing] sample processed in 30.55s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch41_step410.pt
+==end-of-epoch 41==
+
+=== Epoch 42/50 ===
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 6.78 GB[0m
+[timing] sample processed in 12.26s
+[92m📊 [System Health] RAM: 55.1% | Swap Used: 6.86 GB[0m
+[timing] sample processed in 7.17s
+[92m📊 [System Health] RAM: 60.1% | Swap Used: 7.13 GB[0m
+[timing] sample processed in 22.00s
+[92m📊 [System Health] RAM: 59.4% | Swap Used: 9.92 GB[0m
+[timing] sample processed in 28.06s
+[92m📊 [System Health] RAM: 62.2% | Swap Used: 9.95 GB[0m
+[step 411] loss=0.0996 rewards(c/r)=-0.08/-3.97
+[timing] sample processed in 42.08s
+[timing] sample processed in 16.90s
+[timing] sample processed in 7.81s
+[timing] sample processed in 12.71s
+[timing] sample processed in 15.15s
+[step 412] loss=0.1276 rewards(c/r)=-3.78/-3.32
+[timing] sample processed in 16.27s
+[timing] sample processed in 7.33s
+[timing] sample processed in 8.98s
+[timing] sample processed in 10.80s
+[timing] sample processed in 8.55s
+[step 413] loss=0.0733 rewards(c/r)=-4.31/-4.66
+[timing] sample processed in 19.39s
+[timing] sample processed in 11.60s
+[timing] sample processed in 6.52s
+[timing] sample processed in 6.73s
+[timing] sample processed in 23.12s
+[step 414] loss=0.1045 rewards(c/r)=-3.16/-3.86
+[timing] sample processed in 16.01s
+[timing] sample processed in 9.99s
+[timing] sample processed in 39.38s
+[timing] sample processed in 5.59s
+[timing] sample processed in 15.11s
+[step 415] loss=0.1177 rewards(c/r)=-4.44/-5.16
+[timing] sample processed in 28.27s
+[timing] sample processed in 5.20s
+[timing] sample processed in 13.86s
+[timing] sample processed in 24.77s
+[timing] sample processed in 13.51s
+[step 416] loss=0.1182 rewards(c/r)=-4.83/-5.47
+[timing] sample processed in 19.23s
+[timing] sample processed in 28.81s
+[timing] sample processed in 15.88s
+[timing] sample processed in 42.95s
+[timing] sample processed in 59.91s
+[step 417] loss=0.0999 rewards(c/r)=-4.78/-5.19
+[timing] sample processed in 20.87s
+[timing] sample processed in 12.07s
+[timing] sample processed in 10.35s
+[timing] sample processed in 23.97s
+[timing] sample processed in 13.71s
+[step 418] loss=0.1101 rewards(c/r)=-3.04/-3.57
+[timing] sample processed in 15.33s
+[timing] sample processed in 10.69s
+[timing] sample processed in 17.74s
+[timing] sample processed in 24.14s
+[timing] sample processed in 8.44s
+[step 419] loss=0.0801 rewards(c/r)=-1.96/-3.65
+[timing] sample processed in 14.98s
+[timing] sample processed in 17.42s
+[timing] sample processed in 34.87s
+[timing] sample processed in 12.48s
+[timing] sample processed in 29.69s
+[step 420] loss=0.0916 rewards(c/r)=0.23/-0.59
+[step 420] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance for the first part:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed for the second part:** The car travels twice its speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance for the second part:** The car travels at 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+4. **Total distance:** The total distance is the sum of the distances from both parts, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 36.60s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch42_step420.pt
+==end-of-epoch 42==
+
+=== Epoch 43/50 ===
+[92m📊 [System Health] RAM: 57.6% | Swap Used: 8.02 GB[0m
+[timing] sample processed in 7.37s
+[92m📊 [System Health] RAM: 68.1% | Swap Used: 5.73 GB[0m
+[timing] sample processed in 7.27s
+[92m📊 [System Health] RAM: 57.1% | Swap Used: 6.28 GB[0m
+[timing] sample processed in 4.85s
+[92m📊 [System Health] RAM: 63.6% | Swap Used: 7.08 GB[0m
+[timing] sample processed in 7.89s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 7.08 GB[0m
+[step 421] loss=0.0757 rewards(c/r)=-3.27/-4.99
+[timing] sample processed in 6.74s
+[timing] sample processed in 5.19s
+[timing] sample processed in 8.43s
+[timing] sample processed in 24.08s
+[timing] sample processed in 18.41s
+[step 422] loss=0.1136 rewards(c/r)=-4.12/-4.94
+[timing] sample processed in 20.33s
+[timing] sample processed in 24.48s
+[timing] sample processed in 41.04s
+[timing] sample processed in 8.71s
+[timing] sample processed in 5.36s
+[step 423] loss=0.1263 rewards(c/r)=-4.36/-4.53
+[timing] sample processed in 7.16s
+[timing] sample processed in 6.87s
+[timing] sample processed in 17.67s
+[timing] sample processed in 67.09s
+[timing] sample processed in 20.43s
+[step 424] loss=0.1146 rewards(c/r)=0.39/-1.83
+[timing] sample processed in 11.95s
+[timing] sample processed in 12.92s
+[timing] sample processed in 15.02s
+[timing] sample processed in 18.07s
+[timing] sample processed in 14.46s
+[step 425] loss=0.0805 rewards(c/r)=-2.31/-4.24
+[timing] sample processed in 8.00s
+[timing] sample processed in 4.18s
+[timing] sample processed in 21.78s
+[timing] sample processed in 21.23s
+[timing] sample processed in 34.07s
+[step 426] loss=0.1021 rewards(c/r)=-0.45/-4.03
+[timing] sample processed in 16.19s
+[timing] sample processed in 11.10s
+[timing] sample processed in 15.19s
+[timing] sample processed in 13.77s
+[timing] sample processed in 12.18s
+[step 427] loss=0.0629 rewards(c/r)=-3.35/-5.05
+[timing] sample processed in 6.47s
+[timing] sample processed in 20.18s
+[timing] sample processed in 14.69s
+[timing] sample processed in 14.53s
+[timing] sample processed in 32.33s
+[step 428] loss=0.1081 rewards(c/r)=-2.26/-3.57
+[timing] sample processed in 8.46s
+[timing] sample processed in 5.59s
+[timing] sample processed in 3.58s
+[timing] sample processed in 17.64s
+[timing] sample processed in 6.26s
+[step 429] loss=0.0696 rewards(c/r)=-3.34/-4.38
+[timing] sample processed in 19.80s
+[timing] sample processed in 62.83s
+[timing] sample processed in 26.70s
+[timing] sample processed in 19.34s
+[timing] sample processed in 11.70s
+[step 430] loss=0.0437 rewards(c/r)=-0.12/-2.19
+[step 430] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance for the first part:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed for the second part:** The car travels twice its speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance for the second part:** The car travels at 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+4. **Total distance:** The total distance is the sum of the distances from both parts, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 26.79s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch43_step430.pt
+==end-of-epoch 43==
+
+=== Epoch 44/50 ===
+[92m📊 [System Health] RAM: 57.9% | Swap Used: 6.29 GB[0m
+[timing] sample processed in 6.90s
+[92m📊 [System Health] RAM: 57.4% | Swap Used: 6.82 GB[0m
+[timing] sample processed in 6.60s
+[92m📊 [System Health] RAM: 56.5% | Swap Used: 6.94 GB[0m
+[timing] sample processed in 4.17s
+[92m📊 [System Health] RAM: 77.7% | Swap Used: 6.77 GB[0m
+[timing] sample processed in 8.59s
+[92m📊 [System Health] RAM: 53.4% | Swap Used: 7.16 GB[0m
+[step 431] loss=0.1059 rewards(c/r)=0.45/-2.47
+[timing] sample processed in 10.11s
+[timing] sample processed in 49.41s
+[timing] sample processed in 50.37s
+[timing] sample processed in 8.46s
+[timing] sample processed in 5.56s
+[step 432] loss=0.1211 rewards(c/r)=-2.06/-2.99
+[timing] sample processed in 4.84s
+[timing] sample processed in 9.83s
+[timing] sample processed in 8.60s
+[timing] sample processed in 4.15s
+[timing] sample processed in 14.83s
+[step 433] loss=0.0669 rewards(c/r)=-4.58/-5.21
+[timing] sample processed in 10.61s
+[timing] sample processed in 6.51s
+[timing] sample processed in 6.79s
+[timing] sample processed in 12.48s
+[timing] sample processed in 4.36s
+[step 434] loss=0.0820 rewards(c/r)=-1.69/-5.18
+[timing] sample processed in 20.89s
+[timing] sample processed in 29.08s
+[timing] sample processed in 23.38s
+[timing] sample processed in 8.58s
+[timing] sample processed in 13.56s
+[step 435] loss=0.1109 rewards(c/r)=-4.13/-4.29
+[timing] sample processed in 5.57s
+[timing] sample processed in 33.44s
+[timing] sample processed in 30.09s
+[timing] sample processed in 44.81s
+[timing] sample processed in 17.58s
+[step 436] loss=0.0524 rewards(c/r)=-3.27/-3.74
+[timing] sample processed in 50.79s
+[timing] sample processed in 22.18s
+[timing] sample processed in 67.01s
+[timing] sample processed in 11.56s
+[timing] sample processed in 20.48s
+[step 437] loss=0.0946 rewards(c/r)=0.95/-3.48
+[timing] sample processed in 35.21s
+[timing] sample processed in 12.34s
+[timing] sample processed in 29.87s
+[timing] sample processed in 11.04s
+[timing] sample processed in 14.23s
+[step 438] loss=0.0300 rewards(c/r)=-3.11/-4.49
+[timing] sample processed in 27.20s
+[timing] sample processed in 17.06s
+[timing] sample processed in 18.40s
+[timing] sample processed in 7.17s
+[timing] sample processed in 14.26s
+[step 439] loss=0.0521 rewards(c/r)=-1.45/-4.21
+[timing] sample processed in 15.73s
+[timing] sample processed in 10.93s
+[timing] sample processed in 46.62s
+[timing] sample processed in 65.06s
+[timing] sample processed in 10.53s
+[step 440] loss=0.0918 rewards(c/r)=-1.34/-4.59
+[step 440] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance for the first part:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed for the second part:** The car travels twice its speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance for the second part:** The car travels at 124 km/h for 3 hours, so the distance is 124 * 3 = 372 km.
+4. **Total distance:** The total distance is the sum of the distances from both parts, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 18.46s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch44_step440.pt
+==end-of-epoch 44==
+
+=== Epoch 45/50 ===
+[92m📊 [System Health] RAM: 57.5% | Swap Used: 6.28 GB[0m
+[timing] sample processed in 8.80s
+[92m📊 [System Health] RAM: 52.2% | Swap Used: 6.93 GB[0m
+[timing] sample processed in 4.42s
+[92m📊 [System Health] RAM: 62.8% | Swap Used: 7.09 GB[0m
+[timing] sample processed in 16.74s
+[92m📊 [System Health] RAM: 62.6% | Swap Used: 8.25 GB[0m
+[timing] sample processed in 15.63s
+[92m📊 [System Health] RAM: 48.7% | Swap Used: 7.14 GB[0m
+[step 441] loss=0.0869 rewards(c/r)=-1.67/-4.17
+[timing] sample processed in 13.90s
+[timing] sample processed in 30.37s
+[timing] sample processed in 8.38s
+[timing] sample processed in 7.16s
+[timing] sample processed in 17.34s
+[step 442] loss=0.0924 rewards(c/r)=-2.38/-5.34
+[timing] sample processed in 26.06s
+[timing] sample processed in 10.90s
+[timing] sample processed in 6.85s
+[timing] sample processed in 24.86s
+[timing] sample processed in 8.67s
+[step 443] loss=0.1405 rewards(c/r)=-4.71/-5.24
+[timing] sample processed in 8.04s
+[timing] sample processed in 4.09s
+[timing] sample processed in 10.37s
+[timing] sample processed in 6.11s
+[timing] sample processed in 14.31s
+[step 444] loss=0.1056 rewards(c/r)=-2.75/-3.43
+[timing] sample processed in 77.02s
+[timing] sample processed in 25.09s
+[timing] sample processed in 51.44s
+[timing] sample processed in 8.09s
+[timing] sample processed in 36.53s
+[step 445] loss=0.1069 rewards(c/r)=-3.03/-2.77
+[timing] sample processed in 9.56s
+[timing] sample processed in 13.17s
+[timing] sample processed in 10.13s
+[timing] sample processed in 54.72s
+[timing] sample processed in 24.61s
+[step 446] loss=0.1177 rewards(c/r)=-3.03/-3.90
+[timing] sample processed in 8.26s
+[timing] sample processed in 16.80s
+[timing] sample processed in 18.86s
+[timing] sample processed in 4.99s
+[timing] sample processed in 23.38s
+[step 447] loss=0.0958 rewards(c/r)=-4.23/-7.64
+[timing] sample processed in 15.08s
+[timing] sample processed in 9.71s
+[timing] sample processed in 37.47s
+[timing] sample processed in 25.05s
+[timing] sample processed in 12.59s
+[step 448] loss=0.0736 rewards(c/r)=-2.77/-4.60
+[timing] sample processed in 6.67s
+[timing] sample processed in 7.09s
+[timing] sample processed in 26.19s
+[timing] sample processed in 14.07s
+[timing] sample processed in 23.23s
+[step 449] loss=0.0966 rewards(c/r)=-4.91/-5.00
+[timing] sample processed in 16.46s
+[timing] sample processed in 17.21s
+[timing] sample processed in 29.10s
+[timing] sample processed in 16.09s
+[timing] sample processed in 25.76s
+[step 450] loss=0.1130 rewards(c/r)=-1.48/-3.32
+[step 450] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed, so the speed is 62 * 2 = 124 km/h.
+3. **Distance 2:** The car travels for 3 hours at 124 km/h, so the distance is 124 * 3 = 372 km.
+4. **Total Distance:** The total distance is the sum of distance 1 and distance 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 56.02s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch45_step450.pt
+==end-of-epoch 45==
+
+=== Epoch 46/50 ===
+[92m📊 [System Health] RAM: 67.6% | Swap Used: 6.16 GB[0m
+[timing] sample processed in 19.57s
+[92m📊 [System Health] RAM: 58.2% | Swap Used: 8.06 GB[0m
+[timing] sample processed in 4.70s
+[92m📊 [System Health] RAM: 74.6% | Swap Used: 7.70 GB[0m
+[timing] sample processed in 12.97s
+[92m📊 [System Health] RAM: 60.1% | Swap Used: 7.24 GB[0m
+[timing] sample processed in 18.76s
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 8.27 GB[0m
+[step 451] loss=0.0590 rewards(c/r)=-2.80/-3.35
+[timing] sample processed in 12.80s
+[timing] sample processed in 12.79s
+[timing] sample processed in 49.40s
+[timing] sample processed in 11.04s
+[timing] sample processed in 6.84s
+[step 452] loss=0.0731 rewards(c/r)=-1.22/-1.86
+[timing] sample processed in 76.35s
+[timing] sample processed in 56.14s
+[timing] sample processed in 27.99s
+[timing] sample processed in 4.59s
+[timing] sample processed in 3.69s
+[step 453] loss=0.0534 rewards(c/r)=-1.24/-3.73
+[timing] sample processed in 31.08s
+[timing] sample processed in 14.66s
+[timing] sample processed in 10.48s
+[timing] sample processed in 4.01s
+[timing] sample processed in 6.68s
+[step 454] loss=0.0874 rewards(c/r)=-1.19/-2.43
+[timing] sample processed in 14.01s
+[timing] sample processed in 4.24s
+[timing] sample processed in 8.64s
+[timing] sample processed in 8.81s
+[timing] sample processed in 14.73s
+[step 455] loss=0.0932 rewards(c/r)=-2.92/-3.18
+[timing] sample processed in 38.78s
+[timing] sample processed in 9.74s
+[timing] sample processed in 23.99s
+[timing] sample processed in 8.55s
+[timing] sample processed in 5.02s
+[step 456] loss=0.0486 rewards(c/r)=-3.48/-3.80
+[timing] sample processed in 16.79s
+[timing] sample processed in 12.47s
+[timing] sample processed in 11.59s
+[timing] sample processed in 17.30s
+[timing] sample processed in 7.28s
+[step 457] loss=0.0604 rewards(c/r)=-2.34/-3.05
+[timing] sample processed in 4.52s
+[timing] sample processed in 12.90s
+[timing] sample processed in 13.62s
+[timing] sample processed in 10.13s
+[timing] sample processed in 41.75s
+[step 458] loss=0.0951 rewards(c/r)=-2.78/-5.34
+[timing] sample processed in 13.44s
+[timing] sample processed in 9.71s
+[timing] sample processed in 26.65s
+[timing] sample processed in 18.85s
+[timing] sample processed in 4.12s
+[step 459] loss=0.0897 rewards(c/r)=-4.27/-5.24
+[timing] sample processed in 17.07s
+[timing] sample processed in 6.86s
+[timing] sample processed in 4.00s
+[timing] sample processed in 19.05s
+[timing] sample processed in 13.07s
+[step 460] loss=0.0599 rewards(c/r)=-2.01/-5.70
+[step 460] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+## Solution:
+
+**1. Calculate distance traveled at 62 km/h:**
+
+* Distance = Speed * Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**2. Calculate speed for the second part of the journey:**
+
+* Speed = 62 km/h * 2 = 124 km/h
+
+**3. Calculate distance traveled at 124 km/h for 3 hours:**
+
+* Distance = Speed * Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**4. Calculate total distance:**
+
+* Total Distance = Distance 1 + Distance 2 
+* Total Distance = 124 km + 372 km = 596 km
+
+
+
+[timing] sample processed in 29.51s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch46_step460.pt
+==end-of-epoch 46==
+
+=== Epoch 47/50 ===
+[92m📊 [System Health] RAM: 57.6% | Swap Used: 6.43 GB[0m
+[timing] sample processed in 4.63s
+[92m📊 [System Health] RAM: 61.6% | Swap Used: 6.81 GB[0m
+[timing] sample processed in 32.75s
+[92m📊 [System Health] RAM: 54.7% | Swap Used: 9.55 GB[0m
+[timing] sample processed in 16.44s
+[92m📊 [System Health] RAM: 65.4% | Swap Used: 7.23 GB[0m
+[timing] sample processed in 10.29s
+[92m📊 [System Health] RAM: 57.0% | Swap Used: 7.27 GB[0m
+[step 461] loss=0.1230 rewards(c/r)=-3.07/-6.40
+[timing] sample processed in 5.04s
+[timing] sample processed in 21.63s
+[timing] sample processed in 17.07s
+[timing] sample processed in 12.44s
+[timing] sample processed in 14.02s
+[step 462] loss=0.1669 rewards(c/r)=-4.42/-4.14
+[timing] sample processed in 26.47s
+[timing] sample processed in 21.59s
+[timing] sample processed in 15.76s
+[timing] sample processed in 12.42s
+[timing] sample processed in 10.43s
+[step 463] loss=0.0903 rewards(c/r)=-3.69/-4.73
+[timing] sample processed in 13.56s
+[timing] sample processed in 48.00s
+[timing] sample processed in 13.96s
+[timing] sample processed in 26.57s
+[timing] sample processed in 17.66s
+[step 464] loss=0.0961 rewards(c/r)=-4.08/-4.52
+[timing] sample processed in 10.45s
+[timing] sample processed in 25.33s
+[timing] sample processed in 36.28s
+[timing] sample processed in 12.19s
+[timing] sample processed in 4.04s
+[step 465] loss=0.0894 rewards(c/r)=-4.19/-5.28
+[timing] sample processed in 24.75s
+[timing] sample processed in 27.21s
+[timing] sample processed in 11.72s
+[timing] sample processed in 14.07s
+[timing] sample processed in 14.48s
+[step 466] loss=0.1060 rewards(c/r)=-5.18/-6.28
+[timing] sample processed in 9.54s
+[timing] sample processed in 35.55s
+[timing] sample processed in 25.29s
+[timing] sample processed in 4.38s
+[timing] sample processed in 25.11s
+[step 467] loss=0.0820 rewards(c/r)=-1.89/-3.49
+[timing] sample processed in 79.07s
+[timing] sample processed in 49.21s
+[timing] sample processed in 34.90s
+[timing] sample processed in 18.11s
+[timing] sample processed in 7.38s
+[step 468] loss=0.0508 rewards(c/r)=-3.07/-4.69
+[timing] sample processed in 68.87s
+[timing] sample processed in 14.34s
+[timing] sample processed in 20.15s
+[timing] sample processed in 19.44s
+[timing] sample processed in 38.86s
+[step 469] loss=0.1838 rewards(c/r)=-2.53/-2.12
+[timing] sample processed in 21.66s
+[timing] sample processed in 34.63s
+[timing] sample processed in 7.75s
+[timing] sample processed in 24.77s
+[timing] sample processed in 5.95s
+[step 470] loss=0.0921 rewards(c/r)=-3.81/-3.78
+[step 470] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed (62 * 2 = 124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+3. **Total Distance:** The total distance is the sum of the distances from step 1 and step 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 21.43s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch47_step470.pt
+==end-of-epoch 47==
+
+=== Epoch 48/50 ===
+[92m📊 [System Health] RAM: 58.0% | Swap Used: 6.41 GB[0m
+[timing] sample processed in 13.15s
+[92m📊 [System Health] RAM: 59.9% | Swap Used: 7.11 GB[0m
+[timing] sample processed in 69.92s
+[92m📊 [System Health] RAM: 49.6% | Swap Used: 11.80 GB[0m
+[timing] sample processed in 17.02s
+[92m📊 [System Health] RAM: 65.3% | Swap Used: 7.41 GB[0m
+[timing] sample processed in 11.70s
+[92m📊 [System Health] RAM: 60.7% | Swap Used: 7.26 GB[0m
+[step 471] loss=0.0957 rewards(c/r)=-2.94/-2.47
+[timing] sample processed in 10.82s
+[timing] sample processed in 6.35s
+[timing] sample processed in 4.04s
+[timing] sample processed in 21.10s
+[timing] sample processed in 14.48s
+[step 472] loss=0.0620 rewards(c/r)=-4.52/-4.77
+[timing] sample processed in 16.38s
+[timing] sample processed in 13.75s
+[timing] sample processed in 28.31s
+[timing] sample processed in 20.19s
+[timing] sample processed in 22.33s
+[step 473] loss=0.0700 rewards(c/r)=-4.23/-4.76
+[timing] sample processed in 9.34s
+[timing] sample processed in 21.05s
+[timing] sample processed in 24.41s
+[timing] sample processed in 18.16s
+[timing] sample processed in 12.80s
+[step 474] loss=0.0155 rewards(c/r)=0.71/-3.89
+[timing] sample processed in 11.49s
+[timing] sample processed in 21.42s
+[timing] sample processed in 15.39s
+[timing] sample processed in 27.24s
+[timing] sample processed in 12.08s
+[step 475] loss=0.0926 rewards(c/r)=-3.57/-5.83
+[timing] sample processed in 16.30s
+[timing] sample processed in 9.86s
+[timing] sample processed in 35.44s
+[timing] sample processed in 7.10s
+[timing] sample processed in 7.70s
+[step 476] loss=0.1278 rewards(c/r)=-2.86/-3.67
+[timing] sample processed in 18.33s
+[timing] sample processed in 22.18s
+[timing] sample processed in 13.43s
+[timing] sample processed in 28.32s
+[timing] sample processed in 11.85s
+[step 477] loss=0.0581 rewards(c/r)=-2.42/-3.61
+[timing] sample processed in 4.52s
+[timing] sample processed in 11.03s
+[timing] sample processed in 35.84s
+[timing] sample processed in 13.50s
+[timing] sample processed in 13.41s
+[step 478] loss=0.0906 rewards(c/r)=-2.89/-3.94
+[timing] sample processed in 7.48s
+[timing] sample processed in 9.63s
+[timing] sample processed in 12.53s
+[timing] sample processed in 22.77s
+[timing] sample processed in 31.54s
+[step 479] loss=0.1193 rewards(c/r)=-5.46/-6.03
+[timing] sample processed in 27.02s
+[timing] sample processed in 7.28s
+[timing] sample processed in 59.96s
+[timing] sample processed in 23.08s
+[timing] sample processed in 10.72s
+[step 480] loss=0.0810 rewards(c/r)=-5.59/-6.68
+[step 480] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+**Reasoning:**
+
+1. **Distance 1:** The car travels at 62 km/h for 2 hours, so the distance is 62 * 2 = 124 km.
+2. **Speed 2:** The car travels twice the speed (124 km/h) for 3 hours, so the distance is 124 * 3 = 372 km.
+3. **Total Distance:** The total distance is the sum of the distances from step 1 and step 2, so the total distance is 124 + 372 = 596 km.
+
+**Answer:** 596 
+
+[timing] sample processed in 24.24s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch48_step480.pt
+==end-of-epoch 48==
+
+=== Epoch 49/50 ===
+[92m📊 [System Health] RAM: 56.7% | Swap Used: 6.58 GB[0m
+[timing] sample processed in 22.38s
+[92m📊 [System Health] RAM: 58.2% | Swap Used: 9.91 GB[0m
+[timing] sample processed in 15.21s
+[92m📊 [System Health] RAM: 51.8% | Swap Used: 7.25 GB[0m
+[timing] sample processed in 13.75s
+[92m📊 [System Health] RAM: 53.4% | Swap Used: 7.38 GB[0m
+[timing] sample processed in 13.86s
+[92m📊 [System Health] RAM: 45.4% | Swap Used: 7.37 GB[0m
+[step 481] loss=0.0951 rewards(c/r)=-2.37/-4.20
+[timing] sample processed in 16.97s
+[timing] sample processed in 18.00s
+[timing] sample processed in 49.98s
+[timing] sample processed in 35.65s
+[timing] sample processed in 10.08s
+[step 482] loss=0.1278 rewards(c/r)=-4.83/-4.35
+[timing] sample processed in 6.33s
+[timing] sample processed in 6.43s
+[timing] sample processed in 22.04s
+[timing] sample processed in 20.54s
+[timing] sample processed in 8.06s
+[step 483] loss=0.0609 rewards(c/r)=-3.61/-4.97
+[timing] sample processed in 18.37s
+[timing] sample processed in 3.73s
+[timing] sample processed in 34.91s
+[timing] sample processed in 11.85s
+[timing] sample processed in 7.98s
+[step 484] loss=0.1013 rewards(c/r)=-4.14/-6.01
+[timing] sample processed in 11.83s
+[timing] sample processed in 4.41s
+[timing] sample processed in 7.71s
+[timing] sample processed in 10.05s
+[timing] sample processed in 18.88s
+[step 485] loss=0.0803 rewards(c/r)=-0.88/-2.41
+[timing] sample processed in 18.71s
+[timing] sample processed in 15.38s
+[timing] sample processed in 66.01s
+[timing] sample processed in 32.05s
+[timing] sample processed in 10.30s
+[step 486] loss=0.0578 rewards(c/r)=-2.90/-3.33
+[timing] sample processed in 10.93s
+[timing] sample processed in 16.59s
+[timing] sample processed in 12.76s
+[timing] sample processed in 30.42s
+[timing] sample processed in 27.55s
+[step 487] loss=0.1275 rewards(c/r)=-4.22/-2.97
+[timing] sample processed in 8.32s
+[timing] sample processed in 33.64s
+[timing] sample processed in 19.47s
+[timing] sample processed in 24.82s
+[timing] sample processed in 31.52s
+[step 488] loss=0.1143 rewards(c/r)=-5.66/-5.17
+[timing] sample processed in 25.43s
+[timing] sample processed in 12.51s
+[timing] sample processed in 16.53s
+[timing] sample processed in 31.52s
+[timing] sample processed in 14.43s
+[step 489] loss=0.0648 rewards(c/r)=-2.83/-4.90
+[timing] sample processed in 5.19s
+[timing] sample processed in 35.98s
+[timing] sample processed in 40.29s
+[timing] sample processed in 9.24s
+[timing] sample processed in 17.49s
+[step 490] loss=0.1019 rewards(c/r)=-5.42/-5.21
+[step 490] avg_loss=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. 
+
+
+[timing] sample processed in 26.71s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/dpo_lora_epoch49_step490.pt
+==end-of-epoch 49==
+
+=== Epoch 50/50 ===
