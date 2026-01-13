@@ -1,0 +1,4982 @@
+Loaded LoRA checkpoint gemma-2-2b-checkpoints/2026_lora_epoch3_step300.pt (missing/unexpected: _IncompatibleKeys(missing_keys=['base_model.model.embed_tokens.weight', 'base_model.model.layers.0.self_attn.q_proj.base.weight', 'base_model.model.layers.0.self_attn.k_proj.base.weight', 'base_model.model.layers.0.self_attn.v_proj.base.weight', 'base_model.model.layers.0.self_attn.o_proj.base.weight', 'base_model.model.layers.0.mlp.gate_proj.base.weight', 'base_model.model.layers.0.mlp.up_proj.base.weight', 'base_model.model.layers.0.mlp.down_proj.base.weight', 'base_model.model.layers.0.input_layernorm.weight', 'base_model.model.layers.0.post_attention_layernorm.weight', 'base_model.model.layers.0.pre_feedforward_layernorm.weight', 'base_model.model.layers.0.post_feedforward_layernorm.weight', 'base_model.model.layers.1.self_attn.q_proj.base.weight', 'base_model.model.layers.1.self_attn.k_proj.base.weight', 'base_model.model.layers.1.self_attn.v_proj.base.weight', 'base_model.model.layers.1.self_attn.o_proj.base.weight', 'base_model.model.layers.1.mlp.gate_proj.base.weight', 'base_model.model.layers.1.mlp.up_proj.base.weight', 'base_model.model.layers.1.mlp.down_proj.base.weight', 'base_model.model.layers.1.input_layernorm.weight', 'base_model.model.layers.1.post_attention_layernorm.weight', 'base_model.model.layers.1.pre_feedforward_layernorm.weight', 'base_model.model.layers.1.post_feedforward_layernorm.weight', 'base_model.model.layers.2.self_attn.q_proj.base.weight', 'base_model.model.layers.2.self_attn.k_proj.base.weight', 'base_model.model.layers.2.self_attn.v_proj.base.weight', 'base_model.model.layers.2.self_attn.o_proj.base.weight', 'base_model.model.layers.2.mlp.gate_proj.base.weight', 'base_model.model.layers.2.mlp.up_proj.base.weight', 'base_model.model.layers.2.mlp.down_proj.base.weight', 'base_model.model.layers.2.input_layernorm.weight', 'base_model.model.layers.2.post_attention_layernorm.weight', 'base_model.model.layers.2.pre_feedforward_layernorm.weight', 'base_model.model.layers.2.post_feedforward_layernorm.weight', 'base_model.model.layers.3.self_attn.q_proj.base.weight', 'base_model.model.layers.3.self_attn.k_proj.base.weight', 'base_model.model.layers.3.self_attn.v_proj.base.weight', 'base_model.model.layers.3.self_attn.o_proj.base.weight', 'base_model.model.layers.3.mlp.gate_proj.base.weight', 'base_model.model.layers.3.mlp.up_proj.base.weight', 'base_model.model.layers.3.mlp.down_proj.base.weight', 'base_model.model.layers.3.input_layernorm.weight', 'base_model.model.layers.3.post_attention_layernorm.weight', 'base_model.model.layers.3.pre_feedforward_layernorm.weight', 'base_model.model.layers.3.post_feedforward_layernorm.weight', 'base_model.model.layers.4.self_attn.q_proj.base.weight', 'base_model.model.layers.4.self_attn.k_proj.base.weight', 'base_model.model.layers.4.self_attn.v_proj.base.weight', 'base_model.model.layers.4.self_attn.o_proj.base.weight', 'base_model.model.layers.4.mlp.gate_proj.base.weight', 'base_model.model.layers.4.mlp.up_proj.base.weight', 'base_model.model.layers.4.mlp.down_proj.base.weight', 'base_model.model.layers.4.input_layernorm.weight', 'base_model.model.layers.4.post_attention_layernorm.weight', 'base_model.model.layers.4.pre_feedforward_layernorm.weight', 'base_model.model.layers.4.post_feedforward_layernorm.weight', 'base_model.model.layers.5.self_attn.q_proj.base.weight', 'base_model.model.layers.5.self_attn.k_proj.base.weight', 'base_model.model.layers.5.self_attn.v_proj.base.weight', 'base_model.model.layers.5.self_attn.o_proj.base.weight', 'base_model.model.layers.5.mlp.gate_proj.base.weight', 'base_model.model.layers.5.mlp.up_proj.base.weight', 'base_model.model.layers.5.mlp.down_proj.base.weight', 'base_model.model.layers.5.input_layernorm.weight', 'base_model.model.layers.5.post_attention_layernorm.weight', 'base_model.model.layers.5.pre_feedforward_layernorm.weight', 'base_model.model.layers.5.post_feedforward_layernorm.weight', 'base_model.model.layers.6.self_attn.q_proj.base.weight', 'base_model.model.layers.6.self_attn.k_proj.base.weight', 'base_model.model.layers.6.self_attn.v_proj.base.weight', 'base_model.model.layers.6.self_attn.o_proj.base.weight', 'base_model.model.layers.6.mlp.gate_proj.base.weight', 'base_model.model.layers.6.mlp.up_proj.base.weight', 'base_model.model.layers.6.mlp.down_proj.base.weight', 'base_model.model.layers.6.input_layernorm.weight', 'base_model.model.layers.6.post_attention_layernorm.weight', 'base_model.model.layers.6.pre_feedforward_layernorm.weight', 'base_model.model.layers.6.post_feedforward_layernorm.weight', 'base_model.model.layers.7.self_attn.q_proj.base.weight', 'base_model.model.layers.7.self_attn.k_proj.base.weight', 'base_model.model.layers.7.self_attn.v_proj.base.weight', 'base_model.model.layers.7.self_attn.o_proj.base.weight', 'base_model.model.layers.7.mlp.gate_proj.base.weight', 'base_model.model.layers.7.mlp.up_proj.base.weight', 'base_model.model.layers.7.mlp.down_proj.base.weight', 'base_model.model.layers.7.input_layernorm.weight', 'base_model.model.layers.7.post_attention_layernorm.weight', 'base_model.model.layers.7.pre_feedforward_layernorm.weight', 'base_model.model.layers.7.post_feedforward_layernorm.weight', 'base_model.model.layers.8.self_attn.q_proj.base.weight', 'base_model.model.layers.8.self_attn.k_proj.base.weight', 'base_model.model.layers.8.self_attn.v_proj.base.weight', 'base_model.model.layers.8.self_attn.o_proj.base.weight', 'base_model.model.layers.8.mlp.gate_proj.base.weight', 'base_model.model.layers.8.mlp.up_proj.base.weight', 'base_model.model.layers.8.mlp.down_proj.base.weight', 'base_model.model.layers.8.input_layernorm.weight', 'base_model.model.layers.8.post_attention_layernorm.weight', 'base_model.model.layers.8.pre_feedforward_layernorm.weight', 'base_model.model.layers.8.post_feedforward_layernorm.weight', 'base_model.model.layers.9.self_attn.q_proj.base.weight', 'base_model.model.layers.9.self_attn.k_proj.base.weight', 'base_model.model.layers.9.self_attn.v_proj.base.weight', 'base_model.model.layers.9.self_attn.o_proj.base.weight', 'base_model.model.layers.9.mlp.gate_proj.base.weight', 'base_model.model.layers.9.mlp.up_proj.base.weight', 'base_model.model.layers.9.mlp.down_proj.base.weight', 'base_model.model.layers.9.input_layernorm.weight', 'base_model.model.layers.9.post_attention_layernorm.weight', 'base_model.model.layers.9.pre_feedforward_layernorm.weight', 'base_model.model.layers.9.post_feedforward_layernorm.weight', 'base_model.model.layers.10.self_attn.q_proj.base.weight', 'base_model.model.layers.10.self_attn.k_proj.base.weight', 'base_model.model.layers.10.self_attn.v_proj.base.weight', 'base_model.model.layers.10.self_attn.o_proj.base.weight', 'base_model.model.layers.10.mlp.gate_proj.base.weight', 'base_model.model.layers.10.mlp.up_proj.base.weight', 'base_model.model.layers.10.mlp.down_proj.base.weight', 'base_model.model.layers.10.input_layernorm.weight', 'base_model.model.layers.10.post_attention_layernorm.weight', 'base_model.model.layers.10.pre_feedforward_layernorm.weight', 'base_model.model.layers.10.post_feedforward_layernorm.weight', 'base_model.model.layers.11.self_attn.q_proj.base.weight', 'base_model.model.layers.11.self_attn.k_proj.base.weight', 'base_model.model.layers.11.self_attn.v_proj.base.weight', 'base_model.model.layers.11.self_attn.o_proj.base.weight', 'base_model.model.layers.11.mlp.gate_proj.base.weight', 'base_model.model.layers.11.mlp.up_proj.base.weight', 'base_model.model.layers.11.mlp.down_proj.base.weight', 'base_model.model.layers.11.input_layernorm.weight', 'base_model.model.layers.11.post_attention_layernorm.weight', 'base_model.model.layers.11.pre_feedforward_layernorm.weight', 'base_model.model.layers.11.post_feedforward_layernorm.weight', 'base_model.model.layers.12.self_attn.q_proj.base.weight', 'base_model.model.layers.12.self_attn.k_proj.base.weight', 'base_model.model.layers.12.self_attn.v_proj.base.weight', 'base_model.model.layers.12.self_attn.o_proj.base.weight', 'base_model.model.layers.12.mlp.gate_proj.base.weight', 'base_model.model.layers.12.mlp.up_proj.base.weight', 'base_model.model.layers.12.mlp.down_proj.base.weight', 'base_model.model.layers.12.input_layernorm.weight', 'base_model.model.layers.12.post_attention_layernorm.weight', 'base_model.model.layers.12.pre_feedforward_layernorm.weight', 'base_model.model.layers.12.post_feedforward_layernorm.weight', 'base_model.model.layers.13.self_attn.q_proj.base.weight', 'base_model.model.layers.13.self_attn.k_proj.base.weight', 'base_model.model.layers.13.self_attn.v_proj.base.weight', 'base_model.model.layers.13.self_attn.o_proj.base.weight', 'base_model.model.layers.13.mlp.gate_proj.base.weight', 'base_model.model.layers.13.mlp.up_proj.base.weight', 'base_model.model.layers.13.mlp.down_proj.base.weight', 'base_model.model.layers.13.input_layernorm.weight', 'base_model.model.layers.13.post_attention_layernorm.weight', 'base_model.model.layers.13.pre_feedforward_layernorm.weight', 'base_model.model.layers.13.post_feedforward_layernorm.weight', 'base_model.model.layers.14.self_attn.q_proj.base.weight', 'base_model.model.layers.14.self_attn.k_proj.base.weight', 'base_model.model.layers.14.self_attn.v_proj.base.weight', 'base_model.model.layers.14.self_attn.o_proj.base.weight', 'base_model.model.layers.14.mlp.gate_proj.base.weight', 'base_model.model.layers.14.mlp.up_proj.base.weight', 'base_model.model.layers.14.mlp.down_proj.base.weight', 'base_model.model.layers.14.input_layernorm.weight', 'base_model.model.layers.14.post_attention_layernorm.weight', 'base_model.model.layers.14.pre_feedforward_layernorm.weight', 'base_model.model.layers.14.post_feedforward_layernorm.weight', 'base_model.model.layers.15.self_attn.q_proj.base.weight', 'base_model.model.layers.15.self_attn.k_proj.base.weight', 'base_model.model.layers.15.self_attn.v_proj.base.weight', 'base_model.model.layers.15.self_attn.o_proj.base.weight', 'base_model.model.layers.15.mlp.gate_proj.base.weight', 'base_model.model.layers.15.mlp.up_proj.base.weight', 'base_model.model.layers.15.mlp.down_proj.base.weight', 'base_model.model.layers.15.input_layernorm.weight', 'base_model.model.layers.15.post_attention_layernorm.weight', 'base_model.model.layers.15.pre_feedforward_layernorm.weight', 'base_model.model.layers.15.post_feedforward_layernorm.weight', 'base_model.model.layers.16.self_attn.q_proj.base.weight', 'base_model.model.layers.16.self_attn.k_proj.base.weight', 'base_model.model.layers.16.self_attn.v_proj.base.weight', 'base_model.model.layers.16.self_attn.o_proj.base.weight', 'base_model.model.layers.16.mlp.gate_proj.base.weight', 'base_model.model.layers.16.mlp.up_proj.base.weight', 'base_model.model.layers.16.mlp.down_proj.base.weight', 'base_model.model.layers.16.input_layernorm.weight', 'base_model.model.layers.16.post_attention_layernorm.weight', 'base_model.model.layers.16.pre_feedforward_layernorm.weight', 'base_model.model.layers.16.post_feedforward_layernorm.weight', 'base_model.model.layers.17.self_attn.q_proj.base.weight', 'base_model.model.layers.17.self_attn.k_proj.base.weight', 'base_model.model.layers.17.self_attn.v_proj.base.weight', 'base_model.model.layers.17.self_attn.o_proj.base.weight', 'base_model.model.layers.17.mlp.gate_proj.base.weight', 'base_model.model.layers.17.mlp.up_proj.base.weight', 'base_model.model.layers.17.mlp.down_proj.base.weight', 'base_model.model.layers.17.input_layernorm.weight', 'base_model.model.layers.17.post_attention_layernorm.weight', 'base_model.model.layers.17.pre_feedforward_layernorm.weight', 'base_model.model.layers.17.post_feedforward_layernorm.weight', 'base_model.model.layers.18.self_attn.q_proj.base.weight', 'base_model.model.layers.18.self_attn.k_proj.base.weight', 'base_model.model.layers.18.self_attn.v_proj.base.weight', 'base_model.model.layers.18.self_attn.o_proj.base.weight', 'base_model.model.layers.18.mlp.gate_proj.base.weight', 'base_model.model.layers.18.mlp.up_proj.base.weight', 'base_model.model.layers.18.mlp.down_proj.base.weight', 'base_model.model.layers.18.input_layernorm.weight', 'base_model.model.layers.18.post_attention_layernorm.weight', 'base_model.model.layers.18.pre_feedforward_layernorm.weight', 'base_model.model.layers.18.post_feedforward_layernorm.weight', 'base_model.model.layers.19.self_attn.q_proj.base.weight', 'base_model.model.layers.19.self_attn.k_proj.base.weight', 'base_model.model.layers.19.self_attn.v_proj.base.weight', 'base_model.model.layers.19.self_attn.o_proj.base.weight', 'base_model.model.layers.19.mlp.gate_proj.base.weight', 'base_model.model.layers.19.mlp.up_proj.base.weight', 'base_model.model.layers.19.mlp.down_proj.base.weight', 'base_model.model.layers.19.input_layernorm.weight', 'base_model.model.layers.19.post_attention_layernorm.weight', 'base_model.model.layers.19.pre_feedforward_layernorm.weight', 'base_model.model.layers.19.post_feedforward_layernorm.weight', 'base_model.model.layers.20.self_attn.q_proj.base.weight', 'base_model.model.layers.20.self_attn.k_proj.base.weight', 'base_model.model.layers.20.self_attn.v_proj.base.weight', 'base_model.model.layers.20.self_attn.o_proj.base.weight', 'base_model.model.layers.20.mlp.gate_proj.base.weight', 'base_model.model.layers.20.mlp.up_proj.base.weight', 'base_model.model.layers.20.mlp.down_proj.base.weight', 'base_model.model.layers.20.input_layernorm.weight', 'base_model.model.layers.20.post_attention_layernorm.weight', 'base_model.model.layers.20.pre_feedforward_layernorm.weight', 'base_model.model.layers.20.post_feedforward_layernorm.weight', 'base_model.model.layers.21.self_attn.q_proj.base.weight', 'base_model.model.layers.21.self_attn.k_proj.base.weight', 'base_model.model.layers.21.self_attn.v_proj.base.weight', 'base_model.model.layers.21.self_attn.o_proj.base.weight', 'base_model.model.layers.21.mlp.gate_proj.base.weight', 'base_model.model.layers.21.mlp.up_proj.base.weight', 'base_model.model.layers.21.mlp.down_proj.base.weight', 'base_model.model.layers.21.input_layernorm.weight', 'base_model.model.layers.21.post_attention_layernorm.weight', 'base_model.model.layers.21.pre_feedforward_layernorm.weight', 'base_model.model.layers.21.post_feedforward_layernorm.weight', 'base_model.model.layers.22.self_attn.q_proj.base.weight', 'base_model.model.layers.22.self_attn.k_proj.base.weight', 'base_model.model.layers.22.self_attn.v_proj.base.weight', 'base_model.model.layers.22.self_attn.o_proj.base.weight', 'base_model.model.layers.22.mlp.gate_proj.base.weight', 'base_model.model.layers.22.mlp.up_proj.base.weight', 'base_model.model.layers.22.mlp.down_proj.base.weight', 'base_model.model.layers.22.input_layernorm.weight', 'base_model.model.layers.22.post_attention_layernorm.weight', 'base_model.model.layers.22.pre_feedforward_layernorm.weight', 'base_model.model.layers.22.post_feedforward_layernorm.weight', 'base_model.model.layers.23.self_attn.q_proj.base.weight', 'base_model.model.layers.23.self_attn.k_proj.base.weight', 'base_model.model.layers.23.self_attn.v_proj.base.weight', 'base_model.model.layers.23.self_attn.o_proj.base.weight', 'base_model.model.layers.23.mlp.gate_proj.base.weight', 'base_model.model.layers.23.mlp.up_proj.base.weight', 'base_model.model.layers.23.mlp.down_proj.base.weight', 'base_model.model.layers.23.input_layernorm.weight', 'base_model.model.layers.23.post_attention_layernorm.weight', 'base_model.model.layers.23.pre_feedforward_layernorm.weight', 'base_model.model.layers.23.post_feedforward_layernorm.weight', 'base_model.model.layers.24.self_attn.q_proj.base.weight', 'base_model.model.layers.24.self_attn.k_proj.base.weight', 'base_model.model.layers.24.self_attn.v_proj.base.weight', 'base_model.model.layers.24.self_attn.o_proj.base.weight', 'base_model.model.layers.24.mlp.gate_proj.base.weight', 'base_model.model.layers.24.mlp.up_proj.base.weight', 'base_model.model.layers.24.mlp.down_proj.base.weight', 'base_model.model.layers.24.input_layernorm.weight', 'base_model.model.layers.24.post_attention_layernorm.weight', 'base_model.model.layers.24.pre_feedforward_layernorm.weight', 'base_model.model.layers.24.post_feedforward_layernorm.weight', 'base_model.model.layers.25.self_attn.q_proj.base.weight', 'base_model.model.layers.25.self_attn.k_proj.base.weight', 'base_model.model.layers.25.self_attn.v_proj.base.weight', 'base_model.model.layers.25.self_attn.o_proj.base.weight', 'base_model.model.layers.25.mlp.gate_proj.base.weight', 'base_model.model.layers.25.mlp.up_proj.base.weight', 'base_model.model.layers.25.mlp.down_proj.base.weight', 'base_model.model.layers.25.input_layernorm.weight', 'base_model.model.layers.25.post_attention_layernorm.weight', 'base_model.model.layers.25.pre_feedforward_layernorm.weight', 'base_model.model.layers.25.post_feedforward_layernorm.weight', 'base_model.model.norm.weight', 'base_model.lm_head.weight'], unexpected_keys=[]))
+Print found 203 lines of training data
+
+=== Epoch 1/4 ===
+[92m📊 [System Health] RAM: 64.5% | Swap Used: 1.69 GB[0m
+A student scores 82, 91, 76 on three tests. What must he score on the fourth test to average 85?
+answer is 91
+⚠️ Sampling slow: 44.8s, steps=155
+
+
+**Step 1:  Calculate the sum of scores needed.**
+
+To have an average of 85 on four tests, the sum of all the scores must be 85 * 4 = 340 
+
+**Step 2: Calculate the total score of his three tests.**
+
+82 + 91 + 76 = 249
+
+**Step 3: Determine the score needed on the fourth test.**
+
+To get 340, we must add the score of the four tests. 340 - 249 = 91
+
+**Final answer:** The student must score 91 on the fourth test. 
+
+reward is 0.92
+is result truncated? False
+
+
+**Step 1: Calculate the desired total score.**
+   85 * 4 tests = 340
+
+**Step 2: Calculate the sum of the first three scores.**
+   82 + 91 + 76 = 249
+
+**Step 3: Calculate the needed score on the fourth test.**
+   340 - 249 = 91
+
+**Final Answer:** He must score 91 on the fourth test. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1:** Determine the total score needed for an average of 85.
+   
+   85 * 4 = 340
+
+**Step 2:** Determine the sum of scores from the first three tests. 
+
+   82 + 91 + 76 = 249
+
+**Step 3:** Determine the score needed on the fourth test.
+
+   340 - 249 = 91
+
+**Final Answer:** The student must score 91 on the fourth test. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Find the desired sum of the scores.**
+
+   Since the student wants an average of 85, he needs a total of 85 points across the four tests.
+
+**Step 2: Sum the scores of the first three tests.**
+
+   82 + 91 + 76 = 249 points
+
+**Step 3: Find the score needed on the fourth test.**
+
+   To get an average of 85 across four tests, the student needs a total of 249 points + 85 points. 
+
+**Answer:**  You need to score 334 points in total. 
+
+Let me know if you need assistance with any further calculations! 
+reward is -1.08
+is result truncated? False
+
+
+**Step 1: Find the desired total score for the four tests.**
+
+85 * 4 = 340 points
+
+**Step 2: Find the sum of the scores from the first three tests.**
+
+82 + 91 + 76 = 249 points
+
+**Step 3: Calculate the score needed on the fourth test.**
+
+340 - 249 = 91 points 
+
+**Final answer:** The student must score 91 on the fourth test. 
+
+reward is 0.9600000000000001
+is result truncated? False
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.045572005212306976 and kl is 0.09746208041906357
+[timing] sample processed in 86.47s
+
+=== PROFILER ===
+Sampling:          44.77s
+Logprob forward:   5.92s
+Reward + Adv:      3.44s
+Backward:          31.83s
+A bag contains red, blue, and green marbles in ratio 4:5:6. If there are 75 marbles in total, how many are blue?
+answer is 25
+⚠️ Sampling slow: 93.1s, steps=298
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.4129166007041931 and kl is 0.06598305702209473
+[timing] sample processed in 185.46s
+
+=== PROFILER ===
+Sampling:          93.07s
+Logprob forward:   19.70s
+Reward + Adv:      29.04s
+Backward:          43.08s
+A painter uses 2/5 of a bucket of paint and then 1/2 of what remains. If 18 liters are left, how many liters were originally in the bucket?
+answer is 60
+⚠️ Sampling slow: 118.7s, steps=378
+advantages is tensor([ 0.6325, -0.6325, -1.2649,  1.2649,  0.0000], device='mps:0')
+grpo_loss is -0.09240500628948212 and kl is 0.1018727570772171
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 182.95s
+
+=== PROFILER ===
+Sampling:          118.74s
+Logprob forward:   37.72s
+Reward + Adv:      24.06s
+Backward:          0.00s
+A store sells apples at $3/lb and bananas at $2/lb. If Maya buys 6 pounds of apples and some bananas for $30 total, how many pounds of bananas did she buy?
+answer is 6
+⚠️ Sampling slow: 75.0s, steps=125
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.164353147149086
+[timing] sample processed in 159.33s
+
+=== PROFILER ===
+Sampling:          74.97s
+Logprob forward:   7.37s
+Reward + Adv:      3.94s
+Backward:          72.29s
+A library has 540 books. 3/10 are fiction, and 1/6 of the fiction books are mysteries. How many mystery books are there?
+answer is 27
+⚠️ Sampling slow: 31.3s, steps=85
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.07816232740879059
+[timing] sample processed in 43.27s
+
+=== PROFILER ===
+Sampling:          31.27s
+Logprob forward:   3.47s
+Reward + Adv:      1.12s
+Backward:          6.75s
+A pool fills at 12 liters per minute for 10 minutes, then at 15 liters per minute for 8 minutes. How much water was added?
+answer is 240
+⚠️ Sampling slow: 38.0s, steps=124
+advantages is tensor([-1.2649,  0.0000, -0.6325,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.06231652572751045 and kl is 0.09878935664892197
+[timing] sample processed in 62.21s
+
+=== PROFILER ===
+Sampling:          38.02s
+Logprob forward:   4.76s
+Reward + Adv:      2.46s
+Backward:          16.18s
+A school has 400 students. 30% join art club, and 25% of those also join music club. How many students join both?
+answer is 30
+⚠️ Sampling slow: 30.1s, steps=96
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.05108799412846565 and kl is 0.0212864987552166
+[timing] sample processed in 46.42s
+
+=== PROFILER ===
+Sampling:          30.13s
+Logprob forward:   3.75s
+Reward + Adv:      0.91s
+Backward:          11.00s
+A bookstore sells notebooks at $4 each or 3 for $10. If a teacher buys 21 notebooks, what is the minimum cost?
+answer is 70
+⚠️ Sampling slow: 65.8s, steps=222
+advantages is tensor([ 0.6325, -1.2649,  1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.13536067306995392 and kl is 0.10692189633846283
+[timing] sample processed in 112.62s
+
+=== PROFILER ===
+Sampling:          65.81s
+Logprob forward:   9.86s
+Reward + Adv:      5.47s
+Backward:          30.56s
+A tank holds 840 liters when full. It is currently 3/7 full. How many liters must be added to fill it?
+answer is 480
+⚠️ Sampling slow: 44.5s, steps=131
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is 0.02063574828207493 and kl is 0.08177047967910767
+[timing] sample processed in 71.10s
+
+=== PROFILER ===
+Sampling:          44.53s
+Logprob forward:   4.57s
+Reward + Adv:      2.27s
+Backward:          19.30s
+A gardener plants flowers in ratio 5:3:2. If 500 flowers are planted, how many are in the smallest group?
+answer is 100
+⚠️ Sampling slow: 50.0s, steps=160
+advantages is tensor([-1.2649,  0.6325,  1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is 0.029629766941070557 and kl is 0.09562581777572632
+[timing] sample processed in 97.89s
+
+=== PROFILER ===
+Sampling:          50.01s
+Logprob forward:   5.27s
+Reward + Adv:      4.80s
+Backward:          37.37s
+[92m📊 [System Health] RAM: 37.3% | Swap Used: 6.52 GB[0m
+A bike trip is 48 miles long. A cyclist travels 12 miles at 12 mph and the rest at 9 mph. How long does the trip take?
+answer is 5
+⚠️ Sampling slow: 66.7s, steps=209
+
+
+**Step 1: Calculate time for the first segment of the trip.**
+
+  * Time = Distance / Speed
+  * Time = 12 miles / 12 mph
+  * Time = 1 hour
+
+**Step 2: Calculate the distance remaining in the trip.**
+
+  * Distance remaining = Total distance - Segment distance
+  * Distance remaining = 48 miles - 12 miles
+  * Distance remaining = 36 miles
+
+**Step 3: Calculate the time for the second segment of the trip.**
+
+  * Time = Distance / Speed
+  * Time = 36 miles / 9 mph
+  * Time = 4 hours
+
+**Step 4: Calculate the total time for the trip.**
+
+  * Total Time = Time for first segment + Time for second segment
+  * Total Time = 1 hour + 4 hours
+  * Total Time = 5 hours
+
+**Final Answer:** The trip takes 5 hours. 
+
+reward is -0.1
+is result truncated? False
+
+
+**Step 1: Calculate the time for the first leg of the trip.**
+   * Time = Distance / Speed
+   * Time = 12 miles / 12 mph
+   * Time = 1 hour
+
+**Step 2: Calculate the remaining distance.**
+   * Distance remaining = Total Distance - Distance traveled
+   * Distance remaining = 48 miles - 12 miles
+   * Distance remaining = 36 miles
+
+**Step 3: Calculate the time for the remaining leg of the trip.**
+   * Time = Distance / Speed
+   * Time = 36 miles / 9 mph
+   * Time = 4 hours
+
+**Step 4: Calculate the total trip time.**
+   * Total time = Time spent on the first leg + Time spent on the second leg
+   * Total time = 1 hour + 4 hours
+   * Total time = 5 hours
+
+
+**Final answer:** The trip takes 5 hours. 
+
+reward is -0.1
+is result truncated? False
+
+
+**Step 1:** Calculate the time spent on the first portion of the trip.
+
+   * Time = Distance / Speed
+   * Time = 12 miles / 12 mph = 1 hour
+
+**Step 2:** Calculate the distance remaining on the trip.
+
+   * Distance remaining = Total distance - Distance already traveled
+   * Distance remaining = 48 miles - 12 miles = 36 miles
+
+**Step 3:** Calculate the time spent on the second portion of the trip.**
+
+   * Time = Distance / Speed
+   * Time = 36 miles / 9 mph = 4 hours
+
+**Step 4:** Calculate the total time taken.**
+
+   * Total time = Time spent on first portion + Time spent on second portion
+   * Total time = 1 hour + 4 hours = 5 hours
+
+
+**Final answer:** The trip takes 5 hours.
+reward is -0.1
+is result truncated? False
+
+
+**Step 1: Calculate the time for the first part of the trip.**
+
+   Time = Distance / Speed 
+   Time = 12 miles / 12 mph
+   Time = 1 hour
+
+**Step 2: Calculate the distance remaining.**
+
+   Distance Remaining = Total Distance - Distance Traveled
+   Distance Remaining = 48 miles - 12 miles
+   Distance Remaining = 36 miles
+
+**Step 3: Calculate the time taken for the second part of the trip.**
+
+   Time = Distance / Speed
+   Time = 36 miles / 9 mph
+   Time = 4 hours
+
+**Step 4: Calculate the total trip time.**
+
+   Total Trip Time = Time for first part + Time for second part
+   Total Trip Time = 1 hour + 4 hours
+   Total Trip Time = 5 hours
+
+
+
+**Final answer:** The trip takes 5 hours. 
+
+reward is -0.1
+is result truncated? False
+
+
+**Step 1: Calculate the time spent traveling the first 12 miles.**
+
+* Time = Distance / Speed
+* Time = 12 miles / 12 mph 
+* Time = 1 hour
+
+**Step 2: Calculate the remaining distance.**
+
+* Distance remaining = Total Distance - Distance traveled
+* Distance remaining = 48 miles - 12 miles
+* Distance remaining = 36 miles
+
+**Step 3: Calculate the time spent traveling the remaining distance.**
+
+* Time = Distance / Speed
+* Time = 36 miles / 9 mph
+* Time = 4 hours
+
+**Step 4: Calculate the total trip time.**
+
+* Total time = Time spent on the first leg + Time spent on the remaining leg
+* Total time = 1 hour + 4 hours
+* Total time = 5 hours
+
+**Final answer:** The trip takes 5 hours. 
+
+reward is -0.1
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.037465907633304596
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 80.80s
+
+=== PROFILER ===
+Sampling:          66.70s
+Logprob forward:   8.59s
+Reward + Adv:      4.93s
+Backward:          0.00s
+A factory produces 240 parts/hour for 5 hours and then 300 parts/hour for 3 hours. How many parts are produced?
+answer is 2100
+⚠️ Sampling slow: 42.2s, steps=128
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0995132178068161
+[timing] sample processed in 136.09s
+
+=== PROFILER ===
+Sampling:          42.19s
+Logprob forward:   7.13s
+Reward + Adv:      6.12s
+Backward:          78.29s
+A student solves 180 math problems, which is 60% of all assigned. How many were assigned?
+answer is 300
+⚠️ Sampling slow: 74.1s, steps=233
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.2403714656829834 and kl is 0.08233129978179932
+[timing] sample processed in 138.73s
+
+=== PROFILER ===
+Sampling:          74.09s
+Logprob forward:   8.34s
+Reward + Adv:      3.31s
+Backward:          52.03s
+A school band has 80 members. 3/8 play woodwinds, and 1/3 of woodwinds play flute. How many flute players?
+answer is 10
+⚠️ Sampling slow: 33.0s, steps=85
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09961971640586853
+[timing] sample processed in 45.17s
+
+=== PROFILER ===
+Sampling:          33.01s
+Logprob forward:   3.58s
+Reward + Adv:      0.83s
+Backward:          7.09s
+A truck travels 120 miles at 40 mph and 180 miles at 60 mph. What is the total travel time?
+answer is 6
+⚠️ Sampling slow: 51.1s, steps=169
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.031187891960144043 and kl is 0.025647670030593872
+[timing] sample processed in 78.49s
+
+=== PROFILER ===
+Sampling:          51.08s
+Logprob forward:   9.28s
+Reward + Adv:      4.48s
+Backward:          13.19s
+A $200 coat is discounted 20%, then an additional 15%. What is the final price?
+answer is 136
+⚠️ Sampling slow: 58.4s, steps=161
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.06854928284883499
+[timing] sample processed in 96.63s
+
+=== PROFILER ===
+Sampling:          58.39s
+Logprob forward:   8.90s
+Reward + Adv:      2.63s
+Backward:          26.26s
+A library buys 360 books: 1/3 are fiction, 1/4 of fiction are mysteries. How many mysteries?
+answer is 30
+⚠️ Sampling slow: 41.6s, steps=92
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09620044380426407
+[timing] sample processed in 56.25s
+
+=== PROFILER ===
+Sampling:          41.60s
+Logprob forward:   6.31s
+Reward + Adv:      1.26s
+Backward:          6.87s
+A chef mixes nuts costing $6/lb and $12/lb to produce 40 lbs costing $9/lb. How many lbs of $12 nuts are used?
+answer is 20
+⚠️ Sampling slow: 154.6s, steps=400
+advantages is tensor([ 0.0000,  0.6325, -1.2649,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.22702395915985107 and kl is 0.05916494131088257
+[timing] sample processed in 302.78s
+
+=== PROFILER ===
+Sampling:          154.57s
+Logprob forward:   39.22s
+Reward + Adv:      20.27s
+Backward:          87.78s
+A car uses 8 gallons to travel 224 miles. How many gallons are needed for 336 miles?
+answer is 12
+⚠️ Sampling slow: 68.3s, steps=151
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.07649059593677521 and kl is 0.0797828659415245
+[timing] sample processed in 104.63s
+
+=== PROFILER ===
+Sampling:          68.28s
+Logprob forward:   9.55s
+Reward + Adv:      3.51s
+Backward:          22.72s
+A jogger runs 8 miles at 8 mph and 5 miles at 5 mph. What is average speed?
+answer is 6.5
+⚠️ Sampling slow: 89.2s, steps=197
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.033050037920475006 and kl is 0.022403445094823837
+[timing] sample processed in 133.59s
+
+=== PROFILER ===
+Sampling:          89.19s
+Logprob forward:   13.05s
+Reward + Adv:      6.84s
+Backward:          23.89s
+[92m📊 [System Health] RAM: 63.8% | Swap Used: 6.22 GB[0m
+A shop sells pens 5 for $4.00. How much for 30 pens?
+answer is 24
+⚠️ Sampling slow: 46.2s, steps=95
+
+
+**Step 1:** Figure out the cost of one pen.
+
+$4.00 / 5 pens = $0.80 per pen
+
+
+**Step 2:** Calculate the total cost for 30 pens.**
+
+$0.80 per pen * 30 pens = $24.00 
+
+**Final answer:** It would cost $24.00 for 30 pens. 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the cost of one pen.**
+
+  $4.00 ÷ 5 pens = $0.80 per pen
+
+**Step 2: Calculate the cost of 30 pens.**
+
+  $0.80 per pen × 30 pens = $24.00
+
+**Final Answer:** 24.00 
+
+reward is 0.9
+is result truncated? False
+
+
+
+**Step 1: Calculate the cost per pen.**
+
+ $4.00 / 5 pens = $0.80 per pen
+
+**Step 2: Calculate the cost of 30 pens.**
+
+ $0.80 per pen * 30 pens = $24.00 
+
+
+**Final Answer:** 
+$24.00 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the cost per pen.**
+
+$$4.00/5 pens = $0.80 per pen $$
+
+**Step 2: Calculate the cost for 30 pens.**
+
+$$30 pens * $0.80 per pen = $24.00$$ 
+
+**Final answer:** $24.00
+
+The cost for 30 pens is $24.00
+reward is 0.9400000000000001
+is result truncated? False
+ 
+
+**Step 1: Calculate the cost per pen.** 
+
+$4.00 / 5 pens = $0.80 per pen
+
+
+**Step 2: Calculate the cost of 30 pens.**
+
+$0.80 per pen * 30 pens = $24.00
+
+
+**Final answer: $24.00** 
+
+reward is 0.9400000000000001
+is result truncated? False
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.01773243024945259 and kl is 0.09474411606788635
+[timing] sample processed in 63.69s
+
+=== PROFILER ===
+Sampling:          46.16s
+Logprob forward:   6.96s
+Reward + Adv:      1.48s
+Backward:          8.90s
+A class of 40 students has 1/4 boys. Half the boys play soccer. How many play soccer?
+answer is 5
+⚠️ Sampling slow: 31.9s, steps=70
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.10993440449237823
+[timing] sample processed in 44.19s
+
+=== PROFILER ===
+Sampling:          31.94s
+Logprob forward:   5.97s
+Reward + Adv:      1.12s
+Backward:          4.78s
+A machine makes 500 items/day. Production increases 30% for 10 days. How many items total in those 10 days?
+answer is 6500
+⚠️ Sampling slow: 52.8s, steps=123
+advantages is tensor([ 0.6325,  1.2649, -1.2649,  0.0000, -0.6325], device='mps:0')
+grpo_loss is 0.028641652315855026 and kl is 0.07889479398727417
+[timing] sample processed in 86.06s
+
+=== PROFILER ===
+Sampling:          52.78s
+Logprob forward:   8.82s
+Reward + Adv:      3.02s
+Backward:          20.74s
+A farm has 450 animals. 30% are cows, 20% pigs, and the rest chickens. How many chickens?
+answer is 225
+⚠️ Sampling slow: 70.1s, steps=146
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.07326887547969818
+[timing] sample processed in 105.00s
+
+=== PROFILER ===
+Sampling:          70.15s
+Logprob forward:   10.00s
+Reward + Adv:      3.17s
+Backward:          21.27s
+A painter uses 3/8 of 64 liters of paint, then another 1/4 of what's left. How much remains?
+answer is 30
+⚠️ Sampling slow: 66.5s, steps=138
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.06763280183076859
+[step 25] avg_loss=0.0069 acc=0.6880
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate distance for the first part of the journey.**
+
+   Distance = Speed * Time
+   Distance = 62 km/h * 2 h
+   Distance = 124 km
+
+**Step 2: Calculate distance for the second part of the journey.**
+
+   Distance = Speed * Time
+   Distance = 62 km/h * 2 * 3 h
+   Distance = 372 km
+
+**Step 3: Calculate total distance.**
+
+   Total Distance = Distance 1 + Distance 2
+   Total Distance = 124 km + 372 km
+   Total Distance = 596 km
+
+**Final Answer:** 596 km 
+
+[timing] sample processed in 139.77s
+
+=== PROFILER ===
+Sampling:          66.48s
+Logprob forward:   9.68s
+Reward + Adv:      3.29s
+Backward:          25.54s
+A family spends 40% of income on rent ($1200). What is the total income?
+answer is 3000
+⚠️ Sampling slow: 95.9s, steps=207
+advantages is tensor([ 0.6325,  1.2649, -0.6325,  0.0000, -1.2649], device='mps:0')
+grpo_loss is -0.039681147783994675 and kl is 0.1277490109205246
+[timing] sample processed in 151.20s
+
+=== PROFILER ===
+Sampling:          95.87s
+Logprob forward:   14.25s
+Reward + Adv:      9.21s
+Backward:          31.43s
+A bicycle originally $180 is discounted 30%, then 10% off the discounted price. Final price?
+answer is 113.4
+⚠️ Sampling slow: 196.2s, steps=389
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.05673568323254585 and kl is 0.07801666855812073
+[timing] sample processed in 332.95s
+
+=== PROFILER ===
+Sampling:          196.24s
+Logprob forward:   44.08s
+Reward + Adv:      20.89s
+Backward:          70.74s
+A recipe uses sugar and flour in ratio 2:7. If 56 cups of flour are used, how much sugar?
+answer is 16
+⚠️ Sampling slow: 146.0s, steps=244
+advantages is tensor([ 0.6325, -0.6325,  1.2649,  0.0000, -1.2649], device='mps:0')
+grpo_loss is 0.05156915262341499 and kl is 0.13489758968353271
+[timing] sample processed in 243.35s
+
+=== PROFILER ===
+Sampling:          146.05s
+Logprob forward:   27.94s
+Reward + Adv:      9.36s
+Backward:          59.20s
+A truck holds 18 boxes per row. If 720 boxes must be loaded, how many rows?
+answer is 40
+⚠️ Sampling slow: 132.3s, steps=191
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.06116373464465141 and kl is 0.14205098152160645
+[timing] sample processed in 185.64s
+
+=== PROFILER ===
+Sampling:          132.32s
+Logprob forward:   19.39s
+Reward + Adv:      9.36s
+Backward:          24.05s
+A train travels 210 miles at 70 mph and 70 miles at 35 mph. Average speed?
+answer is 56
+⚠️ Sampling slow: 151.6s, steps=228
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.017071139067411423 and kl is 0.06788602471351624
+[timing] sample processed in 218.39s
+
+=== PROFILER ===
+Sampling:          151.59s
+Logprob forward:   23.34s
+Reward + Adv:      10.32s
+Backward:          32.58s
+[92m📊 [System Health] RAM: 61.4% | Swap Used: 8.67 GB[0m
+A school has 400 students. 80 join robotics, 45% of them are girls. How many girls in robotics?
+answer is 36
+
+🚨 SAMPLING WARNING
+  Time: 226.68s (too slow)
+  Steps taken: 353
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A school has 400 students. 80 join robotics, 45% of them are girls. How many girls in robotics? Reason step-by-step,  th...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+
+
+**Step 1: Calculate the number of girls in robotics**
+   80 * 0.45 = 36 girls
+
+**Final answer:** 36 girls
+
+Let me know if you need more step-by-step problems or if there are any other questions!
+reward is 0.92
+is result truncated? False
+
+
+Here's how to solve it step-by-step:
+
+**Step 1: Calculate the number of girls joining robotics**
+
+   80 * 45/100 = 36 girls
+
+**Final Answer:**  36 girls are in robotics. 
+
+reward is 0.92
+is result truncated? False
+
+
+**Step 1: Calculate the number of girls in robotics.**
+
+   80 * 45 / 100  = 36 girls
+
+**Final answer:** There are **36** girls in robotics. 
+
+reward is 0.92
+is result truncated? False
+
+
+**Step 1: Calculate the number of girls in robotics.**
+
+* Multiply the number of girls in robotics by the fraction of girls.
+   
+
+**Step 2: Final Answer**
+
+```
+Step 1:
+Girls in robotics = 80 * (45 / 100) 
+Step 2:  
+Girls in robotics = (80 * 45) / 100 
+``` 
+*Calculate*
+
+```
+Girls in robotics = 36 girls 
+```
+
+
+
+*Note: This is not the correct solution.* 
+
+**The correct solution is:**
+
+```
+Step 1:
+Girls in robotics = 80 * (45 / 100) = 36 girls
+```
+
+
+
+**Final answer:** 36 girls in robotics
+
+
+
+
+**Problem correction:**
+ 
+ No student numbers should be given at 8:30. For time management this should be an hour 
+
+ **Explanation:**
+ 
+ Here's the logic:
+ 
+ 1.  **Determine girls in robotics**:  80 students join robotics. 45% of them are girls: (80* 45) / 100 = 36 girls
+ 
+ * **Total Girls in Robotics**: 36 
+ 
+ ```
+Step 1:
+Girls in robotics = 80 * (45 / 100) 
+Step 2:  
+Girls in robotics = (80 * 45) / 100 
+```
+
+
+
+Let me know if you have another problem you'd like to work on!
+
+reward is -1.5
+is result truncated? False
+
+
+**Step 1: Calculate the number of girls joining robotics** 
+80 * 45/100 = 36 girls
+
+**Final Answer:** 36 girls in robotics 
+
+reward is 0.92
+is result truncated? False
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is 0.016663003712892532 and kl is 0.19399333000183105
+[timing] sample processed in 358.48s
+
+=== PROFILER ===
+Sampling:          226.68s
+Logprob forward:   43.12s
+Reward + Adv:      15.01s
+Backward:          73.13s
+A pool fills at 40 L/min for 20 minutes and 25 L/min for 30 minutes. Total liters added?
+answer is 1550
+
+🚨 SAMPLING WARNING
+  Time: 249.79s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, False, True, False, False]
+  Prompt: A pool fills at 40 L/min for 20 minutes and 25 L/min for 30 minutes. Total liters added? Reason step-by-step,  then give...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.09060609340667725 and kl is 0.06344255805015564
+[timing] sample processed in 408.05s
+
+=== PROFILER ===
+Sampling:          249.79s
+Logprob forward:   57.95s
+Reward + Adv:      22.14s
+Backward:          77.16s
+A café sold 2/5 of its 900 pastries, then half of the remainder. How many pastries remain?
+answer is 270
+⚠️ Sampling slow: 98.2s, steps=144
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.06521668285131454
+[timing] sample processed in 147.69s
+
+=== PROFILER ===
+Sampling:          98.19s
+Logprob forward:   14.37s
+Reward + Adv:      4.64s
+Backward:          30.04s
+A clothing shop marks up shirts from $25 to $40. What percent increase is this?
+answer is 60
+⚠️ Sampling slow: 191.5s, steps=290
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.24350884556770325 and kl is 0.05419959872961044
+[timing] sample processed in 308.30s
+
+=== PROFILER ===
+Sampling:          191.51s
+Logprob forward:   37.16s
+Reward + Adv:      14.15s
+Backward:          65.02s
+A student reads 18 pages/day for 10 days, then 25/day for 6 days. Pages read total?
+answer is 330
+⚠️ Sampling slow: 96.2s, steps=141
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.06908829510211945
+[timing] sample processed in 138.90s
+
+=== PROFILER ===
+Sampling:          96.16s
+Logprob forward:   14.09s
+Reward + Adv:      4.84s
+Backward:          23.28s
+A car depreciates 15% one year and 10% the next. If it is worth $18,360 now, original price?
+answer is 24000
+
+🚨 SAMPLING WARNING
+  Time: 238.65s (too slow)
+  Steps taken: 363
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A car depreciates 15% one year and 10% the next. If it is worth $18,360 now, original price? Reason step-by-step,  then ...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.14977693557739258 and kl is 0.09481627494096756
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 305.06s
+
+=== PROFILER ===
+Sampling:          238.65s
+Logprob forward:   46.12s
+Reward + Adv:      18.12s
+Backward:          0.00s
+A travel package costs $1200 but includes a 25% discount followed by 8% tax. What is the final price?
+answer is 972
+⚠️ Sampling slow: 184.8s, steps=281
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.5250399708747864 and kl is 0.09753549844026566
+[timing] sample processed in 353.28s
+
+=== PROFILER ===
+Sampling:          184.81s
+Logprob forward:   38.60s
+Reward + Adv:      20.20s
+Backward:          108.91s
+A gym has 600 members. 40% attend morning workouts and 30% of them take yoga. How many take yoga?
+answer is 72
+⚠️ Sampling slow: 71.5s, steps=98
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0853884369134903
+[timing] sample processed in 102.92s
+
+=== PROFILER ===
+Sampling:          71.47s
+Logprob forward:   10.46s
+Reward + Adv:      3.99s
+Backward:          16.21s
+A runner completes a marathon in two segments: 14 miles at 7 mph and 10 miles at 5 mph. Total time?
+answer is 4
+⚠️ Sampling slow: 90.5s, steps=139
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -0.6325, -1.2649], device='mps:0')
+grpo_loss is -0.10438711941242218 and kl is 0.10074760764837265
+[timing] sample processed in 134.97s
+
+=== PROFILER ===
+Sampling:          90.50s
+Logprob forward:   14.11s
+Reward + Adv:      4.66s
+Backward:          25.36s
+A grocer buys apples at $0.60 each and sells at $1.00. If he sells 900 apples, profit?
+answer is 360
+⚠️ Sampling slow: 85.3s, steps=130
+advantages is tensor([-1.2649,  0.0000,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.02680940553545952 and kl is 0.1216001883149147
+[timing] sample processed in 123.73s
+
+=== PROFILER ===
+Sampling:          85.33s
+Logprob forward:   13.34s
+Reward + Adv:      4.20s
+Backward:          20.14s
+[92m📊 [System Health] RAM: 62.5% | Swap Used: 6.29 GB[0m
+A school orders 960 books in ratio 5:3:4 for subjects A,B,C. How many for subject C?
+answer is 320
+⚠️ Sampling slow: 194.9s, steps=307
+
+
+**Step 1: Calculate the total ratio parts**
+
+   5 + 3 + 4 = 12 parts
+
+**Step 2: Determine the fraction of the books allocated for subject C**
+
+   4 parts / 12 parts = 1/3 of the books
+
+**Final answer:** 320 books
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the greatest common factor (GCD) of 5, 3, and 4.**
+
+* 5 x 3 = 15, and 4 x 3 = 12 
+* GCD = 3 *15
+* GCD = 3 *3*5
+
+*  GCD is 15.
+
+**Step 2: Find the proportion for subject C.**
+
+* Since 15 is the GCD, we assume proportions will be adjusted in the ratio
+
+   ***Sample Calculation:** 
+       -  
+    
+   * **Multiple calculations of a same amount:**
+
+
+* As of now, this is only a way to avoid making sure the proportion of subject C is accurate for the complex calculation it implies. 
+
+   
+
+
+
+     
+**Final answer:  To complete the calculation would require understanding the core problem better and then adjusting this further.  ** 
+ 
+ *** **Reasoning Notes:**  **
+
+If the quantities are placed in numbers rather than letters, the GCD can be found through simple multiplication. Here, we are given a ratio for each of the three subjects, which are frequently involved when performing calculations with fractions, proportions, percentages, odds, etc.,
+
+
+   **Attention: The problem seems incomplete. Without knowing the initial portion of the calculation we could assume!  This is not an adequate solution to a calculus problem. Use an online graphing calculator to verify!**
+
+
+reward is -1.3
+is result truncated? False
+
+
+**Step 1:** Find the total ratio parts. 
+   5 + 3 + 4 = 12 parts
+
+**Step 2:** Calculate the value of one ratio part.**
+   960 books / 12 parts = 80 books per part
+
+**Step 3:**  Determine how many books are for subject C.** 
+   80 books per part * 4 parts = 320 books
+
+**Final answer:** 320 books. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+ **Step 1: Find the total ratio parts.**
+  5 + 3 + 4 = 12 parts
+
+**Step 2: Divide the total number of books by the number of parts**
+  960 books / 12 parts = 80 books per part
+
+**Step 3: Determine the number of books for subject C.**
+  4 parts * 80 books per part = 320 books
+
+**Final answer:** 320 books 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Find the total ratio parts.**
+
+   5 + 3 + 4 = 12 parts
+
+**Step 2: Determine the value of one ratio part.**
+
+   960 books / 12 parts = 80 books per part
+
+**Step 3: Calculate the books for subject C.**
+
+    80 books per part * 4 parts = 320 books 
+
+
+**Final answer:** 320 books 
+
+reward is 0.9600000000000001
+is result truncated? False
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.09545041620731354 and kl is 0.09582380205392838
+[timing] sample processed in 310.67s
+
+=== PROFILER ===
+Sampling:          194.88s
+Logprob forward:   34.34s
+Reward + Adv:      15.80s
+Backward:          65.17s
+A 70-inch rope is cut into pieces with lengths in ratio 5:3:6. Shortest piece length?
+answer is 15
+⚠️ Sampling slow: 168.2s, steps=262
+advantages is tensor([ 0.6325,  1.2649, -1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.012193059548735619 and kl is 0.12707336246967316
+[timing] sample processed in 268.69s
+
+=== PROFILER ===
+Sampling:          168.25s
+Logprob forward:   33.77s
+Reward + Adv:      13.43s
+Backward:          52.72s
+A movie theater seats 400 and fills 75%. If 1/6 of filled seats are VIP, how many VIPs?
+answer is 50
+⚠️ Sampling slow: 56.6s, steps=78
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.011372971348464489 and kl is 0.08044002205133438
+[timing] sample processed in 74.59s
+
+=== PROFILER ===
+Sampling:          56.64s
+Logprob forward:   8.83s
+Reward + Adv:      2.11s
+Backward:          6.73s
+A warehouse can stack 48 boxes per shelf. If it stores 2016 boxes, how many shelves?
+answer is 42
+⚠️ Sampling slow: 92.1s, steps=144
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.13251365721225739 and kl is 0.1169341579079628
+[timing] sample processed in 134.08s
+
+=== PROFILER ===
+Sampling:          92.09s
+Logprob forward:   14.15s
+Reward + Adv:      4.38s
+Backward:          22.77s
+A student answers 80% of 200 questions correctly. If she improves accuracy by 10 points on next 100 questions, total correct?
+answer is 250
+⚠️ Sampling slow: 199.2s, steps=315
+advantages is tensor([-1.2649,  1.2649,  0.0000,  0.6325, -0.6325], device='mps:0')
+grpo_loss is -0.03092942200601101 and kl is 0.1165824681520462
+[timing] sample processed in 320.15s
+
+=== PROFILER ===
+Sampling:          199.17s
+Logprob forward:   36.15s
+Reward + Adv:      18.70s
+Backward:          65.42s
+A machine makes 90 items in 15 minutes. How many in 2 hours?
+answer is 720
+⚠️ Sampling slow: 66.0s, steps=99
+advantages is tensor([ 1.2649, -0.6325,  0.0000, -1.2649,  0.6325], device='mps:0')
+grpo_loss is 0.042015694081783295 and kl is 0.1007256731390953
+[timing] sample processed in 90.31s
+
+=== PROFILER ===
+Sampling:          66.01s
+Logprob forward:   9.76s
+Reward + Adv:      2.56s
+Backward:          11.39s
+A farmer divides 270 acres in ratio 4:3:2. How many acres in the smallest portion?
+answer is 60
+⚠️ Sampling slow: 89.3s, steps=138
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.03177943080663681 and kl is 0.11100957542657852
+[timing] sample processed in 127.52s
+
+=== PROFILER ===
+Sampling:          89.30s
+Logprob forward:   13.27s
+Reward + Adv:      4.38s
+Backward:          19.97s
+A car travels 180 miles at 45 mph and returns 180 miles at 60 mph. Average speed?
+answer is 51.43
+⚠️ Sampling slow: 116.5s, steps=190
+advantages is tensor([-0.6325,  0.0000,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is 0.21633923053741455 and kl is 0.06435692310333252
+[timing] sample processed in 173.13s
+
+=== PROFILER ===
+Sampling:          116.49s
+Logprob forward:   18.78s
+Reward + Adv:      8.12s
+Backward:          29.04s
+A store has 450 items. It sells 30% in week 1 and 40% of remaining in week 2. Items left?
+answer is 189
+⚠️ Sampling slow: 82.1s, steps=141
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.07735331356525421 and kl is 0.05622926354408264
+[timing] sample processed in 121.15s
+
+=== PROFILER ===
+Sampling:          82.07s
+Logprob forward:   12.64s
+Reward + Adv:      5.68s
+Backward:          20.15s
+A student gets test scores 82, 91, 87, 78. What fifth score is needed for average 85?
+answer is 87
+⚠️ Sampling slow: 123.8s, steps=205
+advantages is tensor([ 0.0000, -1.2649, -0.6325,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.06261394172906876 and kl is 0.12936070561408997
+[step 50] avg_loss=0.0242 acc=0.7680
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate distance for the first leg**
+
+62 km/h * 2 h = 124 km
+
+**Step 2: Calculate distance for the second leg**
+
+62 km/h * 2 * 3 h = 366 km
+
+**Step 3: Calculate total distance**
+
+124 km + 366 km = 490 km
+
+**Final answer: 490 km** 
+
+[timing] sample processed in 194.43s
+
+=== PROFILER ===
+Sampling:          123.76s
+Logprob forward:   18.53s
+Reward + Adv:      8.76s
+Backward:          21.39s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/2026_resume_lora_epoch1_step50.pt
+==end-of-epoch 1==
+
+=== Epoch 2/4 ===
+[92m📊 [System Health] RAM: 62.2% | Swap Used: 4.00 GB[0m
+A store sells oranges 3 lbs for $4.50. How much for 12 lbs?
+answer is 18
+⚠️ Sampling slow: 58.0s, steps=99
+
+
+**Step 1: Determine the price per pound.**
+
+$4.50 / 3 lbs = $1.50 per lb
+
+**Step 2: Calculate the cost for 12 lbs.**
+
+$1.50 per lb * 12 lbs = $18.00
+
+
+**Final answer:** $18.00 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Determine the price per pound.**
+
+   $4.50 / 3 lbs = $1.50 per lb
+
+**Step 2: Calculate the cost of 12 lbs.**
+
+   $1.50 per lb * 12 lbs = $18.00 
+
+**Final answer:**  $18.00
+
+Please let me know if you have any questions, and good luck! 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the price per pound**
+
+   $4.50 / 3 lbs = $1.50 per lb
+
+**Step 2: Calculate the price for 12 lbs**
+
+    $1.50 per lb * 12 lbs = $18.00 
+
+
+
+**Final answer: $18.00** 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1:**  Find the price per pound
+$4.50 / 3 lbs = $1.50 per pound
+
+**Step 2:** Calculate the cost for 12 lbs**
+$1.50 per lb * 12 lbs = $18.00
+
+**Final answer:** $18.00 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1:** Calculate how much 1 pound costs.
+
+  $4.50 / 3 lbs = $1.50 per lb 
+
+**Step 2:**  Calculate the cost for 12 lbs.**
+
+  $1.50 per lb * 12 lbs = $18.00
+
+**Final answer:** $18.00 
+
+reward is 0.9400000000000001
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.08201143145561218
+[timing] sample processed in 83.47s
+
+=== PROFILER ===
+Sampling:          57.96s
+Logprob forward:   9.12s
+Reward + Adv:      3.40s
+Backward:          12.32s
+A tank drains 20% of 600 liters, then loses 80 more liters. How much remains?
+answer is 400
+⚠️ Sampling slow: 75.9s, steps=125
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.11229436099529266
+[timing] sample processed in 111.04s
+
+=== PROFILER ===
+Sampling:          75.91s
+Logprob forward:   11.13s
+Reward + Adv:      4.07s
+Backward:          19.42s
+A boutique discounts a dress from $200 by 40% and then 25%. Final price?
+answer is 90
+⚠️ Sampling slow: 179.0s, steps=293
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.061356592923402786 and kl is 0.09947638213634491
+[timing] sample processed in 276.51s
+
+=== PROFILER ===
+Sampling:          179.01s
+Logprob forward:   29.01s
+Reward + Adv:      13.22s
+Backward:          54.58s
+A bus completes 150 miles at 50 mph and 180 miles at 60 mph. Total travel time?
+answer is 6
+⚠️ Sampling slow: 66.7s, steps=103
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.14291498064994812 and kl is 0.1401885449886322
+[timing] sample processed in 92.71s
+
+=== PROFILER ===
+Sampling:          66.66s
+Logprob forward:   9.08s
+Reward + Adv:      2.81s
+Backward:          13.50s
+A school buys tablets at $200 each. A bulk deal gives 15% discount. How much for 40 tablets?
+answer is 6800
+⚠️ Sampling slow: 78.7s, steps=125
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09734935313463211
+[timing] sample processed in 113.91s
+
+=== PROFILER ===
+Sampling:          78.66s
+Logprob forward:   10.83s
+Reward + Adv:      4.83s
+Backward:          19.02s
+A student spends 45 min/day reading for 20 days and 60 min/day for 10 days. Total hours?
+answer is 25
+⚠️ Sampling slow: 105.8s, steps=169
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.15144619345664978 and kl is 0.05902080610394478
+[timing] sample processed in 144.89s
+
+=== PROFILER ===
+Sampling:          105.79s
+Logprob forward:   14.40s
+Reward + Adv:      8.17s
+Backward:          16.09s
+A shop sells candy in ratio 7:5:4 of flavors A,B,C. If there are 640 candies, how many are flavor B?
+answer is 200
+⚠️ Sampling slow: 70.7s, steps=110
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.007567739579826593 and kl is 0.08239343017339706
+[timing] sample processed in 96.49s
+
+=== PROFILER ===
+Sampling:          70.67s
+Logprob forward:   10.18s
+Reward + Adv:      2.72s
+Backward:          12.20s
+A container holds 3/5 of capacity at 72 liters. Full capacity?
+answer is 120
+⚠️ Sampling slow: 120.4s, steps=195
+advantages is tensor([-0.6325,  0.6325,  0.0000, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.19006969034671783 and kl is 0.12657243013381958
+[timing] sample processed in 176.20s
+
+=== PROFILER ===
+Sampling:          120.45s
+Logprob forward:   15.24s
+Reward + Adv:      9.87s
+Backward:          30.21s
+A teacher assigns 120 pages to read. A student reads 15 pages per day for 4 days, then 20 pages per day. How many total days to finish?
+answer is 7
+⚠️ Sampling slow: 79.8s, steps=138
+advantages is tensor([ 0.0000,  1.2649, -1.2649,  0.6325, -0.6325], device='mps:0')
+grpo_loss is -0.07289852946996689 and kl is 0.12797221541404724
+[timing] sample processed in 122.77s
+
+=== PROFILER ===
+Sampling:          79.75s
+Logprob forward:   11.88s
+Reward + Adv:      3.63s
+Backward:          26.91s
+A car decreases value by 30% year 1 and 20% year 2. If new value is $5600, what was original price?
+answer is 10000
+⚠️ Sampling slow: 127.9s, steps=212
+advantages is tensor([ 0.0000,  1.2649, -1.2649, -0.6325,  0.6325], device='mps:0')
+grpo_loss is 0.19585242867469788 and kl is 0.13966989517211914
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 156.25s
+
+=== PROFILER ===
+Sampling:          127.87s
+Logprob forward:   18.16s
+Reward + Adv:      8.66s
+Backward:          0.00s
+[92m📊 [System Health] RAM: 80.3% | Swap Used: 9.83 GB[0m
+A farmer buys 32 kg of feed. His animals eat 3/8 of it weekly. How many weeks until it is gone?
+answer is 2.67
+⚠️ Sampling slow: 77.6s, steps=121
+
+
+**Step 1: Find out how many kilograms of feed the animals eat weekly.**
+32 kg * (3/8) = 12 kg
+
+**Step 2: Calculate how many weeks it takes for the feed to be gone.**
+32 kg / 12 kg per week = 2.67 weeks
+
+**Final answer: 2 weeks** 
+
+reward is -1.08
+is result truncated? False
+
+
+**Step 1: Calculate how much feed the animals consume per week.**
+   32 kg / 8 = 4 kg
+
+**Step 2: Determine how many weeks until all the feed is gone.**
+   32 kg / 4 kg per week = 8 weeks
+
+**Final Answer:** 8 weeks 
+
+reward is -1.06
+is result truncated? False
+
+
+**Step 1: Calculate the amount of feed consumed per week**
+
+32 kg * (3/8) = 12 kg
+
+**Step 2: Determine the remaining feed after each week**
+
+32 kg - 12 kg = 20 kg
+
+**Step 3: Calculate the number of weeks the remaining feed lasts**
+
+20 kg / (12 kg per week) = 1.67 weeks 
+
+**Final answer:** Since we can't have partial weeks, it will run out after **2 weeks**. 
+
+reward is -1.06
+is result truncated? False
+
+
+**Step 1:** Find the amount of feed the animals eat per week.
+
+   3/8 * 32 kg = 12 kg
+
+**Step 2:** Determine how many weeks it will take until all the feed is gone.
+
+   32 kg / 12 kg per week = 2.67 weeks
+
+**Final Answer:** It will take **approximately 2 weeks** until all the feed is gone.
+ 
+Since you cannot have partial weeks, the farmer will be at the very last week mark of their feed. 
+
+reward is -1.08
+is result truncated? False
+
+
+**Step 1: Calculate the amount eaten per week.**
+
+32 kg * (3/8) = 12 kg
+
+**Step 2: Determine the number of weeks until the feed is gone.**
+
+12 kg / 3 kg per week = 4 weeks
+
+**Final answer: 4 weeks** 
+
+reward is -1.06
+is result truncated? False
+advantages is tensor([-1.2649,  0.0000,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.09439994394779205 and kl is 0.13126623630523682
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 111.27s
+
+=== PROFILER ===
+Sampling:          77.65s
+Logprob forward:   24.33s
+Reward + Adv:      7.04s
+Backward:          0.00s
+A team wins 24 of its games, which is 60% of all games. How many games did they play?
+answer is 40
+⚠️ Sampling slow: 102.1s, steps=158
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is 0.31044802069664 and kl is 0.13479676842689514
+[timing] sample processed in 205.30s
+
+=== PROFILER ===
+Sampling:          102.13s
+Logprob forward:   31.04s
+Reward + Adv:      7.06s
+Backward:          63.93s
+A chef prepares 360 cookies. He sells 55% and gives 1/5 of the remainder to staff. How many cookies are left?
+answer is 129.6
+⚠️ Sampling slow: 114.0s, steps=173
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.12662944197654724 and kl is 0.06416255235671997
+[timing] sample processed in 156.69s
+
+=== PROFILER ===
+Sampling:          114.00s
+Logprob forward:   15.30s
+Reward + Adv:      7.23s
+Backward:          19.50s
+A student scores 70, 85, 90. What must she score next to average 84?
+answer is 91
+
+🚨 SAMPLING WARNING
+  Time: 250.80s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, False, False, False, False]
+  Prompt: A student scores 70, 85, 90. What must she score next to average 84? Reason step-by-step,  then give: Final answer....
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.19536755979061127 and kl is 0.15510089695453644
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 329.14s
+
+=== PROFILER ===
+Sampling:          250.80s
+Logprob forward:   52.72s
+Reward + Adv:      23.38s
+Backward:          0.00s
+A bakery sells 3/8 of its 320 loaves in the morning and 1/3 of the remainder in evening. How many loaves sold total?
+answer is 186.67
+⚠️ Sampling slow: 127.7s, steps=172
+advantages is tensor([ 0.0000, -0.6325,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is -0.13668100535869598 and kl is 0.07850044965744019
+[timing] sample processed in 233.58s
+
+=== PROFILER ===
+Sampling:          127.73s
+Logprob forward:   21.62s
+Reward + Adv:      6.43s
+Backward:          76.91s
+A garden is 12 m by 18 m. A path 1 m wide is built around inside. What is path area?
+answer is 56
+⚠️ Sampling slow: 198.1s, steps=294
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.10907796770334244 and kl is 0.11444487422704697
+[timing] sample processed in 335.07s
+
+=== PROFILER ===
+Sampling:          198.06s
+Logprob forward:   42.38s
+Reward + Adv:      26.12s
+Backward:          67.90s
+A family saves 15% of income and spends $2380. If savings are $420, what is total income?
+answer is 2800
+⚠️ Sampling slow: 194.9s, steps=299
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.04331304877996445 and kl is 0.1372164934873581
+[timing] sample processed in 305.61s
+
+=== PROFILER ===
+Sampling:          194.89s
+Logprob forward:   35.71s
+Reward + Adv:      25.26s
+Backward:          48.70s
+A rope is cut in ratio 5:3. Total length is 64 m. What is shorter piece?
+answer is 24
+⚠️ Sampling slow: 106.4s, steps=180
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.6325,  0.0000], device='mps:0')
+grpo_loss is 0.19902367889881134 and kl is 0.193733811378479
+[timing] sample processed in 147.58s
+
+=== PROFILER ===
+Sampling:          106.37s
+Logprob forward:   14.43s
+Reward + Adv:      7.32s
+Backward:          18.83s
+A car consumes 8 gallons for 120 miles. How many gallons for 330 miles?
+answer is 22
+⚠️ Sampling slow: 52.1s, steps=89
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.0752652958035469 and kl is 0.20743045210838318
+[timing] sample processed in 71.20s
+
+=== PROFILER ===
+Sampling:          52.09s
+Logprob forward:   7.43s
+Reward + Adv:      1.71s
+Backward:          9.61s
+A field is 30 m by 20 m. 25% used for corn, 40% of remainder for beans. How many m² for beans?
+answer is 180
+⚠️ Sampling slow: 83.7s, steps=147
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.008787155151367188 and kl is 0.08195831626653671
+[timing] sample processed in 124.10s
+
+=== PROFILER ===
+Sampling:          83.75s
+Logprob forward:   11.79s
+Reward + Adv:      4.64s
+Backward:          23.35s
+[92m📊 [System Health] RAM: 50.9% | Swap Used: 8.20 GB[0m
+A shop sells pens at $1.20 each or 10 for $10. If a customer buys 27 pens, what is the minimum cost?
+answer is 28.4
+⚠️ Sampling slow: 136.2s, steps=240
+
+
+**Step 1: Check if we can buy in packs.**
+Since the customer buys 27 pens, we know that purchasing 27 pens one by one is clearly more expensive.  
+
+
+
+**Step 2: Divide the number of pens by the pack option quantity.**
+
+  27 / 10 = 2.7
+
+   we need to round up since we can't buy parts of pens
+
+
+**Step 3: Calculate the price for the pack option**
+
+2.7 * 10 = 27
+
+
+**Step 4: Since the price doesn't exceed $27, it is cheaper than buying 27 pens individually, so calculate with the packs**
+
+27 =  $10
+
+
+
+
+**Final answer**
+$27. 
+
+
+
+
+ 
+
+**Conclusion:**
+   Since we are limited by making our purchases in packs and these packs are really priced more on the higher end for packs of 10 pens, it was more cost-effective to just buy all pens in packs. 
+
+
+
+
+Did you find this explanation helpful?  Let me know if you have any other questions. 
+reward is -1.26
+is result truncated? False
+
+
+**Step 1: Determine possible purchase quantities.**
+
+The customer has 27 pens and there are either sets of 10 or individuals (because price is specific). 
+Because this doesn't sum up, a custom purchase that is set but can be changed may be helpful.
+
+**Step 2: Calculate costs for each possibility.**
+
+Since they sells sets (10), we can use 2 sets of 10 to find possible outcomes
+
+* 2 sets of 10 pens = $10 * 2 = $20
+
+On the other hand, individual pens can be determined. 
+
+**Step 3: Compare costs and choose the minimum.**
+
+Since the minimum quantity isn't possible, 27 pens doesn't exceed our sum total of funds.
+
+ 
+
+
+
+Therefore, the minimum cost of buying 27 pens is **$20**.  
+
+reward is -1.3
+is result truncated? False
+ 
+
+**Step 1: Figure out the minimum amount of pens purchased**
+
+* 27 pens / 27 pens per box = 1 box
+
+**Step 2: Figure out if purchasing from the case would have been cheaper** 
+ 
+  * $10 for 10 pens  gives us $1 per pen which is cheaper since $1 < $1.20 per pen.
+
+
+**Step 3: Apply any discount to calculate cost in ascending order**
+   
+   * "$10 for 10 pens if buying 27 pens" translates to 27 / 10 * $10 per ten = $27 
+
+
+**Final answer:** $27 
+
+reward is 0.1
+is result truncated? False
+ 
+
+**Step 1: Determine if we can buy a pack of pens with 27 pens.**
+   Since there are options to buy them in packs of 10 pens and prices for the number of pens that fits in the quantity to purchase.
+
+**Step 2: Check if buying individual pens is more economical for the group size.**
+   $1.20 * 27 = $32.40
+
+
+
+
+Final answer: 32.40
+
+reward is -1.08
+is result truncated? False
+
+
+**Step 1:** Figure out the minimum number of pens needed to get the customer's required number to a whole group that can be counted at prices clearly defined.
+
+Since they want 27 pens, they could buy 27 pens at prices clearly defined.
+
+**Step 2:** Determine the discounted price of buying in sets of 10 pens. 
+
+$10 (gets you 10 sets of pens) / 10
+
+ $10 = $1 each
+
+
+**Step 3:** Identify the transaction that satisfies both 27 pens.
+
+
+ Since the person wants 27 pens, buying 27 pens would be the most cost-effective way to get this amount of pens given the existing pricing defined.
+ 
+**Step 4:** Calculate the cost.
+
+
+
+
+   
+
+
+
+Final Answer: **$30.60**
+reward is -1.1
+is result truncated? False
+advantages is tensor([-0.6325, -1.2649,  1.2649,  0.6325,  0.0000], device='mps:0')
+grpo_loss is 0.1193447932600975 and kl is 0.1739080846309662
+[timing] sample processed in 201.71s
+
+=== PROFILER ===
+Sampling:          136.16s
+Logprob forward:   21.44s
+Reward + Adv:      7.83s
+Backward:          35.85s
+Sophie read 40 pages on Monday, 25% more on Tuesday, and 30% less on Wednesday than Tuesday. How many pages did she read in total?
+answer is 125
+⚠️ Sampling slow: 87.6s, steps=148
+advantages is tensor([-1.2649,  0.0000,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.05946563556790352 and kl is 0.14039389789104462
+[timing] sample processed in 125.23s
+
+=== PROFILER ===
+Sampling:          87.58s
+Logprob forward:   12.16s
+Reward + Adv:      5.08s
+Backward:          19.80s
+A store purchases items for $12 each and sells them for 40% profit. If the store sells 70 items, what is the total profit?
+answer is 336
+⚠️ Sampling slow: 74.0s, steps=120
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.0580928809940815 and kl is 0.12070755660533905
+[timing] sample processed in 106.65s
+
+=== PROFILER ===
+Sampling:          74.05s
+Logprob forward:   10.92s
+Reward + Adv:      3.12s
+Backward:          17.85s
+A water tank contains 450 liters when it is 3/5 full. How many liters are needed to fill it completely?
+answer is 300
+⚠️ Sampling slow: 169.5s, steps=272
+advantages is tensor([-0.6325,  0.6325, -1.2649,  1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.09733571857213974 and kl is 0.1576889604330063
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 214.60s
+
+=== PROFILER ===
+Sampling:          169.45s
+Logprob forward:   30.75s
+Reward + Adv:      12.17s
+Backward:          0.00s
+A pack of 24 markers costs $9.60. How much do 18 markers cost at the same rate?
+answer is 7.2
+⚠️ Sampling slow: 81.4s, steps=94
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.15456435084342957
+[step 75] avg_loss=0.0127 acc=0.5440
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate distance traveled at 62 km/h**
+
+   62 km/h * 2 h = 124 km
+
+**Step 2: Calculate distance traveled at 124 km/h**
+
+   124 km * 3 h = 372 km
+
+**Step 3: Calculate total distance**
+
+   124 km + 372 km = 496 km
+
+**Final answer: 496 km** 
+
+[timing] sample processed in 170.49s
+
+=== PROFILER ===
+Sampling:          81.42s
+Logprob forward:   15.53s
+Reward + Adv:      2.46s
+Backward:          52.72s
+A runner completes 3 laps of 800 meters and 4 laps of 400 meters. What is the total distance in kilometers?
+answer is 4
+⚠️ Sampling slow: 127.2s, steps=204
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.0191262848675251 and kl is 0.059811126440763474
+[timing] sample processed in 178.82s
+
+=== PROFILER ===
+Sampling:          127.16s
+Logprob forward:   18.35s
+Reward + Adv:      9.25s
+Backward:          23.34s
+A family spends 25% of income on food and $900 on rent, which is 30% of income. What is their income?
+answer is 3000
+⚠️ Sampling slow: 197.9s, steps=320
+advantages is tensor([ 0.0000,  1.2649, -1.2649, -0.6325,  0.6325], device='mps:0')
+grpo_loss is 0.17275963723659515 and kl is 0.1282338798046112
+[timing] sample processed in 316.95s
+
+=== PROFILER ===
+Sampling:          197.86s
+Logprob forward:   33.50s
+Reward + Adv:      15.48s
+Backward:          69.35s
+A student solves 75% of 160 practice problems. If he gets 20% of them wrong, how many does he solve correctly?
+answer is 96
+⚠️ Sampling slow: 48.0s, steps=144
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.07084885984659195 and kl is 0.10898895561695099
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 55.80s
+
+=== PROFILER ===
+Sampling:          48.01s
+Logprob forward:   4.93s
+Reward + Adv:      2.41s
+Backward:          0.00s
+A teacher has 72 stickers. She gives 5 to each student. If she has 7 stickers left, how many students are there?
+answer is 13
+⚠️ Sampling slow: 23.4s, steps=77
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.05416081100702286 and kl is 0.11170128732919693
+[timing] sample processed in 127.43s
+
+=== PROFILER ===
+Sampling:          23.45s
+Logprob forward:   29.70s
+Reward + Adv:      10.60s
+Backward:          63.06s
+A library has 48 fiction books for every 32 nonfiction books. If there are 240 nonfiction books, how many fiction books are there?
+answer is 360
+⚠️ Sampling slow: 70.4s, steps=208
+advantages is tensor([ 1.2649,  0.0000, -1.2649,  0.6325, -0.6325], device='mps:0')
+grpo_loss is 0.1015612855553627 and kl is 0.1713455617427826
+[timing] sample processed in 112.93s
+
+=== PROFILER ===
+Sampling:          70.39s
+Logprob forward:   9.95s
+Reward + Adv:      5.70s
+Backward:          26.50s
+[92m📊 [System Health] RAM: 46.6% | Swap Used: 8.91 GB[0m
+A jar contains red, blue, and yellow marbles in the ratio 2:3:5. If there are 180 marbles, how many are blue?
+answer is 54
+⚠️ Sampling slow: 70.0s, steps=177
+
+
+**Step 1: Find the total ratio parts.**
+
+   2 + 3 + 5 = 10 parts
+
+**Step 2: Determine the value of one ratio part.**
+
+   180 marbles / 10 parts = 18 marbles per part
+
+**Step 3: Calculate the number of blue marbles.**
+
+   3 parts * 18 marbles per part = 54 blue marbles 
+
+**Final Answer:** There are **54** blue marbles. 
+
+reward is 0.9600000000000001
+is result truncated? False
+ 
+
+**Step 1: Find the total ratio parts.**
+
+   2 + 3 + 5 = 10 parts
+
+**Step 2: Determine the value of one ratio part.**
+
+   180 marbles / 10 parts = 18 marbles per part
+
+**Step 3: Calculate the number of blue marbles.**
+
+   3 parts * 18 marbles per part = 54 blue marbles
+
+
+**Final answer: 54 blue marbles** 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Understand the ratio**
+
+The ratio 2:3:5 means that for every 2 red marbles, there are 3 blue marbles, and 5 yellow marbles.
+
+**Step 2:  Find the total parts**
+
+Add the terms in the ratio: 2 + 3 + 5 = 10 parts
+
+**Step 3: Calculate the size of each part**
+
+Divide the total number of marbles by the number of parts: 180 marbles / 10 parts = 18 marbles per part
+
+**Step 4: Find the number of blue marbles**
+
+Multiply the value of one part by the number of blue parts: 3 marbles per part * 18 marbles per part = 54 blue marbles
+
+
+**Final answer: 54 blue marbles** 
+
+reward is 0.9600000000000001
+is result truncated? False
+ 
+
+**Step 1:  Find the total ratio parts** 
+
+   2 + 3 + 5 = 10 parts
+
+**Step 2: Determine the value of one ratio part**
+
+   180 marbles / 10 parts = 18 marbles per part
+
+**Step 3: Calculate the number of blue marbles** 
+
+   3 parts * 18 marbles per part = 54 blue marbles
+
+**Final Answer:** 54 blue marbles 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1:  Find the total ratio parts**
+
+   2 + 3 + 5 = 10 parts
+
+**Step 2:  Determine the value of one ratio part**
+
+   180 marbles / 10 parts = 18 marbles per part
+
+**Step 3: Calculate the number of blue marbles**
+
+   3 parts * 18 marbles per part = 54 blue marbles
+
+**Final Answer:** 54 blue marbles 
+
+reward is 0.9600000000000001
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.092400923371315
+[timing] sample processed in 107.96s
+
+=== PROFILER ===
+Sampling:          69.97s
+Logprob forward:   11.47s
+Reward + Adv:      5.26s
+Backward:          20.08s
+A store sells a pair of shoes for $60 after a 20% discount. What was the original price?
+answer is 75
+⚠️ Sampling slow: 134.9s, steps=313
+advantages is tensor([-1.2649, -0.6325,  0.0000,  1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.15590059757232666 and kl is 0.22518377006053925
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 190.75s
+
+=== PROFILER ===
+Sampling:          134.88s
+Logprob forward:   29.36s
+Reward + Adv:      26.19s
+Backward:          0.00s
+A bus has 56 seats. If 75% are taken and 1/3 of the empty seats are reserved, how many seats remain available?
+answer is 9.33
+⚠️ Sampling slow: 104.9s, steps=166
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.11142964661121368
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 126.71s
+
+=== PROFILER ===
+Sampling:          104.94s
+Logprob forward:   16.16s
+Reward + Adv:      3.55s
+Backward:          0.00s
+A farmer buys a 50-pound sack of feed. His animals eat 2/5 of it weekly. How many pounds remain after 2 weeks?
+answer is 10
+⚠️ Sampling slow: 93.1s, steps=187
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.104819156229496 and kl is 0.11239443719387054
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 115.67s
+
+=== PROFILER ===
+Sampling:          93.10s
+Logprob forward:   18.29s
+Reward + Adv:      3.05s
+Backward:          0.00s
+A shop sells boxes of 18 oranges. If a restaurant needs 430 oranges, how many boxes must they buy?
+answer is 24
+⚠️ Sampling slow: 62.3s, steps=118
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.014253174886107445 and kl is 0.14699247479438782
+[timing] sample processed in 125.51s
+
+=== PROFILER ===
+Sampling:          62.32s
+Logprob forward:   21.32s
+Reward + Adv:      2.92s
+Backward:          37.70s
+A garden is 14 meters by 18 meters. A walkway 1 meter wide is built around the inside. What is the area of the walkway?
+answer is 60
+⚠️ Sampling slow: 148.9s, steps=291
+advantages is tensor([-0.6325,  0.0000,  1.2649, -1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.03190462663769722 and kl is 0.0892905741930008
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 203.13s
+
+=== PROFILER ===
+Sampling:          148.90s
+Logprob forward:   30.01s
+Reward + Adv:      23.90s
+Backward:          0.00s
+A store sells staplers for $6 each or 3 for $15. If a customer buys 9 staplers using the cheapest combination, how much does he pay?
+answer is 45
+⚠️ Sampling slow: 153.6s, steps=206
+advantages is tensor([-1.2649, -0.6325,  0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.11440549790859222 and kl is 0.1215846911072731
+[timing] sample processed in 256.36s
+
+=== PROFILER ===
+Sampling:          153.58s
+Logprob forward:   24.00s
+Reward + Adv:      10.69s
+Backward:          67.10s
+A store buys pencils in packs of 12. They need at least 430 pencils. What is the minimum number of packs required?
+answer is 36
+⚠️ Sampling slow: 117.2s, steps=183
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.08116265386343002 and kl is 0.229756161570549
+[timing] sample processed in 164.60s
+
+=== PROFILER ===
+Sampling:          117.21s
+Logprob forward:   19.47s
+Reward + Adv:      9.47s
+Backward:          17.68s
+A farmer divides his land so that 2/3 is for crops and 1/4 of the crop land is for wheat. If the wheat section is 30 acres, how large is the entire farm?
+answer is 180
+⚠️ Sampling slow: 162.1s, steps=244
+advantages is tensor([-1.2649, -0.6325,  0.0000,  1.2649,  0.6325], device='mps:0')
+grpo_loss is 0.11446769535541534 and kl is 0.14923083782196045
+[timing] sample processed in 254.46s
+
+=== PROFILER ===
+Sampling:          162.09s
+Logprob forward:   34.68s
+Reward + Adv:      11.13s
+Backward:          46.05s
+A shop sells shirts for $18 after a 25% discount. What was the original price?
+answer is 24
+⚠️ Sampling slow: 69.2s, steps=98
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.1332399696111679
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 82.00s
+
+=== PROFILER ===
+Sampling:          69.21s
+Logprob forward:   9.65s
+Reward + Adv:      3.05s
+Backward:          0.00s
+[93m📊 [System Health] RAM: 87.3% | Swap Used: 5.29 GB[0m
+A student solves 90% of 200 math problems but gets 10% of those wrong. How many correct answers does he have?
+answer is 162
+⚠️ Sampling slow: 120.8s, steps=187
+
+
+**Step 1: Calculate how many problems are answered correctly.**
+   90/100 * 200 problems = 180 correct answers
+
+**Step 2: Calculate how many problems were answered incorrectly.**
+   10/100 * 200 problems = 20 problems
+
+**Step 3: Calculate the total number of problems solved.**
+
+   200 problems 
+
+**Step 4: Calculate the number of correctly answered problems.**
+
+   180 problems - 20 problems = 160 problems
+
+
+**Final answer: 160 correct answers** 
+
+reward is 0.16
+is result truncated? False
+
+
+**Step 1: Calculate the number of problems solved.**
+
+   90% of 200 problems = 0.90 * 200 = 180 problems
+
+**Step 2: Calculate the number of wrong problems.**
+
+   10% of 180 problems = 0.10 * 180 = 18 problems
+
+**Step 3: Calculate the number of correct problems.**
+
+   180 problems - 18 problems = 162 problems
+
+**Final answer: 162 correct answers** 
+
+reward is 0.92
+is result truncated? False
+
+
+**Step 1: Calculate the number of problems solved correctly.**
+
+   90/100 * 200 problems = 180 problems
+
+**Step 2: Calculate the number of problems wrong.**
+
+   10/100 * 180 problems = 18 problems
+
+**Step 3: Calculate the number of correct answers.**
+
+    180 problems - 18 problems = 162 problems
+
+**Final Answer: 162 correct answers.** 
+
+reward is 0.9600000000000001
+is result truncated? False
+ 
+
+**Step-by-Step Reasoning**
+
+1. **Solve problems correctly:** 90% of 200 problems = (90/100) * 200 = 180 problems
+
+2. **Calculate the number of problems wrong:** 10% of 180 problems = (10/100) * 180 = 18 problems 
+
+3. **Total problems solved:** 180 problems + 18 incorrect problems = 198 incorrect problems
+   This cancels the incorrect problem numbers for correct ones problem for calculation
+
+4. **Total correct answers:** 180 problems - 18 incorrect problems = 162 problems
+
+**Final Answer**
+
+162 correct answers
+
+
+
+Let me know if you have any other problems you'd like me to help you with!
+reward is -1.3
+is result truncated? False
+
+
+**Step 1: Calculate how many problems were solved correctly.**
+
+   90/100 * 200 problems = 180 problems
+
+**Step 2: Calculate how many problems were wrong.**
+
+   10/100 * 180 problems = 18 problems
+
+**Step 3: Calculate how many problems were solved correctly.**
+
+  180 problems - 18 problems = 162 problems 
+
+**Final Answer:** 162 problems correct 
+
+reward is -0.03999999999999995
+is result truncated? False
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.09853361546993256 and kl is 0.16923384368419647
+[timing] sample processed in 234.99s
+
+=== PROFILER ===
+Sampling:          120.81s
+Logprob forward:   30.32s
+Reward + Adv:      6.91s
+Backward:          76.44s
+A train leaves City A at 90 mph. One hour later, another train leaves City B at 110 mph toward City A. If the cities are 450 miles apart, how long until they meet?
+answer is 1.8
+⚠️ Sampling slow: 169.3s, steps=251
+advantages is tensor([-1.2649,  0.6325, -0.6325,  1.2649,  0.0000], device='mps:0')
+grpo_loss is -0.02444469928741455 and kl is 0.1359710991382599
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 220.05s
+
+=== PROFILER ===
+Sampling:          169.27s
+Logprob forward:   35.15s
+Reward + Adv:      15.28s
+Backward:          0.00s
+A teacher assigns 240 pages. A student reads 20 pages/day for 6 days, then 30 pages/day. How many days total?
+answer is 10
+⚠️ Sampling slow: 131.8s, steps=178
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.082767054438591 and kl is 0.10440976917743683
+[timing] sample processed in 233.37s
+
+=== PROFILER ===
+Sampling:          131.83s
+Logprob forward:   22.37s
+Reward + Adv:      9.46s
+Backward:          69.06s
+A library has 540 books. 1/5 are nonfiction, and 30% of the nonfiction books are history. How many history books are there?
+answer is 32.4
+⚠️ Sampling slow: 77.6s, steps=115
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.031838156282901764 and kl is 0.11477568000555038
+[timing] sample processed in 111.90s
+
+=== PROFILER ===
+Sampling:          77.64s
+Logprob forward:   12.35s
+Reward + Adv:      4.04s
+Backward:          17.11s
+A store sells apples 5 for $4. How much for 22 apples?
+answer is 17.6
+⚠️ Sampling slow: 54.8s, steps=82
+advantages is tensor([-0.6325,  0.0000,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is -0.031188607215881348 and kl is 0.10704880952835083
+[timing] sample processed in 71.62s
+
+=== PROFILER ===
+Sampling:          54.85s
+Logprob forward:   7.95s
+Reward + Adv:      1.66s
+Backward:          6.93s
+A school has 480 students. 30% join sports, and 40% of those join both sports and band. How many join both?
+answer is 57.6
+⚠️ Sampling slow: 73.1s, steps=120
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.08514752238988876
+[timing] sample processed in 107.07s
+
+=== PROFILER ===
+Sampling:          73.12s
+Logprob forward:   11.72s
+Reward + Adv:      4.20s
+Backward:          17.31s
+A car depreciates 20% in year 1 and 15% in year 2. If it's now worth $6120, what was the original value?
+answer is 9000
+⚠️ Sampling slow: 146.8s, steps=265
+advantages is tensor([-0.6325,  0.0000, -1.2649,  1.2649,  0.6325], device='mps:0')
+grpo_loss is 0.15504010021686554 and kl is 0.08966617286205292
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 190.40s
+
+=== PROFILER ===
+Sampling:          146.77s
+Logprob forward:   28.30s
+Reward + Adv:      13.19s
+Backward:          0.00s
+A container holds 48 liters when 3/8 full. How much when full?
+answer is 128
+⚠️ Sampling slow: 118.4s, steps=193
+advantages is tensor([ 0.0000, -1.2649,  1.2649, -0.6325,  0.6325], device='mps:0')
+grpo_loss is 0.010609006509184837 and kl is 0.16080088913440704
+[timing] sample processed in 229.87s
+
+=== PROFILER ===
+Sampling:          118.38s
+Logprob forward:   21.12s
+Reward + Adv:      4.80s
+Backward:          84.81s
+A man saves $240 monthly, which is 20% of his income. What is his income?
+answer is 1200
+⚠️ Sampling slow: 129.8s, steps=194
+advantages is tensor([ 0.0000,  1.2649, -1.2649,  0.6325, -0.6325], device='mps:0')
+grpo_loss is 0.03129076957702637 and kl is 0.15416231751441956
+[timing] sample processed in 182.83s
+
+=== PROFILER ===
+Sampling:          129.78s
+Logprob forward:   20.86s
+Reward + Adv:      8.62s
+Backward:          23.06s
+A school bus has 48 seats. 75% filled. If 1/8 of filled seats are teachers, how many teachers?
+answer is 4.5
+⚠️ Sampling slow: 95.5s, steps=145
+advantages is tensor([ 0.0000,  0.6325, -1.2649,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.03339512273669243 and kl is 0.1448676735162735
+All rewards are negative; skipping gradient update.
+[step 100] avg_loss=0.0067 acc=0.4080
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate distance traveled at 62 km/h**
+
+   62 km/h * 2 h = 124 km
+
+**Step 2: Calculate distance traveled at 124 km/h**
+
+   124 km * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+   124 km + 372 km = 496 km
+
+**Final answer: 496 km** 
+
+[timing] sample processed in 139.87s
+
+=== PROFILER ===
+Sampling:          95.51s
+Logprob forward:   14.70s
+Reward + Adv:      6.63s
+Backward:          0.00s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/2026_resume_lora_epoch2_step100.pt
+==end-of-epoch 2==
+
+=== Epoch 3/4 ===
+[92m📊 [System Health] RAM: 79.6% | Swap Used: 6.70 GB[0m
+A store sells notebooks for $3 each or 4 for $10. If a teacher buys 14, what's the minimum cost?
+answer is 36
+⚠️ Sampling slow: 134.3s, steps=197
+
+
+**Step 1: Figure out the cheapest way to buy the 14 notebooks.**
+ 
+ $10 for 4 notebooks is $10 / 4 = $2.50 per notebook
+
+Since $3 is cheaper per notebook ($3 / 1 notebook) than a price for 4 notebooks($2.50 per notebook), we can buy 14 notebooks using this method, at a cost of $3 / notebook. 
+
+ **Step 2: Calculate the total cost. **
+
+ $3 x 14 notebooks = $42 
+
+
+Final answer: $42 
+
+
+This approach answers your question if you want to compare what method will give you the smallest cost. Remember, calculating different pricing methods for each purchase amount will help you make informed decisions!
+
+reward is -1.1
+is result truncated? False
+
+
+**Step 1: Consider the cost in terms of the cheaper price per notebook**
+
+14 notebooks / 2 = 7 notebooks
+
+**Step 2:Calculate the price if bought this amount at the cheapest price per notebook**
+
+$3 x 7 = $21 
+
+
+**Step 3: Estimate how much they would cost at the dollar off price**
+
+$10
+
+**Final answer $10
+
+**
+
+
+
+- The minimum cost is $10 
+- 
+
+
+
+ I got stuck thinking about multiplying/dividing quantities.
+reward is -1.28
+is result truncated? False
+
+
+**Step 1: Calculate the cost per notebook if buying 4.**
+
+ $10 / 4 notebooks = $2.50 per notebook
+
+**Step 2: Calculate how much the teacher would pay for 14 notebooks if buying 4 for price $2.50 each.**
+
+14 notebooks * $2.50 per notebook = $35.00 
+
+**Final Answer:** $35.00
+
+
+
+
+Let me know if you have any other questions! 
+
+reward is 0.14
+is result truncated? False
+
+
+**Step 1: figure out how many notebooks can potentially be purchased at $10**
+
+14 / 4 = 3 notebooks 
+
+**Step 2: figure out if buying the notebooks at $3 is cheaper**
+
+3 notebooks * $3/notebook = $9
+
+**Final Answer:** $9
+
+reward is -1.1
+is result truncated? False
+
+
+**Step 1: Figure out the cost for notebooks buying 14
+
+**Possible options:**
+
+   * **Option 1:** Purchase them all individually (14 notebooks)
+      $3 * 14 notebooks = $42
+   * **Option 2:** Figure out price per notebook per the offer
+      $10 / 4 notebooks = $2.50 per notebook
+
+**Step 2:** Compared the cost of both options
+
+$2.50 per notebook * 14 notebooks = $35 
+
+$42  < $35
+
+
+
+**Final Answer** Since Option 2 comes at a slightly cheaper price is the cheapest option
+
+
+
+Answer: $35
+
+
+
+You're pretty close! While this assumes a teacher only buys 14 notebooks, sometimes teachers buy slightly higher amounts.  
+
+
+
+Let me know if you want to try solving it again with a different purchase amount! 
+
+reward is 0.16
+is result truncated? False
+advantages is tensor([-0.6325, -1.2649,  0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.15680435299873352 and kl is 0.15118840336799622
+[timing] sample processed in 267.86s
+
+=== PROFILER ===
+Sampling:          134.27s
+Logprob forward:   40.41s
+Reward + Adv:      11.06s
+Backward:          81.60s
+A baker uses 2/5 of her flour and then 1/3 of the remainder. If 18 kg remain, how much flour initially?
+answer is 45
+⚠️ Sampling slow: 171.4s, steps=252
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.15753300487995148 and kl is 0.14191289246082306
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 214.65s
+
+=== PROFILER ===
+Sampling:          171.41s
+Logprob forward:   32.76s
+Reward + Adv:      9.52s
+Backward:          0.00s
+A bakery makes 400 cupcakes. They sell 40% in the morning. Of the remainder, they give 1/4 to a local shelter. The rest are sold in the afternoon in boxes of 6. If they sell each box for $12, how much money did they make in the afternoon?
+answer is 360
+
+🚨 SAMPLING WARNING
+  Time: 202.99s (too slow)
+  Steps taken: 332
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A bakery makes 400 cupcakes. They sell 40% in the morning. Of the remainder, they give 1/4 to a local shelter. The rest ...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649,  0.6325, -0.6325,  1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.06276428699493408 and kl is 0.06601597368717194
+[timing] sample processed in 388.50s
+
+=== PROFILER ===
+Sampling:          202.99s
+Logprob forward:   64.53s
+Reward + Adv:      22.64s
+Backward:          97.64s
+Alice is 4 years older than Bob. Bob is half the age of Charlie. In 5 years, Charlie will be 35. How old is Alice now?
+answer is 19
+⚠️ Sampling slow: 118.3s, steps=166
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.0519874207675457
+[timing] sample processed in 178.50s
+
+=== PROFILER ===
+Sampling:          118.29s
+Logprob forward:   24.20s
+Reward + Adv:      8.93s
+Backward:          26.53s
+A pool is being filled by two pipes. Pipe A fills at 20L/min and Pipe B fills at 15L/min. Pipe A runs for 30 minutes alone, then both pipes run together for 20 minutes. If the pool is now 70% full, what is the total capacity of the pool?
+answer is 1857.14
+
+🚨 SAMPLING WARNING
+  Time: 201.98s (too slow)
+  Steps taken: 293
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A pool is being filled by two pipes. Pipe A fills at 20L/min and Pipe B fills at 15L/min. Pipe A runs for 30 minutes alo...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 1.2649, -1.2649,  0.0000,  0.6325, -0.6325], device='mps:0')
+grpo_loss is 0.06280909478664398 and kl is 0.0875287652015686
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 261.15s
+
+=== PROFILER ===
+Sampling:          201.98s
+Logprob forward:   45.15s
+Reward + Adv:      11.84s
+Backward:          0.00s
+A store buys 50 shirts for $10 each. They sell 30 shirts at a 60% markup. The remaining shirts are sold at a 20% discount off the original cost. What is the total profit or loss in dollars?
+answer is 140
+
+🚨 SAMPLING WARNING
+  Time: 270.44s (too slow)
+  Steps taken: 385
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A store buys 50 shirts for $10 each. They sell 30 shirts at a 60% markup. The remaining shirts are sold at a 20% discoun...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 1.2649,  0.6325, -1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is 0.33541280031204224 and kl is 0.07750227302312851
+[timing] sample processed in 442.39s
+
+=== PROFILER ===
+Sampling:          270.44s
+Logprob forward:   56.52s
+Reward + Adv:      22.54s
+Backward:          92.18s
+A train travels from City A to City B at 60 mph and returns at 40 mph. If the distance between the cities is 120 miles, what is the average speed for the entire round trip?
+answer is 48
+⚠️ Sampling slow: 118.0s, steps=169
+advantages is tensor([ 0.0000,  1.2649, -1.2649,  0.6325, -0.6325], device='mps:0')
+grpo_loss is 0.0620284304022789 and kl is 0.12283363193273544
+[timing] sample processed in 186.35s
+
+=== PROFILER ===
+Sampling:          118.00s
+Logprob forward:   27.53s
+Reward + Adv:      7.73s
+Backward:          32.28s
+A farmer has 120 animals. 1/3 are cows, 2/5 are sheep, and the rest are goats. If he sells half the goats and buys 10 more sheep, how many animals does he have in total now?
+answer is 114
+⚠️ Sampling slow: 163.5s, steps=238
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.07610321044921875 and kl is 0.05187990143895149
+[timing] sample processed in 267.25s
+
+=== PROFILER ===
+Sampling:          163.55s
+Logprob forward:   33.51s
+Reward + Adv:      13.49s
+Backward:          56.26s
+A tank contains 500 liters of a 20% salt solution. How much water must be evaporated to make it a 25% salt solution?
+answer is 100
+
+🚨 SAMPLING WARNING
+  Time: 262.48s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, False, False, False, False]
+  Prompt: A tank contains 500 liters of a 20% salt solution. How much water must be evaporated to make it a 25% salt solution? Rea...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649, -0.6325,  1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.06922246515750885 and kl is 0.07378002256155014
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 332.98s
+
+=== PROFILER ===
+Sampling:          262.48s
+Logprob forward:   46.83s
+Reward + Adv:      21.33s
+Backward:          0.00s
+A project takes 3 workers 8 days to complete. If one worker leaves after 2 days, how many additional days will it take the remaining two workers to finish the job?
+answer is 9
+⚠️ Sampling slow: 125.2s, steps=160
+advantages is tensor([-0.6325,  1.2649,  0.0000, -1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.06318767368793488 and kl is 0.09727372974157333
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 159.33s
+
+=== PROFILER ===
+Sampling:          125.19s
+Logprob forward:   23.57s
+Reward + Adv:      8.21s
+Backward:          0.00s
+[92m📊 [System Health] RAM: 84.7% | Swap Used: 21.08 GB[0m
+A car rental costs $50 per day plus $0.15 per mile. If a person rents a car for 3 days and is charged $210, how many miles did they drive?
+answer is 400
+⚠️ Sampling slow: 78.6s, steps=115
+
+
+**Step 1: Calculate the cost for the three days.**
+
+$50 * 3 = $150
+
+**Step 2: Determine the cost of miles based on the total charge.**
+
+$210 - $150 = $60
+
+**Step 3: Calculate the number of miles driven.**
+
+$60 / $0.15 = 400 miles
+
+**Final answer:** 400 miles were driven. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1:** Determine the cost of the rental for 3 days.
+
+  $50 * 3 = $150
+
+**Step 2:**  Determine the amount spent on miles driven based on $210 total cost.  
+
+  $210 - $150 = $60
+
+**Step 3:** Calculate how many miles driven.
+
+   $60 / $0.15 = 400 miles
+
+**Final Answer:** 400 miles were driven. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the cost of the rental for the 3 days.**
+
+$50 * 3 = $150
+
+**Step 2: Determine the cost of the mileage.**
+
+$210 - $150 = $60
+
+**Step 3: Calculate the number of miles driven.**
+
+$60 / $0.15 per mile = 400 miles
+
+**Final answer: 400 miles** 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the cost of renting the car for 3 days.**
+
+$50 * 3 = $150 
+
+**Step 2: Calculate how much of that $210 is due to the mileage charges.**
+
+$210 - $150 = $60
+
+**Step 3: Calculate the number of miles driven.**
+
+$60 / $0.15 per mile = 400 miles
+
+**Final answer:**  400 miles were driven. 
+
+reward is 0.9600000000000001
+is result truncated? False
+ 
+
+**Step 1: Figure out the cost for 3 days.**
+
+$50 * 3 = $150
+
+
+**Step 2: Calculate the number of miles driven.**
+
+$210 - $150 = $60
+
+
+**Step 3: Determine the miles driven.**
+
+$60 / $0.15 per mile = 400 miles 
+
+
+**Final answer: 400 miles** 
+
+reward is 0.9600000000000001
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.12148566544055939
+[timing] sample processed in 132.00s
+
+=== PROFILER ===
+Sampling:          78.57s
+Logprob forward:   18.40s
+Reward + Adv:      3.13s
+Backward:          31.36s
+A student scored 75, 82, and 90 on three tests. What score does he need on the fourth test to raise his average to 85?
+answer is 93
+⚠️ Sampling slow: 70.5s, steps=106
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.1831030249595642
+[timing] sample processed in 104.74s
+
+=== PROFILER ===
+Sampling:          70.47s
+Logprob forward:   12.52s
+Reward + Adv:      3.77s
+Backward:          17.42s
+A rectangle's length is 4 cm more than its width. If the perimeter is 48 cm, what is the area of the rectangle?
+answer is 140
+⚠️ Sampling slow: 198.0s, steps=305
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.037452567368745804
+[timing] sample processed in 295.20s
+
+=== PROFILER ===
+Sampling:          197.97s
+Logprob forward:   35.40s
+Reward + Adv:      14.19s
+Backward:          47.15s
+A jar contains red and blue marbles in a 3:5 ratio. After adding 10 red marbles, the ratio becomes 1:1. How many blue marbles were originally in the jar?
+answer is 25
+
+🚨 SAMPLING WARNING
+  Time: 236.95s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, True, False, False, False]
+  Prompt: A jar contains red and blue marbles in a 3:5 ratio. After adding 10 red marbles, the ratio becomes 1:1. How many blue ma...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.0022662878036499023 and kl is 0.09454475343227386
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 313.44s
+
+=== PROFILER ===
+Sampling:          236.95s
+Logprob forward:   53.56s
+Reward + Adv:      20.45s
+Backward:          0.00s
+A person spends 1/3 of their monthly salary on rent and 1/4 of the remainder on food. If they have $1200 left, what is their total monthly salary?
+answer is 2400
+⚠️ Sampling slow: 188.1s, steps=232
+advantages is tensor([-0.6325, -1.2649,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.22561219334602356 and kl is 0.11253025382757187
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 236.83s
+
+=== PROFILER ===
+Sampling:          188.15s
+Logprob forward:   33.40s
+Reward + Adv:      12.72s
+Backward:          0.00s
+A clock loses 5 minutes every hour. If it is set correctly at 12:00 PM, what time will it show when the actual time is 8:00 PM?
+answer is 7:20 PM
+⚠️ Sampling slow: 136.4s, steps=195
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.08969411253929138
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 174.23s
+
+=== PROFILER ===
+Sampling:          136.37s
+Logprob forward:   28.26s
+Reward + Adv:      7.23s
+Backward:          0.00s
+A sum of money doubles itself in 10 years at simple interest. What is the annual interest rate?
+answer is 10
+
+🚨 SAMPLING WARNING
+  Time: 270.97s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, False, True, False, False]
+  Prompt: A sum of money doubles itself in 10 years at simple interest. What is the annual interest rate? Reason step-by-step,  th...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.16550031304359436 and kl is 0.09020398557186127
+[timing] sample processed in 424.35s
+
+=== PROFILER ===
+Sampling:          270.97s
+Logprob forward:   58.01s
+Reward + Adv:      19.34s
+Backward:          74.97s
+A cyclist travels 15 miles at 10 mph and then 20 miles at 15 mph. What is the total time spent cycling in minutes?
+answer is 170
+⚠️ Sampling slow: 99.7s, steps=163
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.11373269557952881 and kl is 0.10561668872833252
+[timing] sample processed in 146.66s
+
+=== PROFILER ===
+Sampling:          99.67s
+Logprob forward:   18.27s
+Reward + Adv:      7.13s
+Backward:          20.67s
+A box contains 240 fruit pieces. 30% are apples, 45% are oranges, and the rest are bananas. If 1/3 of the bananas are removed, how many pieces of fruit are left in the box?
+answer is 220
+⚠️ Sampling slow: 146.8s, steps=221
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.02586812898516655 and kl is 0.043058764189481735
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 191.70s
+
+=== PROFILER ===
+Sampling:          146.84s
+Logprob forward:   31.90s
+Reward + Adv:      12.18s
+Backward:          0.00s
+A worker's salary is increased by 10% and then decreased by 10%. What is the net percentage change in the salary?
+answer is -1
+
+🚨 SAMPLING WARNING
+  Time: 255.91s (too slow)
+  Steps taken: 310
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A worker's salary is increased by 10% and then decreased by 10%. What is the net percentage change in the salary? Reason...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.0000, -0.6325,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is 0.16561174392700195 and kl is 0.08010760694742203
+[timing] sample processed in 415.39s
+
+=== PROFILER ===
+Sampling:          255.92s
+Logprob forward:   49.83s
+Reward + Adv:      23.83s
+Backward:          85.14s
+[92m📊 [System Health] RAM: 44.6% | Swap Used: 18.90 GB[0m
+A garden is 20m long and 15m wide. A path 2m wide is built around the outside. What is the area of the path?
+answer is 156
+
+🚨 SAMPLING WARNING
+  Time: 242.06s (too slow)
+  Steps taken: 374
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A garden is 20m long and 15m wide. A path 2m wide is built around the outside. What is the area of the path? Reason step...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+
+
+**Step 1: Find the dimensions of the garden including the path.**
+
+   Length with path = 20m + 2(2m) = 20m + 4m = 24m
+   Width with path = 15m + 2(2m) = 15m + 4m = 19m
+
+
+**Step 2: Find the area of the garden.**
+
+   Area of garden = 20m * 15m = 300m²
+
+
+**Step 3: Find the area of the path.**
+
+    Area of path = Area of garden - Area of garden with path
+    Area of path = 300m² - 24m * 19m = 300m² - 456m² = -156m²
+
+
+    
+
+Wait! We cannot have a negative area.  
+
+
+
+**Final answer:**
+
+
+
+This means your calculation has an error in determining the garden dimensions with path. When we define the path, it should be connected to the existing garden, therefore subtracting it  would lead to the error shown above.
+
+
+
+**Explanation:** When you build the path, you are essentially adding it around the perimeter. You then subtract the area of all these new additions, instead of trying to subtract these new additions' area from existing ones. Therefore, you're not accurately measuring the path, or adding it to your garden correctly.
+
+
+It's important to carefully understand how paths alter areas to make your calculations accurate. 
+
+
+
+
+
+Please check that your reasoning for calculating the size of the path was carried out correctly. 
+
+
+
+ 
+
+
+
+Let me know if you have any other questions or find this difficult. I am always here to help. 
+
+reward is -1.3
+is result truncated? False
+ 
+
+**Step 1: Find the length and width of the garden after the path is built.**
+
+   - Length after path: 20m + 2(2m) = 20m + 4m = 24m
+   - Width after path: 15m + 2(2m) = 15m + 4m = 19m
+
+**Step 2: Calculate the area of the garden before the path is built.**
+
+   - Area = length * width
+   - Area = 20m * 15m = 300 sq m
+
+**Step 3: Calculate the area of the garden with the path.**
+
+   - Area = 24m * 19m = 456 sq m
+
+**Step 4: Calculate the area of the path.**
+
+   - Area of path = Area of garden with path - Area of garden 
+   - Area of path = 456 sq m - 300 sq m 
+   - Area of path = 156 sq m
+
+
+**Final answer:** The area of the path is 156 sq m. 
+
+reward is -0.1
+is result truncated? False
+
+
+**Step 1: Find the dimensions of the garden without the path**
+
+   Length = 20m
+   Width = 15m
+
+**Step 2: Find the perimeter of the garden**
+
+   Perimeter = 2 * (Length + Width)
+   Perimeter = 2 * (20m + 15m)
+   Perimeter = 2 * 35m
+   Perimeter = 70m
+
+**Step 3: Find the length of the path**
+
+   Length of the path = 70m - 2 * (15m + 20m)
+   Length of the path = 70m - 2 * (35m)
+   Length of the path = 70m - 70m 
+   Length of the path = 0m 
+
+Therefore, the length of the path is 0. 
+
+
+
+Here is some explanation:
+
+
+* Since the path is built around the outside, it includes as much garden as possible around its perimeter. 
+
+
+ 
+
+I hope this makes your work a little easier! 
+We've found out it's 0 meters wide!
+
+
+
+
+**Final answer:** The area of the path is 0.
+
+
+
+Let me know if you'd like to try another thing.  
+reward is -1.5
+is result truncated? False
+
+
+**Step 1: Calculate the perimeter of the original garden**
+
+   20m + 15m * 2 = 20m + 30m = 50m
+
+**Step 2: Calculate the length of the path's outer perimeter**
+
+   50m - 2m * 2 = 50m - 4m = 46m 
+
+**Step 3: Calculate the area of the new garden, excluding the path.**
+
+   20m * 15m = 300m²
+
+**Step 4: Calculate the area of the actual garden with the path included.**
+
+   300m² * 0.75 = 225m² 
+
+**Step 5: Calculate the area of the pathway.** 
+
+   225m² - 46m * 2 = 225m² - 92m² = 133m²
+
+
+**Final Answer: 133m²** 
+
+reward is -1.06
+is result truncated? False
+
+
+**Step 1: Calculate the dimensions of the garden with the path.**
+
+   - Length of garden with path:  20m + 2(2m) = 24m
+   - Width of garden with path: 15m + 2(2m) = 19m
+
+**Step 2: Calculate the area of the garden.**
+
+   - Area of garden:  20m * 15m = 300m²
+
+**Step 3: Calculate the area of the path.**
+
+   - Area of path = Area of garden - Area of path  
+   - Area of path = 300m²  - (24m * 19m)  
+
+**Step 4: Calculate the length of the path.** 
+ 
+  24m * 19m = 456m²
+
+
+**Final answer: 300m²  - 456m²  = -156m²**
+
+There must have been a mistake somewhere. Area cannot be negative!  A path cannot physically occupy the inside of the boundaries of the garden.  It needs to encompass the buffer zone between the path and garden boundaries. 
+  
+
+
+
+Let me know what else you can try! This example illustrates how even a few small errors can lead to wrong results. 
+
+reward is -1.08
+is result truncated? False
+advantages is tensor([-0.6325,  1.2649, -1.2649,  0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.06397559493780136 and kl is 0.08150358498096466
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 311.96s
+
+=== PROFILER ===
+Sampling:          242.06s
+Logprob forward:   46.48s
+Reward + Adv:      21.06s
+Backward:          0.00s
+A set of 5 consecutive odd integers has a sum of 105. What is the largest integer in the set?
+answer is 25
+
+🚨 SAMPLING WARNING
+  Time: 253.06s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, False, False, True, False]
+  Prompt: A set of 5 consecutive odd integers has a sum of 105. What is the largest integer in the set? Reason step-by-step,  then...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.0000, -0.6325,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is 0.20514731109142303 and kl is 0.051551152020692825
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 339.48s
+
+=== PROFILER ===
+Sampling:          253.06s
+Logprob forward:   59.71s
+Reward + Adv:      24.09s
+Backward:          0.00s
+A plane flies 600 miles with a tailwind in 2 hours. The return trip against the same wind takes 3 hours. What is the speed of the wind in mph?
+answer is 50
+
+🚨 SAMPLING WARNING
+  Time: 240.81s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, True, False, False, False]
+  Prompt: A plane flies 600 miles with a tailwind in 2 hours. The return trip against the same wind takes 3 hours. What is the spe...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649, -0.6325,  0.6325,  1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.28180789947509766 and kl is 0.10109877586364746
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 316.06s
+
+=== PROFILER ===
+Sampling:          240.81s
+Logprob forward:   51.66s
+Reward + Adv:      21.65s
+Backward:          0.00s
+A bag contains $5.50 in quarters and dimes. If there are 34 coins in total, how many quarters are there?
+answer is 14
+⚠️ Sampling slow: 189.3s, steps=317
+advantages is tensor([-0.6325,  0.0000,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is 0.27745458483695984 and kl is 0.07040806114673615
+[timing] sample processed in 338.45s
+
+=== PROFILER ===
+Sampling:          189.26s
+Logprob forward:   46.87s
+Reward + Adv:      19.27s
+Backward:          82.34s
+A machine can produce 120 units in 3 hours. If its efficiency decreases by 20%, how many units can it produce in a 5-hour shift?
+answer is 160
+⚠️ Sampling slow: 97.0s, steps=147
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is 0.06997092068195343 and kl is 0.14479109644889832
+[step 125] avg_loss=0.0108 acc=0.4160
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+   Distance = Speed * Time
+   Distance = 62 km/h * 2 h
+   Distance = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+   Distance = Speed * Time
+   Distance = 124 km/h * 3 h
+   Distance = 372 km
+
+**Step 3: Calculate the total distance**
+
+   Total Distance = Distance 1 + Distance 2
+   Total Distance = 124 km + 372 km
+   Total Distance = 496 km
+
+**Final answer: 496 km** 
+
+[timing] sample processed in 175.04s
+
+=== PROFILER ===
+Sampling:          97.00s
+Logprob forward:   16.02s
+Reward + Adv:      5.11s
+Backward:          26.70s
+A student reads 20 pages a day. After 5 days, she increases her rate by 50%. How many total days will it take her to finish a 250-page book?
+answer is 10
+⚠️ Sampling slow: 122.4s, steps=189
+advantages is tensor([-0.6325,  0.6325,  1.2649,  0.0000, -1.2649], device='mps:0')
+grpo_loss is 0.1077878475189209 and kl is 0.11027932167053223
+[timing] sample processed in 188.07s
+
+=== PROFILER ===
+Sampling:          122.38s
+Logprob forward:   21.98s
+Reward + Adv:      10.19s
+Backward:          32.71s
+A shirt is marked down by 20%, and then an additional 10% discount is applied to the sale price. If the final price is $54, what was the original price?
+answer is 75
+
+🚨 SAMPLING WARNING
+  Time: 229.54s (too slow)
+  Steps taken: 365
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A shirt is marked down by 20%, and then an additional 10% discount is applied to the sale price. If the final price is $...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.0000,  0.6325, -0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is 0.20439231395721436 and kl is 0.14121077954769135
+[timing] sample processed in 356.93s
+
+=== PROFILER ===
+Sampling:          229.54s
+Logprob forward:   48.39s
+Reward + Adv:      19.85s
+Backward:          58.43s
+A cylindrical tank has a radius of 3m and a height of 7m. If it is 1/3 full, how many cubic meters of water are in the tank? (Use pi = 22/7)
+answer is 66
+⚠️ Sampling slow: 98.0s, steps=163
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.13561053574085236 and kl is 0.07959052920341492
+[timing] sample processed in 151.84s
+
+=== PROFILER ===
+Sampling:          97.98s
+Logprob forward:   16.58s
+Reward + Adv:      10.51s
+Backward:          25.88s
+A person buys a bike for $400 and spends $100 on repairs. They then sell it for a 25% profit on the total cost. What was the selling price?
+answer is 625
+⚠️ Sampling slow: 95.7s, steps=148
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.05803271383047104
+[timing] sample processed in 143.10s
+
+=== PROFILER ===
+Sampling:          95.65s
+Logprob forward:   15.38s
+Reward + Adv:      8.55s
+Backward:          22.95s
+A sequence of numbers follows the rule: next number = (previous number * 2) - 3. If the first number is 5, what is the 5th number?
+answer is 35
+⚠️ Sampling slow: 89.8s, steps=177
+advantages is tensor([-0.6325,  0.0000,  0.6325, -1.2649,  1.2649], device='mps:0')
+grpo_loss is -0.1597936600446701 and kl is 0.07257549464702606
+[timing] sample processed in 121.66s
+
+=== PROFILER ===
+Sampling:          89.82s
+Logprob forward:   7.12s
+Reward + Adv:      1.92s
+Backward:          22.20s
+[92m📊 [System Health] RAM: 59.3% | Swap Used: 10.96 GB[0m
+A work group of 5 people can finish a task in 12 hours. How many more people are needed to finish the same task in 4 hours?
+answer is 10
+⚠️ Sampling slow: 89.6s, steps=293
+
+
+**Step 1: Calculate the output of one worker per hour.**
+
+   5 people * 12 hours = 60 person-hours
+
+   60 person-hours / 5 people = 12 person-hours per person
+
+**Step 2: Calculate the number of people needed to complete the task in 4 hours.**
+
+   60 person-hours / 4 hours = 15 people
+
+   
+
+
+**Final answer: 3 more people are needed.** 
+ 
+Let me know if you have any other math questions you need help with! 😊 
+
+reward is -1.1
+is result truncated? False
+
+
+**Step 1:** Determine the work rate per person.
+
+   1 task / 12 hours = 1/12 task per hour 
+
+**Step 2:** Determine the work rate per person when working to finish a task in 4 hours.
+
+   1 task / 4 hours = 1/4 task per hour
+
+
+**Step 3:** Determine how many more people are needed to finish the same task.
+
+   Work Rate per Hour x Number of people needed=  ( 1/4 task per hour) * (Number of people needed) 
+
+
+We know the work rate per person is ( 1/4 task per hour ) , so we need to figure out what number needed
+
+Well 1 task = $4$
+
+
+
+     4 * $4$
+
+
+
+**Answer:**
+
+You will need $4 \times 1$ people
+
+
+
+Or
+
+
+
+You will need $\boxed{4}$ People.
+
+
+
+
+
+
+I hope this makes sense, feel free to ask for explanations of anything!
+reward is -1.06
+is result truncated? False
+
+
+**Step 1: Calculate the work done by one person per hour.**
+
+   5 people * 12 hours = 60 units of work
+
+   1 person * 12 hours = 12 units of work
+
+   1 person does 1 unit of work every 12 hours
+
+   So, 1 person does 1/12 of a work unit per hour
+
+**Step 2: Calculate the work done in 4 hours by one person.**
+
+   1 person * 4 hours = 4 units of work
+
+  Notice that  5* 12 hours was 60 units of work,  so for one person 1/12 of the work is being done in 4 hours:
+
+   4 units is being done per hour
+
+
+   So, one person can finish this portion of work
+
+
+**Step 3: Calculate the total work needed to be done.**
+
+   Since that the average rate of one person is 1 work unit per 12 hours at 4.the second person can join
+
+
+
+   Work remaining = 60 units -  28 units = 32 units
+
+
+
+**Step 4: Calculate the additional number of people needed.**
+
+   32 units / 4 units/person = 8 people
+
+
+**Final Answer: 8 people**
+
+
+
+Let me know if you'd like any explanations clarified! 
+
+reward is -1.04
+is result truncated? False
+
+
+**Step 1:  Determine the task's rate of completion per person** 
+
+1 task / 12 hours = 1/12 task completed per hour
+
+**Step 2: Determine the number of hours needed to complete the task by scaling it up proportionally**
+
+
+``` 
+4 hours * (1/12 task) * 
+```
+
+
+
+**Step 3: Calculate the remaining persons needed** 
+
+Since the workforce lengthens proportional by the scaling factor, initially the workers  make a specific rate per hour. We will scale up that rate, keeping it the same proportion from Step 1 that changes with more workers.
+
+```
+5 people* 1/12 task
+```
+
+
+Therefore
+
+
+
+```
+4 hours - Time is higher (implicitly simplified to 1/4 task * time after scaling from 4 hours * (1/12 task)
+```
+
+
+
+**Final Answer:**: 3 additional person(s)
+
+
+
+Let me know if you have any other questions. I tried my best to make it transparent. 
+
+reward is -1.08
+is result truncated? False
+
+
+**Step 1:** Find the work output per person.
+
+   1 task / 12 hours = 1/12 work per hour
+
+**Step 2:** Calculate work output per person in 4 hours.
+
+   4 hours * (1/12 work per hour) = 1/3 work per person
+
+**Step 3:** Determine the additional workers needed.
+
+   1 task / (1/3 work per person)  = 3 additional people
+
+
+**Final answer:** You need **3** more people. 
+
+reward is -1.04
+is result truncated? False
+advantages is tensor([-1.2649,  0.0000,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.03825240582227707 and kl is 0.14116665720939636
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 125.76s
+
+=== PROFILER ===
+Sampling:          89.59s
+Logprob forward:   19.91s
+Reward + Adv:      15.21s
+Backward:          0.00s
+A jar of honey is 4/5 full. After using 120ml, it is 1/2 full. What is the total capacity of the jar in milliliters?
+answer is 400
+⚠️ Sampling slow: 177.5s, steps=356
+advantages is tensor([-1.2649,  0.6325,  1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.18267032504081726 and kl is 0.1186736449599266
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 254.84s
+
+=== PROFILER ===
+Sampling:          177.53s
+Logprob forward:   53.86s
+Reward + Adv:      20.91s
+Backward:          0.00s
+A car travels 30 miles per gallon of gas. If gas costs $4 per gallon, how much will a 450-mile trip cost?
+answer is 60
+⚠️ Sampling slow: 50.1s, steps=90
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.1297149658203125
+[timing] sample processed in 92.48s
+
+=== PROFILER ===
+Sampling:          50.10s
+Logprob forward:   16.69s
+Reward + Adv:      1.71s
+Backward:          23.17s
+A rectangular field has an area of 300 square meters. If the length is 3 times the width, what is the perimeter of the field?
+answer is 80
+⚠️ Sampling slow: 149.6s, steps=340
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.03417563810944557
+[timing] sample processed in 258.69s
+
+=== PROFILER ===
+Sampling:          149.65s
+Logprob forward:   32.40s
+Reward + Adv:      15.81s
+Backward:          60.37s
+A store sells a laptop for $800, which is a 25% profit over the cost. What was the original cost to the store?
+answer is 640
+⚠️ Sampling slow: 109.6s, steps=205
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.0022401870228350163 and kl is 0.1348210871219635
+[timing] sample processed in 163.79s
+
+=== PROFILER ===
+Sampling:          109.61s
+Logprob forward:   14.28s
+Reward + Adv:      7.02s
+Backward:          31.91s
+A person is twice as old as their brother was 5 years ago. If the person is currently 20, how old is the brother now?
+answer is 15
+⚠️ Sampling slow: 124.9s, steps=252
+advantages is tensor([ 1.2649,  0.6325, -0.6325,  0.0000, -1.2649], device='mps:0')
+grpo_loss is 0.017479563131928444 and kl is 0.14343419671058655
+[timing] sample processed in 198.95s
+
+=== PROFILER ===
+Sampling:          124.92s
+Logprob forward:   23.83s
+Reward + Adv:      7.40s
+Backward:          42.15s
+A library has 1000 books. 40% are fiction. Of the non-fiction books, 1/3 are science-related. How many science books are there?
+answer is 200
+⚠️ Sampling slow: 73.6s, steps=128
+advantages is tensor([-1.2649,  0.0000, -0.6325,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.09864355623722076 and kl is 0.06420179456472397
+[timing] sample processed in 106.48s
+
+=== PROFILER ===
+Sampling:          73.56s
+Logprob forward:   10.48s
+Reward + Adv:      4.67s
+Backward:          17.07s
+A boat travels 24 miles downstream in 2 hours and 24 miles upstream in 4 hours. What is the speed of the boat in still water?
+answer is 9
+⚠️ Sampling slow: 192.1s, steps=400
+advantages is tensor([ 0.6325,  1.2649, -1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.19811345636844635 and kl is 0.08526560664176941
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 268.02s
+
+=== PROFILER ===
+Sampling:          192.07s
+Logprob forward:   52.14s
+Reward + Adv:      21.49s
+Backward:          0.00s
+A sum of $5000 is invested at 5% annual compound interest. What is the total value after 2 years?
+answer is 5512.50
+⚠️ Sampling slow: 176.1s, steps=283
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.07099203765392303 and kl is 0.07332006096839905
+[timing] sample processed in 362.86s
+
+=== PROFILER ===
+Sampling:          176.08s
+Logprob forward:   41.98s
+Reward + Adv:      18.85s
+Backward:          125.03s
+A marathon runner completes 26 miles. He runs the first 10 miles at 8 mph and the rest at 6 mph. How many minutes did the total run take?
+answer is 235
+
+🚨 SAMPLING WARNING
+  Time: 210.08s (too slow)
+  Steps taken: 310
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A marathon runner completes 26 miles. He runs the first 10 miles at 8 mph and the rest at 6 mph. How many minutes did th...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.07841353118419647 and kl is 0.1112622618675232
+[timing] sample processed in 336.35s
+
+=== PROFILER ===
+Sampling:          210.08s
+Logprob forward:   44.00s
+Reward + Adv:      19.47s
+Backward:          62.22s
+[92m📊 [System Health] RAM: 65.2% | Swap Used: 15.65 GB[0m
+A box of 12 donuts costs $10. A single donut costs $1.25. How much money is saved by buying 3 dozen donuts instead of 36 single donuts?
+answer is 15
+⚠️ Sampling slow: 119.8s, steps=177
+
+
+**Step 1: Find the price of a single donut box.**
+
+$$10 / 12 = $0.83$$
+
+**Step 2: Find the cost of 36 single donuts.**
+
+$$36 * $1.25 = $45$$
+
+
+**Step 3: Calculate the cost of 3 dozen donuts.**
+
+$$3 * $10 = $30$$
+
+
+**Step 4: Find the difference in price.**
+
+$$$45 - $30 = $15$$
+
+
+**Final answer: $15 saved** 
+
+
+Feel free to double check my steps or try out any different problem-solving approaches. Happy to explain more anytime!   
+
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the cost of 36 single donuts.**
+
+   $1.25 * 36 donuts = $45
+
+**Step 2: Calculate the cost of 3 dozen donuts.**
+
+   $10 * 3 dozen = $30
+
+   Since each donut costs $1.25, here is a breakdown to get to the above number:
+    
+   $30/$1.25 per donut * 12 donuts per box = $30.00
+
+
+
+**Step 3: Calculate the difference in price between 3 dozen donuts and 36 single donuts.**
+
+   $45 - $30 = $15 
+
+**Final answer:** $15.
+
+
+
+
+Let me know if you have other math problems you need help with. 👍 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+
+**Step 1: Find the cost per donut.**
+
+   $1.25 per donut
+
+**Step 2: Find the cost of 36 single donuts.**
+
+   $1.25 per donut * 36 donuts = $45.00
+
+**Step 3: Find the cost of 3 dozen donuts.**
+
+   $10.00 per box * 3 boxes = $30.00
+
+**Step 4: Find the money saved.**
+
+   $45.00 - $30.00 = $15.00
+
+
+**Final Answer:** You save $15.00. 
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the price of 36 single donuts.**
+
+$1.25 * 36 donuts = $45
+
+**Step 2: Calculate the price of 3 dozen donuts.**
+
+$10 * 3 dozen = $30
+
+**Step 3: Calculate the difference in cost.** 
+
+ $45 - $30 = $15
+
+**Final answer: $15**
+
+
+
+$$
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the cost per donut for a box of 12 donuts** 
+
+$1.25 per donut
+
+**Step 2: Calculate the cost of 3 dozen donuts. It takes 3 dozen x 12 donuts per dozen**
+
+$1.25 per donut * 36 donuts = $45.00
+
+**Step 3: Calculate the difference between the cost of buying 36 donuts and the cost of buying 3 dozen donuts**
+
+$45.00 - $10.00 = $35.00
+
+
+
+**Final answer:** You are saved $35.00. 
+
+reward is -1.06
+is result truncated? False
+advantages is tensor([-0.6325,  0.0000,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is -0.15863049030303955 and kl is 0.10868296772241592
+[timing] sample processed in 179.69s
+
+=== PROFILER ===
+Sampling:          119.81s
+Logprob forward:   19.84s
+Reward + Adv:      11.96s
+Backward:          27.71s
+A person is 3 times as old as his son. In 12 years, he will be twice as old as his son. How old is the father now?
+answer is 36
+
+🚨 SAMPLING WARNING
+  Time: 229.28s (too slow)
+  Steps taken: 357
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A person is 3 times as old as his son. In 12 years, he will be twice as old as his son. How old is the father now? Reaso...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.10647507011890411 and kl is 0.024717533960938454
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 287.20s
+
+=== PROFILER ===
+Sampling:          229.28s
+Logprob forward:   40.03s
+Reward + Adv:      16.75s
+Backward:          0.00s
+A pipe can fill a tank in 4 hours, and a drain can empty it in 6 hours. If both are open, how long will it take to fill the tank?
+answer is 12
+
+🚨 SAMPLING WARNING
+  Time: 256.90s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, False, False, True, False]
+  Prompt: A pipe can fill a tank in 4 hours, and a drain can empty it in 6 hours. If both are open, how long will it take to fill ...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([ 0.6325, -0.6325,  0.0000, -1.2649,  1.2649], device='mps:0')
+grpo_loss is 0.2709689736366272 and kl is 0.08559080213308334
+[timing] sample processed in 431.86s
+
+=== PROFILER ===
+Sampling:          256.90s
+Logprob forward:   62.13s
+Reward + Adv:      24.72s
+Backward:          86.78s
+A group of 4 people shared a bill of $120. They decided to leave a 15% tip and split the total equally. How much did each person pay?
+answer is 34.50
+⚠️ Sampling slow: 84.5s, steps=111
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.08375587314367294 and kl is 0.07288231700658798
+[timing] sample processed in 122.48s
+
+=== PROFILER ===
+Sampling:          84.46s
+Logprob forward:   13.77s
+Reward + Adv:      4.52s
+Backward:          19.07s
+A wall is 10m long and 3m high. How many 20cm by 10cm bricks are needed to cover it?
+answer is 1500
+⚠️ Sampling slow: 161.9s, steps=243
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.007359874434769154 and kl is 0.0626259446144104
+[timing] sample processed in 241.71s
+
+=== PROFILER ===
+Sampling:          161.94s
+Logprob forward:   29.41s
+Reward + Adv:      10.56s
+Backward:          38.50s
+A number is increased by 20% and the result is decreased by 25%. If the final number is 90, what was the original number?
+answer is 100
+
+🚨 SAMPLING WARNING
+  Time: 239.54s (too slow)
+  Steps taken: 400
+  Truncated flags: [False, False, True, False, False]
+  Prompt: A number is increased by 20% and the result is decreased by 25%. If the final number is 90, what was the original number...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-0.6325,  0.6325, -1.2649,  1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.21439659595489502 and kl is 0.08454039692878723
+[timing] sample processed in 385.27s
+
+=== PROFILER ===
+Sampling:          239.55s
+Logprob forward:   46.04s
+Reward + Adv:      20.47s
+Backward:          78.61s
+A car's value depreciates by 15% each year. If it is worth $20,000 now, what will it be worth in 2 years?
+answer is 14450
+⚠️ Sampling slow: 96.4s, steps=177
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.011301064863801003 and kl is 0.03686968609690666
+[timing] sample processed in 147.30s
+
+=== PROFILER ===
+Sampling:          96.36s
+Logprob forward:   16.89s
+Reward + Adv:      7.82s
+Backward:          25.80s
+A man walks 3km North, then 4km East. How far is he from his starting point in a straight line?
+answer is 5
+⚠️ Sampling slow: 172.7s, steps=298
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.08930858224630356
+[timing] sample processed in 281.55s
+
+=== PROFILER ===
+Sampling:          172.72s
+Logprob forward:   30.29s
+Reward + Adv:      15.19s
+Backward:          62.61s
+A shop sells pens in packs of 5 for $2 or packs of 12 for $4.50. What is the minimum cost to buy 50 pens?
+answer is 19.5
+⚠️ Sampling slow: 151.8s, steps=223
+advantages is tensor([-1.2649,  1.2649,  0.6325,  0.0000, -0.6325], device='mps:0')
+grpo_loss is -0.18421117961406708 and kl is 0.1321335881948471
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 191.10s
+
+=== PROFILER ===
+Sampling:          151.83s
+Logprob forward:   24.89s
+Reward + Adv:      13.82s
+Backward:          0.00s
+A mixture contains milk and water in a 5:2 ratio. If the total volume is 35 liters, how much water must be added to make the ratio 1:1?
+answer is 15
+⚠️ Sampling slow: 189.2s, steps=230
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.00921179074794054 and kl is 0.1376517117023468
+All rewards are negative; skipping gradient update.
+[step 150] avg_loss=0.0017 acc=0.5120
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+   62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+   124 km * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+   124 km + 372 km = 496 km
+
+**Final answer:** 496 km 
+
+[timing] sample processed in 284.19s
+
+=== PROFILER ===
+Sampling:          189.15s
+Logprob forward:   44.81s
+Reward + Adv:      26.19s
+Backward:          0.00s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/2026_resume_lora_epoch3_step150.pt
+==end-of-epoch 3==
+
+=== Epoch 4/4 ===
+[92m📊 [System Health] RAM: 73.3% | Swap Used: 10.48 GB[0m
+A student has an average of 80 on 4 tests. If her next test score is 95, what will her new average be?
+answer is 83
+⚠️ Sampling slow: 84.8s, steps=129
+
+
+**Step 1: Find the sum of her first 4 scores.**
+
+80 * 4 = 320 points
+
+**Step 2: Find the total number of scores.**
+
+4 scores + 1 score = 5 scores
+
+**Step 3: Find the total amount of points since the start of the term.** 
+
+320 points
++
+
+
+95 points
+
+= 415 points
+
+**Step 4: Find the new average after the added score.**
+
+415 points / 5 scores = 83
+
+
+**Final answer:** 83
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Find the total score from the previous four tests.**
+
+80 * 4 = 320 points
+
+**Step 2: Find the sum of the total score plus the new score.**
+
+320 + 95 = 415 points
+
+**Step 3: Divide the new total score by the number of tests.**
+
+415 / 5 = 83 points
+
+**Final answer:** 83
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate the total score from the first four tests.**
+
+80 * 4 = 320 points
+
+**Step 2: Calculate her new total score (including the next test score).**
+
+320 + 95 = 415 points
+
+**Step 3: Calculate the new number of tests.**
+
+4 + 1 = 5 tests
+
+**Step 4: Calculate her new average.**
+
+415 / 5 = 83 points 
+
+**Final answer:** 83
+
+
+
+reward is 0.9800000000000001
+is result truncated? False
+
+
+**Step 1: Find the total of the first four test scores.**
+
+80 * 4 = 320
+
+**Step 2: Add the score of the next test.**
+
+320 + 95 = 415
+
+**Step 3: Find the total number of tests taken.**
+
+4 + 1 = 5
+
+**Step 4: Divide the total score by the total number of tests.**
+
+415 / 5 = 83
+
+**Final answer:**  83
+
+
+
+
+reward is 0.9800000000000001
+is result truncated? False
+
+
+**Step 1: Find the total score on the first 4 tests.**
+
+80 * 4 = 320 points
+
+**Step 2:  Add the score of the new test.**
+
+320 + 95 = 415 points
+
+**Step 3: Divide the total points by the number of tests.**
+
+415 / 5 = 83 points
+
+**Final Answer:** 83
+
+
+
+
+reward is 0.9600000000000001
+is result truncated? False
+advantages is tensor([-1.2649, -0.6325,  0.6325,  1.2649,  0.0000], device='mps:0')
+grpo_loss is -0.025463009253144264 and kl is 0.11597176641225815
+[timing] sample processed in 145.16s
+
+=== PROFILER ===
+Sampling:          84.83s
+Logprob forward:   18.27s
+Reward + Adv:      3.09s
+Backward:          38.40s
+A person has 10 coins consisting of quarters and dimes. If the total value is $1.90, how many dimes are there?
+answer is 4
+
+🚨 SAMPLING WARNING
+  Time: 227.35s (too slow)
+  Steps taken: 361
+  Truncated flags: [False, False, False, False, False]
+  Prompt: A person has 10 coins consisting of quarters and dimes. If the total value is $1.90, how many dimes are there? Reason st...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-0.6325,  0.0000, -1.2649,  1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.13138549029827118 and kl is 0.04497762769460678
+[timing] sample processed in 358.83s
+
+=== PROFILER ===
+Sampling:          227.35s
+Logprob forward:   46.46s
+Reward + Adv:      19.91s
+Backward:          63.18s
+A plane travels 1500 miles. For the first 500 miles, it flies at 250 mph. For the rest, it flies at 500 mph. What is the average speed?
+answer is 375
+⚠️ Sampling slow: 142.7s, steps=239
+advantages is tensor([ 0.0000, -1.2649,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.02269725874066353 and kl is 0.1389271765947342
+[timing] sample processed in 234.11s
+
+=== PROFILER ===
+Sampling:          142.66s
+Logprob forward:   29.52s
+Reward + Adv:      8.45s
+Backward:          53.02s
+A company has 60 employees. 40% are male. If 5 more females are hired, what is the new percentage of male employees?
+answer is 36.9
+⚠️ Sampling slow: 123.0s, steps=184
+advantages is tensor([-1.2649,  0.6325,  0.0000, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.11451224982738495 and kl is 0.13850700855255127
+[timing] sample processed in 172.22s
+
+=== PROFILER ===
+Sampling:          122.97s
+Logprob forward:   20.18s
+Reward + Adv:      8.71s
+Backward:          19.49s
+A rectangular prism has a volume of 120 cubic cm. If the length is 5cm and the width is 4cm, what is the surface area?
+answer is 148
+⚠️ Sampling slow: 138.1s, steps=213
+advantages is tensor([-1.2649,  0.6325,  1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.1950663924217224 and kl is 0.06044419854879379
+[timing] sample processed in 214.40s
+
+=== PROFILER ===
+Sampling:          138.09s
+Logprob forward:   21.80s
+Reward + Adv:      12.39s
+Backward:          41.63s
+A person saves $50 in January and increases their monthly savings by $10 each month. How much total will they have saved by the end of December?
+answer is 1260
+
+🚨 SAMPLING WARNING
+  Time: 222.61s (too slow)
+  Steps taken: 400
+  Truncated flags: [True, False, False, False, False]
+  Prompt: A person saves $50 in January and increases their monthly savings by $10 each month. How much total will they have saved...
+  → Early-stop likely failed OR logits collapsed.
+  → Inspect sampler immediately.
+
+advantages is tensor([-1.2649,  0.0000,  0.6325, -0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.040044188499450684 and kl is 0.07931041717529297
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 285.55s
+
+=== PROFILER ===
+Sampling:          222.61s
+Logprob forward:   39.23s
+Reward + Adv:      21.38s
+Backward:          0.00s
+A phone battery drops from 100% to 40% in 4 hours of use. At this rate, how many more minutes will the battery last before reaching 0%?
+answer is 160
+⚠️ Sampling slow: 146.3s, steps=362
+advantages is tensor([-1.2649,  0.6325,  0.0000,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.028840279206633568 and kl is 0.18673233687877655
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 218.73s
+
+=== PROFILER ===
+Sampling:          146.34s
+Logprob forward:   48.18s
+Reward + Adv:      21.52s
+Backward:          0.00s
+A set of 4 numbers has an average of 15. If one number is replaced by 25, the new average becomes 18. what was the number that was replaced?
+answer is 13
+⚠️ Sampling slow: 113.3s, steps=299
+advantages is tensor([-1.2649,  0.6325,  0.0000,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.23553475737571716 and kl is 0.1413256824016571
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 160.81s
+
+=== PROFILER ===
+Sampling:          113.31s
+Logprob forward:   22.99s
+Reward + Adv:      23.33s
+Backward:          0.00s
+A store offers 'Buy 2 Get 1 Free' on $15 books. If a customer needs 10 books, what is the total cost?
+answer is 105
+⚠️ Sampling slow: 77.3s, steps=213
+advantages is tensor([ 0.0000,  1.2649,  0.6325, -1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.06577402353286743 and kl is 0.1934027224779129
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 108.30s
+
+=== PROFILER ===
+Sampling:          77.25s
+Logprob forward:   16.91s
+Reward + Adv:      11.87s
+Backward:          0.00s
+A car travels 60km in 45 minutes. What is its speed in km/h?
+answer is 80
+⚠️ Sampling slow: 40.7s, steps=88
+advantages is tensor([-0.6325,  0.0000, -1.2649,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.02310575172305107 and kl is 0.13072064518928528
+[timing] sample processed in 73.03s
+
+=== PROFILER ===
+Sampling:          40.72s
+Logprob forward:   4.25s
+Reward + Adv:      4.73s
+Backward:          22.60s
+[92m📊 [System Health] RAM: 50.6% | Swap Used: 7.36 GB[0m
+A person can type 50 words per minute. How many hours will it take to type a 15,000-word document?
+answer is 5
+⚠️ Sampling slow: 56.5s, steps=191
+
+
+**Step 1: Words per hour**
+
+   50 words / minute * 60 minutes / hour = 3000 words per hour
+
+**Step 2: Hours needed**
+
+    15000 words / 3000 words per hour = 5 hours
+
+**Final answer:** It will take **5 hours** to type the document. 
+
+reward is 0.92
+is result truncated? False
+
+
+**Step 1: Convert words to minutes**
+
+15,000 words * (1 minute / 50 words) = 300 minutes
+
+**Step 2: Convert minutes to hours**
+
+300 minutes / 60 minutes per hour = 5 hours
+
+
+**Final answer:**  5 hours 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Convert words to characters**
+
+   Since words aren't evenly segmented for analysis, converting word count to characters would be the first step towards solving this length calculation.
+
+There are approximately 3.594 words per 1,000 characters.
+
+   15,000 words / 1,000 characters per word = 15,000 characters
+
+**Step 2: Calculate typing time in minutes**
+
+   Number of characters / Typing speed = Time required.
+
+   15,000 characters / 50 characters per minute = 300 minutes
+
+
+
+**Step 3: Convert time to hours**
+
+   300 minutes / 60 minutes per hour = 5 hours
+
+
+
+
+**Final Answer:** It will take **5 hours** to type a 15,000-word document. 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1:** Convert words to minutes
+
+   15,000 words / 50 words per minute = 300 minutes
+
+**Step 2:** Convert minutes to hours
+
+   300 minutes / 60 minutes per hour = 5 hours 
+
+**Final Answer:**  5 hours
+
+
+
+I hope this clears things up for you.
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1:  Calculate words per hour.**
+
+   50 words / minute * 60 minutes / hour = 3000 words per hour
+
+**Step 2:  Calculate hours to type the document.**
+
+   15000 words / 3000 words per hour = 5 hours
+
+**Final answer: It will take 5 hours to type the document.** 
+
+reward is 0.92
+is result truncated? False
+advantages is tensor([-1.2649,  0.0000,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.05997004359960556 and kl is 0.1392832100391388
+[timing] sample processed in 86.22s
+
+=== PROFILER ===
+Sampling:          56.46s
+Logprob forward:   7.22s
+Reward + Adv:      1.81s
+Backward:          19.51s
+A map scale is 1:50,000. If two cities are 8cm apart on the map, what is the actual distance in km?
+answer is 4
+⚠️ Sampling slow: 69.6s, steps=229
+advantages is tensor([ 1.2649, -1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is 0.09248243272304535 and kl is 0.1711176484823227
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 90.53s
+
+=== PROFILER ===
+Sampling:          69.57s
+Logprob forward:   10.93s
+Reward + Adv:      9.10s
+Backward:          0.00s
+A box contains 5 red, 8 blue, and 7 green balls. If two balls are drawn at random without replacement, what is the probability they are both red?
+answer is 0.0526
+⚠️ Sampling slow: 63.0s, steps=161
+advantages is tensor([-1.2649,  0.6325, -0.6325,  1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.010827231220901012 and kl is 0.11629323661327362
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 95.98s
+
+=== PROFILER ===
+Sampling:          63.01s
+Logprob forward:   22.67s
+Reward + Adv:      8.22s
+Backward:          0.00s
+A shirt costs $25. The price is increased by 10% and then a $5 discount is applied. What is the final price?
+answer is 22.50
+⚠️ Sampling slow: 41.6s, steps=111
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09339220076799393
+[timing] sample processed in 76.70s
+
+=== PROFILER ===
+Sampling:          41.59s
+Logprob forward:   6.27s
+Reward + Adv:      0.88s
+Backward:          27.51s
+A gardener wants to fence a circular garden with a diameter of 14m. If the fencing costs $10 per meter, how much will it cost? (Use pi = 22/7)
+answer is 440
+⚠️ Sampling slow: 45.7s, steps=156
+advantages is tensor([-1.2649,  0.6325, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is -0.04151520878076553 and kl is 0.11570484936237335
+[timing] sample processed in 83.57s
+
+=== PROFILER ===
+Sampling:          45.66s
+Logprob forward:   6.61s
+Reward + Adv:      1.77s
+Backward:          29.13s
+A school has 400 students. 20% are in the band. 25% of the band members play the flute. How many flute players are there?
+answer is 20
+⚠️ Sampling slow: 30.2s, steps=88
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.14608733355998993
+[timing] sample processed in 48.69s
+
+=== PROFILER ===
+Sampling:          30.24s
+Logprob forward:   3.76s
+Reward + Adv:      1.72s
+Backward:          12.48s
+A person is paid $15/hour for a 40-hour week. Overtime is paid at 1.5 times the hourly rate. If they work 48 hours, what is their total pay?
+answer is 780
+⚠️ Sampling slow: 50.4s, steps=172
+advantages is tensor([ 0.6325, -1.2649, -0.6325,  0.0000,  1.2649], device='mps:0')
+grpo_loss is 0.13323156535625458 and kl is 0.07589081674814224
+[timing] sample processed in 85.95s
+
+=== PROFILER ===
+Sampling:          50.36s
+Logprob forward:   7.23s
+Reward + Adv:      2.10s
+Backward:          24.87s
+A tank is 1/4 full. After adding 30 liters, it is 2/3 full. What is the total capacity?
+answer is 72
+⚠️ Sampling slow: 111.8s, steps=352
+advantages is tensor([ 0.6325, -0.6325,  0.0000,  1.2649, -1.2649], device='mps:0')
+grpo_loss is 0.22900645434856415 and kl is 0.17317788302898407
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 164.22s
+
+=== PROFILER ===
+Sampling:          111.79s
+Logprob forward:   34.08s
+Reward + Adv:      17.29s
+Backward:          0.00s
+A person borrows $2000 at 10% simple interest per year. How much total will they pay back after 3 years?
+answer is 2600
+⚠️ Sampling slow: 77.4s, steps=224
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.009550238028168678 and kl is 0.06307514756917953
+[timing] sample processed in 212.54s
+
+=== PROFILER ===
+Sampling:          77.44s
+Logprob forward:   20.74s
+Reward + Adv:      14.92s
+Backward:          97.49s
+A fruit basket has apples and oranges. The ratio of apples to oranges is 2:3. If there are 30 fruits in total, how many oranges must be added to make the ratio 1:2?
+answer is 6
+⚠️ Sampling slow: 128.8s, steps=400
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.416416734457016 and kl is 0.21143007278442383
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 186.00s
+
+=== PROFILER ===
+Sampling:          128.76s
+Logprob forward:   29.34s
+Reward + Adv:      27.01s
+Backward:          0.00s
+[92m📊 [System Health] RAM: 69.1% | Swap Used: 21.88 GB[0m
+A car is traveling at 90 km/h. How many meters does it travel in 1 second?
+answer is 25
+⚠️ Sampling slow: 45.3s, steps=116
+
+
+**Step 1: Convert km/h to m/s**
+
+   90 km/h * (1000 m/km) * (1 h/3600 s) = 25 m/s
+
+**Final Answer:** 25 m
+
+
+Therefore, the car travels 25 meters in 1 second. 
+
+reward is 0.9
+is result truncated? False
+
+
+**Step 1: Convert kilometers to meters**
+
+   90 km * 1000 meters/km = 90000 meters
+
+**Step 2: Convert hours to seconds**
+
+   1 hour * 60 minutes/hour * 60 seconds/minute = 3600 seconds
+
+**Step 3: Calculate distance travelled in one second**
+
+   90000 meters / 3600 seconds = 25 meters
+
+
+**Final answer: 25 meters** 
+
+reward is 0.92
+is result truncated? False
+ 
+
+**Step 1: Convert km to meters**
+
+90 km * 1000 meters/km = 90000 meters
+
+**Step 2: Divide the distance traveled by time.**
+
+90000 meters / 1 second = 900000 meters
+
+
+**Final Answer:** 900000 meters 
+
+reward is -1.1
+is result truncated? False
+
+
+**Step 1: Convert kilometers to meters**
+
+   90 km * 1000 m/km = 90,000 m
+
+**Step 2:  Divide distance by time**
+
+   90,000 m / 1 s = 90,000 m
+
+**Final Answer:** 90,000 meters
+
+
+
+
+Let me know if you'd like to try another example! 😊 
+
+reward is -1.08
+is result truncated? False
+
+
+**Step 1: Convert kilometers to meters**
+
+   90 km * 1000 m/km = 90000 m
+
+**Step 2: Convert hours to seconds**
+
+   1 hour * 3600 seconds/hour = 3600 seconds
+
+**Step 3: Divide the total distance traveled by the number of seconds traveled**
+
+   90000 m / 3600 seconds = 25 m/second
+
+**Final answer:** 25 meters
+
+
+
+
+
+reward is 0.9
+is result truncated? False
+advantages is tensor([ 0.0000,  1.2649, -1.2649, -0.6325,  0.6325], device='mps:0')
+grpo_loss is 0.18173381686210632 and kl is 0.17598360776901245
+[timing] sample processed in 139.24s
+
+=== PROFILER ===
+Sampling:          45.26s
+Logprob forward:   18.09s
+Reward + Adv:      6.27s
+Backward:          68.88s
+A person buys 3 dozen eggs for $12. If 4 eggs are broken, what is the cost per remaining egg in cents?
+answer is 37.5
+⚠️ Sampling slow: 69.4s, steps=213
+advantages is tensor([ 0.6325,  1.2649, -1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.19752241671085358 and kl is 0.14814995229244232
+[timing] sample processed in 130.70s
+
+=== PROFILER ===
+Sampling:          69.42s
+Logprob forward:   7.52s
+Reward + Adv:      9.96s
+Backward:          43.02s
+A rectangle has a length twice its width. If the area is 72 sq cm, what is the length?
+answer is 12
+⚠️ Sampling slow: 81.1s, steps=253
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.047616757452487946
+[timing] sample processed in 169.30s
+
+=== PROFILER ===
+Sampling:          81.09s
+Logprob forward:   10.21s
+Reward + Adv:      14.41s
+Backward:          62.97s
+A bank account earns 4% interest compounded annually. If $1000 is deposited, how much interest is earned after 2 years?
+answer is 81.60
+⚠️ Sampling slow: 77.7s, steps=233
+advantages is tensor([ 0.6325, -0.6325,  0.0000,  1.2649, -1.2649], device='mps:0')
+grpo_loss is -0.008265769109129906 and kl is 0.13721802830696106
+[timing] sample processed in 152.41s
+
+=== PROFILER ===
+Sampling:          77.66s
+Logprob forward:   8.47s
+Reward + Adv:      16.19s
+Backward:          49.33s
+A group of 10 friends went to a movie. 6 adults paid $12 each and 4 children paid $8 each. What was the average cost per person?
+answer is 10.40
+⚠️ Sampling slow: 51.9s, steps=155
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.06947608292102814
+[step 175] avg_loss=0.0026 acc=0.4480
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate distance traveled at 62 km/h**
+
+   62 km/h * 2 h = 124 km
+
+**Step 2: Calculate distance traveled at twice the speed (124 km * 2)**
+
+   124 km * 2 = 248 km
+
+**Step 3: Calculate the total distance traveled**
+
+   124 km + 248 km = 372 km
+
+**Final answer:** 372 km 
+
+[timing] sample processed in 101.23s
+
+=== PROFILER ===
+Sampling:          51.87s
+Logprob forward:   6.02s
+Reward + Adv:      2.60s
+Backward:          29.42s
+A machine fills 40 bottles in 5 minutes. How many hours will it take to fill 1440 bottles?
+answer is 3
+⚠️ Sampling slow: 30.6s, steps=108
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.1556147187948227
+[timing] sample processed in 49.30s
+
+=== PROFILER ===
+Sampling:          30.60s
+Logprob forward:   3.83s
+Reward + Adv:      2.82s
+Backward:          11.23s
+A student got 18 out of 25 on a quiz. What is this score as a percentage?
+answer is 72
+⚠️ Sampling slow: 27.9s, steps=88
+advantages is tensor([-1.2649,  0.6325,  1.2649, -0.6325,  0.0000], device='mps:0')
+grpo_loss is -0.07019507139921188 and kl is 0.11113294214010239
+[timing] sample processed in 38.70s
+
+=== PROFILER ===
+Sampling:          27.92s
+Logprob forward:   3.37s
+Reward + Adv:      0.92s
+Backward:          5.92s
+A triangle has a base of 10cm and a height of 6cm. What is the area?
+answer is 30
+⚠️ Sampling slow: 33.9s, steps=120
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.09057977050542831
+[timing] sample processed in 51.05s
+
+=== PROFILER ===
+Sampling:          33.88s
+Logprob forward:   4.14s
+Reward + Adv:      1.04s
+Backward:          11.35s
+A store has 600 items. 15% are returned. Of the remaining items, 10% are found to be defective. How many items are in good condition?
+answer is 459
+⚠️ Sampling slow: 43.5s, steps=148
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.07524187117815018
+[timing] sample processed in 86.66s
+
+=== PROFILER ===
+Sampling:          43.53s
+Logprob forward:   5.69s
+Reward + Adv:      2.67s
+Backward:          33.98s
+A person walks at 4 km/h for 1.5 hours and then runs at 8 km/h for 30 minutes. What is the total distance covered?
+answer is 10
+⚠️ Sampling slow: 52.8s, steps=171
+advantages is tensor([ 1.2649,  0.6325, -0.6325, -1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.06175772100687027 and kl is 0.1555536389350891
+[timing] sample processed in 88.05s
+
+=== PROFILER ===
+Sampling:          52.83s
+Logprob forward:   6.69s
+Reward + Adv:      2.79s
+Backward:          25.30s
+[92m📊 [System Health] RAM: 49.7% | Swap Used: 9.50 GB[0m
+A book has 300 pages. If you read 15% on Monday and 25% of the remainder on Tuesday, how many pages are left?
+answer is 191.25
+⚠️ Sampling slow: 60.5s, steps=203
+
+
+**Step 1: Calculate pages read on Monday.**
+
+300 pages * 15/100 = 45 pages
+
+**Step 2: Calculate the number of pages remaining after Monday.**
+
+300 pages - 45 pages = 255 pages
+
+**Step 3: Calculate the number of pages read on Tuesday.**
+
+255 pages * 25/100 = 63.75 pages
+
+**Step 4: Since you can't read a fraction of a page, round down to 63 pages.**
+
+**Final Answer:** 192 pages
+ 
+**Please Note**:  The provided answer values for steps 2 & 3 might vary slightly because rounding to whole numbers introduces error when dealing with fractional results!
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate pages read on Monday**
+
+300 pages * 15/100 = 45 pages read
+
+**Step 2: Calculate the number of pages remaining**
+
+300 pages - 45 pages = 255 pages
+
+**Step 3: Calculate the number of pages read on Tuesday**
+
+255 pages * 25/100 = 63.75 pages (round to 63.75 pages) 
+
+**Step 4: Calculate pages left unread**
+
+255 pages - 63.75 pages = 191.25 pages
+
+**Final Answer:** Approximately 191 pages are left unread
+
+
+
+You will notice this can't be construed to exactly fit with your reasoning above, so there may have been an error someplace along the way. Try to inspect the calculation in each step looking for outliers in the data.
+
+
+
+
+
+reward is 0.9600000000000001
+is result truncated? False
+
+
+**Step 1: Calculate Monday's reading.**
+
+   300 pages * 15/100 = 45 pages read on Monday
+
+**Step 2: Calculate the pages remaining.**
+
+   300 pages - 45 pages = 255 pages
+
+**Step 3: Calculate Tuesday's reading.**
+
+   255 pages * 25/100 = 63.75 pages 
+
+ Since you can't read a fraction of a page, round down to **63 pages** read on Tuesday
+
+**Step 4: Calculate the final number of pages read.** 
+
+   45 pages + 63 pages = 108 pages read
+
+**Step 5: Calculate the number of pages left.**
+
+   300 pages - 108 pages = **192 pages** left  
+
+
+
+**Final answer: 192 pages are left.**
+reward is 0.9800000000000001
+is result truncated? False
+
+
+**Step 1: Calculate Monday's reading.**
+   300 pages * 15/100 = 45 pages read
+
+**Step 2: Calculate the pages remaining.**
+   300 pages - 45 pages = 255 pages
+
+**Step 3: Calculate Tuesday's reading.**
+   255 pages * 25/100 = 63.75 pages read 
+
+   This should become a whole number we can round down to 63 pages Read, any remaining decimal isn’t important to this calculations.
+
+
+**Step 4: Calculate pages left after Tuesday.**
+   255 pages - 63 pages = 192 pages
+
+
+Final Answer: **192 pages** 
+
+
+
+
+reward is 0.9800000000000001
+is result truncated? False
+
+
+**Step 1:** Calculate the pages read on Monday
+
+   300 pages * 0.15 = 45 pages
+
+**Step 2:**  Calculate the number of pages remaining
+
+   300 pages - 45 pages = 255 pages
+
+**Step 3:** Calculate the pages read on Tuesday
+
+   255 pages * 0.25 = 63.75 pages 
+
+**Step 4:** Round the number of pages read on Tuesday to the nearest whole number.  
+
+   63 pages
+
+
+**Step 5:** Calculate the number of pages left
+
+   255 pages - 63 pages = 192 pages
+
+
+**Final Answer:** 192 pages
+
+
+
+
+reward is 0.9800000000000001
+is result truncated? False
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.07944512367248535 and kl is 0.13725058734416962
+[timing] sample processed in 123.55s
+
+=== PROFILER ===
+Sampling:          60.47s
+Logprob forward:   7.73s
+Reward + Adv:      6.66s
+Backward:          47.97s
+A car rental company charges $40 a day and $0.20 per mile. If the total bill for one day was $64, how many miles were driven?
+answer is 120
+⚠️ Sampling slow: 65.8s, steps=194
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is 0.3550437390804291 and kl is 0.0989050418138504
+[timing] sample processed in 110.73s
+
+=== PROFILER ===
+Sampling:          65.85s
+Logprob forward:   7.46s
+Reward + Adv:      5.94s
+Backward:          31.07s
+A person's heart beats 72 times per minute. How many times does it beat in one day?
+answer is 103680
+⚠️ Sampling slow: 30.3s, steps=90
+advantages is tensor([-0.6325,  0.6325,  0.0000,  1.2649, -1.2649], device='mps:0')
+grpo_loss is -0.044036220759153366 and kl is 0.12970712780952454
+[timing] sample processed in 41.37s
+
+=== PROFILER ===
+Sampling:          30.28s
+Logprob forward:   3.49s
+Reward + Adv:      1.01s
+Backward:          5.89s
+A box contains 50 light bulbs. 4% are defective. If you buy 3 boxes, how many non-defective bulbs do you have?
+answer is 144
+⚠️ Sampling slow: 40.8s, steps=134
+advantages is tensor([ 0.0000, -1.2649,  0.6325,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.03723184019327164 and kl is 0.15825974941253662
+[timing] sample processed in 73.38s
+
+=== PROFILER ===
+Sampling:          40.84s
+Logprob forward:   4.82s
+Reward + Adv:      2.82s
+Backward:          24.42s
+A recipe for 4 people requires 200g of flour. How many kg of flour are needed for 30 people?
+answer is 1.5
+⚠️ Sampling slow: 50.2s, steps=163
+advantages is tensor([ 0.6325,  0.0000, -1.2649, -0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.014058196917176247 and kl is 0.16052652895450592
+[timing] sample processed in 108.41s
+
+=== PROFILER ===
+Sampling:          50.16s
+Logprob forward:   6.28s
+Reward + Adv:      6.01s
+Backward:          45.51s
+A train is 200m long and passes a pole in 10 seconds. What is its speed in km/h?
+answer is 72
+⚠️ Sampling slow: 96.0s, steps=311
+advantages is tensor([-1.2649,  1.2649, -0.6325,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.03463711217045784 and kl is 0.15726658701896667
+[timing] sample processed in 217.14s
+
+=== PROFILER ===
+Sampling:          95.98s
+Logprob forward:   13.92s
+Reward + Adv:      24.50s
+Backward:          82.09s
+A person has $200. He spends 20% on a shirt and 10% of the remainder on a hat. How much money is left?
+answer is 144
+⚠️ Sampling slow: 73.8s, steps=215
+advantages is tensor([ 0.0000,  0.6325,  1.2649, -0.6325, -1.2649], device='mps:0')
+grpo_loss is -0.06328421831130981 and kl is 0.09659888595342636
+[timing] sample processed in 145.25s
+
+=== PROFILER ===
+Sampling:          73.75s
+Logprob forward:   8.33s
+Reward + Adv:      11.96s
+Backward:          50.40s
+A square has a perimeter of 32cm. If the side is doubled, what will be the new area?
+answer is 256
+⚠️ Sampling slow: 49.4s, steps=145
+advantages is tensor([ 0.6325, -0.6325,  1.2649, -1.2649,  0.0000], device='mps:0')
+grpo_loss is -0.044081639498472214 and kl is 0.19463874399662018
+[timing] sample processed in 77.06s
+
+=== PROFILER ===
+Sampling:          49.39s
+Logprob forward:   5.00s
+Reward + Adv:      2.36s
+Backward:          19.91s
+A jar contains 50 coins, all nickels and dimes. If the total value is $3.50, how many nickels are there?
+answer is 30
+⚠️ Sampling slow: 102.7s, steps=337
+advantages is tensor([ 0.0000, -1.2649, -0.6325,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.08768409490585327 and kl is 0.12150496244430542
+[timing] sample processed in 232.86s
+
+=== PROFILER ===
+Sampling:          102.67s
+Logprob forward:   23.72s
+Reward + Adv:      21.19s
+Backward:          84.57s
+A person travels at 50 mph for 2 hours and then 70 mph for 3 hours. What is the average speed for the whole trip?
+answer is 62
+⚠️ Sampling slow: 58.3s, steps=169
+advantages is tensor([-0.6325,  0.0000,  0.6325,  1.2649, -1.2649], device='mps:0')
+grpo_loss is 0.12209339439868927 and kl is 0.11338730156421661
+[timing] sample processed in 94.87s
+
+=== PROFILER ===
+Sampling:          58.31s
+Logprob forward:   6.82s
+Reward + Adv:      1.74s
+Backward:          27.57s
+[92m📊 [System Health] RAM: 47.6% | Swap Used: 12.28 GB[0m
+A machine can produce 500 parts in 8 hours. How many parts can it produce in 24 hours at the same rate?
+answer is 1500
+⚠️ Sampling slow: 31.2s, steps=91
+
+
+**Step 1: Find the production rate per part.** 
+
+   500 parts / 8 hours = 62.5 parts per hour
+
+**Step 2: Calculate the number of parts produced in 24 hours.**
+
+   62.5 parts per hour * 24 hours = 1500 parts
+
+
+**Final Answer: 1500 parts** 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the production rate per hour.**
+
+   500 parts / 8 hours = 62.5 parts per hour
+
+**Step 2: Calculate the production for 24 hours.**
+
+   62.5 parts per hour * 24 hours = 1500 parts 
+
+**Final Answer: 1500 parts** 
+
+reward is 0.9400000000000001
+is result truncated? False
+ 
+
+**Step 1: Find the production rate per hour.**
+
+   500 parts / 8 hours = 62.5 parts per hour
+
+**Step 2: Calculate the total number of parts produced in 24 hours.**
+
+   62.5 parts per hour * 24 hours = 1500 parts
+
+**Final answer: 1500 parts** 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the production rate per hour**
+
+   500 parts / 8 hours = 62.5 parts per hour
+
+**Step 2: Calculate the production over 24 hours**
+
+   62.5 parts per hour * 24 hours = 1500 parts
+
+**Final answer:** 1500 parts 
+
+reward is 0.9400000000000001
+is result truncated? False
+
+
+**Step 1: Find the production rate per hour**
+ 
+ 500 parts / 8 hours = 62.5 parts per hour
+
+**Step 2: Calculate the total number of parts produced in 24 hours**
+
+ 62.5 parts per hour * 24 hours = 1500 parts 
+
+**Final answer: 1500 parts** 
+
+reward is 0.9400000000000001
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.12167294323444366
+[timing] sample processed in 45.79s
+
+=== PROFILER ===
+Sampling:          31.17s
+Logprob forward:   4.12s
+Reward + Adv:      2.10s
+Backward:          7.84s
+A shirt is originally $40. It is on sale for 25% off. If there is a 10% sales tax on the sale price, what is the final cost?
+answer is 33
+⚠️ Sampling slow: 39.5s, steps=135
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.07458092272281647
+[timing] sample processed in 72.51s
+
+=== PROFILER ===
+Sampling:          39.48s
+Logprob forward:   5.28s
+Reward + Adv:      2.52s
+Backward:          24.83s
+A garden is 10m by 12m. If you want to cover it with 2 inches of topsoil, how many cubic meters do you need? (1 inch = 0.0254m)
+answer is 6.1
+⚠️ Sampling slow: 112.2s, steps=367
+advantages is tensor([-1.2649,  0.6325,  0.0000,  1.2649, -0.6325], device='mps:0')
+grpo_loss is 0.65518718957901 and kl is 0.12059084326028824
+[timing] sample processed in 251.41s
+
+=== PROFILER ===
+Sampling:          112.20s
+Logprob forward:   40.17s
+Reward + Adv:      21.79s
+Backward:          76.67s
+A person can paint a room in 6 hours. His friend can do it in 4 hours. How long will it take if they work together?
+answer is 2.4
+⚠️ Sampling slow: 66.7s, steps=199
+advantages is tensor([-1.2649, -0.6325,  0.0000,  0.6325,  1.2649], device='mps:0')
+grpo_loss is -0.06341993808746338 and kl is 0.16391697525978088
+[timing] sample processed in 115.04s
+
+=== PROFILER ===
+Sampling:          66.72s
+Logprob forward:   7.76s
+Reward + Adv:      4.00s
+Backward:          35.81s
+A box of 20 chocolates costs $15. What is the price per chocolate in cents?
+answer is 75
+⚠️ Sampling slow: 34.2s, steps=102
+advantages is tensor([ 0.0000,  0.6325, -1.2649,  1.2649, -0.6325], device='mps:0')
+grpo_loss is -0.013412976637482643 and kl is 0.15033884346485138
+[timing] sample processed in 47.45s
+
+=== PROFILER ===
+Sampling:          34.19s
+Logprob forward:   4.12s
+Reward + Adv:      1.17s
+Backward:          7.36s
+A cyclist travels 10km in 20 minutes. At this rate, how long will it take to travel 25km?
+answer is 50
+⚠️ Sampling slow: 42.4s, steps=146
+advantages is tensor([ 1.2649, -1.2649,  0.6325, -0.6325,  0.0000], device='mps:0')
+grpo_loss is 0.088274285197258 and kl is 0.2015545815229416
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 50.11s
+
+=== PROFILER ===
+Sampling:          42.41s
+Logprob forward:   4.83s
+Reward + Adv:      2.36s
+Backward:          0.00s
+A student scores 80, 85, and 90 on three exams. If each exam is 25% of the grade and the final project is 25%, what score does he need on the project to get an average of 88?
+answer is 97
+⚠️ Sampling slow: 133.5s, steps=400
+advantages is tensor([ 1.2649, -0.6325, -1.2649,  0.0000,  0.6325], device='mps:0')
+grpo_loss is -0.19874799251556396 and kl is 0.22519969940185547
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 258.31s
+
+=== PROFILER ===
+Sampling:          133.55s
+Logprob forward:   92.84s
+Reward + Adv:      29.74s
+Backward:          0.00s
+A store increases the price of an item by 20% and then offers a 20% discount. What is the total percentage change?
+answer is -4
+⚠️ Sampling slow: 156.8s, steps=400
+advantages is tensor([ 1.2649, -0.6325,  0.6325, -1.2649,  0.0000], device='mps:0')
+grpo_loss is 0.13345134258270264 and kl is 0.2565596103668213
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 260.60s
+
+=== PROFILER ===
+Sampling:          156.83s
+Logprob forward:   71.47s
+Reward + Adv:      30.11s
+Backward:          0.00s
+A tank is 3/5 full. 20 liters are removed, and now it is 1/2 full. What is the capacity of the tank?
+answer is 200
+⚠️ Sampling slow: 183.0s, steps=400
+advantages is tensor([-1.2649, -0.6325,  0.0000,  1.2649,  0.6325], device='mps:0')
+grpo_loss is -0.4043445587158203 and kl is 0.2312283217906952
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 279.48s
+
+=== PROFILER ===
+Sampling:          183.01s
+Logprob forward:   67.85s
+Reward + Adv:      25.97s
+Backward:          0.00s
+A person travels 100 miles. For the first 40 miles, he goes at 40 mph. For the rest, he goes at 60 mph. What is the total time in hours?
+answer is 2
+⚠️ Sampling slow: 72.6s, steps=131
+advantages is tensor([0., 0., 0., 0., 0.], device='mps:0')
+grpo_loss is -0.0 and kl is 0.18234041333198547
+[step 200] avg_loss=0.0062 acc=0.6720
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+**Step 1: Calculate the distance traveled at the first speed.**
+
+   62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at the second speed.**
+
+   62 km/h * 2 * 3 h = 372 km
+
+**Step 3: Calculate the total distance traveled.**
+
+   124 km + 372 km = 496 km
+
+**Final answer:** 496 km 
+
+[timing] sample processed in 184.09s
+
+=== PROFILER ===
+Sampling:          72.55s
+Logprob forward:   20.03s
+Reward + Adv:      7.44s
+Backward:          63.04s
+Saved checkpoint to /Users/junyi/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/2026_resume_lora_epoch4_step200.pt
+==end-of-epoch 4==

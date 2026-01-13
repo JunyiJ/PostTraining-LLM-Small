@@ -8,16 +8,15 @@ import re
 import random
 import time
 from pathlib import Path
-import psutil
 
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
 from grpo.device import get_default_device, empty_cache
-from grpo.utils import load_model
+from grpo.utils import load_model, check_memory_health, save_lora_checkpoint
 from dpo.dpo_loss import dpo_loss
-from dpo.helper import check_memory_health, save_lora_checkpoint, get_tokens_and_masks
+from dpo.helper import get_tokens_and_masks
 from dpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
@@ -40,6 +39,7 @@ MICRO_BATCH_SIZE = 2
 ACCUMULATION_STEPS = 5
 NUM_EPOCHS = 50
 EVAL_EVERY = 10
+LOG_EVERY = 10
 MAX_INPUT_TOKENS = 412
 KL_COEF = 0.1
 DEVICE = get_default_device()
@@ -89,6 +89,10 @@ with open(TRAIN_FILE) as f:
             continue
         test_data.append(json.loads(ln))
 print(f"Print found {len(test_data)} lines of training data")
+print(
+    f"[config] device={DEVICE} micro_batch={MICRO_BATCH_SIZE} accum_steps={ACCUMULATION_STEPS} "
+    f"effective_batch={MICRO_BATCH_SIZE * ACCUMULATION_STEPS} lr={optimizer.param_groups[0]['lr']}"
+)
 optimizer.zero_grad(set_to_none=True)
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
@@ -152,13 +156,32 @@ for epoch in range(1, NUM_EPOCHS + 1):
             # pre-backprop cleanup. adding set_to_none is more memory efficiency
             global_step += 1
             # For MPS gradient stability
-            torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
+            grad_norm = torch.nn.utils.clip_grad_norm_(lora_params, max_norm=1.0)
             for param in lora_params:
                 if param.grad is not None:
                     param.grad.data = param.grad.data.contiguous()
             optimizer.step()
             optimizer.zero_grad(set_to_none=True)
-            print(f"[step {global_step}] loss={running_loss/ACCUMULATION_STEPS:.4f} rewards(c/r)={chosen_rewards.mean().item():.2f}/{rejected_rewards.mean().item():.2f}")
+            chosen_mean = chosen_rewards.mean().item()
+            rejected_mean = rejected_rewards.mean().item()
+            reward_gap = (chosen_rewards - rejected_rewards).mean().item()
+            pref_acc = (chosen_rewards > rejected_rewards).float().mean().item()
+            avg_len = (
+                (chosen_answer_mask.sum() + rejected_answer_mask.sum())
+                / max(len(batch) * 2, 1)
+            ).item()
+            step_loss = running_loss / ACCUMULATION_STEPS
+            if global_step % LOG_EVERY == 0:
+                lr = optimizer.param_groups[0]["lr"]
+                print(
+                    f"[step {global_step}] loss={step_loss:.4f} rewards(c/r)={chosen_mean:.2f}/{rejected_mean:.2f} "
+                    f"pref_acc={pref_acc:.2f} gap={reward_gap:.2f} avg_len={avg_len:.1f} "
+                    f"grad_norm={grad_norm:.3f} lr={lr}"
+                )
+            else:
+                print(
+                    f"[step {global_step}] loss={step_loss:.4f} rewards(c/r)={chosen_mean:.2f}/{rejected_mean:.2f}"
+                )
             running_loss = 0.0
         # --- THE DEEP CLEAN BLOCK ---
         # Tensors from the Forward Passes (The biggest memory hogs)
@@ -190,5 +213,5 @@ for epoch in range(1, NUM_EPOCHS + 1):
             empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
-    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR)
+    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="dpo")
     print(f"==end-of-epoch {epoch}==")

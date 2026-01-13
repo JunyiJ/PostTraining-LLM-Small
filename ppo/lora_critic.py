@@ -21,6 +21,12 @@ class Critic(nn.Module):
         # Initialize the final layer to be very small
         init.uniform_(self.value_layer[-1].weight, a=-0.01, b=0.01)
         init.constant_(self.value_layer[-1].bias, 0)
+    
+    def state_dict(self, *args, **kwargs):
+        return self.base_model.state_dict(*args, **kwargs)
+
+    def load_state_dict(self, state_dict, strict=True):
+        return self.base_model.load_state_dict(state_dict, strict)
 
     def forward(self, *args, return_values=True, **kwargs):
         # Preserve user args/kwargs while ensuring hidden states for value head

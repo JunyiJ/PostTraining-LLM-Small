@@ -8,14 +8,13 @@ import re
 import random
 import time
 from pathlib import Path
-import psutil
 
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
 from grpo.device import get_default_device, empty_cache
-from grpo.utils import load_model, append_jsonl
+from grpo.utils import load_model, append_jsonl, check_memory_health, save_lora_checkpoint
 from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage, compute_rank_advantage
 from grpo.reward import compute_reward, refined_advanced_cot_reward
@@ -39,6 +38,7 @@ NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
+LOG_EVERY = 10
 SAMPLING_TEMPERATURE = 1.1
 MAX_NEW_TOKENS = 400
 KL_COEF = 0.01
@@ -88,34 +88,14 @@ running_loss = 0.0
 running_correct = 0
 running_total = 0
 
-def check_memory_health():
-    vmem = psutil.virtual_memory()
-    swap = psutil.swap_memory()
-    # Color coding the output for visibility
-    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
-    reset = "\033[0m"
-    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
-
-def save_lora_checkpoint(model, optimizer, epoch, global_step):
-# --- FIX: Access the inner model to avoid 'base_model.' prefix ---
-    # Check if model is wrapped; if so, unwrap it for saving
-    inner_model = model.base_model if hasattr(model, "base_model") else model
-    
-    lora_state_dict = {
-        n: p.detach().cpu() 
-        for n, p in inner_model.named_parameters() 
-        if p.requires_grad
-    }
-    # -----------------------------------------------------------------
-    state = {
-        "epoch": epoch,
-        "global_step": global_step,
-        "lora_state_dict": lora_state_dict,
-        "optimizer_state_dict": optimizer.state_dict(),
-    }
-    ckpt_path = CHECKPOINT_DIR / f"20260112_lora_epoch{epoch}_step{global_step}.pt"
-    torch.save(state, ckpt_path)
-    print(f"Saved clean checkpoint to {ckpt_path}")
+def summarize_rewards(values):
+    count = len(values)
+    if count == 0:
+        return 0.0, 0.0, 0.0, 0.0
+    mean = sum(values) / count
+    var = sum((v - mean) ** 2 for v in values) / count
+    std = var ** 0.5
+    return mean, std, min(values), max(values)
 
 """
 load data
@@ -141,6 +121,10 @@ with open(TRAIN_FILE) as f:
         test_data.append(json.loads(ln))
 # random.shuffle(test_data)
 print(f"Print found {len(test_data)} lines of training data")
+print(
+    f"[config] device={DEVICE} samples_per_prompt={NUM_SAMPLES_PER_PROMPT} "
+    f"max_new_tokens={MAX_NEW_TOKENS} lr={optimizer.param_groups[0]['lr']}"
+)
 
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
@@ -300,10 +284,30 @@ for epoch in range(1, NUM_EPOCHS + 1):
         print(f"grpo_loss is {grpo_loss} and kl is {kl_loss}")
         t5 = time.perf_counter()
 
+        reward_mean, reward_std, reward_min, reward_max = summarize_rewards(rewards)
+        truncated_rate = sum(res["truncated"]) / max(len(res["truncated"]), 1)
+        avg_answer_len = answer_mask.sum(dim=1).mean().item()
+        ratio_mean = ratio.mean().item()
+        loss_item = loss.item()
+        kl_item = kl_loss.item()
+        grpo_item = grpo_loss.item()
+        gen_tokens = answer_mask.sum().item()
+        sampling_time = max(t1 - t0, 1e-6)
+        gen_toks_per_s = gen_tokens / sampling_time
+
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
         running_total += len(rewards)
         global_step += 1
+        if global_step % LOG_EVERY == 0:
+            lr = optimizer.param_groups[0]["lr"]
+            print(
+                f"[step {global_step}] loss={loss_item:.4f} grpo={grpo_item:.4f} kl={kl_item:.4f} "
+                f"reward_mean={reward_mean:.3f} reward_std={reward_std:.3f} "
+                f"reward_min={reward_min:.3f} reward_max={reward_max:.3f} "
+                f"ratio_mean={ratio_mean:.3f} truncated={truncated_rate:.2f} "
+                f"avg_len={avg_answer_len:.1f} gen_tok/s={gen_toks_per_s:.1f} lr={lr}"
+            )
         # Backprop
         t6 = time.perf_counter()
         if max(rewards) < 0:
@@ -369,5 +373,5 @@ for epoch in range(1, NUM_EPOCHS + 1):
         print(f"Logprob forward:   {(t3-t2):.2f}s")
         print(f"Reward + Adv:      {(t5-t4):.2f}s")
         print(f"Backward:          {(t7-t6):.2f}s")
-    save_lora_checkpoint(model, optimizer, epoch, global_step)
+    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="grpo")
     print(f"==end-of-epoch {epoch}==")

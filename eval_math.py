@@ -11,14 +11,13 @@ from tqdm import tqdm
 from grpo.reward import extract_final_answer
 from grpo.device import get_default_device, empty_cache
 from grpo.utils import load_model
-from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
-# from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params
 
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/20260112_lora_epoch2_step200.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/dpo_lora_epoch24_step240.pt")
 USE_LORA = True  # set False to eval base model only
+LORA_BACKEND = "auto"  # "auto", "grpo", "dpo", "ppo"
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 300
 TOL = 1e-1
@@ -56,36 +55,98 @@ def extract_answer(text):
 tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 
 if USE_LORA:
-    model = apply_lora_to_model(
-        model,
-        r=16,
-        alpha=32,
-        target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
-        dropout=0.05,
-    )
-    freeze_non_lora_params(model)
     if LORA_CKPT is not None and LORA_CKPT.exists():
         ckpt = torch.load(LORA_CKPT, map_location="cpu")
         state_dict = ckpt.get("lora_state_dict", {})
-        
-        # --- FIX START: Sanitize Keys ---
-        new_state_dict = {}
-        for k, v in state_dict.items():
-            # Remove 'base_model.' prefix if it exists
-            if k.startswith("base_model.model."):
-                new_key = k.replace("base_model.model.", "model.")
-            elif k.startswith("base_model."):
-                new_key = k.replace("base_model.", "")
+
+        def sanitize_state_dict(state):
+            new_state_dict = {}
+            for k, v in state.items():
+                if k.startswith("base_model.model."):
+                    new_key = k.replace("base_model.model.", "model.")
+                elif k.startswith("base_model."):
+                    new_key = k.replace("base_model.", "")
+                else:
+                    new_key = k
+                new_state_dict[new_key] = v
+            return new_state_dict
+
+        def select_state_dict(state, target_model):
+            candidates = [
+                ("raw", state),
+                ("sanitized", sanitize_state_dict(state)),
+            ]
+            model_keys = set(target_model.state_dict().keys())
+            best_name = None
+            best_state = None
+            best_score = -1
+            for name, cand in candidates:
+                score = sum(1 for key in cand.keys() if key in model_keys)
+                if score > best_score:
+                    best_name = name
+                    best_state = cand
+                    best_score = score
+            if best_name != "raw":
+                print(f"Using {best_name} checkpoint keys for loading.")
+            return best_state
+
+        def detect_backend(state, ckpt_path):
+            if LORA_BACKEND != "auto":
+                return LORA_BACKEND
+            for key in state.keys():
+                if "value_layer" in key:
+                    return "ppo"
+            ckpt_name = ckpt_path.name.lower()
+            if "dpo" in ckpt_name:
+                return "dpo"
+            if "grpo" in ckpt_name:
+                return "grpo"
+            return "grpo"
+
+        backend = detect_backend(state_dict, LORA_CKPT)
+        print(f"Using LoRA backend: {backend}")
+
+        if backend == "ppo":
+            from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params
+
+            model = apply_lora_to_model(
+                model,
+                r=16,
+                alpha=32,
+                target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
+                dropout=0.05,
+            )
+            model = Critic(model)
+            freeze_non_lora_critic_params(model)
+            model.to(DEVICE)
+            selected_state_dict = select_state_dict(state_dict, model)
+            missing = model.load_state_dict(selected_state_dict, strict=False)
+        else:
+            if backend == "dpo":
+                from dpo.lora import apply_lora_to_model, freeze_non_lora_params
             else:
-                new_key = k
-            new_state_dict[new_key] = v
-        # --- FIX END ---
-        
-        missing = model.load_state_dict(new_state_dict, strict=False)
+                from grpo.lora import apply_lora_to_model, freeze_non_lora_params
+
+            model = apply_lora_to_model(
+                model,
+                r=16,
+                alpha=32,
+                target_modules=("q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"),
+                dropout=0.05,
+            )
+            freeze_non_lora_params(model)
+            model.to(DEVICE)
+            selected_state_dict = select_state_dict(state_dict, model)
+            missing = model.load_state_dict(selected_state_dict, strict=False)
+
         print(f"Loaded LoRA checkpoint {LORA_CKPT}")
-        # Verify we actually loaded something relevant
-        if len(missing.missing_keys) > 0 and 'model.layers.0.self_attn.q_proj.A.weight' in missing.missing_keys:
-            print("⚠️ CRITICAL WARNING: LoRA weights were NOT loaded correctly!")
+        if missing.missing_keys:
+            lora_missing = [
+                key for key in missing.missing_keys
+                if key.endswith(".A.weight") or "lora_A.weight" in key
+            ]
+            if lora_missing:
+                print("⚠️ CRITICAL WARNING: LoRA weights were NOT loaded correctly!")
 
 model.eval()
 

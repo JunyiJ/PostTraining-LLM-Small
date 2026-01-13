@@ -8,7 +8,6 @@ import re
 import random
 import time
 from pathlib import Path
-import psutil
 
 import torch
 import torch.nn.functional as F
@@ -16,7 +15,7 @@ from tqdm import tqdm
 from transformers import get_cosine_schedule_with_warmup
 
 from grpo.device import get_default_device, empty_cache
-from grpo.utils import load_model
+from grpo.utils import load_model, check_memory_health, save_lora_checkpoint
 from ppo.ppo_advantage import advantage_gae
 from ppo.ppo_sampler import sample_batch
 from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params, get_optimizer_params
@@ -42,6 +41,7 @@ TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
 PPO_EPOCHS = 2          # Number of optimization passes per batch
 NUM_EPOCHS = 10
 EVAL_EVERY = 11
+LOG_EVERY = 10
 MAX_INPUT_TOKENS = 150
 MAX_NEW_TOKENS = 300
 TARGET_KL = 6.0
@@ -122,6 +122,10 @@ with open(TRAIN_FILE) as f:
         test_data.append(json.loads(ln))
 # random.shuffle(test_data)
 print(f"Print found {len(test_data)} lines of training data")
+print(
+    f"[config] device={DEVICE} batch_size={BATCH_SIZE} grad_acc={GRAD_ACCUM_STEPS} "
+    f"total_batch={TOTAL_BATCH_SIZE} ppo_epochs={PPO_EPOCHS}"
+)
 
 if LORA_CKPT and LORA_CKPT.exists():
     ckpt = torch.load(LORA_CKPT, map_location="cpu")
@@ -150,26 +154,6 @@ running_loss = 0.0
 running_correct = 0
 running_total = 0
 
-def check_memory_health():
-    vmem = psutil.virtual_memory()
-    swap = psutil.swap_memory()
-    # Color coding the output for visibility
-    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
-    reset = "\033[0m"
-    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
-
-def save_lora_checkpoint(model, optimizer, epoch, global_step):
-    state = {
-        "epoch": epoch,
-        "global_step": global_step,
-        "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
-        "optimizer_state_dict": optimizer.state_dict(),
-    }
-    ckpt_path = CHECKPOINT_DIR / f"ppo_lora_epoch{epoch}_step{global_step}.pt"
-    torch.save(state, ckpt_path)
-    print(f"Saved checkpoint to {ckpt_path}")
-
-
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
     start = (epoch - 1) * NUM_TRAINING_DATA
@@ -181,6 +165,14 @@ for epoch in range(1, NUM_EPOCHS + 1):
         check_memory_health()
         t_start = time.perf_counter()
         buffer_memory = [] # Experience Buffer (Stored on CPU)
+        step_tag = global_step + 1
+        reward_sum = 0.0
+        reward_sq = 0.0
+        reward_count = 0
+        truncated_count = 0
+        token_count = 0
+        kl_sum = 0.0
+        kl_count = 0.0
         
         # ====================================================
         # PHASE 1: EXPERIENCE COLLECTION (No Gradients)
@@ -256,6 +248,13 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 eos_reward_idx = torch.clamp(eos_pos - 1, min=0, max=rewards.size(1) - 1)
                 final_rewards_t = torch.tensor(final_rewards, device=rewards.device, dtype=rewards.dtype)
                 rewards[batch_indices, eos_reward_idx] += final_rewards_t
+                reward_sum += sum(final_rewards)
+                reward_sq += sum(r * r for r in final_rewards)
+                reward_count += len(final_rewards)
+                truncated_count += sum(res["truncated"])
+                token_count += answer_mask.sum().item()
+                kl_sum += (kl_divergence_est * answer_mask).sum().item()
+                kl_count += answer_mask.sum().item()
                 # Get advantage
                 advantages = advantage_gae(rewards, old_values, res["truncated"]).detach()
                 returns = (advantages + values_old) * answer_mask
@@ -281,6 +280,19 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 del res, padded_batch_tokens, attention_mask, old_out, old_values, ref_out
                 del logits_old, log_probs_old, log_probs_ref, rewards, advantages, returns
         t1 = time.perf_counter()
+        if reward_count > 0 and step_tag % LOG_EVERY == 0:
+            reward_mean = reward_sum / reward_count
+            reward_var = reward_sq / reward_count - reward_mean ** 2
+            reward_std = max(reward_var, 0.0) ** 0.5
+            truncated_rate = truncated_count / reward_count
+            avg_len = token_count / reward_count
+            kl_mean = kl_sum / max(kl_count, 1.0)
+            tok_per_s = token_count / max(t1 - t0, 1e-6)
+            print(
+                f"[step {step_tag}] collect: reward_mean={reward_mean:.3f} reward_std={reward_std:.3f} "
+                f"kl_mean={kl_mean:.3f} truncated={truncated_rate:.2f} avg_len={avg_len:.1f} "
+                f"gen_tok/s={tok_per_s:.1f} samples={reward_count}"
+            )
         # ====================================================
         # PHASE 2: GLOBAL ADVANTAGE NORMALIZATION
         # ====================================================
@@ -297,6 +309,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         adv_mean = total_sum / max(total_count, 1)
         adv_var = total_sq / max(total_count, 1) - adv_mean ** 2
         adv_std = torch.sqrt(torch.clamp(adv_var, min=1e-8))
+        if step_tag % LOG_EVERY == 0:
+            print(f"[step {step_tag}] adv_mean={adv_mean.item():.4f} adv_std={adv_std.item():.4f}")
 
         # Standardize only the active tokens
         for b in buffer_memory:
@@ -328,18 +342,18 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     shifted_log_probs_new = F.log_softmax(logits_new, dim=-1)
                     # Gather logprobs of the actually generated tokens
                     log_probs_new = shifted_log_probs_new.gather(-1, targets).squeeze(-1)  # [B, T-1]
-                    # Align stored tensors to the T-1 time dimension
-                    seq_len = log_probs_new.size(1)
-                    b_old_log_probs = b_old_log_probs[:, :seq_len]
-                    b_old_values = b_old_values[:, :seq_len]
-                    b_advantages = b_advantages[:, :seq_len]
-                    b_returns = b_returns[:, :seq_len]
-                    b_answer_mask = b_answer_mask[:, :seq_len]
-                    # Mask out padded tokens
-                    sliced_mask = b_answer_mask
-                    masked_values_new = values_new * sliced_mask
-                    masked_values_old = b_old_values * b_answer_mask
-                    ratio = torch.exp(log_probs_new - b_old_log_probs) * sliced_mask
+                # Align stored tensors to the T-1 time dimension
+                seq_len = log_probs_new.size(1)
+                b_old_log_probs = b_old_log_probs[:, :seq_len]
+                b_old_values = b_old_values[:, :seq_len]
+                b_advantages = b_advantages[:, :seq_len]
+                b_returns = b_returns[:, :seq_len]
+                b_answer_mask = b_answer_mask[:, :seq_len]
+                # Mask out padded tokens
+                sliced_mask = b_answer_mask
+                masked_values_new = values_new * sliced_mask
+                masked_values_old = b_old_values * b_answer_mask
+                ratio = torch.exp(log_probs_new - b_old_log_probs) * sliced_mask
 
                 # Policy loss for actor based on ratio and advantage
                 surr1 = ratio * b_advantages
@@ -357,17 +371,19 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 entropy_loss = -ENT_COEF * entropy
 
                 total_loss = policy_loss + VF_COEF * value_loss + entropy_loss
-                if i == 0 and ppo_epoch == 0:
-                    print(f"Step {global_step} | Loss: {total_loss.item():.3f} | Pol: {policy_loss.item():.3f} | Val: {value_loss.item():.3f}")
+                if i == 0 and ppo_epoch == 0 and step_tag % LOG_EVERY == 0:
+                    valid_mask = sliced_mask > 0
+                    ratio_raw = torch.exp(log_probs_new - b_old_log_probs)
+                    clipped = (ratio_raw > 1.0 + EPS) | (ratio_raw < 1.0 - EPS)
+                    clip_frac = (
+                        (clipped & valid_mask).float().sum() / (valid_mask.sum() + 1e-8)
+                    ).item()
+                    ratio_mean = ratio_raw[valid_mask].mean().item() if valid_mask.any() else 0.0
+                    lr = scheduler.get_last_lr()[0] if scheduler is not None else optimizer.param_groups[0]["lr"]
                     print(
-                        {
-                            "tokens_shape": tuple(b_tokens.shape),
-                            "attention_mask_shape": tuple(b_mask.shape),
-                            "ratio_mean": (ratio.sum() / (sliced_mask.sum() + 1e-8)).item(),
-                            "adv_mean": b_advantages.mean().item(),
-                            "policy_loss": policy_loss.item(),
-                            "value_loss": value_loss.item(),
-                        }
+                        f"[step {step_tag}] loss={total_loss.item():.3f} policy={policy_loss.item():.3f} "
+                        f"value={value_loss.item():.3f} entropy={entropy.item():.3f} "
+                        f"clip_frac={clip_frac:.3f} ratio_mean={ratio_mean:.3f} lr={lr}"
                     )
                 optimizer.zero_grad(set_to_none=True)
                 total_loss.backward()
@@ -394,7 +410,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
                 del total_loss
                 empty_cache(DEVICE)
-            torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
+            grad_norm = torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
             for param in trainable_params:
                 if param.grad is not None:
                     param.grad.data = param.grad.data.contiguous()
@@ -402,6 +418,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
             scheduler.step()
 
             global_step += 1
+            if global_step % LOG_EVERY == 0:
+                print(f"[step {global_step}] grad_norm={grad_norm:.3f}")
             if global_step % EVAL_EVERY == 0:
                 avg_loss = running_loss / max(global_step, 1)
                 acc = running_correct / max(running_total, 1)
@@ -430,5 +448,5 @@ for epoch in range(1, NUM_EPOCHS + 1):
         print(f"Sampling:          {(t1-t0):.2f}s")
         print(f"Global Advantage Norm:          {(t2-t1):.2f}s")
         print(f"Logprob forward & backward:   {(t_end-t2):.2f}s")
-    save_lora_checkpoint(model, optimizer, epoch, global_step)
+    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="ppo")
     print(f"==end-of-epoch {epoch}==")

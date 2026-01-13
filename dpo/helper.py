@@ -1,3 +1,4 @@
+import time
 import torch
 import psutil
 
@@ -56,6 +57,7 @@ def save_lora_checkpoint(model, optimizer, epoch, global_step, checkpoint_dir):
         "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
         "optimizer_state_dict": optimizer.state_dict(),
     }
-    ckpt_path = checkpoint_dir / f"dpo_lora_epoch{epoch}_step{global_step}.pt"
+    date_str = time.strftime("%Y%m%d")
+    ckpt_path = checkpoint_dir / f"dpo_{date_str}_epoch{epoch}_step{global_step}.pt"
     torch.save(state, ckpt_path)
     print(f"Saved checkpoint to {ckpt_path}")

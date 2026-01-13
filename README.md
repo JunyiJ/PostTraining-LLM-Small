@@ -3,7 +3,7 @@
 Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct checkpoint.
 
 ## Repo structure
-- `run_train.py` — main GRPO+LoRA training loop (multi-epoch, sampling, ratio loss, periodic eval, checkpoints in `checkpoints/`).
+- `run_train_grpo.py` — main GRPO+LoRA training loop (multi-epoch, sampling, ratio loss, periodic eval, checkpoints in `checkpoints/`).
 - `eval_math.py` — evaluate math accuracy; can load base model or base+LoRA checkpoint.
 - `eval_math_base.py` — baseline math eval without LoRA.
 - `grpo/` — helpers:
@@ -40,9 +40,9 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
 
 To train:
 ```bash
-python run_train.py | tee logs/train_test.log
+python run_train_grpo.py | tee logs/train_test.log
 ```
-Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train.py`.
+Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train_grpo.py`.
 
 ### Overview of LoRA
 For each target layer(usually q, k, v, o), add a learnable weight with low rank while base weights are frozen:

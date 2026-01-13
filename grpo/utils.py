@@ -1,4 +1,5 @@
 import json
+import time
 from pathlib import Path
 
 import torch
@@ -35,3 +36,35 @@ def append_jsonl(path: Path, record: dict) -> None:
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     with open(path, "a") as f:
         f.write(json.dumps(record, ensure_ascii=True) + "\n")
+
+
+def check_memory_health() -> None:
+    import psutil
+
+    vmem = psutil.virtual_memory()
+    swap = psutil.swap_memory()
+    color = "\033[93m" if vmem.percent > 85 else "\033[92m"
+    reset = "\033[0m"
+    print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
+
+
+def _collect_lora_state_dict(model):
+    # Prefer the inner model when it avoids a wrapper prefix and no critic head exists.
+    target = model
+    if hasattr(model, "base_model") and not hasattr(model, "value_layer"):
+        target = model.base_model
+    return {n: p.detach().cpu() for n, p in target.named_parameters() if p.requires_grad}
+
+
+def save_lora_checkpoint(model, optimizer, epoch, global_step, checkpoint_dir: Path, prefix: str) -> Path:
+    state = {
+        "epoch": epoch,
+        "global_step": global_step,
+        "lora_state_dict": _collect_lora_state_dict(model),
+        "optimizer_state_dict": optimizer.state_dict(),
+    }
+    date_str = time.strftime("%Y%m%d")
+    ckpt_path = checkpoint_dir / f"{prefix}_{date_str}_epoch{epoch}_step{global_step}.pt"
+    torch.save(state, ckpt_path)
+    print(f"Saved checkpoint to {ckpt_path}")
+    return ckpt_path
