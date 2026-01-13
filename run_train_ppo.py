@@ -15,6 +15,7 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from transformers import get_cosine_schedule_with_warmup
 
+from grpo.device import get_default_device, empty_cache
 from grpo.utils import load_model
 from ppo.ppo_advantage import advantage_gae
 from ppo.ppo_sampler import sample_batch
@@ -47,7 +48,7 @@ TARGET_KL = 6.0
 BETA = 0.1
 VF_COEF = 0.01
 ENT_COEF = 0
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 EPS = 0.2
 # Define Fixed Length (MPS Compilation Target)
 TRAINING_CTX_LEN = 512
@@ -88,7 +89,7 @@ def safe_pad(tensor, target_len, pad_val=0):
     return tensor[:, :target_len]
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 model = apply_lora_to_model(
     model,
     r=16,
@@ -392,7 +393,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 del b_tokens, b_mask, b_old_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
                 del total_loss
-                torch.mps.empty_cache()
+                empty_cache(DEVICE)
             torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
             for param in trainable_params:
                 if param.grad is not None:
@@ -422,7 +423,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 model.train()
                 del eval_inputs, out
                 gc.collect()
-                torch.mps.empty_cache()
+                empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
         print("\n=== PROFILER ===")

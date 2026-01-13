@@ -25,8 +25,8 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
    ```bash
    huggingface-cli download google/gemma-2-2b --local-dir ./models/gemma-2-2b --include "*"
    ```
-3) I used local machine (mac mini, device=`mps`) to do the post-training, but the code should
- be able to be adapted to other devices.
+3) I used a local Mac mini for post-training, but device selection now auto-detects
+   `cuda`/`mps`/`cpu` based on what's available.
 
 ## GRPO + LoRA flow
 ### Code structure

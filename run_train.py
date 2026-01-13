@@ -14,6 +14,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
+from grpo.device import get_default_device, empty_cache
 from grpo.utils import load_model, append_jsonl
 from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage, compute_rank_advantage
@@ -41,11 +42,11 @@ EVAL_EVERY = 25
 SAMPLING_TEMPERATURE = 1.1
 MAX_NEW_TOKENS = 400
 KL_COEF = 0.01
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,
@@ -338,7 +339,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Final scalars
         del loss, grpo_loss, kl_loss, advantages, rewards
         gc.collect()
-        torch.mps.empty_cache()
+        empty_cache(DEVICE)
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)
@@ -360,7 +361,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
             model.train()
             del eval_inputs, out
-            torch.mps.empty_cache()
+            empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
         print("\n=== PROFILER ===")

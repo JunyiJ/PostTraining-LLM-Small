@@ -4,7 +4,14 @@ from pathlib import Path
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
-def load_model(model_path="./models/gemma-2-2b"):
+try:
+    from grpo.device import resolve_device
+except ImportError:
+    from device import resolve_device
+
+
+def load_model(model_path="./models/gemma-2-2b", device=None):
+    device = resolve_device(device)
     tokenizer = AutoTokenizer.from_pretrained(
         model_path,
         padding_side="left",  # Critical for Qwen model
@@ -17,7 +24,7 @@ def load_model(model_path="./models/gemma-2-2b"):
         device_map={"": "cpu"},  # Load model to cpu first and later moved to desired device to avoid the hugging face buggy warmup with FP16
         low_cpu_mem_usage=True,
     )
-    model = model.to("mps")
+    model = model.to(device)
     model.config.pad_token_id = tokenizer.pad_token_id
     model.config.eos_token_id = tokenizer.eos_token_id
     return tokenizer, model

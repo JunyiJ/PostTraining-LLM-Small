@@ -3,10 +3,9 @@ import torch.nn.functional as F
 import re
 import time
 
+from grpo.device import resolve_device, empty_cache
 
 FAKE_PAD_ID = -100   # any ID not used by model
-
-import time
 
 def profile_sampling(func):
     """Decorator to measure sampling performance and detect stalls."""
@@ -41,7 +40,7 @@ def sample_batch(
     model,
     tokenizer,
     prompts,
-    device="mps",
+    device=None,
     dtype=torch.float32,
     max_input_tokens=150,
     max_new_tokens=256,
@@ -50,6 +49,7 @@ def sample_batch(
     repetition_penalty=1.05,
     timeout_seconds=500,
 ):
+    device = resolve_device(device)
     t_start_global = time.perf_counter()
     batch_size = len(prompts)
     enc = tokenizer(
@@ -199,7 +199,7 @@ def sample_batch(
     
     # Cleanup
     del past_key_values
-    torch.mps.empty_cache()
+    empty_cache(device)
     
     # Replace fake pads for model consumption; keep track of real padding locations
     tokens_for_model = input_ids_k.clone()[:, :prompt_id_length+steps_taken]

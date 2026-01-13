@@ -1,10 +1,16 @@
 from pathlib import Path
 
-from utils import load_model
+try:
+    from grpo.device import get_default_device
+    from grpo.utils import load_model
+except ImportError:
+    from device import get_default_device
+    from utils import load_model
 
 MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "gemma-2-2b"
+DEVICE = get_default_device()
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 
 prompts = ["Hello world", "1+1=?"]
 
@@ -15,7 +21,7 @@ for prompt in prompts:
         return_tensors="pt",
         padding=True,
         truncation=True,
-    ).to("mps")
+    ).to(DEVICE)
     outputs = model.generate(
         **inputs,
         max_new_tokens=100,

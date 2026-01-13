@@ -3,10 +3,12 @@ import torch.nn.functional as F
 import re
 import time
 
+try:
+    from grpo.device import resolve_device, empty_cache
+except ImportError:
+    from device import resolve_device, empty_cache
 
 FAKE_PAD_ID = -100   # any ID not used by model
-
-import time
 
 def profile_sampling(func):
     """Decorator to measure sampling performance and detect stalls."""
@@ -45,9 +47,11 @@ def sample_k(
     temperature=1.0,
     max_new_tokens=256,
     enable_grad=False,
+    device=None,
 ):
     samples = []
-    enc = tokenizer(prompt, return_tensors="pt").to("mps")
+    device = resolve_device(device)
+    enc = tokenizer(prompt, return_tensors="pt").to(device)
     for _ in range(k):
         input_ids = enc.input_ids.clone()
         prompt_id_length = len(input_ids[0])
@@ -86,7 +90,7 @@ def sample_k_parallel(
     tokenizer,
     prompt,
     k,
-    device="mps",
+    device=None,
     dtype=torch.float32,
     temperature=1.0,
     max_new_tokens=256,
@@ -95,6 +99,7 @@ def sample_k_parallel(
     repetition_penalty=1.05,
     timeout_seconds=500,
 ):
+    device = resolve_device(device)
     t_start_global = time.perf_counter()
     enc = tokenizer(prompt, return_tensors="pt")
     input_ids = enc["input_ids"].to(device)  # [1, seq_len]
@@ -231,7 +236,7 @@ def sample_k_parallel(
     
     # Cleanup
     del past_key_values
-    torch.mps.empty_cache()
+    empty_cache(device)
     
     # Replace fake pads for model consumption; keep track of real padding locations
     tokens_for_model = input_ids_k.clone()[:, :prompt_id_length+steps_taken]
@@ -260,8 +265,10 @@ def sample_k_generate(
     temperature=1.0,
     max_new_tokens=256,
     enable_grad=False,
+    device=None,
 ):
-    enc = tokenizer(prompt, return_tensors="pt").to("mps")
+    device = resolve_device(device)
+    enc = tokenizer(prompt, return_tensors="pt").to(device)
     # ==debug==
     with torch.no_grad():
         out_logits = model(**enc).logits

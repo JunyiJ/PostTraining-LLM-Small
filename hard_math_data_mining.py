@@ -6,6 +6,7 @@ from tqdm import tqdm
 from pathlib import Path
 from grpo.sampler import sample_k_parallel
 from grpo.reward import extract_final_answer
+from grpo.device import get_default_device
 from grpo.utils import load_model
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
@@ -24,11 +25,11 @@ NUM_EPOCHS = 8
 EVAL_EVERY = 10
 SAMPLING_TEMPERATURE = 0.8
 MAX_NEW_TOKENS = 300
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 PROMPT = " Please reason step-by-step,  then give: Final answer."
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 
 def mine_hard_examples(model, tokenizer, input_file, output_file, k=NUM_SAMPLES_PER_PROMPT):
     hard_examples = []
@@ -48,6 +49,7 @@ def mine_hard_examples(model, tokenizer, input_file, output_file, k=NUM_SAMPLES_
             # Run a quick sample pass
             res = sample_k_parallel(
                 model, tokenizer, question + PROMPT,
+                device=DEVICE,
                 k=k, temperature=SAMPLING_TEMPERATURE, max_new_tokens=MAX_NEW_TOKENS
             )
             

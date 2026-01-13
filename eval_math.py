@@ -9,6 +9,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from tqdm import tqdm
 
 from grpo.reward import extract_final_answer
+from grpo.device import get_default_device, empty_cache
 from grpo.utils import load_model
 from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 # from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params
@@ -23,6 +24,7 @@ MAX_NEW_TOKENS = 300
 TOL = 1e-1
 
 prompt = " Reason step-by-step,  then give: Final answer."
+DEVICE = get_default_device()
 
 def extract_answer(text):
     if text is None:
@@ -51,7 +53,7 @@ def extract_answer(text):
         return None
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 
 if USE_LORA:
     model = apply_lora_to_model(
@@ -85,7 +87,6 @@ if USE_LORA:
         if len(missing.missing_keys) > 0 and 'model.layers.0.self_attn.q_proj.A.weight' in missing.missing_keys:
             print("⚠️ CRITICAL WARNING: LoRA weights were NOT loaded correctly!")
 
-model.to("mps")
 model.eval()
 
 correct, total = 0, 0
@@ -114,7 +115,7 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
         padding=True,
         truncation=True,
         max_length=MAX_INPUT_TOKENS,
-    ).to("mps")
+    ).to(DEVICE)
     input_len = inputs["input_ids"].shape[1]
 
     with torch.no_grad():
@@ -148,7 +149,7 @@ for idx in tqdm(range(0, len(test_data), BATCH_SIZE)):
         print(">>>>>>>>>>>>.")
     del inputs, outputs, texts
     gc.collect()
-    torch.mps.empty_cache()
+    empty_cache(DEVICE)
     batch_elapsed = time.perf_counter() - batch_start
     batch_count = len(batch)
     avg_per_sample = batch_elapsed / batch_count if batch_count else 0.0

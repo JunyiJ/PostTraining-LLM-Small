@@ -14,6 +14,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
+from grpo.device import get_default_device, empty_cache
 from grpo.utils import load_model
 from dpo.dpo_loss import dpo_loss
 from dpo.helper import check_memory_health, save_lora_checkpoint, get_tokens_and_masks
@@ -41,11 +42,11 @@ NUM_EPOCHS = 50
 EVAL_EVERY = 10
 MAX_INPUT_TOKENS = 412
 KL_COEF = 0.1
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 PROMPT = " Instruction: Solve the math problem. You MUST output the full reasoning process followed by the final answer. Do not ask for confirmation. Do not stop until the answer is reached. "
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 # Critical for correct identify the answer tokens from the prompt tokens
 tokenizer.padding_side = "right"
 # Wrap target linear layers with LoRA adapters
@@ -166,7 +167,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         del policy_response, response_logits_policy, response_shifted_log_probs_policy, response_log_probs_policy
         del chosen_log_probs_ref, rejected_log_probs_ref, chosen_log_probs_policy, rejected_log_probs_policy
         del chosen_answer_mask, rejected_answer_mask
-        torch.mps.empty_cache()
+        empty_cache(DEVICE)
         # periodically evaluate
         if is_update_step and global_step % EVAL_EVERY == 0:
             gc.collect()
@@ -186,7 +187,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
             model.train()
             del eval_inputs, out
-            torch.mps.empty_cache()
+            empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
     save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR)
