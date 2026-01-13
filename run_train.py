@@ -29,7 +29,7 @@ os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
 LORA_CKPT = None
-# LORA_CKPT = Path("./gemma-2-2b-checkpoints/sft_lora_epoch0_step200.pt")  # Set to None if training from base
+# LORA_CKPT = Path("./gemma-2-2b-checkpoints/2026_lora_epoch3_step300.pt")  # Set to None if training from base
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
@@ -37,9 +37,9 @@ NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 1.0
+SAMPLING_TEMPERATURE = 0.9
 MAX_NEW_TOKENS = 400
-KL_COEF = 0.2
+KL_COEF = 0.05
 DEVICE = torch.device("mps")
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
@@ -57,11 +57,26 @@ model = ModelAdapterWrapper(model)
 freeze_non_lora_params(model)
 if LORA_CKPT and LORA_CKPT.exists():
     ckpt = torch.load(LORA_CKPT, map_location="cpu")
-    missing = model.load_state_dict(ckpt.get("lora_state_dict", {}), strict=False)
-    print(f"Loaded LoRA checkpoint {LORA_CKPT} (missing/unexpected: {missing})")
-else:
-    print(f"LoRA checkpoint {LORA_CKPT} not found; training from base model.")
-model.to(DEVICE)
+    state_dict = ckpt.get("lora_state_dict", {})
+    
+    # --- FIX START: Sanitize Keys ---
+    new_state_dict = {}
+    for k, v in state_dict.items():
+        # Remove 'base_model.' prefix if it exists
+        if k.startswith("base_model.model."):
+            new_key = k.replace("base_model.model.", "model.")
+        elif k.startswith("base_model."):
+            new_key = k.replace("base_model.", "")
+        else:
+            new_key = k
+        new_state_dict[new_key] = v
+    # --- FIX END ---
+    
+    missing = model.load_state_dict(new_state_dict, strict=False)
+    print(f"Loaded LoRA checkpoint {LORA_CKPT}")
+    # Verify we actually loaded something relevant
+    if len(missing.missing_keys) > 0 and 'model.layers.0.self_attn.q_proj.A.weight' in missing.missing_keys:
+        print("⚠️ CRITICAL WARNING: LoRA weights were NOT loaded correctly!")
 lora_params = get_lora_parameters(model)
 optimizer = torch.optim.AdamW(lora_params, lr=2e-5)
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
@@ -80,15 +95,25 @@ def check_memory_health():
     print(f"{color}📊 [System Health] RAM: {vmem.percent}% | Swap Used: {swap.used / 1e9:.2f} GB{reset}")
 
 def save_lora_checkpoint(model, optimizer, epoch, global_step):
+# --- FIX: Access the inner model to avoid 'base_model.' prefix ---
+    # Check if model is wrapped; if so, unwrap it for saving
+    inner_model = model.base_model if hasattr(model, "base_model") else model
+    
+    lora_state_dict = {
+        n: p.detach().cpu() 
+        for n, p in inner_model.named_parameters() 
+        if p.requires_grad
+    }
+    # -----------------------------------------------------------------
     state = {
         "epoch": epoch,
         "global_step": global_step,
-        "lora_state_dict": {n: p.detach().cpu() for n, p in model.named_parameters() if p.requires_grad},
+        "lora_state_dict": lora_state_dict,
         "optimizer_state_dict": optimizer.state_dict(),
     }
-    ckpt_path = CHECKPOINT_DIR / f"2026_lora_epoch{epoch}_step{global_step}.pt"
+    ckpt_path = CHECKPOINT_DIR / f"20260112_lora_epoch{epoch}_step{global_step}.pt"
     torch.save(state, ckpt_path)
-    print(f"Saved checkpoint to {ckpt_path}")
+    print(f"Saved clean checkpoint to {ckpt_path}")
 
 """
 load data

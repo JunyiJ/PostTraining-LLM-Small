@@ -407,6 +407,70 @@ def repetition_penalty(text: str) -> float:
     return 0.0
 
 # ============================================================
+# NEW: Safe Partial Credit (Gold Search)
+# ============================================================
+
+def safe_gold_capture_reward(text: str, gold_val: float) -> float:
+    """
+    Checks if the gold number appears in the reasoning text.
+    Safeguards against matching "Step 10" for answer "10".
+    """
+    try:
+        gold_int = int(gold_val)
+        gold_str = str(gold_int)
+    except:
+        return 0.0
+
+    # Safety: Don't reward if the number is likely a step counter
+    # Regex:
+    # (?<!Step\s)  -> Not preceded by "Step "
+    # (?<!Part\s)  -> Not preceded by "Part "
+    # \b...\b      -> Exact word match
+    pattern = r'(?<!Step\s)(?<!Part\s)(?<!\d\.)\b' + re.escape(gold_str) + r'\b'
+    
+    if re.search(pattern, text, re.IGNORECASE):
+        return 0.5  # Significant partial credit for finding the right number
+        
+    return 0.0
+
+# ============================================================
+# NEW: Avoid planning -> reasoning pattern
+# ============================================================
+
+def structural_reset_penalty(text: str) -> float:
+    """
+    Penalizes the model if it 'restarts' a list (e.g. Plan -> Solution).
+    It looks for multiple occurrences of list initiators like 'Step 1' or '1.'.
+    """
+    penalty = 0.0
+    
+    # 1. Define patterns that indicate the START of a reasoning block
+    # (?im) flags: Case-insensitive, Multiline (so ^ matches start of line)
+    start_markers = [
+        r"^\s*(?:\*\*|#\s*)?step\s*1\b",   # Matches: "Step 1", "**Step 1**", "# Step 1"
+        r"^\s*(?:\*\*|#\s*)?1\.\s",        # Matches: "1. ", "**1.** "
+        r"^\s*(?:\*\*|#\s*)?phase\s*1\b",  # Matches: "Phase 1"
+        r"^\s*(?:\*\*|#\s*)?part\s*1\b"    # Matches: "Part 1"
+    ]
+    
+    # 2. Check each pattern
+    for pattern in start_markers:
+        # re.findall with (?m) finds all occurrences at the start of lines
+        matches = re.findall(pattern, text, flags=re.IGNORECASE | re.MULTILINE)
+        
+        # If we find the "start" marker more than once, the model reset its logic
+        if len(matches) > 1:
+            return -1.0  # Heavy penalty for restarting
+            
+    # 3. Secondary Check: "Plan vs Solution" Keywords
+    # Even if numbering is different, if it explicitly headers a "Plan", punish it.
+    # (We want direct reasoning, not meta-planning)
+    if "plan:" in text.lower() and "solution:" in text.lower():
+         return -0.5
+
+    return 0.0
+
+# ============================================================
 # FINAL COMBINED REWARD
 # ============================================================
 
@@ -470,11 +534,22 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
         else:
             num_r = -1.0
 
+    # 3a. Safe Partial Credit (The Safety Net)
+    # Only award this if the Final Answer was WRONG or MISSING.
+    # If they got the Final Answer right, they already got +1.0, don't double count.
+    partial_r = 0.0
+    if num_r < 0.5: 
+        partial_r = safe_gold_capture_reward(text, gold)
+
+    
     # 3. Intermediate Logic Bonus
     # Only award equation bonus if the CoT isn't total gibberish
     eq_r = 0.0
     if len(text) > 20: 
         eq_r = equation_bonus(text)
+
+    # 3c. avoid planning + reasoning
+    structure_penalty = structural_reset_penalty(text)
 
     # 4. NEW: Repetition Penalty
     rep_r = repetition_penalty(text)
@@ -495,7 +570,7 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     # If two samples are correct, the shorter one ranks higher.
     length_penalty = min(len(text) / 500.0, 0.1)
 
-    total = num_r + eq_r + rep_r + format_r + trunc_r - length_penalty
+    total = num_r + partial_r + eq_r + structure_penalty + rep_r + format_r + trunc_r - length_penalty
 
     # Clip to ensure advantages don't explode
     return max(-1.5, min(1.5, total))

@@ -10,12 +10,13 @@ from tqdm import tqdm
 
 from grpo.reward import extract_final_answer
 from grpo.utils import load_model
-from grpo.lora import apply_lora_to_model, freeze_non_lora_params
+from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
+# from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params
 
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/dpo_lora_epoch15_step150.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/lora_epoch4_step200.pt")
 USE_LORA = True  # set False to eval base model only
 BATCH_SIZE = 8
 MAX_NEW_TOKENS = 300
@@ -63,10 +64,26 @@ if USE_LORA:
     freeze_non_lora_params(model)
     if LORA_CKPT is not None and LORA_CKPT.exists():
         ckpt = torch.load(LORA_CKPT, map_location="cpu")
-        missing = model.load_state_dict(ckpt.get("lora_state_dict", {}), strict=False)
-        print(f"Loaded LoRA checkpoint {LORA_CKPT} (missing/unexpected: {missing})")
-    else:
-        print(f"LoRA checkpoint {LORA_CKPT} not found; evaluating base model.")
+        state_dict = ckpt.get("lora_state_dict", {})
+        
+        # --- FIX START: Sanitize Keys ---
+        new_state_dict = {}
+        for k, v in state_dict.items():
+            # Remove 'base_model.' prefix if it exists
+            if k.startswith("base_model.model."):
+                new_key = k.replace("base_model.model.", "model.")
+            elif k.startswith("base_model."):
+                new_key = k.replace("base_model.", "")
+            else:
+                new_key = k
+            new_state_dict[new_key] = v
+        # --- FIX END ---
+        
+        missing = model.load_state_dict(new_state_dict, strict=False)
+        print(f"Loaded LoRA checkpoint {LORA_CKPT}")
+        # Verify we actually loaded something relevant
+        if len(missing.missing_keys) > 0 and 'model.layers.0.self_attn.q_proj.A.weight' in missing.missing_keys:
+            print("⚠️ CRITICAL WARNING: LoRA weights were NOT loaded correctly!")
 
 model.to("mps")
 model.eval()
