@@ -14,10 +14,10 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
-from grpo.utils import load_model
+from grpo.utils import load_model, append_jsonl
 from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage, compute_rank_advantage
-from grpo.reward import compute_reward, advanced_cot_reward,refined_advanced_cot_reward
+from grpo.reward import compute_reward, refined_advanced_cot_reward
 from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_params, get_lora_parameters
 
 # To avoid the known issue of gemma2 x MPS memory allocator bug.
@@ -33,13 +33,14 @@ LORA_CKPT = None
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
+HARD_QUESTION_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_hard.jsonl"
 NUM_SAMPLES_PER_PROMPT = 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
-SAMPLING_TEMPERATURE = 0.9
+SAMPLING_TEMPERATURE = 1.1
 MAX_NEW_TOKENS = 400
-KL_COEF = 0.05
+KL_COEF = 0.01
 DEVICE = torch.device("mps")
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
@@ -306,6 +307,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         t6 = time.perf_counter()
         if max(rewards) < 0:
             print("All rewards are negative; skipping gradient update.")
+            append_jsonl(HARD_QUESTION_FILE, line)
             t7 = t6
         else:
             # pre-backprop cleanup. adding set_to_none is more memory efficiency

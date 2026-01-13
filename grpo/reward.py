@@ -363,11 +363,11 @@ def equation_bonus(text: str) -> float:
             lhs_val = _safe_eval_arith(lhs)
             rhs_val = _safe_eval_arith(rhs)
             if abs(lhs_val - rhs_val) < 1e-6:
-                bonus += 0.02
+                bonus += 0.05
         except:
             continue
 
-    return min(bonus, 0.10)   # cap at +0.1
+    return min(bonus, 0.30)   # cap at +0.1
 
 # ============================================================
 # NEW: Repetition Penalty
@@ -390,6 +390,9 @@ def repetition_penalty(text: str) -> float:
             
     # 2. N-gram Repetition (e.g. "calculate the cost calculate the cost")
     words = text.lower().split()
+    has_step_structure = bool(
+        re.search(r"^\s*(?:\*\*|#\s*)?(?:step\s*\d+|\d+\.)", text, re.IGNORECASE | re.MULTILINE)
+    )
     if len(words) > 30:
         trigrams = set()
         count_repeats = 0
@@ -400,9 +403,11 @@ def repetition_penalty(text: str) -> float:
                 count_repeats += 1
             trigrams.add(phrase)
         
-        # If we see the same 5-word phrase more than 3 times, penalize
-        if count_repeats > 3:
-            return -1.0
+        unique_ratio = len(set(words)) / len(words)
+        repeat_limit = 6 if has_step_structure and unique_ratio >= 0.35 else 3
+        # If we see the same 5-word phrase more than the limit, penalize
+        if count_repeats > repeat_limit:
+            return -0.5
             
     return 0.0
 
@@ -474,40 +479,6 @@ def structural_reset_penalty(text: str) -> float:
 # FINAL COMBINED REWARD
 # ============================================================
 
-def advanced_cot_reward(text: str, gold_answer: float, truncated: bool = False) -> float:
-    """
-    Robust, stable math reward for GRPO/PPO.
-
-    Components:
-        + numeric correctness     (dominant signal)
-        + equation bonus          (optional small add-on)
-        + truncation penalty      (mild)
-    
-    Output range: [-1.5, +1.5]
-    """
-
-    pred = extract_final_answer(text)
-    if pred is None:
-        return -1.0
-    
-    try:
-        gold = float(str(gold_answer).replace(",", ""))
-    except:
-        return -1.0
-
-    # 1. Dominant term
-    num_r = numeric_reward(pred, gold)   # [-1, 1]
-
-    # 2. Small positive bonus only
-    eq_r = equation_bonus(text)          # [0, 0.1]
-
-    # 3. Truncation penalty
-    trunc_r = -0.05 if truncated else 0.0
-
-    total = num_r + eq_r + trunc_r
-
-    return max(-1.5, min(1.5, total))
-
 def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool = False) -> float:
     """
     Optimized for Rank-based GRPO on Gemma-2-2B.
@@ -566,9 +537,8 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
     trunc_r = -0.5 if truncated else 0.0
 
     # 6. Efficiency Bonus (The Tie-Breaker)
-    # Rewards the model for getting the answer in fewer tokens.
-    # If two samples are correct, the shorter one ranks higher.
-    length_penalty = min(len(text) / 500.0, 0.1)
+    # Target: -0.5 penalty at max length (approx 1600 chars)
+    length_penalty = len(text) / 3000.0
 
     total = num_r + partial_r + eq_r + structure_penalty + rep_r + format_r + trunc_r - length_penalty
 

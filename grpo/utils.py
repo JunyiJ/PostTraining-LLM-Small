@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
@@ -18,3 +21,10 @@ def load_model(model_path="./models/gemma-2-2b"):
     model.config.pad_token_id = tokenizer.pad_token_id
     model.config.eos_token_id = tokenizer.eos_token_id
     return tokenizer, model
+
+
+def append_jsonl(path: Path, record: dict) -> None:
+    """Append a JSON record to a jsonl file, creating parent dirs as needed."""
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "a") as f:
+        f.write(json.dumps(record, ensure_ascii=True) + "\n")
