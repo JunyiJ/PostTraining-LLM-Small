@@ -11,6 +11,12 @@ class ModelAdapterWrapper(nn.Module):
         super().__init__()
         self.base_model = base_model
 
+    def state_dict(self, *args, **kwargs):
+        return self.base_model.state_dict(*args, **kwargs)
+
+    def load_state_dict(self, state_dict, strict=True):
+        return self.base_model.load_state_dict(state_dict, strict)
+
     def forward(self, *args, **kwargs):
         # Preserve user args/kwargs
         return self.base_model(*args, **kwargs)
@@ -59,6 +65,9 @@ class LoRALinear(nn.Module):
         self.B = nn.Linear(r, self.base.out_features, bias=False)
         init.kaiming_normal_(self.A.weight, a=0.0, mode="fan_in", nonlinearity="relu")
         init.zeros_(self.B.weight)
+        # Keep LoRA adapters on the same device/dtype as the base layer.
+        self.A.to(device=self.base.weight.device, dtype=self.base.weight.dtype)
+        self.B.to(device=self.base.weight.device, dtype=self.base.weight.dtype)
         
     def forward(self, x):
         base_out = self.base(x)
