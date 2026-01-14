@@ -31,7 +31,7 @@ if IS_MPS:
     os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
     os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 if IS_CUDA:
-    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    os.environ["PYTORCH_ALLOC_CONF"] = "expandable_segments:True"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
@@ -47,8 +47,8 @@ NUM_EPOCHS = 10
 EVAL_EVERY = 25
 LOG_EVERY = 10
 SAMPLING_TEMPERATURE = 1.1
-MAX_NEW_TOKENS = 400
-KL_COEF = 0.01
+MAX_NEW_TOKENS = 350
+KL_COEF = 0.1
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
@@ -92,13 +92,13 @@ if IS_CUDA:
     model.base_model.enable_input_require_grads()
     try:
         import bitsandbytes as bnb
-        optimizer = bnb.optim.AdamW8bit(get_lora_parameters(model), lr=2e-5)
+        optimizer = bnb.optim.AdamW8bit(get_lora_parameters(model), lr=1e-5)
     except ImportError:
         print("⚠️ bitsandbytes not found. Using standard AdamW.")
-        optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=2e-5)
+        optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=1e-5)
 else:
     print("🍏 Using standard optimization (MPS/CPU)...")
-    optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=2e-5)
+    optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=1e-5)
 
 
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
@@ -144,6 +144,7 @@ print(f"Print found {len(test_data)} lines of training data")
 print(
     f"[config] device={DEVICE} samples_per_prompt={NUM_SAMPLES_PER_PROMPT} "
     f"max_new_tokens={MAX_NEW_TOKENS} lr={optimizer.param_groups[0]['lr']}"
+    f"temperature={SAMPLING_TEMPERATURE} KL_COEF={KL_COEF}"
 )
 
 for epoch in range(1, NUM_EPOCHS + 1):
@@ -157,12 +158,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
         t_start = time.perf_counter()
         question = line['question']
         prompt = PROMPT
-        # print(question)
         gold_answer = str(line["gold_answer"]).strip()
-        print(question)
-        print(f"answer is {gold_answer}")
         t0 = time.perf_counter()
-        # print("enter sampling")
         # Sample K initial answers and get each answer token's sum_logprob_old.
         model.eval()    # disable dropout
         with torch.no_grad():
@@ -219,6 +216,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
         if global_step % 10 == 0:
+            print(question)
+            print(f"answer is {gold_answer}")
             for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
                 print(txt)
                 print(f"reward is {r}")
@@ -327,8 +326,6 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 optimizer.step()
                 t7 = time.perf_counter()
 
-
-
         running_loss += loss.item()
         running_correct += sum(1 for r in rewards if r > 0)
         running_total += len(rewards)
@@ -398,10 +395,12 @@ for epoch in range(1, NUM_EPOCHS + 1):
             empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
+        """
         print("\n=== PROFILER ===")
         print(f"Sampling:          {(t1-t0):.2f}s")
         print(f"Logprob forward:   {(t3-t2):.2f}s")
         print(f"Reward + Adv:      {(t5-t4):.2f}s")
         print(f"Backward:          {(t7-t6):.2f}s")
+        """
     save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="grpo")
     print(f"==end-of-epoch {epoch}==")
