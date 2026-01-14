@@ -25,6 +25,7 @@ from grpo.lora import ModelAdapterWrapper, apply_lora_to_model, freeze_non_lora_
 # even request fp32 or bfloat16
 os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
 os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
@@ -57,6 +58,9 @@ model = apply_lora_to_model(
 )
 model = ModelAdapterWrapper(model)
 freeze_non_lora_params(model)
+
+model.gradient_checkpointing_enable()
+model.base_model.enable_input_require_grads()
 if LORA_CKPT and LORA_CKPT.exists():
     ckpt = torch.load(LORA_CKPT, map_location="cpu")
     state_dict = ckpt.get("lora_state_dict", {})
@@ -188,7 +192,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 log_probs_ref = shifted_log_probs_ref.gather(-1, targets).squeeze(-1)  # [B, T-1]
 
         # Second pass (enable gradient) to get each answer token's sum_logprob_new.
+
         model.train()
+        model.base_model.config.use_cache = False
         with torch.enable_grad():
             out_new = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
             # [B, T_max, vocab]
@@ -344,6 +350,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         del loss, grpo_loss, kl_loss, advantages, rewards
         gc.collect()
         empty_cache(DEVICE)
+        model.base_model.config.use_cache = True
         # periodically evaluate
         if global_step % EVAL_EVERY == 0:
             avg_loss = running_loss / max(global_step, 1)

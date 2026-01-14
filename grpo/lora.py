@@ -11,6 +11,9 @@ class ModelAdapterWrapper(nn.Module):
         super().__init__()
         self.base_model = base_model
 
+    def gradient_checkpointing_enable(self, *args, **kwargs):
+        return self.base_model.gradient_checkpointing_enable()
+
     def state_dict(self, *args, **kwargs):
         return self.base_model.state_dict(*args, **kwargs)
 

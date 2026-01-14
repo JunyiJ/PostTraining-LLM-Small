@@ -18,7 +18,7 @@ TEST_FILE = "./data/test_math.jsonl"
 LORA_CKPT = Path("./gemma-2-2b-checkpoints/dpo_lora_epoch24_step240.pt")
 USE_LORA = True  # set False to eval base model only
 LORA_BACKEND = "auto"  # "auto", "grpo", "dpo", "ppo"
-BATCH_SIZE = 8
+BATCH_SIZE = 20
 MAX_NEW_TOKENS = 300
 TOL = 1e-1
 
