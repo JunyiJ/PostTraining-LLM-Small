@@ -44,10 +44,11 @@ NUM_SAMPLES_PER_PROMPT = 32 if IS_CUDA else 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
-LOG_EVERY = 10
-SAMPLING_TEMPERATURE = 1.1
+LOG_EVERY = 1
+SAMPLING_TEMPERATURE = 1.3
 MAX_NEW_TOKENS = 350
-KL_COEF = 0.05
+KL_COEF = 0.02
+LR = 5e-6
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
@@ -94,13 +95,13 @@ if IS_CUDA:
     model.base_model.enable_input_require_grads()
     try:
         import bitsandbytes as bnb
-        optimizer = bnb.optim.AdamW8bit(get_lora_parameters(model), lr=1e-5)
+        optimizer = bnb.optim.AdamW8bit(get_lora_parameters(model), lr=LR)
     except ImportError:
         print("⚠️ bitsandbytes not found. Using standard AdamW.")
-        optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=1e-5)
+        optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=LR)
 else:
     print("🍏 Using standard optimization (MPS/CPU)...")
-    optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=1e-5)
+    optimizer = torch.optim.AdamW(get_lora_parameters(model), lr=LR)
 
 
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
@@ -197,7 +198,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # --- CHUNKED REFERENCE PASSES TO PREVENT OOM ---
         log_probs_old_list = []
         log_probs_ref_list = []
-        chunk_size = 4 if IS_CUDA else NUM_SAMPLES_PER_PROMPT
+        chunk_size = 8 if IS_CUDA else NUM_SAMPLES_PER_PROMPT
         with torch.no_grad():
             for i in range(0, NUM_SAMPLES_PER_PROMPT, chunk_size):
                 c_toks = padded_batch_tokens[i : i + chunk_size]
@@ -232,7 +233,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 )
                 for txt, tr in zip(res["text"], res["truncated"])
             ]
-        if global_step % 10 == 0:
+        if global_step % 50 == 0:
             print(question)
             print(f"answer is {gold_answer}")
             for txt, r, tr in zip(res['text'], rewards, res["truncated"]):
@@ -242,7 +243,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(log_probs_old.dtype)
-        print(f"advantages is {advantages}")
+        # print(f"advantages is {advantages}")
 
         model.train()
         optimizer.zero_grad(set_to_none=True)
@@ -311,7 +312,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 final_kl = accumulated_kl / NUM_SAMPLES_PER_PROMPT
                 final_grpo = accumulated_grpo_loss / NUM_SAMPLES_PER_PROMPT
                 final_loss = final_grpo + KL_COEF * final_kl
-                print(f"grpo_loss is {final_grpo} and kl is {final_kl}")
+                # print(f"grpo_loss is {final_grpo} and kl is {final_kl}")
             else:
                 print("All rewards are negative; skipping gradient update.")
                 final_kl, final_grpo, final_loss = 0.0, 0.0, 0.0

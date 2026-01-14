@@ -31826,3 +31826,1315 @@ advantages is tensor([-1.2266,  0.5859,  0.4805, -1.3359, -1.0156,  0.6914, -1.4
         -0.5859,  1.2266, -0.6914, -1.5469,  1.4375, -0.8008, -1.6484,  1.3359,
         -0.2656, -0.3730,  1.5469,  1.6484, -0.1602, -0.0532, -0.4805, -0.9062],
        device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.04714433546178043 and kl is 0.22241583187133074
+[timing] sample processed in 8.85s
+advantages is tensor([-1.3359,  0.1602,  0.0532, -0.3730,  0.8008, -1.5469, -0.9062, -1.6484,
+        -0.6914, -1.4375, -0.4805,  0.2656,  0.5859,  0.9062,  0.6914, -1.2266,
+         0.3730,  0.4805, -1.1172,  1.2266,  1.0156,  1.1172, -0.1602,  1.5469,
+         1.4375, -0.0532, -0.8008,  1.6484, -1.0156, -0.2656, -0.5859,  1.3359],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.14069615676999092 and kl is 0.29942752607166767
+[timing] sample processed in 15.82s
+advantages is tensor([-0.8008,  1.5469,  0.5859,  0.4805,  0.8008, -1.3359, -1.2266,  0.6914,
+        -1.1172,  0.2656,  1.0156,  0.3730, -0.9062, -1.0156,  0.1602,  0.0532,
+        -1.4375,  1.1172,  1.2266, -0.6914,  1.6484, -1.6484,  0.9062, -0.5859,
+        -0.2656, -0.3730, -0.0532,  1.3359, -0.1602,  1.4375, -1.5469, -0.4805],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.0166235325159505 and kl is 0.2152191372588277
+[timing] sample processed in 9.17s
+advantages is tensor([-1.4375, -0.3730,  0.4805,  0.5859, -0.8008, -0.6914,  0.3730, -0.5859,
+        -1.3359,  0.2656, -1.2266,  0.1602, -1.1172, -1.0156,  0.0532, -0.9062,
+         1.1172,  1.2266,  1.0156, -1.6484,  1.3359, -0.4805, -1.5469,  0.9062,
+         1.4375, -0.1602,  1.5469,  1.6484,  0.6914,  0.8008, -0.2656, -0.0532],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.03974167676642537 and kl is 0.17850894574075937
+[timing] sample processed in 9.26s
+advantages is tensor([ 0.5859,  0.4805,  0.6914,  0.8008,  0.2656,  0.3730,  0.1602,  0.0532,
+         1.1172,  1.2266,  1.0156,  0.9062,  1.4375,  1.3359, -1.3359,  1.5469,
+        -1.6484, -0.4805, -1.4375, -1.5469, -0.6914, -0.8008, -0.5859, -0.3730,
+        -0.2656, -1.2266, -0.1602,  1.6484, -1.0156, -0.0532, -1.1172, -0.9062],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.011705960263498127 and kl is 0.1797036174684763
+[timing] sample processed in 10.28s
+advantages is tensor([ 0.5859, -1.2266,  0.4805, -0.8008, -1.1172, -1.6484,  0.8008,  0.6914,
+        -1.0156,  0.2656,  0.3730,  0.1602,  1.0156,  0.0532,  0.9062,  1.1172,
+        -0.5859,  1.2266, -1.3359, -1.5469, -0.4805, -1.4375, -0.6914, -0.9062,
+         1.4375,  1.3359,  1.5469,  1.6484, -0.1602, -0.0532, -0.2656, -0.3730],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.04626208101399243 and kl is 0.16983516095206141
+[timing] sample processed in 10.22s
+advantages is tensor([-0.2656,  0.1602,  0.4805, -0.4805,  0.6914, -1.3359,  0.8008, -1.2266,
+         0.2656, -0.0532, -1.1172,  0.3730, -1.0156,  0.9062, -0.1602, -0.9062,
+        -0.8008,  0.5859, -1.4375, -0.6914,  0.0532,  1.0156,  1.1172, -0.5859,
+        -0.3730,  1.4375,  1.3359,  1.5469,  1.2266,  1.6484, -1.5469, -1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 11.70s
+advantages is tensor([ 1.0156,  0.4805, -1.6484,  0.9062, -1.2266,  0.2656,  0.8008,  1.1172,
+        -0.9062, -1.4375, -0.6914,  0.0532, -1.0156,  0.3730, -1.5469,  0.1602,
+        -0.1602,  1.2266, -0.2656, -0.8008, -0.0532,  0.5859,  1.3359,  0.6914,
+         1.4375,  1.5469, -0.3730, -1.3359, -1.1172, -0.5859, -0.4805,  1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.11226055480074137 and kl is 0.23906073975376785
+[step 400] loss=0.1242 grpo=0.1123 kl=0.2391 reward_mean=0.402 reward_std=0.833 reward_min=-1.500 reward_max=1.250 ratio_mean=1.028 truncated=0.03 avg_len=222.2 gen_tok/s=806.7 lr=1e-05
+[step 400] avg_loss=0.0258 acc=0.5975
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. Reason step-by-step,  then give: Final answer.
+
+Step-by-step explanation:
+
+1. **Calculate distance traveled at 62 km/h:**
+
+   Since the car travels at 62 km/h for 2 hours, multiply 62 by 2:
+   62 * 2 = 124 km
+
+2. **Calculate distance traveled at twice the speed:**
+
+   Twice the speed of 62 km/h is:
+   62 * 2 = 124 km
+
+   Since the car travels at this speed for 3 hours, multiply 124 by 3:
+   124 * 3 = 372 km
+
+3. **Calculate total distance:**
+
+   Add the distances from step 1 and step 2:
+   124 + 372 = 596 km
+
+Therefore, the total distance traveled by the car is 596 km. 
+
+Final answer: 596 km 
+
+[timing] sample processed in 18.40s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/grpo_20260114_epoch4_step400.pt
+==end-of-epoch 4==
+
+=== Epoch 5/10 ===
+[92m📊 [System Health] RAM: 17.1% | Swap Used: 0.00 GB[0m
+Mike can type 65 words per minute. Due to a minor accident, Mike cannot use his right hand for a while so that his typing speed is now 20 words less per minute. If he is supposed to type a document with 810 words, how many minutes will it take him to finish typing the document?
+answer is 18
+
+
+
+**Step-by-step solution:**
+
+1. **Calculate Mike's current typing speed:**
+   Since Mike's right hand is injured, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time taken to type the document:**
+   Divide the total words by Mike's current typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+**Final answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his typing speed is 20 words less than 65 words per minute.
+   65 - 20 = 45 words per minute
+
+2. **Calculate the total time to type the document:**
+   Divide the total words of the document by Mike's new typing speed.
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+Step-by-step solution:
+
+1. **Calculate typing speed:**
+   Since Mike's right hand is unavailable, subtract 20 words from his usual speed:
+   65 - 20 = 45 words per minute
+
+2. **Calculate time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+**Final Answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is unusable, his typing speed decreases by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+**Final Answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+Step-by-step solution:
+
+1. **Calculate typing speed:**
+   Since Mike's right hand is injured, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate time to type the document:**
+   Divide the total number of words by his current typing speed:
+   810 words / 45 words per minute = 18 minutes 
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+**Final answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his typing speed is 20 words less than 65 words per minute.
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total word count by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since his right hand is injured, his speed is 20 words less:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes 
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step solution:
+
+1. **Calculate typing speed after the accident:**
+   Since Mike cannot use his right hand, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate total time:**
+   Divide the total number of words by his new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-Step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike can't use his right hand, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.**
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-Step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is unavailable, his typing speed is 20 words less per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is unusable, subtract 20 words from his original speed:
+   65 words - 20 words = 45 words per minute
+
+2. **Calculate the total typing time:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate typing speed:** 
+   Since Mike lost his right hand efficiency, subtract 20 words from his original typing speed:
+   65 - 20 = 45 words per minute
+
+2. **Calculate total time:**
+   Divide the total words of the document by Mike's current typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-Step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike cannot use his right hand, his speed is reduced by 20 words:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required:**
+   Divide the total number of words in the document by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.**
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his new typing speed is 20 words less than his previous speed.
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time needed to type the document:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his typing speed is 65 - 20 = 45 words per minute.
+
+2. **Calculate total time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1300000000000001
+is result truncated? False
+
+
+**Step-by-step explanation:**
+
+1. **Calculate Mike's new typing speed:**
+   Since his right hand is injured, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+**Final answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since his right hand is injured, his typing speed is 20 words less than 65 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words in the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes 
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-Step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike can't use his right hand, his speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes 
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+ 
+
+Step-by-step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike can't use his right hand, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is unusable, his new typing speed is 65 - 20 = 45 words per minute.
+
+2. **Calculate the total time:**
+   Divide the total words in the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final answer: 18 minutes 
+
+reward is 1.1300000000000001
+is result truncated? False
+
+
+**Step-by-step explanation:**
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike can't use his right hand, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time taken to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.**
+
+**Final answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step Solution:
+
+1. **Calculate typing speed:** 
+   Since Mike can't use his right hand, his typing speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate time to type:**
+   Divide the total number of words by his current typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes 
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+**Final Answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate typing speed:**
+   Since Mike's right hand is unavailable, subtract 20 words from his regular typing speed:
+   65 - 20 = 45 words per minute
+
+2. **Calculate time needed:**
+   Divide the total words in the document by Mike's current typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document.
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-Step Explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike cannot use his right hand, his speed is reduced by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total words in the document by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+Step-by-step solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, he can only type 65 - 20 = 45 words per minute.
+
+2. **Calculate the total time:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final answer: 18 minutes 
+
+reward is 1.1300000000000001
+is result truncated? False
+
+
+Step-by-step Explanation:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his typing speed is 20 words lower.
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words by Mike's new typing speed:
+   810 / 45 = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-Step Solution:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike's right hand is injured, his typing speed decreases by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate total time:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+**Step-by-step solution:**
+
+1. **Calculate Mike's new typing speed:**
+   Since his right hand is injured, his typing speed decreases by 20 words per minute:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time required to type the document:**
+   Divide the total word count by his new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+**Final answer:** 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-Step Reasoning:
+
+1. **Calculate Mike's new typing speed:**
+   Since Mike lost 20 words per minute due to the accident, subtract 20 from his original speed:
+   65 - 20 = 45 words per minute
+
+2. **Calculate the time to type the document:**
+   Divide the total words of the document by Mike's new typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step explanation:
+
+1. **Calculate Typing Speed:** Since Mike's right hand is injured, his typing speed is 20 words less than 65 words per minute.
+   65 - 20 = 45 words per minute
+
+2. **Determine Time:** Divide the total words in the document by Mike's new typing speed.
+   810 words / 45 words per minute = 18 minutes
+
+**Therefore, it will take Mike 18 minutes to finish typing the document.** 
+
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step Explanation:
+
+1. **Calculate Mike's reduced typing speed:**
+   Since Mike's right hand is unavailable, his typing speed is 65 - 20 = 45 words per minute less.
+
+2. **Calculate the time to type the document:**
+   Divide the total word count by Mike's reduced typing speed:
+   810 words / 45 words per minute = 18 minutes
+
+Therefore, it will take Mike 18 minutes to finish typing the document. 
+
+
+
+Final Answer: 18 minutes 
+
+reward is 1.1300000000000001
+is result truncated? False
+advantages is tensor([ 0.5859,  0.4805,  0.6914,  0.8008,  0.2656,  0.3730,  0.1602,  0.0532,
+         1.1172,  1.2266,  1.0156,  0.9062,  1.4375,  1.3359, -1.3359,  1.5469,
+        -0.5859, -0.4805, -0.6914, -1.4375, -0.2656, -0.8008, -0.3730, -0.1602,
+        -1.1172, -1.5469, -1.2266, -1.0156, -0.9062,  1.6484, -0.0532, -1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.05425387853756547 and kl is 0.18439288623631
+[timing] sample processed in 7.88s
+advantages is tensor([-1.4375, -0.2656, -1.3359, -1.0156,  1.3359, -0.8008, -1.2266,  1.2266,
+         1.6484, -0.4805,  1.0156, -0.6914,  1.1172,  1.5469, -0.5859,  0.6914,
+         0.1602,  0.0532,  0.3730, -0.3730, -0.1602, -1.6484, -1.5469, -1.1172,
+         0.5859,  0.4805, -0.9062,  0.2656,  1.4375,  0.8008,  0.9062, -0.0532],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.09553822467569262 and kl is 0.21410156274214387
+[timing] sample processed in 15.15s
+advantages is tensor([-1.2266,  0.5859, -1.1172,  0.6914, -1.5469, -1.3359,  0.0532, -0.8008,
+         0.2656, -1.6484,  0.8008, -0.6914,  0.3730, -0.9062,  0.1602,  0.4805,
+        -0.0532, -0.2656,  1.1172, -1.4375, -0.1602, -0.3730,  0.9062,  1.0156,
+        -1.0156,  1.6484,  1.5469, -0.5859,  1.3359, -0.4805,  1.4375,  1.2266],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.09687089559156448 and kl is 0.17283200495876372
+[timing] sample processed in 10.45s
+advantages is tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.0 and kl is 0.259014327544719
+[timing] sample processed in 7.84s
+advantages is tensor([-0.4805, -0.5859,  1.2266,  1.5469,  0.5859, -0.6914, -0.8008, -0.0532,
+         0.6914, -0.2656, -0.3730,  0.1602,  0.8008,  0.2656, -0.1602,  0.4805,
+         1.3359,  1.4375,  0.3730,  1.6484,  1.1172,  0.0532, -1.0156, -0.9062,
+        -1.1172,  0.9062, -1.2266, -1.3359, -1.4375, -1.5469,  1.0156, -1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.15651167300529778 and kl is 0.5227053593844175
+[timing] sample processed in 15.20s
+advantages is tensor([0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.,
+        0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.0 and kl is 0.27944972226396203
+[timing] sample processed in 7.31s
+advantages is tensor([ 0.0532, -0.3730, -1.2266,  0.4805,  1.0156,  1.3359, -0.4805,  0.8008,
+        -0.5859, -0.6914,  1.2266, -1.5469, -0.8008,  1.4375,  1.1172,  1.5469,
+         0.3730,  0.1602,  0.9062, -1.3359, -0.2656,  0.5859,  1.6484,  0.2656,
+        -0.1602, -0.0532,  0.6914, -1.4375, -1.6484, -0.9062, -1.0156, -1.1172],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.08897748839808628 and kl is 0.23947631660848856
+[timing] sample processed in 14.66s
+advantages is tensor([-0.0532,  0.2656,  0.5859,  1.5469,  0.4805, -1.5469, -0.3730,  0.6914,
+        -1.3359,  0.8008,  0.1602, -1.4375, -0.8008, -1.1172,  0.0532,  0.3730,
+        -0.5859,  1.6484, -1.6484, -0.6914, -0.4805,  1.2266,  1.0156,  1.1172,
+        -0.9062, -0.1602,  1.4375, -0.2656,  0.9062,  1.3359, -1.2266, -1.0156],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.23230363917537034 and kl is 0.2949548838660121
+[timing] sample processed in 14.52s
+advantages is tensor([ 0.5859,  0.4805,  0.6914,  0.8008,  0.2656,  0.3730,  0.1602,  0.0532,
+         1.1172,  1.2266,  1.0156,  0.9062,  1.4375,  1.3359,  1.5469,  1.6484,
+        -0.5859, -0.4805, -1.5469, -0.6914, -0.2656, -0.8008, -0.3730, -0.1602,
+        -1.1172, -1.2266, -1.0156, -0.0532, -1.4375, -0.9062, -1.3359, -1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.0028215647907927632 and kl is 0.2392203938215971
+[timing] sample processed in 7.75s
+advantages is tensor([ 0.5859,  0.4805, -0.9062,  0.6914, -1.6484, -1.0156, -1.3359,  1.5469,
+        -1.2266,  0.8008, -1.1172, -0.8008,  0.3730, -1.5469,  0.1602,  0.2656,
+         1.1172,  1.2266,  1.0156, -1.4375,  1.3359,  0.0532,  0.9062, -0.1602,
+        -0.2656, -0.3730,  1.4375, -0.0532, -0.5859, -0.4805, -0.6914,  1.6484],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.08222310687415302 and kl is 0.23873868212103844
+[step 410] loss=-0.0703 grpo=-0.0822 kl=0.2387 reward_mean=-0.637 reward_std=0.575 reward_min=-0.870 reward_max=1.190 ratio_mean=0.963 truncated=0.00 avg_len=154.6 gen_tok/s=1109.7 lr=1e-05
+[timing] sample processed in 9.09s
+[92m📊 [System Health] RAM: 17.1% | Swap Used: 0.00 GB[0m
+68% of all pies are eaten with forks. If there are 2000 pies of all kinds, how many of the pies are not eaten with forks?
+answer is 640
+
+
+Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.** 
+
+
+Final answer: 640 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+**Step-by-step explanation:**
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+**Final answer:** 240 pies 
+
+reward is -0.84
+is result truncated? False
+ 
+
+**Step-by-step:**
+
+1. **Calculate pies eaten with forks:**
+   Since 88% of pies are eaten with forks:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+**Final answer:** 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+Therefore, 640 pies are not eaten with forks. 
+
+
+Step Answer Explanation
+Hence, 640 pies are not eaten with forks.
+
+Final Answer: 640 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+**Step-by-step solution:**
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of all pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+**Final answer:** 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step Solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 68% of the pies are eaten with forks, multiply 2000 by 0.68: 
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.**
+
+
+Final Answer: 640 pies 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate how many pies are eaten with forks:**
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate how many pies are not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.**
+
+
+Final Answer: 640 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+**Step-by-Step Solution****
+1. Calculate the number of pies eaten with forks:**
+   Since 68% of the pies are eaten with forks, multiply the total number of pies by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies to find the number not eaten with forks:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.**
+
+**Final answer:** 640 
+
+reward is 0.66
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate total pies eaten with forks:**
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.** 
+
+
+Final answer: 640 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Find the number of pies eaten with forks:**
+   Since 88% of the pies are eaten with forks:
+   2000 * 0.88 = 1760 pies
+
+2. **Find the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final Answer: 240 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-Step Solution:
+
+1. **Calculate pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final Answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+ 
+
+Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.** 
+
+
+Final answer: 640 pies 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+
+Step-by-step explanation:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 86% of pies are eaten with forks, multiply 2000 by 0.86:
+   2000 * 0.86 = 1720 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1720 = 280 pies
+
+**Therefore, 280 pies are not eaten with forks.** 
+
+
+
+Final answer: 280 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+
+
+Step-by-step explanation:
+1. **Calculate the number of pies eaten with forks:** 
+   Since 68% of pies are eaten with forks, multiply 2000 by 0.68:
+   2000 * 0.68 = 1360 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.**
+
+
+Final answer: 640 pies 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step explanation:
+
+1. **Find the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Find the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.**
+
+
+Final answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step solution:
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply the total number of pies by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+Therefore, 240 pies are not eaten with forks. 
+
+
+Final answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+
+Step-by-step explanation:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+
+Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.**
+
+
+Final answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 86% of pies are eaten with forks, multiply 2000 by 0.86:
+   2000 * 0.86 = 1720 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1720 = 280 pies 
+
+**Therefore, 280 pies are not eaten with forks.** 
+
+
+Final answer: 280 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate the number of pies eaten with forks:** 
+   Since 88% of all pies are eaten with forks, multiply the total number of pies by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final answer: 240 
+
+reward is -0.84
+is result truncated? False
+
+
+
+## Step-by-step explanation:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 pies by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+Therefore, 240 pies are not eaten with forks. 
+
+
+
+## Final answer: 
+240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Calculate pies eaten with forks:** 
+   Since 88% of pies are eaten with forks multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+Final Answer: 240 
+
+reward is -0.84
+is result truncated? False
+
+
+
+
+## Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies 
+
+Therefore, 240 pies are not eaten with forks. 
+
+
+## Final answer: 240 pies 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step explanation:
+
+1. **Find the pies eaten with forks:**
+   Multiply the total number of pies by the percentage eaten with forks:
+   2000 * 0.68 = 1360 pies
+
+2. **Find the pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1360 = 640 pies
+
+**Therefore, 640 pies are not eaten with forks.**
+
+
+Final answer: 640 
+
+reward is 1.1600000000000001
+is result truncated? False
+
+
+
+Step-by-step solution:
+
+1. **Calculate the number of pies eaten with forks:**
+   Since 88% of all pies are eaten with forks, multiply 2000 pies by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final Answer: 240 
+
+reward is -0.84
+is result truncated? False
+
+
+Step-by-step solution:
+
+1. **Calculate the pies eaten with forks:**
+   Since 88% of pies are eaten with forks, multiply 2000 by 0.88:
+   2000 * 0.88 = 1760 pies
+
+2. **Calculate pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1760 = 240 pies
+
+**Therefore, 240 pies are not eaten with forks.** 
+
+
+Final answer: 240 
+
+reward is -0.84
+is result truncated? False
+
+
+
+
+
+Step-by-step solution:
+1. **Calculate the number of pies eaten with forks:**
+   Since 86% of pies are eaten with forks, multiply 2000 by 0.86:
+   2000 * 0.86 = 1720 pies
+
+2. **Calculate the number of pies not eaten with forks:**
+   Subtract the number of pies eaten with forks from the total number of pies:
+   2000 - 1720 = 280 pies
+
+
+Therefore, 280 pies are not eaten with forks. 
+
+
+
+Final Answer: 280 
+
+reward is -0.84
