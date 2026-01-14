@@ -40,14 +40,14 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 HARD_QUESTION_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_hard.jsonl"
-NUM_SAMPLES_PER_PROMPT = 16 if IS_CUDA else 5
+NUM_SAMPLES_PER_PROMPT = 32 if IS_CUDA else 5
 NUM_TRAINING_DATA = 100
 NUM_EPOCHS = 10
 EVAL_EVERY = 25
 LOG_EVERY = 10
-SAMPLING_TEMPERATURE = 0.9
+SAMPLING_TEMPERATURE = 1.1
 MAX_NEW_TOKENS = 350
-KL_COEF = 0.1
+KL_COEF = 0.05
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
