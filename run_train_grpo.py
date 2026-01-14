@@ -31,7 +31,7 @@ if IS_MPS:
     os.environ["PYTORCH_MPS_HIGH_WATERMARK_RATIO"] = "0.0"
     os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 if IS_CUDA:
-    s.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+    os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_grpo_train.jsonl"
