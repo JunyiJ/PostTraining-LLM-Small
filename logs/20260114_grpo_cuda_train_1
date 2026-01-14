@@ -1,0 +1,461 @@
+🚀 Enabling CUDA-specific optimizations (RTX 4090)...
+Print found 2000 lines of training data
+[config] device=cuda samples_per_prompt=8 max_new_tokens=400 lr=2e-05
+
+=== Epoch 1/10 ===
+[92m📊 [System Health] RAM: 11.8% | Swap Used: 0.00 GB[0m
+Sansa is a famous artist, she can draw a portrait and sell it according to its size. She sells an 8-inch portrait for $5, and a 16-inch portrait for twice the price of the 8-inch portrait. If she sells three 8-inch portraits and five 16-inch portraits per day, how many does she earns every 3 days?
+answer is 195
+
+
+**Step-by-Step Calculation**
+
+1. **Price of 16-inch portrait:**
+   * The 16-inch portrait costs twice the price of the 8-inch portrait, which is $5 * 2 = $10.
+
+2. **Earnings from 8-inch portraits per day:**
+   * She sells 3 portraits at $5 each, resulting in 3 * $5 = $15.
+
+3. **Earnings from 16-inch portraits per day:**
+   * She sells 5 portraits at $10 each, resulting in 5 * $10 = $50.
+
+4. **Total daily earnings:**
+   * She earns a total of $15 + $50 = $65 per day.
+
+5. **Total earnings in 3 days:**
+   * Over three days, she earns $65 * 3 = $195.
+
+**Final Answer:** Sansa earns $195 every 3 days. 
+
+reward is 0.798
+is result truncated? False
+ 
+
+**Reasoning Step by Step**
+
+1. **Price of a 16-inch portrait:** Sansa sells a 16-inch portrait for twice the price of an 8-inch portrait, so it costs 2 * $5 = $10.
+2. **Earnings from 8-inch portraits:** She sells 3 * $5 = $15 from 8-inch portraits.
+3. **Earnings from 16-inch portraits:** She sells 5 * $10 = $50 from 16-inch portraits.
+4. **Daily earnings:** Her total earnings for the day are $15 + $50 = $65.
+5. **Earnings in 3 days:** Her earnings after 3 days will be $65 * 3 = $195.
+   
+   
+   
+
+**Final answer:** Sansa earns $195 every 3 days. 
+
+
+
+reward is 0.8143333333333334
+is result truncated? False
+
+
+**Step-by-step solutions**
+
+1. **Calculate the price of a 16-inch portrait:**
+   - A 16-inch portrait costs twice the price of an 8-inch portrait. 
+   - Price of 16-inch portrait = 2 * $5 = $10
+
+2. **Calculate the earnings from selling 8-inch portraits:**
+   - She sells 3 portraits at $5 each.
+   - Earnings from 8-inch portraits = 3 * $5 = $15
+
+3. **Calculate the earnings from selling 16-inch portraits:**
+   - She sells 5 portraits at $10 each.
+   - Earnings from 16-inch portraits = 5 * $10 = $50
+
+4. **Calculate the total daily earnings:**
+   - Total earnings = Earnings from 8-inch portraits + Earnings from 16-inch portraits 
+   - Total earnings = $15 + $50 = $65
+
+5. **Calculate the total earnings over 3 days:**
+   - Total earnings over 3 days = Total daily earnings * Number of days
+   - Total earnings over 3 days = $65 * 3 = $195
+
+**Final answer:** Sansa earns $195 in three days. 
+
+reward is 0.7010000000000001
+is result truncated? False
+
+
+
+**Step-by-step solution:**
+
+1. **Price of a 16-inch portrait:** 
+   - Twice the price of an 8-inch portrait is 2 * $5 = $10.
+
+2. **Earnings from 8-inch portraits:**
+   - Sansa sells three 8-inch portraits for 3 * $5 = $15.
+
+3. **Earnings from 16-inch portraits:**
+   - Sansa sells five 16-inch portraits for 5 * $10 = $50.
+
+4. **Total daily earnings:**
+   - Her total daily earnings are $15 + $50 = $65.
+
+5. **Total earnings in 3 days:**
+   - Over three days, she earns $65 * 3 = $195. 
+
+**Final Answer:** Sansa earns $195 every 3 days. 
+
+reward is 0.8196666666666667
+is result truncated? False
+ 
+
+**Step 1: Calculate the price of a 16-inch portrait.**
+* She sells a 16-inch portrait for twice the price of an 8-inch portrait.
+* Twice the price of an 8-inch portrait is 2 * $5 = $10.
+
+**Step 2: Calculate the earnings from 8-inch portraits.**
+* Sansa sells three 8-inch portraits, and each earns $5.
+* Her earnings from 8-inch portraits are 3 * $5 = $15.
+
+**Step 3: Calculate the earnings from 16-inch portraits.**
+* Sansa sells five 16-inch portraits, and each earns $10.
+* Her earnings from 16-inch portraits are 5 * $10 = $50.
+
+**Step 4: Calculate the total earnings per day.**
+* Sansa's total earnings per day are $15 + $50 = $65.
+
+**Step 5: Calculate the total earnings over 3 days.**
+* Her total earnings over 3 days are $65/day * 3 days = $195.
+
+**Final Answer: $195**
+
+
+
+reward is 0.739
+is result truncated? False
+
+
+**Step 1: Calculate the price of a 16-inch portrait.**
+  * Sansa sells a 16-inch portrait for twice the price of an 8-inch portrait.
+  * Price of 16-inch portrait = 2 * $5 = $10
+
+**Step 2: Calculate the earnings from selling 8-inch portraits in a day.**
+  * Sansa sells 3 portraits of size 8 inches per day.
+  * Earnings from 8-inch portraits per day = 3 * $5 = $15
+
+**Step 3: Calculate the earnings from selling 16-inch portraits in a day.**
+  * Sansa sells 5 portraits of size 16 inches per day.
+  * Earnings from 16-inch portraits per day = 5 * $10 = $50
+
+**Step 4: Calculate the total earnings per day.**
+  * Total earnings per day = $15 + $50 = $65
+
+**Step 5: Calculate the total earnings for 3 days.**
+  * Total earnings in 3 days = $65 * 3 = $195
+
+
+**Final Answer:** Sansa earns $195 in 3 days. 
+
+reward is 0.2316666666666667
+is result truncated? False
+ 
+
+Here's a breakdown of the thought process:
+
+1. **16-inch portrait price:** Since a 16-inch portrait costs twice the price of an 8-inch portrait, it costs $5 x 2 = $10.
+
+2. **Total earnings from 8-inch portraits:** Sansa earns $5 x 3 = $15 from selling three 8-inch portraits.
+
+3. **Total earnings from 16-inch portraits:** She earns $10 x 5 = $50 from selling five 16-inch portraits.
+
+4. **Total daily earnings:** Sansa earns $15 + $50 = $65 in total per day.
+
+5. **Earnings over 3 days:** Over three days, Sansa earns $65 x 3 = $195.
+
+Final answer: **Sansa earns $195 in three days.** 
+
+
+
+reward is 0.8026666666666666
+is result truncated? False
+
+
+**Step 1:** Find the price of one 16-inch portrait.
+
+Since the price of a 16-inch portrait is twice the price of an 8-inch portrait, we can multiply 5 by 2. 
+$5 * 2 = $10
+
+Final answer.
+
+**Step 2:** Calculate the earnings from 3 8-inch portraits.
+
+* One 8-inch portrait costs $5. 
+* She sells 3 8-inch portraits, so her earnings for this is $5 * 3 = $15.
+
+Final answer.
+
+**Step 3:** Calculate earnings from 5 16-inch portraits.
+
+* One 16-inch portrait costs $10.
+* She sells 5 16-inch portraits, so her earnings for this is $10 * 5 = $50. 
+
+Final answer.
+
+**Step 4:** Calculate total daily earnings.
+
+* Her daily earnings from 8-inch portraits are $15.
+* Her daily earnings from 16-inch portraits are $50.
+* Total earnings for a day is $15 + $50 = $65.
+
+Final answer. 
+
+**Step 5: Calculate total earnings after 3 days.**
+
+* Her total earnings for 3 days is $65 * 3 = $195.
+
+Final answer. 
+
+**Therefore, Sansa earns $195 every 3 days.**
+reward is -0.9623333333333333
+is result truncated? False
+advantages is tensor([ 0.2041,  1.0234, -0.6133,  1.4297, -0.2041, -1.0234,  0.6133, -1.4297],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.0 and kl is 0.0
+[timing] sample processed in 11.18s
+
+=== PROFILER ===
+Sampling:          9.08s
+Logprob forward:   0.76s
+Reward + Adv:      0.08s
+Backward:          0.82s
+Archibald eats 1 apple a day for two weeks. Over the next three weeks, he eats the same number of apples as the total of the first two weeks. Over the next two weeks, he eats 3 apples a day. Over these 7 weeks, how many apples does he average a week?
+answer is 10
+advantages is tensor([ 0.2041,  1.4297,  0.6133, -1.0234, -0.6133, -0.2041, -1.4297,  1.0234],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.005652979016304016 and kl is 0.0007688309997320175
+[timing] sample processed in 6.53s
+
+=== PROFILER ===
+Sampling:          5.36s
+Logprob forward:   0.37s
+Reward + Adv:      0.07s
+Backward:          0.36s
+Susie has $200 in her piggy bank. If she puts 20% more money into her piggy bank, how much money she will have?
+answer is 240
+advantages is tensor([ 0.6133,  1.4297, -0.2041, -0.6133,  1.0234, -1.4297,  0.2041, -1.0234],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.11314541101455688 and kl is 0.004387829918414354
+[timing] sample processed in 3.14s
+
+=== PROFILER ===
+Sampling:          2.51s
+Logprob forward:   0.18s
+Reward + Adv:      0.03s
+Backward:          0.17s
+Benny bought  2 soft drinks for$ 4 each and 5 candy bars. He spent a total of 28 dollars. How much did each candy bar cost?
+answer is 4
+advantages is tensor([ 1.4297, -1.0234, -0.6133,  1.0234,  0.6133,  0.2041, -1.4297, -0.2041],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.021882176399230957 and kl is 0.007292593829333782
+[timing] sample processed in 2.95s
+
+=== PROFILER ===
+Sampling:          2.32s
+Logprob forward:   0.18s
+Reward + Adv:      0.03s
+Backward:          0.17s
+Jack has a stack of books that is 12 inches thick. He knows from experience that 80 pages is one inch thick. If he has 6 books, how many pages is each one on average?
+answer is 160
+advantages is tensor([-1.4297, -1.0234,  1.4297,  1.0234, -0.2041,  0.6133,  0.2041, -0.6133],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.018502306193113327 and kl is 0.007412809878587723
+[timing] sample processed in 3.57s
+
+=== PROFILER ===
+Sampling:          2.84s
+Logprob forward:   0.22s
+Reward + Adv:      0.04s
+Backward:          0.20s
+Wickham is throwing a huge Christmas party. He invites 30 people. Everyone attends the party, and half of the guests bring a plus one (one other person). He plans to serve a 3-course meal for the guests. If he uses a new plate for every course, how many plates does he need in total for his guests?
+answer is 135
+advantages is tensor([-0.2041,  1.0234,  1.4297,  0.2041,  0.6133, -1.0234, -1.4297, -0.6133],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.043102115392684937 and kl is 0.017317883670330048
+[timing] sample processed in 6.83s
+
+=== PROFILER ===
+Sampling:          5.65s
+Logprob forward:   0.37s
+Reward + Adv:      0.07s
+Backward:          0.36s
+There are some lions in Londolozi at first. Lion cubs are born at the rate of 5 per month and lions die at the rate of 1 per month. If there are 148 lions in Londolozi after 1 year, how many lions were there in Londolozi at first?
+answer is 100
+advantages is tensor([-0.2041, -1.0234,  1.0234,  1.4297, -0.6133,  0.2041,  0.6133, -1.4297],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.11409640312194824 and kl is 0.01859373413026333
+[timing] sample processed in 5.44s
+
+=== PROFILER ===
+Sampling:          4.42s
+Logprob forward:   0.32s
+Reward + Adv:      0.06s
+Backward:          0.31s
+John volunteers at a shelter twice a month for 3 hours at a time.  How many hours does he volunteer per year?
+answer is 72
+advantages is tensor([ 0.6133, -1.0234,  1.0234, -1.4297,  0.2041, -0.6133,  1.4297, -0.2041],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is -0.04441489279270172 and kl is 0.030515536665916443
+[timing] sample processed in 3.15s
+
+=== PROFILER ===
+Sampling:          2.50s
+Logprob forward:   0.18s
+Reward + Adv:      0.03s
+Backward:          0.17s
+John puts $25 in his piggy bank every month for 2 years to save up for a vacation. He had to spend $400 from his piggy bank savings last week to repair his car. How many dollars are left in his piggy bank?
+answer is 200
+advantages is tensor([ 0.2041, -0.6133,  1.4297, -1.4297, -0.2041, -1.0234,  0.6133,  1.0234],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.06478578597307205 and kl is 0.04959065839648247
+[timing] sample processed in 4.04s
+
+=== PROFILER ===
+Sampling:          3.24s
+Logprob forward:   0.24s
+Reward + Adv:      0.04s
+Backward:          0.22s
+Five coaster vans are used to transport students for their field trip. Each van carries 28 students, 60 of which are boys. How many are girls?
+answer is 80
+advantages is tensor([ 1.0234, -0.6133, -1.0234,  0.6133,  1.4297, -1.4297,  0.2041, -0.2041],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.06390010565519333 and kl is 0.035880692303180695
+[step 10] loss=0.0643 grpo=0.0639 kl=0.0359 reward_mean=-0.315 reward_std=0.967 reward_min=-1.083 reward_max=0.939 ratio_mean=1.160 truncated=0.00 avg_len=73.9 gen_tok/s=328.9 lr=2e-05
+[timing] sample processed in 2.35s
+
+=== PROFILER ===
+Sampling:          1.80s
+Logprob forward:   0.16s
+Reward + Adv:      0.03s
+Backward:          0.14s
+[92m📊 [System Health] RAM: 14.4% | Swap Used: 0.00 GB[0m
+Bobby has 16 toy cars, and the number of cars he has increases by 50% every year. How many toy cars will Bobby have in three years?
+answer is 54
+
+
+
+Here's the breakdown:
+
+* **Year 1:** Bobby starts with 16 cars.  He increases by 50%, meaning he has 16 + (16 * 0.50) = 24 cars.
+* **Year 2:** He increases by another 50% of 24 cars, meaning he has 24 + (24 * 0.50) = 36 cars.
+* **Year 3:** He increases by another 50% of 36 cars, meaning he has 36 + (36 * 0.50) = 54 cars.
+
+**Final Answer: ** Bobby will have 54 toy cars in three years. 
+
+reward is 0.8696666666666667
+is result truncated? False
+ 
+
+**Reasoning:**
+
+* **Year 1:** 16 cars + (50% of 16) = 16 cars + 8 cars = 24 cars
+* **Year 2:** 24 cars + (50% of 24) = 24 cars + 12 cars = 36 cars
+* **Year 3:** 36 cars + (50% of 36) = 36 cars + 18 cars = 54 cars
+
+**Final Answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.9066666666666666
+is result truncated? False
+
+
+**Reasoning**
+
+* **Year 1:** Bobby starts with 16 cars and increases by 50%: 16 + (16 * 0.50) = 16 + 8 = 24 cars
+* **Year 2:** He now has 24 cars and increases by 50%: 24 + (24 * 0.50) = 24 + 12 = 36 cars
+* **Year 3:** He now has 36 cars and increases by 50%: 36 + (36 * 0.50) = 36 + 18 = 54 cars 
+
+**Final Answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.8786666666666667
+is result truncated? False
+
+
+**Reasoning:**
+
+* **Year 1:** 16 cars * 50% = 8 new cars, making a total of 16 + 8 = 24 cars.
+* **Year 2:** 24 cars * 50% = 12 new cars, making a total of 24 + 12 = 36 cars.
+* **Year 3:** 36 cars * 50% = 18 new cars, making a total of 36 + 18 = 54 cars.
+
+**Final answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.3933333333333333
+is result truncated? False
+
+
+**Reasoning:**
+
+* **Year 1:** 16 cars + (50% of 16) = 16 cars + 8 cars = 24 cars
+* **Year 2:** 24 cars + (50% of 24) = 24 cars + 12 cars = 36 cars
+* **Year 3:** 36 cars + (50% of 36) = 36 cars + 18 cars = 54 cars
+
+**Final Answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.907
+is result truncated? False
+
+
+
+**Step-by-step reasoning:**
+
+* **Year 1:** 16 + (50% of 16) = 16 + 8 = 24 cars
+* **Year 2:** 24 + (50% of 24) = 24 + 12 = 36 cars
+* **Year 3:** 36 + (50% of 36) = 36 + 18 = 54 cars
+
+**Final answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.9173333333333333
+is result truncated? False
+ 
+
+**Reasoning:**
+
+* **Year 1:** Bobby begins with 16 cars. 50% of 16 is (50/100)*16 = 8 cars. He has 16 + 8 = 24 cars.
+* **Year 2:**  50% of the 24 cars is (50/100)*24 = 12 cars.  Bobby has 24 + 12 = 36 cars.
+* **Year 3:**  50% of the 36 cars is (50/100)*36 = 18 cars. Bobby has 36 + 18 = 54 cars.
+
+**Final Answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.879
+is result truncated? False
+
+
+
+**Reasoning:**
+
+* **Year 1:** Bobby starts with 16 cars. 50% of 16 is (50/100) * 16 = 8 cars. He has 16 + 8 = 24 cars.
+* **Year 2:** 50% of the 24 cars is (50/100) * 24 = 12 cars. He now has 24 + 12 = 36 cars.
+* **Year 3:** 50% of the 36 cars is (50/100) * 36 = 18 cars. He now has 36 + 18 = 54 cars.
+
+**Final answer:** Bobby will have 54 toy cars in three years. 
+
+reward is 0.8773333333333333
+is result truncated? False
+advantages is tensor([-1.0234,  0.6133, -0.2041, -1.4297,  1.0234,  1.4297,  0.2041, -0.6133],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.09959544241428375 and kl is 0.042891256511211395
+[timing] sample processed in 4.60s
+
+=== PROFILER ===
+Sampling:          3.76s
+Logprob forward:   0.25s
+Reward + Adv:      0.04s
+Backward:          0.24s
+Last year Jessica paid $1000 for rent, $200 for food, and $100 for car insurance each month. This year her rent goes up by 30%, food costs increase by 50%, and the cost of her car insurance triples because she was at fault in an accident. How much more does Jessica pay for her expenses over the whole year compared to last year?
+answer is 7200
+advantages is tensor([ 0.2041, -0.2041,  0.6133,  1.0234, -1.4297,  1.4297, -0.6133, -1.0234],
+       device='cuda:0', dtype=torch.bfloat16)
+grpo_loss is 0.060335636138916016 and kl is 0.031509362161159515
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 6.90s
+
+=== PROFILER ===
+Sampling:          6.06s
+Logprob forward:   0.43s
+Reward + Adv:      0.08s
+Backward:          0.00s
+Randy just turned 12 and started playing the piano. His friend Sheila told him about the 10,000-hour rule which says, after 10,000 hours of practice, you become an expert or master in your field. If Randy wants to become a piano expert before he is 20, how many hours a day will he need to practice if he practices every day, Monday – Friday, and takes two weeks off for vacation each year?
+answer is 5
+advantages is tensor([-1.4297, -1.0234,  0.2041,  1.4297, -0.2041,  1.0234, -0.6133,  0.6133],
+       device='cuda:0', dtype=torch.bfloat16)
