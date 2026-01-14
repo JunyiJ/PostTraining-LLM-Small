@@ -363,11 +363,11 @@ def equation_bonus(text: str) -> float:
             lhs_val = _safe_eval_arith(lhs)
             rhs_val = _safe_eval_arith(rhs)
             if abs(lhs_val - rhs_val) < 1e-6:
-                bonus += 0.05
+                bonus += 0.03
         except:
             continue
 
-    return min(bonus, 0.30)   # cap at +0.1
+    return min(bonus, 0.15)   # cap at +0.1
 
 # ============================================================
 # NEW: Repetition Penalty
@@ -475,6 +475,13 @@ def structural_reset_penalty(text: str) -> float:
 
     return 0.0
 
+def format_bonus(text: str) -> float:
+    # Look for causal transition words that indicate real reasoning
+    cues = ["therefore", "because", "remaining", "total", "since", "consequently"]
+    count = sum(1 for cue in cues if cue in text.lower())
+    # Reward up to +0.1 for using at least 2 reasoning connectors
+    return min(count * 0.05, 0.1)
+
 # ============================================================
 # FINAL COMBINED REWARD
 # ============================================================
@@ -527,7 +534,7 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
 
     # 4. Format/Structure Bonus
     # Reward the model slightly for actually using the step-by-step format
-    format_r = 0.0
+    format_r = format_bonus(text)
     # if "Step 1" in text or "1." in text:
     #     format_r += 0.05
 
@@ -538,7 +545,9 @@ def refined_advanced_cot_reward(text: str, gold_answer: float, truncated: bool =
 
     # 6. Efficiency Bonus (The Tie-Breaker)
     # Target: -0.5 penalty at max length (approx 1600 chars)
-    length_penalty = len(text) / 3000.0
+    length_penalty = 0.0
+    if len(text) > 800:
+        length_penalty = (len(text) - 800) / 1500.0
 
     total = num_r + partial_r + eq_r + structure_penalty + rep_r + format_r + trunc_r - length_penalty
 
