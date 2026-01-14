@@ -1,7 +1,6 @@
 """
 Script to load a pretrained model and do GRPO with math data to fine-tune the model with LoRA
 """
-import bitsandbytes as bnb
 import gc
 import json
 import os
@@ -52,6 +51,9 @@ KL_COEF = 0.1
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
+if IS_CUDA and hasattr(torch.backends, "cuda"):
+    torch.backends.cuda.matmul.allow_tf32 = True
+    torch.backends.cudnn.allow_tf32 = True
 # Load model/tokenizer using helper
 tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 # Wrap target linear layers with LoRA adapters
@@ -192,17 +194,32 @@ for epoch in range(1, NUM_EPOCHS + 1):
         arange = torch.arange(T - 1, device=DEVICE).unsqueeze(0)  # [1, T-1]
         answer_mask = ((arange >= (prompt_len - 1)) & (arange < (eos_pos.unsqueeze(1)))).float()
         targets = padded_batch_tokens[:, 1:].unsqueeze(-1)
+        # --- CHUNKED REFERENCE PASSES TO PREVENT OOM ---
+        log_probs_old_list = []
+        log_probs_ref_list = []
+        chunk_size = 4 if IS_CUDA else NUM_SAMPLES_PER_PROMPT
         with torch.no_grad():
-            old_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
-            logits_old = old_out.logits[:, :-1, :]   # [B, T-1, V]
-            shifted_log_probs_old = F.log_softmax(logits_old / SAMPLING_TEMPERATURE, dim=-1)
-            # Gather logprobs of the actually generated tokens
-            log_probs_old = shifted_log_probs_old.gather(-1, targets).squeeze(-1)  # [B, T-1]
-            with model.disable_adapter():
-                ref_out = model(input_ids=padded_batch_tokens, attention_mask=attention_mask)
-                logits_ref = ref_out.logits[:, :-1, :]   # [B, T-1, V]
-                shifted_log_probs_ref = F.log_softmax(logits_ref / SAMPLING_TEMPERATURE, dim=-1)
-                log_probs_ref = shifted_log_probs_ref.gather(-1, targets).squeeze(-1).detach()  # [B, T-1]
+            for i in range(0, NUM_SAMPLES_PER_PROMPT, chunk_size):
+                c_toks = padded_batch_tokens[i : i + chunk_size]
+                c_mask = attention_mask[i : i + chunk_size]
+                c_targ = targets[i : i + chunk_size]
+
+                # Old Policy Logprobs
+                c_out_old = model(input_ids=c_toks, attention_mask=c_mask)
+                c_lp_old = F.log_softmax(c_out_old.logits[:, :-1, :] / SAMPLING_TEMPERATURE, dim=-1).gather(-1, c_targ).squeeze(-1)
+                log_probs_old_list.append(c_lp_old)
+
+                # Reference Policy Logprobs
+                with model.disable_adapter():
+                    c_out_ref = model(input_ids=c_toks, attention_mask=c_mask)
+                    c_lp_ref = F.log_softmax(c_out_ref.logits[:, :-1, :] / SAMPLING_TEMPERATURE, dim=-1).gather(-1, c_targ).squeeze(-1)
+                    log_probs_ref_list.append(c_lp_ref)
+                
+                del c_out_old, c_out_ref
+                empty_cache(DEVICE)
+
+            log_probs_old = torch.cat(log_probs_old_list, dim=0)
+            log_probs_ref = torch.cat(log_probs_ref_list, dim=0)
 
         # Second pass (enable gradient) to get each answer token's sum_logprob_new.
         # Reward & Advantage
@@ -224,7 +241,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 print(f"is result truncated? {tr}")
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
-        advantages = advantages.to(shifted_log_probs_old.dtype)
+        advantages = advantages.to(log_probs_old.dtype)
         print(f"advantages is {advantages}")
 
         model.train()
@@ -247,8 +264,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
                     m_ans_mask = answer_mask[i:i+1]
                     m_targets = targets[i:i+1]
                     m_adv = advantages[i:i+1]
-                    m_log_old = log_probs_old[i:i+1].sum(dim=1)
-                    m_log_ref = log_probs_ref[i:i+1]
+                    m_log_old = (log_probs_old[i:i+1] * m_ans_mask).sum(dim=1)
+                    m_log_ref = log_probs_ref[i:i+1] * m_ans_mask
 
                     # Single Forward Pass
                     out_new = model(input_ids=m_tokens, attention_mask=m_mask)
@@ -324,14 +341,8 @@ for epoch in range(1, NUM_EPOCHS + 1):
             model.base_model.config.use_cache = True
         # --- THE DEEP CLEAN BLOCK ---
         # Tensors from the Forward Passes (The biggest memory hogs)
-        del old_out, logits_old, shifted_log_probs_old, log_probs_old
-        del ref_out, logits_ref, shifted_log_probs_ref, log_probs_ref
-
-        # Intermediate Tensors and Sampler output
-        del res, padded_batch_tokens, attention_mask, answer_mask, targets
-
-        # Final scalars
-        del advantages, rewards
+        del log_probs_old, log_probs_ref, log_probs_old_list, log_probs_ref_list
+        del res, padded_batch_tokens, attention_mask, answer_mask, targets, advantages, rewards
         del final_grpo, final_kl, final_loss
         gc.collect()
         empty_cache(DEVICE)
