@@ -27,3 +27,25 @@ def empty_cache(device=None) -> None:
         torch.cuda.empty_cache()
     elif dev.type == "mps" and hasattr(torch, "mps"):
         torch.mps.empty_cache()
+
+
+def configure_torch_for_device(device=None) -> None:
+    dev = resolve_device(device)
+    if dev.type != "cuda" or not torch.cuda.is_available():
+        return
+    try:
+        torch.backends.cuda.matmul.allow_tf32 = True
+        torch.backends.cudnn.allow_tf32 = True
+    except Exception:
+        pass
+    try:
+        torch.set_float32_matmul_precision("high")
+    except Exception:
+        pass
+    if hasattr(torch.backends, "cuda"):
+        if hasattr(torch.backends.cuda, "enable_flash_sdp"):
+            torch.backends.cuda.enable_flash_sdp(True)
+        if hasattr(torch.backends.cuda, "enable_mem_efficient_sdp"):
+            torch.backends.cuda.enable_mem_efficient_sdp(True)
+        if hasattr(torch.backends.cuda, "enable_math_sdp"):
+            torch.backends.cuda.enable_math_sdp(True)

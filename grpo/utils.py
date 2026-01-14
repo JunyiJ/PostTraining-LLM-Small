@@ -6,13 +6,14 @@ import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 
 try:
-    from grpo.device import resolve_device
+    from grpo.device import resolve_device, configure_torch_for_device
 except ImportError:
-    from device import resolve_device
+    from device import resolve_device, configure_torch_for_device
 
 
 def load_model(model_path="./models/gemma-2-2b", device=None):
     device = resolve_device(device)
+    configure_torch_for_device(device)
     tokenizer = AutoTokenizer.from_pretrained(
         model_path,
         padding_side="left",  # Critical for Qwen model
