@@ -243,7 +243,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
         # Calculate advantages
         advantages = compute_rank_advantage(rewards, device=DEVICE, dtype=torch.float32).detach()
         advantages = advantages.to(log_probs_old.dtype)
-        print(f"advantages is {advantages}")
+        # print(f"advantages is {advantages}")
 
         model.train()
         optimizer.zero_grad(set_to_none=True)
@@ -312,7 +312,7 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 final_kl = accumulated_kl / NUM_SAMPLES_PER_PROMPT
                 final_grpo = accumulated_grpo_loss / NUM_SAMPLES_PER_PROMPT
                 final_loss = final_grpo + KL_COEF * final_kl
-                print(f"grpo_loss is {final_grpo} and kl is {final_kl}")
+                # print(f"grpo_loss is {final_grpo} and kl is {final_kl}")
             else:
                 print("All rewards are negative; skipping gradient update.")
                 final_kl, final_grpo, final_loss = 0.0, 0.0, 0.0
