@@ -109,6 +109,13 @@ def _collect_lora_state_dict(model):
         target = model.base_model
     return {n: p.detach().cpu() for n, p in target.named_parameters() if p.requires_grad}
 
+def _collect_base_lora_state_dict(model):
+    target = model.base_model if hasattr(model, "base_model") else model
+    return {n: p.detach().cpu() for n, p in target.named_parameters() if p.requires_grad}
+
+def _strip_prefix(state_dict, prefix):
+    return {k[len(prefix):] if k.startswith(prefix) else k: v for k, v in state_dict.items()}
+
 
 def save_lora_checkpoint(model, optimizer, epoch, global_step, checkpoint_dir: Path, prefix: str) -> Path:
     state = {
@@ -122,3 +129,48 @@ def save_lora_checkpoint(model, optimizer, epoch, global_step, checkpoint_dir: P
     torch.save(state, ckpt_path)
     print(f"Saved checkpoint to {ckpt_path}")
     return ckpt_path
+
+def save_ppo_checkpoint(model, optimizer, epoch, global_step, checkpoint_dir: Path, prefix: str) -> Path:
+    state = {
+        "epoch": epoch,
+        "global_step": global_step,
+        "lora_state_dict": _collect_base_lora_state_dict(model),
+        "critic_state_dict": None,
+        "optimizer_state_dict": optimizer.state_dict(),
+    }
+    if hasattr(model, "value_layer"):
+        state["critic_state_dict"] = model.value_layer.state_dict()
+    date_str = time.strftime("%Y%m%d")
+    ckpt_path = checkpoint_dir / f"{prefix}_{date_str}_epoch{epoch}_step{global_step}.pt"
+    torch.save(state, ckpt_path)
+    print(f"Saved checkpoint to {ckpt_path}")
+    return ckpt_path
+
+def load_ppo_checkpoint(model, optimizer, ckpt_path: Path, strict: bool = False, load_optimizer: bool = True):
+    ckpt = torch.load(ckpt_path, map_location="cpu")
+    lora_state = ckpt.get("lora_state_dict", {})
+    critic_state = ckpt.get("critic_state_dict")
+
+    if any(k.startswith("base_model.") for k in lora_state):
+        lora_state = _strip_prefix(lora_state, "base_model.")
+    if critic_state is None and any(k.startswith("value_layer.") for k in lora_state):
+        critic_state = {
+            k[len("value_layer."):]: v for k, v in lora_state.items()
+            if k.startswith("value_layer.")
+        }
+        lora_state = {k: v for k, v in lora_state.items() if not k.startswith("value_layer.")}
+
+    target = model.base_model if hasattr(model, "base_model") else model
+    missing = target.load_state_dict(lora_state, strict=strict)
+    critic_missing = None
+    if critic_state is not None and hasattr(model, "value_layer"):
+        critic_missing = model.value_layer.load_state_dict(critic_state, strict=strict)
+
+    if load_optimizer and optimizer is not None and "optimizer_state_dict" in ckpt:
+        optimizer.load_state_dict(ckpt["optimizer_state_dict"])
+
+    return {
+        "checkpoint": ckpt,
+        "missing": missing,
+        "critic_missing": critic_missing,
+    }

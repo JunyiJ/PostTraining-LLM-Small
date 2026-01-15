@@ -15,7 +15,7 @@ from tqdm import tqdm
 from transformers import get_cosine_schedule_with_warmup
 
 from grpo.device import get_default_device, empty_cache
-from grpo.utils import load_model, check_memory_health, save_lora_checkpoint
+from grpo.utils import load_model, check_memory_health, save_ppo_checkpoint, load_ppo_checkpoint
 from ppo.ppo_advantage import advantage_gae
 from ppo.ppo_sampler import sample_batch
 from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params, get_optimizer_params
@@ -122,8 +122,7 @@ model = apply_lora_to_model(
     dropout=0.05,
 )
 model = Critic(model)
-freeze_non_lora_critic_params(model)
-trainable_params = [p for p in model.parameters() if p.requires_grad]
+
 
 """
 load data
@@ -153,18 +152,20 @@ print(
     f"attn_impl={ATTN_IMPLEMENTATION} quantization={QUANTIZATION}"
 )
 
-if LORA_CKPT and LORA_CKPT.exists():
-    ckpt = torch.load(LORA_CKPT, map_location="cpu")
-    missing = model.load_state_dict(ckpt.get("lora_state_dict", {}), strict=False)
-    print(f"Loaded LoRA checkpoint {LORA_CKPT} (missing/unexpected: {missing})")
-else:
-    print(f"LoRA checkpoint {LORA_CKPT} not found; training from base model.")
+freeze_non_lora_critic_params(model)
+trainable_params = [p for p in model.parameters() if p.requires_grad]
 
 if not is_quantized:
     model.to(device=DEVICE, dtype=MODEL_DTYPE)
 # Setup optimizer and scheduler
 params = get_optimizer_params(model, lora_lr=2e-5, critic_lr=1e-4, weight_decay=0.01)
 optimizer = torch.optim.AdamW(params, eps=1e-6)
+
+if LORA_CKPT and LORA_CKPT.exists():
+    info = load_ppo_checkpoint(model, optimizer, LORA_CKPT, strict=False, load_optimizer=True)
+    print(f"Loaded PPO checkpoint {LORA_CKPT} (lora_missing={info['missing']} critic_missing={info['critic_missing']})")
+else:
+    print(f"PPO checkpoint {LORA_CKPT} not found; training from base model.")
 
 total_steps = min(len(test_data), NUM_TRAINING_DATA * NUM_EPOCHS) // BATCH_SIZE * NUM_EPOCHS
 warmup_steps = int(0.05 * total_steps) # 5% warmup is a safe default
@@ -453,14 +454,12 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 # Cleanup GPU for next mini-batch
                 del b_tokens, b_mask, b_old_log_probs, b_old_values, b_advantages, b_returns, b_answer_mask
                 del new_out, new_values, logits_new, shifted_log_probs_new, log_probs_new
+                grad_norm = torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
+                optimizer.step()
+                scheduler.step()
+
                 del total_loss
                 empty_cache(DEVICE)
-            grad_norm = torch.nn.utils.clip_grad_norm_(trainable_params, max_norm=1.0)
-            for param in trainable_params:
-                if param.grad is not None:
-                    param.grad.data = param.grad.data.contiguous()
-            optimizer.step()
-            scheduler.step()
 
             global_step += 1
             if global_step % LOG_EVERY == 0:
@@ -505,5 +504,5 @@ for epoch in range(1, NUM_EPOCHS + 1):
         print(f"Sampling:          {(t1-t0):.2f}s")
         print(f"Global Advantage Norm:          {(t2-t1):.2f}s")
         print(f"Logprob forward & backward:   {(t_end-t2):.2f}s")
-    save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="ppo")
+    save_ppo_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="ppo")
     print(f"==end-of-epoch {epoch}==")

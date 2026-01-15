@@ -10,7 +10,7 @@ from tqdm import tqdm
 
 from grpo.reward import extract_final_answer
 from grpo.device import get_default_device, empty_cache
-from grpo.utils import load_model
+from grpo.utils import load_model, load_ppo_checkpoint
 
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
@@ -90,9 +90,11 @@ if USE_LORA:
                 print(f"Using {best_name} checkpoint keys for loading.")
             return best_state
 
-        def detect_backend(state, ckpt_path):
+        def detect_backend(state, ckpt_path, ckpt_obj):
             if LORA_BACKEND != "auto":
                 return LORA_BACKEND
+            if ckpt_obj.get("critic_state_dict") is not None:
+                return "ppo"
             for key in state.keys():
                 if "value_layer" in key:
                     return "ppo"
@@ -103,7 +105,7 @@ if USE_LORA:
                 return "grpo"
             return "grpo"
 
-        backend = detect_backend(state_dict, LORA_CKPT)
+        backend = detect_backend(state_dict, LORA_CKPT, ckpt)
         print(f"Using LoRA backend: {backend}")
 
         if backend == "ppo":
@@ -119,8 +121,8 @@ if USE_LORA:
             model = Critic(model)
             freeze_non_lora_critic_params(model)
             model.to(DEVICE)
-            selected_state_dict = select_state_dict(state_dict, model)
-            missing = model.load_state_dict(selected_state_dict, strict=False)
+            info = load_ppo_checkpoint(model, optimizer=None, ckpt_path=LORA_CKPT, strict=False, load_optimizer=False)
+            missing = info["missing"]
         else:
             if backend == "dpo":
                 from dpo.lora import apply_lora_to_model, freeze_non_lora_params
