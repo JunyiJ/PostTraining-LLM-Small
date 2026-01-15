@@ -47,7 +47,7 @@ EVAL_EVERY = 25
 LOG_EVERY = 1
 SAMPLING_TEMPERATURE = 1.3
 MAX_NEW_TOKENS = 512
-KL_COEF = 0.02
+KL_COEF = 0.08
 LR = 5e-6
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
