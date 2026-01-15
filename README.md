@@ -154,5 +154,5 @@ For GRPO training on GPU with more training data (1000 total, 10 epoches with 10
 
 Epoch 2 accuracy: 65.88%
 Epoch 4 accuracy: 66%
-Epoch 9 accuracy:
+Epoch 9 accuracy: 60.38%
 Soup accuracy:
