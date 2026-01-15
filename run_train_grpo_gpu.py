@@ -49,6 +49,7 @@ SAMPLING_TEMPERATURE = 1.3
 MAX_NEW_TOKENS = 512
 KL_COEF = 0.08
 LR = 5e-6
+learning_rate = LR
 
 PROMPT = " Reason step-by-step,  then give: Final answer."
 
