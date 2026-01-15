@@ -60,7 +60,7 @@ elif IS_MPS:
     MODEL_DTYPE = torch.bfloat16
 else:
     MODEL_DTYPE = torch.float32
-USE_FLASH_ATTN_2 = IS_CUDA
+ATTN_IMPLEMENTATION = "sdpa" if IS_CUDA else None
 QUANTIZATION = "4bit" if IS_CUDA else None
 EPS = 0.2
 # Define Fixed Length (MPS Compilation Target)
@@ -109,7 +109,7 @@ def safe_pad(tensor, target_len, pad_val=0):
 tokenizer, model = load_model(
     str(MODEL_PATH),
     device=DEVICE,
-    use_flash_attn_2=USE_FLASH_ATTN_2,
+    attn_implementation=ATTN_IMPLEMENTATION,
     quantization=None,
     torch_dtype=MODEL_DTYPE,
 )
@@ -150,7 +150,7 @@ print(
     f"[config] device={DEVICE} batch_size={BATCH_SIZE} grad_acc={GRAD_ACCUM_STEPS} "
     f"total_batch={TOTAL_BATCH_SIZE} ppo_epochs={PPO_EPOCHS} "
     f"target_kl={TARGET_KL} beta={BETA} vf_coef={VF_COEF} ent_coef={ENT_COEF} "
-    f"flash_attn_2={USE_FLASH_ATTN_2} quantization={QUANTIZATION}"
+    f"attn_impl={ATTN_IMPLEMENTATION} quantization={QUANTIZATION}"
 )
 
 if LORA_CKPT and LORA_CKPT.exists():

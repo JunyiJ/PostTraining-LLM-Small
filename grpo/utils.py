@@ -15,6 +15,7 @@ def load_model(
     model_path="./models/gemma-2-2b",
     device=None,
     use_flash_attn_2=False,
+    attn_implementation=None,
     quantization=None,
     torch_dtype=None,
     device_map=None,
@@ -45,8 +46,11 @@ def load_model(
         "torch_dtype": torch_dtype,
         "low_cpu_mem_usage": True,
     }
-    if use_flash_attn_2 and device.type == "cuda":
-        model_kwargs["attn_implementation"] = "flash_attention_2"
+    if device.type == "cuda":
+        if attn_implementation:
+            model_kwargs["attn_implementation"] = attn_implementation
+        elif use_flash_attn_2:
+            model_kwargs["attn_implementation"] = "flash_attention_2"
     if use_bnb:
         if device.type != "cuda":
             raise ValueError("8-bit/4-bit quantization requires CUDA.")
