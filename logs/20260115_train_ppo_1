@@ -1,0 +1,175 @@
+Print found 2000 lines of training data
+[config] device=cuda batch_size=4 grad_acc=16 total_batch=64 ppo_epochs=2 target_kl=6.0 beta=0.05 vf_coef=0.01 ent_coef=0 attn_impl=sdpa quantization=4bit
+PPO checkpoint None not found; training from base model.
+
+=== Epoch 1/10 ===
+[92m📊 [System Health] RAM: 20.3% | Swap Used: 0.00 GB[0m
+Collecting experience for step 0...
+PPO optimization step 0...
+[timing] sample processed in 115.32s
+
+=== PROFILER ===
+Sampling:          90.35s
+Global Advantage Norm:          0.04s
+Logprob forward & backward:   24.93s
+[92m📊 [System Health] RAM: 20.7% | Swap Used: 0.00 GB[0m
+Collecting experience for step 2...
+PPO optimization step 2...
+[timing] sample processed in 131.70s
+
+=== PROFILER ===
+Sampling:          107.46s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.24s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch1_step4.pt
+==end-of-epoch 1==
+
+=== Epoch 2/10 ===
+[92m📊 [System Health] RAM: 20.8% | Swap Used: 0.00 GB[0m
+Collecting experience for step 4...
+PPO optimization step 4...
+[timing] sample processed in 117.66s
+
+=== PROFILER ===
+Sampling:          93.12s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.54s
+[92m📊 [System Health] RAM: 20.8% | Swap Used: 0.00 GB[0m
+Collecting experience for step 6...
+PPO optimization step 6...
+[timing] sample processed in 124.39s
+
+=== PROFILER ===
+Sampling:          100.00s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.39s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch2_step8.pt
+==end-of-epoch 2==
+
+=== Epoch 3/10 ===
+[92m📊 [System Health] RAM: 20.7% | Swap Used: 0.00 GB[0m
+Collecting experience for step 8...
+PPO optimization step 8...
+[step 10] loss=-0.046 policy=-0.047 value=0.076 entropy=0.093 clip_frac=0.078 ratio_mean=1.008 lr=1.9875000000000002e-05 cuda_max_alloc_mb=22335.0 cuda_max_reserved_mb=22544.0
+[timing] sample processed in 121.11s
+
+=== PROFILER ===
+Sampling:          96.68s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.43s
+[92m📊 [System Health] RAM: 20.7% | Swap Used: 0.00 GB[0m
+Collecting experience for step 10...
+PPO optimization step 10...
+[step 11] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.  Reason step-by-step,  then give: Final answer. 
+
+**Step 1: Calculate the distance traveled at 62 km/h**
+
+* Distance = Speed x Time
+* Distance = 62 km/h * 2 h = 124 km
+
+**Step 2: Calculate the distance traveled at 124 km/h**
+
+* Distance = Speed x Time
+* Distance = 124 km/h * 3 h = 372 km
+
+**Step 3: Calculate the total distance**
+
+* Total Distance = Distance at 62 km/h + Distance at 124 km/h
+* Total Distance = 124 km + 372 km = 496 km
+
+**Final Answer:** The total distance traveled is 496 km. 
+
+[timing] sample processed in 113.09s
+
+=== PROFILER ===
+Sampling:          85.56s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   27.52s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch3_step12.pt
+==end-of-epoch 3==
+
+=== Epoch 4/10 ===
+[92m📊 [System Health] RAM: 24.7% | Swap Used: 0.00 GB[0m
+Collecting experience for step 12...
+PPO optimization step 12...
+[timing] sample processed in 110.59s
+
+=== PROFILER ===
+Sampling:          86.32s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.27s
+[92m📊 [System Health] RAM: 24.7% | Swap Used: 0.00 GB[0m
+Collecting experience for step 14...
+PPO optimization step 14...
+[timing] sample processed in 127.84s
+
+=== PROFILER ===
+Sampling:          103.64s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.20s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch4_step16.pt
+==end-of-epoch 4==
+
+=== Epoch 5/10 ===
+[92m📊 [System Health] RAM: 24.8% | Swap Used: 0.00 GB[0m
+Collecting experience for step 16...
+PPO optimization step 16...
+[timing] sample processed in 113.94s
+
+=== PROFILER ===
+Sampling:          89.82s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.12s
+[92m📊 [System Health] RAM: 24.8% | Swap Used: 0.00 GB[0m
+Collecting experience for step 18...
+PPO optimization step 18...
+[step 20] loss=-0.034 policy=-0.034 value=0.060 entropy=0.064 clip_frac=0.074 ratio_mean=1.000 lr=1.986530871795195e-05 cuda_max_alloc_mb=22704.1 cuda_max_reserved_mb=22884.0
+[timing] sample processed in 113.77s
+
+=== PROFILER ===
+Sampling:          89.73s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   24.04s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch5_step20.pt
+==end-of-epoch 5==
+
+=== Epoch 6/10 ===
+[92m📊 [System Health] RAM: 24.8% | Swap Used: 0.00 GB[0m
+Collecting experience for step 20...
+PPO optimization step 20...
+[step 22] avg_loss=0.0000 acc=0.0000
+[eval] A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km. -> A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km.  Reason step-by-step,  then give: Final answer. 
+
+**Step-by-step Reasoning:**
+
+1. **First leg:** The car travels at 62 km/h for 2 hours, so the distance is 62 km/h * 2 h = 124 km.
+
+2. **Second leg:** The car travels twice the speed (124 km/h * 2 = 248 km/h) for 3 hours, so the distance is 248 km/h * 3 h = 744 km.
+
+3. **Total distance:** The total distance is the sum of the distances from both legs: 124 km + 744 km = 868 km.
+
+**Final Answer:** The total distance traveled is 868 km. 
+
+[timing] sample processed in 148.86s
+
+=== PROFILER ===
+Sampling:          121.21s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   27.64s
+[92m📊 [System Health] RAM: 25.0% | Swap Used: 0.00 GB[0m
+Collecting experience for step 22...
+PPO optimization step 22...
+[timing] sample processed in 155.97s
+
+=== PROFILER ===
+Sampling:          132.12s
+Global Advantage Norm:          0.00s
+Logprob forward & backward:   23.86s
+Saved checkpoint to /workspace/Projects/PostTraining-LLM-Small/gemma-2-2b-checkpoints/ppo_20260115_epoch6_step24.pt
+==end-of-epoch 6==
+
+=== Epoch 7/10 ===
+[92m📊 [System Health] RAM: 24.9% | Swap Used: 0.00 GB[0m
+Collecting experience for step 24...
+PPO optimization step 24...

@@ -41,7 +41,7 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 128
-BATCH_SIZE = 8 if IS_CUDA else 2
+BATCH_SIZE = 4 if IS_CUDA else 2
 GRAD_ACCUM_STEPS = 16    # Accumulate 8 mini-batches (Total effective batch = 32)
 TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
 PPO_EPOCHS = 2          # Number of optimization passes per batch
