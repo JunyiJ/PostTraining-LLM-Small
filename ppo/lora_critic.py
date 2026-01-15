@@ -4,6 +4,18 @@ import torch.nn.init as init
 from contextlib import contextmanager
 from typing import Tuple, Iterable
 
+try:
+    import bitsandbytes as bnb
+    _BNB_LINEAR_TYPES = []
+    if hasattr(bnb, "nn"):
+        if hasattr(bnb.nn, "Linear8bitLt"):
+            _BNB_LINEAR_TYPES.append(bnb.nn.Linear8bitLt)
+        if hasattr(bnb.nn, "Linear4bit"):
+            _BNB_LINEAR_TYPES.append(bnb.nn.Linear4bit)
+    BNB_LINEAR_TYPES = tuple(_BNB_LINEAR_TYPES)
+except Exception:
+    BNB_LINEAR_TYPES = ()
+
 class Critic(nn.Module):
     def __init__(self, base_model):
         super().__init__()
@@ -62,13 +74,14 @@ class LoRALinear(nn.Module):
     LoRA wrapper around an nn.Linear layer.
     Base weights are frozen; low-rank A/B matrices are trainable.
     """
-    def __init__(self, base_layer: nn.Linear, r: int = 8, alpha: int = 16, dropout: float = 0.0):
+    def __init__(self, base_layer, r: int = 8, alpha: int = 16, dropout: float = 0.0):
         super().__init__()
 
         self.base = base_layer
         # Freeze the base layer weights immediately
-        self.base.weight.requires_grad = False
-        if self.base.bias is not None:
+        if hasattr(self.base, "weight"):
+            self.base.weight.requires_grad = False
+        if hasattr(self.base, "bias") and self.base.bias is not None:
             self.base.bias.requires_grad = False
         self.in_features = base_layer.in_features
         self.out_features = base_layer.out_features
@@ -84,6 +97,23 @@ class LoRALinear(nn.Module):
         self.lora_B = nn.Linear(r, self.base.out_features, bias=False)
         init.kaiming_normal_(self.lora_A.weight, a=0.0, mode="fan_in", nonlinearity="relu")
         init.zeros_(self.lora_B.weight)
+        # Keep LoRA adapters on the same device/dtype as the base layer.
+        lora_device = None
+        if hasattr(self.base, "weight"):
+            lora_device = self.base.weight.device
+        elif hasattr(self.base, "bias") and self.base.bias is not None:
+            lora_device = self.base.bias.device
+        lora_dtype = getattr(self.base, "compute_dtype", None)
+        if lora_dtype is None:
+            if hasattr(self.base, "bias") and self.base.bias is not None and torch.is_floating_point(self.base.bias):
+                lora_dtype = self.base.bias.dtype
+            elif hasattr(self.base, "weight") and torch.is_floating_point(self.base.weight):
+                lora_dtype = self.base.weight.dtype
+        if lora_dtype is None:
+            lora_dtype = torch.float16
+        if lora_device is not None and lora_dtype is not None:
+            self.lora_A.to(device=lora_device, dtype=lora_dtype)
+            self.lora_B.to(device=lora_device, dtype=lora_dtype)
         
     def forward(self, x):
         base_out = self.base(x)
@@ -107,6 +137,7 @@ def apply_lora_to_model(
 
     # Convert to tuple of strings
     target_modules = tuple(target_modules)
+    linear_types = (nn.Linear,) + BNB_LINEAR_TYPES
 
     # ---- recursive function ----
     def replace_recursive(module: nn.Module):
@@ -114,7 +145,7 @@ def apply_lora_to_model(
         for name, child in list(module.named_children()):
 
             # ---- CASE 1: child is a Linear that should be LoRA-wrapped ----
-            if isinstance(child, nn.Linear) and any(t in name for t in target_modules):
+            if isinstance(child, linear_types) and any(t in name for t in target_modules):
                 setattr(module, name,
                         LoRALinear(child, r=r, alpha=alpha, dropout=dropout))
                 continue

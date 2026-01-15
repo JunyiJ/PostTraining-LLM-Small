@@ -11,7 +11,14 @@ except ImportError:
     from device import resolve_device, configure_torch_for_device
 
 
-def load_model(model_path="./models/gemma-2-2b", device=None):
+def load_model(
+    model_path="./models/gemma-2-2b",
+    device=None,
+    use_flash_attn_2=False,
+    quantization=None,
+    torch_dtype=None,
+    device_map=None,
+):
     device = resolve_device(device)
     configure_torch_for_device(device)
     tokenizer = AutoTokenizer.from_pretrained(
@@ -20,15 +27,57 @@ def load_model(model_path="./models/gemma-2-2b", device=None):
     )
     if tokenizer.pad_token_id is None:
         tokenizer.pad_token_id = tokenizer.eos_token_id
-    model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        dtype=torch.bfloat16,  # Using float32/bf16 instead of FP16 e MPS FP16 matmul has limited exponent range and MPS has buggy FP16 softmax
-        device_map={"": "cpu"},  # Load model to cpu first and later moved to desired device to avoid the hugging face buggy warmup with FP16
-        low_cpu_mem_usage=True,
-    )
-    model = model.to(device)
+
+    if torch_dtype is None:
+        if device.type == "cuda":
+            torch_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+        elif device.type == "mps":
+            torch_dtype = torch.bfloat16
+        else:
+            torch_dtype = torch.float32
+
+    quantization_mode = str(quantization).lower() if quantization else None
+    if quantization_mode == "none":
+        quantization_mode = None
+    use_bnb = quantization_mode in ("4bit", "8bit")
+
+    model_kwargs = {
+        "torch_dtype": torch_dtype,
+        "low_cpu_mem_usage": True,
+    }
+    if use_flash_attn_2 and device.type == "cuda":
+        model_kwargs["attn_implementation"] = "flash_attention_2"
+    if use_bnb:
+        if device.type != "cuda":
+            raise ValueError("8-bit/4-bit quantization requires CUDA.")
+        try:
+            from transformers import BitsAndBytesConfig
+        except ImportError as exc:
+            raise ImportError(
+                "bitsandbytes/transformers BitsAndBytesConfig is required for quantization."
+            ) from exc
+        if quantization_mode == "4bit":
+            model_kwargs["quantization_config"] = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=True,
+                bnb_4bit_compute_dtype=torch_dtype,
+            )
+        else:
+            model_kwargs["quantization_config"] = BitsAndBytesConfig(load_in_8bit=True)
+        model_kwargs["device_map"] = "auto" if device_map is None else device_map
+    else:
+        if device_map is not None:
+            model_kwargs["device_map"] = device_map
+        elif device.type == "mps":
+            # Load model to CPU first to avoid MPS FP16 warmup allocations.
+            model_kwargs["device_map"] = {"": "cpu"}
+
+    model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
     model.config.pad_token_id = tokenizer.pad_token_id
     model.config.eos_token_id = tokenizer.eos_token_id
+    if not use_bnb:
+        model = model.to(device)
     return tokenizer, model
 
 
