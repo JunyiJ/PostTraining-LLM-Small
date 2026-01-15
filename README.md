@@ -143,3 +143,16 @@ causes NaN issue probably due to a known unstability of Gemma model on MPS.
 After the optimization step above (combining, 1/2/3/4), the overall training time is able to reduce 
 by 3-4x.
 3) TODO: update to larger batches.
+
+## Device comparison:
+While it's not surprising that GPU(cuda) is much more efficient, it's still good to record some numbers comparing mac mini and cuda:
+For eval of 200 math examples, mac mini took around 1 hr and cuda (4090 with 24vram) only took 2-3 min!
+For running 1 epoch(100 examples) of GRPO training, mac mini can do at most 5 as group size and it took around 2-3 hrs, cuda(4090 with 24 vram) can support much larger group size (e.g. 32) and took around 20-30 min.
+
+## Model Soup
+For GRPO training on GPU with more training data (1000 total, 10 epoches with 100 per epoch), the model accuracy (200 math test set) is 63.5%, 68.5%, 65%, 67.5%, 62.5%, 61%, 63.5%, 63.5%, 67%, 60.5%. Epoch 2, 4 and 9 showed best performance. As a result, I decided to use the model soup method to combine these 3 epochs and try to re-do the evaluation on a larger test dataset (800 examples).
+
+Epoch 2 accuracy: 65.88%
+Epoch 4 accuracy: 66%
+Epoch 9 accuracy:
+Soup accuracy:

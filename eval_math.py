@@ -15,9 +15,9 @@ from grpo.utils import load_model, load_ppo_checkpoint
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
 TEST_FILE = "./data/test_math_800.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch2_step200.pt")
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_20260115_epoch1_step4.pt")
 USE_LORA = True  # set False to eval base model only
-LORA_BACKEND = "grpo"  # "auto", "grpo", "dpo", "ppo"
+LORA_BACKEND = "ppo"  # "auto", "grpo", "dpo", "ppo"
 BATCH_SIZE = 20
 MAX_NEW_TOKENS = 300
 TOL = 1e-1

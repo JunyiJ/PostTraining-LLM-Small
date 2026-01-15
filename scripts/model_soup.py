@@ -42,7 +42,7 @@ def blend_checkpoints(ckpt_paths, weights):
 # recommended blend: 50% Epoch 2, 25% Epoch 4, 25% Epoch 9
 best_lora = blend_checkpoints(
     [LORA_CKPT_2, LORA_CKPT_4, LORA_CKPT_9], 
-    [0.50, 0.25, 0.25]
+    [0.25, 0.50, 0.25]
 )
 
 # Load base model with LoRA adapters so we can save a standard LoRA checkpoint.
