@@ -302,11 +302,11 @@ def numeric_reward(pred: float, gold: float, tol: float = 1e-4) -> float:
     """
     err = abs(pred - gold)
     if err <= tol:
-        return 1.0
+        return 1.2
     rel_err = err / max(1.0, abs(gold))
     if rel_err < 0.05:
         return 0.2
-    return -1.0
+    return -1.5
 
 
 # ============================================================
