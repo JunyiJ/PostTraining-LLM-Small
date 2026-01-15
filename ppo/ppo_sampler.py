@@ -167,31 +167,6 @@ def sample_batch(
             append_for_model[append_for_model == FAKE_PAD_ID] = pad_id_for_model
             input_ids_k[:, curr_pos] = append_for_model.squeeze(-1)
 
-            # # Early stopping
-            # if i > 50 and i % 10 == 0:
-            #     for j in range(k):
-            #         if i == max_new_tokens - 1 and sampling_active[j]:
-            #             print(f"⚠️ No early-stop for sample {j}, generated full length.")
-            #         if sampling_active[j]:
-            #             start_ind = max(prompt_id_length, curr_pos - 30)
-            #             tail_text = tokenizer.decode(input_ids_k[j, start_ind:curr_pos+1], skip_special_tokens=True).lower().strip()
-            #             # find any numeric candidate in text
-            #             marker = "final answer:"
-            #             if marker in tail_text.lower():
-            #                 parts = re.split(marker, tail_text, flags=re.IGNORECASE)
-            #                 after_answer = parts[-1].strip()
-            #                 if re.search(r"[-+]?\d[\d,./]*\s*(\n|\.|$)", after_answer):
-            #                     # We found a number followed by a terminator or end of string
-            #                     # To be safe, let's ensure it's not just a single digit mid-sentence
-            #                     if len(after_answer) > 0 and (after_answer[-1] in ['.', '\n'] or i == max_new_tokens - 1):
-            #                         print(f"🟢 Controlled stop (sample {j}): {after_answer}")
-            #                         sampling_active[j] = False
-            #                         finished_with_eos[j] = True
-
-            # if sampling_active.sum() == 0:
-            #     print("🟢 All samples terminated — stopping sampler loop")
-            #     break
-
             hit_eos = (next_token_raw.squeeze(-1) == tokenizer.eos_token_id)
             finished_with_eos |= (hit_eos & sampling_active)
             sampling_active &= (~hit_eos)

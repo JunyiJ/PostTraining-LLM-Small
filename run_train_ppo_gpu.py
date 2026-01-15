@@ -19,7 +19,7 @@ from grpo.utils import load_model, check_memory_health, save_ppo_checkpoint, loa
 from ppo.ppo_advantage import advantage_gae
 from ppo.ppo_sampler import sample_batch
 from ppo.lora_critic import Critic, apply_lora_to_model, freeze_non_lora_critic_params, get_optimizer_params
-from ppo.ppo_reward import refined_advanced_cot_reward
+from grpo.reward import refined_advanced_cot_reward
 
 DEVICE = get_default_device()
 IS_CUDA = (DEVICE.type == "cuda")
@@ -47,7 +47,7 @@ TOTAL_BATCH_SIZE = BATCH_SIZE * GRAD_ACCUM_STEPS
 PPO_EPOCHS = 2          # Number of optimization passes per batch
 NUM_EPOCHS = 10
 EVAL_EVERY = 11
-LOG_EVERY = 10
+LOG_EVERY = 1
 MAX_INPUT_TOKENS = 150
 MAX_NEW_TOKENS = 500
 TARGET_KL = 6.0
@@ -122,6 +122,10 @@ model = apply_lora_to_model(
     dropout=0.05,
 )
 model = Critic(model)
+if IS_CUDA:
+    model.base_model.gradient_checkpointing_enable()
+    model.base_model.enable_input_require_grads()
+    model.base_model.config.use_cache = False
 
 
 """
@@ -178,9 +182,6 @@ scheduler = get_cosine_schedule_with_warmup(
 CHECKPOINT_DIR.mkdir(parents=True, exist_ok=True)
 
 global_step = 0
-running_loss = 0.0
-running_correct = 0
-running_total = 0
 
 for epoch in range(1, NUM_EPOCHS + 1):
     print(f"\n=== Epoch {epoch}/{NUM_EPOCHS} ===")
@@ -359,9 +360,9 @@ for epoch in range(1, NUM_EPOCHS + 1):
             random.shuffle(buffer_memory)
             if IS_CUDA:
                 torch.cuda.reset_peak_memory_stats()
-            log_step = global_step + 1
             last_metrics = None
             for mini_batch in buffer_memory:
+                log_step = global_step + 1
                 # Move Batch to GPU
                 b_tokens = mini_batch["tokens"].to(DEVICE)
                 b_mask = mini_batch["attention_mask"].to(DEVICE)
@@ -461,43 +462,37 @@ for epoch in range(1, NUM_EPOCHS + 1):
                 del total_loss
                 empty_cache(DEVICE)
 
-            global_step += 1
-            if global_step % LOG_EVERY == 0:
-                msg = f"[step {global_step}] grad_norm={grad_norm:.3f}"
-                if last_metrics is not None:
-                    msg = (
-                        f"[step {global_step}] loss={last_metrics['loss']:.3f} "
-                        f"policy={last_metrics['policy']:.3f} value={last_metrics['value']:.3f} "
-                        f"entropy={last_metrics['entropy']:.3f} clip_frac={last_metrics['clip_frac']:.3f} "
-                        f"ratio_mean={last_metrics['ratio_mean']:.3f} lr={last_metrics['lr']}"
-                    )
-                if IS_CUDA:
-                    mem_alloc = torch.cuda.max_memory_allocated() / (1024 ** 2)
-                    mem_reserved = torch.cuda.max_memory_reserved() / (1024 ** 2)
-                    msg = f"{msg} cuda_max_alloc_mb={mem_alloc:.1f} cuda_max_reserved_mb={mem_reserved:.1f}"
-                print(msg)
-            if global_step % EVAL_EVERY == 0:
-                avg_loss = running_loss / max(global_step, 1)
-                acc = running_correct / max(running_total, 1)
-                print(f"[step {global_step}] avg_loss={avg_loss:.4f} acc={acc:.4f}")
-                running_loss = 0.0
-                running_correct = 0
-                running_total = 0
+                global_step += 1
+                if global_step % LOG_EVERY == 0:
+                    msg = f"[step {global_step}] grad_norm={grad_norm:.3f}"
+                    if last_metrics is not None:
+                        msg = (
+                            f"[step {global_step}] loss={last_metrics['loss']:.3f} "
+                            f"policy={last_metrics['policy']:.3f} value={last_metrics['value']:.3f} "
+                            f"entropy={last_metrics['entropy']:.3f} clip_frac={last_metrics['clip_frac']:.3f} "
+                            f"ratio_mean={last_metrics['ratio_mean']:.3f} lr={last_metrics['lr']}"
+                        )
+                    if IS_CUDA:
+                        mem_alloc = torch.cuda.max_memory_allocated() / (1024 ** 2)
+                        mem_reserved = torch.cuda.max_memory_reserved() / (1024 ** 2)
+                        msg = f"{msg} cuda_max_alloc_mb={mem_alloc:.1f} cuda_max_reserved_mb={mem_reserved:.1f}"
+                    print(msg)
+                if global_step % EVAL_EVERY == 0:
 
-                eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
-                eval_inputs = tokenizer(eval_prompt + PROMPT, return_tensors="pt").to(DEVICE)
-                model.eval()
-                with torch.no_grad():
-                    out = model.generate(
-                        **eval_inputs,
-                        max_new_tokens=MAX_NEW_TOKENS,
-                        do_sample=False,
-                    )
-                    print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
-                model.train()
-                del eval_inputs, out
-                gc.collect()
-                empty_cache(DEVICE)
+                    eval_prompt = "A car travels at 62 km/h for 2 hours, then twice that speed for 3 hours. Compute total distance in km."
+                    eval_inputs = tokenizer(eval_prompt + PROMPT, return_tensors="pt").to(DEVICE)
+                    model.eval()
+                    with torch.no_grad():
+                        out = model.generate(
+                            **eval_inputs,
+                            max_new_tokens=MAX_NEW_TOKENS,
+                            do_sample=False,
+                        )
+                        print(f"[eval] {eval_prompt} -> {tokenizer.decode(out[0], skip_special_tokens=True)}")
+                    model.train()
+                    del eval_inputs, out
+                    gc.collect()
+                    empty_cache(DEVICE)
         t_end = time.perf_counter()
         print(f"[timing] sample processed in {(t_end - t_start):.2f}s")
         print("\n=== PROFILER ===")
