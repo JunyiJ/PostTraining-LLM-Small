@@ -8,9 +8,9 @@ from grpo.utils import load_model, save_lora_checkpoint
 DEVICE = get_default_device()
 MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "gemma-2-2b"
 CHECKPOINT_DIR = Path(__file__).resolve().parent.parent / "gemma-2-2b-checkpoints"
-LORA_CKPT_2 = Path("../gemma-2-2b-checkpoints/grpo_20260115_epoch2_step200.pt")
-LORA_CKPT_4 = Path("../gemma-2-2b-checkpoints/grpo_20260115_epoch4_step400.pt")
-LORA_CKPT_9 = Path("../gemma-2-2b-checkpoints/grpo_20260115_epoch9_step900.pt")
+LORA_CKPT_2 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch2_step200.pt")
+LORA_CKPT_4 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch4_step400.pt")
+LORA_CKPT_9 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch9_step900.pt")
 
 def _load_lora_state(ckpt_path: Path):
     try:

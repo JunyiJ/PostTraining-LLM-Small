@@ -152,7 +152,12 @@ For running 1 epoch(100 examples) of GRPO training, mac mini can do at most 5 as
 ## Model Soup
 For GRPO training on GPU with more training data (1000 total, 10 epoches with 100 per epoch), the model accuracy (200 math test set) is 63.5%, 68.5%, 65%, 67.5%, 62.5%, 61%, 63.5%, 63.5%, 67%, 60.5%. Epoch 2, 4 and 9 showed best performance. As a result, I decided to use the model soup method to combine these 3 epochs and try to re-do the evaluation on a larger test dataset (800 examples).
 
+For math eval with 800 examples
 Epoch 2 accuracy: 65.88%
 Epoch 4 accuracy: 66%
-Epoch 9 accuracy: 60.38%
-Soup accuracy:
+Soup accuracy: 66.88%
+
+For math eval with 200 examples
+Epoch 2 accuracy: 68.5%
+Epoch 4 accuracy: 67.5%
+Soup accuracy: 71%
