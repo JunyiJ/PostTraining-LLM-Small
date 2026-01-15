@@ -10,7 +10,6 @@ MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "gemma-2-2b"
 CHECKPOINT_DIR = Path(__file__).resolve().parent.parent / "gemma-2-2b-checkpoints"
 LORA_CKPT_2 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch2_step200.pt")
 LORA_CKPT_4 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch4_step400.pt")
-LORA_CKPT_9 = Path("./gemma-2-2b-checkpoints/grpo_20260115_epoch9_step900.pt")
 
 def _load_lora_state(ckpt_path: Path):
     try:
@@ -39,10 +38,9 @@ def blend_checkpoints(ckpt_paths, weights):
             
     return blended_state
 
-# recommended blend: 50% Epoch 2, 25% Epoch 4, 25% Epoch 9
 best_lora = blend_checkpoints(
-    [LORA_CKPT_2, LORA_CKPT_4, LORA_CKPT_9], 
-    [0.40, 0.60, 0]
+    [LORA_CKPT_2, LORA_CKPT_4], 
+    [0.40, 0.60]
 )
 
 # Load base model with LoRA adapters so we can save a standard LoRA checkpoint.

@@ -14,12 +14,12 @@ from grpo.utils import load_model, load_ppo_checkpoint
 
 MODEL_PATH = "./models/gemma-2-2b"
 # MODEL_PATH = "./models/Qwen2.5-Math-1.5B-Instruct"
-TEST_FILE = "./data/test_math_800.jsonl"
-LORA_CKPT = Path("./gemma-2-2b-checkpoints/ppo_20260115_epoch1_step4.pt")
+TEST_FILE = "./data/test_math.jsonl"
+LORA_CKPT = Path("./gemma-2-2b-checkpoints/soup_20260115_epoch0_step0.pt")
 USE_LORA = True  # set False to eval base model only
-LORA_BACKEND = "ppo"  # "auto", "grpo", "dpo", "ppo"
-BATCH_SIZE = 20
-MAX_NEW_TOKENS = 300
+LORA_BACKEND = "grpo"  # "auto", "grpo", "dpo", "ppo"
+BATCH_SIZE = 50
+MAX_NEW_TOKENS = 512
 TOL = 1e-1
 
 prompt = " Reason step-by-step,  then give: Final answer."
