@@ -3,19 +3,27 @@ from pathlib import Path
 import torch
 import torch.nn.functional as F
 
+try:
+    from grpo.device import get_default_device
+except ImportError:
+    from device import get_default_device
+
 from lora import (
     LoRALinear,
     apply_lora_to_model,
     freeze_non_lora_params,
     get_lora_parameters,
 )
-from utils import load_model
+try:
+    from grpo.utils import load_model
+except ImportError:
+    from utils import load_model
 
 MODEL_PATH = Path(__file__).resolve().parent.parent / "models" / "gemma-2-2b"
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 
 # for name, module in model.named_modules():
 #     if isinstance(module, torch.nn.Linear):

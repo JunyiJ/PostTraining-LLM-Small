@@ -3,7 +3,7 @@
 Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct checkpoint.
 
 ## Repo structure
-- `run_train.py` — main GRPO+LoRA training loop (multi-epoch, sampling, ratio loss, periodic eval, checkpoints in `checkpoints/`).
+- `run_train_grpo.py` — main GRPO+LoRA training loop (multi-epoch, sampling, ratio loss, periodic eval, checkpoints in `checkpoints/`).
 - `eval_math.py` — evaluate math accuracy; can load base model or base+LoRA checkpoint.
 - `eval_math_base.py` — baseline math eval without LoRA.
 - `grpo/` — helpers:
@@ -25,8 +25,8 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
    ```bash
    huggingface-cli download google/gemma-2-2b --local-dir ./models/gemma-2-2b --include "*"
    ```
-3) I used local machine (mac mini, device=`mps`) to do the post-training, but the code should
- be able to be adapted to other devices.
+3) I used a local Mac mini for post-training, but device selection now auto-detects
+   `cuda`/`mps`/`cpu` based on what's available.
 
 ## GRPO + LoRA flow
 ### Code structure
@@ -40,9 +40,9 @@ Lightweight GRPO + LoRA post-training experiments on a local Gemma 2B Instruct c
 
 To train:
 ```bash
-python run_train.py | tee logs/train_test.log
+python run_train_grpo.py | tee logs/train_test.log
 ```
-Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train.py`.
+Adjust `NUM_EPOCHS`, `NUM_TRAINING_DATA`, `NUM_SAMPLES_PER_PROMPT`, etc. in `run_train_grpo.py`.
 
 ### Overview of LoRA
 For each target layer(usually q, k, v, o), add a learnable weight with low rank while base weights are frozen:
@@ -93,7 +93,12 @@ The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
 
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
-* Baseline Model: Gemma 2B Instruct Total: 200 Correct: 122 Accuracy: 61%
+* Baseline Model: Gemma 2B Instruct Total: 61% (on GSM8K_200), 
+* Best GRPO performance: 68.5% (on GSM8K_200), 66% (on GSM8K_800)
+* Best PPO performance: 64.5%
+* Best DPO performance: 71% (on GSM8K_200), 65.62% (on GSM8K_800)
+
+Below are from local mac mini run
 * GRPO + LORA Model checkpoint (base): Gemma 2B Instruct + LoRA with GRPO loss Total: 200 Correct: 126 Accuracy: 63.00% (before running optimization)
 * GRPO + LORA Model checkpoint(efficient): Gemma 2B Instruct + LoRA with GRPO loss with improved efficiency. Total: 199 Correct: 118 Accuracy: 59.3%.
 * GRPO + LORA Model checkpoint(Train on 200 harder hand curated + AI generated examples, with efficiency improvement, MAX_NEW_TOKENS=400, TEMP=0.9, NUM_SAMPLES=5, lr=2*1e-4, KL_COEFF=0.1): Gemma 2B Instruct + LoRA Total: 200 Correct: 132 Accuracy: 66.00%
@@ -143,3 +148,21 @@ causes NaN issue probably due to a known unstability of Gemma model on MPS.
 After the optimization step above (combining, 1/2/3/4), the overall training time is able to reduce 
 by 3-4x.
 3) TODO: update to larger batches.
+
+## Device comparison:
+While it's not surprising that GPU(cuda) is much more efficient, it's still good to record some numbers comparing mac mini and cuda:
+For eval of 200 math examples, mac mini took around 1 hr and cuda (4090 with 24vram) only took 2-3 min!
+For running 1 epoch(100 examples) of GRPO training, mac mini can do at most 5 as group size and it took around 2-3 hrs, cuda(4090 with 24 vram) can support much larger group size (e.g. 32) and took around 20-30 min.
+
+## Model Soup
+For GRPO training on GPU with more training data (1000 total, 10 epoches with 100 per epoch), the model accuracy (200 math test set) is 63.5%, 68.5%, 65%, 67.5%, 62.5%, 61%, 63.5%, 63.5%, 67%, 60.5%. Epoch 2, 4 and 9 showed best performance. As a result, I decided to use the model soup method to combine these 3 epochs and try to re-do the evaluation on a larger test dataset (800 examples). In summary, soup indeed achieved better performance to individual snapshot!
+
+For math eval with 800 examples
+Epoch 2 accuracy: 65.88%
+Epoch 4 accuracy: 66%
+Soup accuracy: 66.88%
+
+For math eval with 200 examples
+Epoch 2 accuracy: 68.5%
+Epoch 4 accuracy: 67.5%
+Soup accuracy: 71%

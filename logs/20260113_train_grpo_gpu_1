@@ -1,0 +1,72 @@
+Print found 2000 lines of training data
+[config] device=cuda samples_per_prompt=8 max_new_tokens=400 lr=2e-05
+
+=== Epoch 1/10 ===
+[92m📊 [System Health] RAM: 20.2% | Swap Used: 0.00 GB[0m
+Sansa is a famous artist, she can draw a portrait and sell it according to its size. She sells an 8-inch portrait for $5, and a 16-inch portrait for twice the price of the 8-inch portrait. If she sells three 8-inch portraits and five 16-inch portraits per day, how many does she earns every 3 days?
+answer is 195
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+
+reward is -1.2
+is result truncated? False
+advantages is tensor([0., 0., 0., 0., 0., 0., 0., 0.], device='cuda:0')
+grpo_loss is -0.0 and kl is 0.0
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 2.69s
+
+=== PROFILER ===
+Sampling:          2.22s
+Logprob forward:   0.18s
+Reward + Adv:      0.11s
+Backward:          0.00s
+Archibald eats 1 apple a day for two weeks. Over the next three weeks, he eats the same number of apples as the total of the first two weeks. Over the next two weeks, he eats 3 apples a day. Over these 7 weeks, how many apples does he average a week?
+answer is 10
+advantages is tensor([ 0.6124, -0.2041,  0.2041, -1.4289, -1.0206, -0.6124,  1.4289,  1.0206],
+       device='cuda:0')
+grpo_loss is 2.2351741790771484e-08 and kl is 0.0
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 11.34s
+
+=== PROFILER ===
+Sampling:          10.16s
+Logprob forward:   0.52s
+Reward + Adv:      0.24s
+Backward:          0.00s
+Susie has $200 in her piggy bank. If she puts 20% more money into her piggy bank, how much money she will have?
+answer is 240
+advantages is tensor([-0.6124, -1.4289,  0.2041,  0.6124, -0.2041,  1.4289,  1.0206, -1.0206],
+       device='cuda:0')
+grpo_loss is -1.4901161193847656e-08 and kl is 0.0
+All rewards are negative; skipping gradient update.
+[timing] sample processed in 10.48s
+
+=== PROFILER ===
+Sampling:          9.51s
+Logprob forward:   0.49s
+Reward + Adv:      0.09s
+Backward:          0.00s
+Benny bought  2 soft drinks for$ 4 each and 5 candy bars. He spent a total of 28 dollars. How much did each candy bar cost?
+answer is 4
+advantages is tensor([ 1.4289, -1.4289,  1.0206, -0.2041,  0.2041, -0.6124,  0.6124, -1.0206],
+       device='cuda:0')
+grpo_loss is -0.0 and kl is 0.0

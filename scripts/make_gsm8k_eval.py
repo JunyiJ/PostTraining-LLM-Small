@@ -3,8 +3,8 @@ import json
 import random
 from datasets import load_dataset
 
-OUTPUT_FILE = "./data/test_math.jsonl"
-NUM_SAMPLES = 200
+OUTPUT_FILE = "./data/test_math_800.jsonl"
+NUM_SAMPLES = 800
 
 def extract_gold_answer(answer_text):
     """
@@ -21,7 +21,7 @@ def main():
 
     print(f"Total test samples: {len(ds)}")
 
-    # Randomly select 200 samples
+    # Randomly select N samples
     samples = random.sample(list(ds), NUM_SAMPLES)
 
     print(f"Saving {NUM_SAMPLES} samples to {OUTPUT_FILE}")

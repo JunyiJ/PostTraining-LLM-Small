@@ -11,6 +11,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
+from grpo.device import get_default_device, resolve_device, empty_cache
 from grpo.utils import load_model
 from grpo.sampler import sample_k_parallel
 from grpo.advantage import compute_advantage, compute_rank_advantage
@@ -26,7 +27,7 @@ os.environ["TRANSFORMERS_NO_MPS_CACHE_ALLOCATOR"] = "1"
 MODEL_PATH = Path(__file__).resolve().parent / "models" / "gemma-2-2b"
 TRAIN_FILE = Path(__file__).resolve().parent / "data" / "gsm8k_sft_warmup.jsonl"
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
-DEVICE = torch.device("mps")
+DEVICE = get_default_device()
 
 def save_lora_checkpoint(model, optimizer, epoch, global_step):
     state = {
@@ -39,12 +40,13 @@ def save_lora_checkpoint(model, optimizer, epoch, global_step):
     torch.save(state, ckpt_path)
     print(f"Saved checkpoint to {ckpt_path}")
 
-def run_memory_optimized_sft(model, tokenizer, sft_data, optimizer, device="mps", epochs=1, grad_accum_steps=4):
+def run_memory_optimized_sft(model, tokenizer, sft_data, optimizer, device=None, epochs=1, grad_accum_steps=4):
     """
     SFT Warm-up optimized for 16GB RAM.
     - grad_accum_steps=4 simulates a Batch Size of 4 while using memory of 1.
     - labels are masked to focus on the reasoning/answer only.
     """
+    device = resolve_device(device)
     model.train()
     print(f"🚀 Starting Memory-Optimized SFT Warm-up...")
     
@@ -95,8 +97,7 @@ def run_memory_optimized_sft(model, tokenizer, sft_data, optimizer, device="mps"
             del outputs, loss, input_ids, labels, attention_mask
             if i % 10 == 0:
                 gc.collect()
-                if torch.backends.mps.is_available():
-                    torch.mps.empty_cache()
+                empty_cache(device)
         # handle leftover gradients if dataset size not divisible by grad_accum_steps
         if (len(sft_data) % grad_accum_steps) != 0:
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
@@ -107,7 +108,7 @@ def run_memory_optimized_sft(model, tokenizer, sft_data, optimizer, device="mps"
     print("✅ SFT Warm-up Complete.")
 
 # Load model/tokenizer using helper
-tokenizer, model = load_model(str(MODEL_PATH))
+tokenizer, model = load_model(str(MODEL_PATH), device=DEVICE)
 # Wrap target linear layers with LoRA adapters
 model = apply_lora_to_model(
     model,

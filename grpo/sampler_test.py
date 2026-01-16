@@ -1,7 +1,7 @@
 import torch
 import pytest
 
-from sampler import sample_k_parallel
+from grpo.sampler import sample_k_parallel
 
 
 class DummyModel(torch.nn.Module):
