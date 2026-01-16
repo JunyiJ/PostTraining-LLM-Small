@@ -11,6 +11,12 @@ class ModelAdapterWrapper(nn.Module):
         super().__init__()
         self.base_model = base_model
 
+    def state_dict(self, *args, **kwargs):
+        return self.base_model.state_dict(*args, **kwargs)
+
+    def load_state_dict(self, state_dict, strict=True):
+        return self.base_model.load_state_dict(state_dict, strict)
+
     def forward(self, *args, **kwargs):
         # Preserve user args/kwargs
         return self.base_model(*args, **kwargs)
