@@ -63,6 +63,9 @@ class LoRALinear(nn.Module):
         # Low-rank adapters
         self.A = nn.Linear(self.base.in_features, r, bias=False)
         self.B = nn.Linear(r, self.base.out_features, bias=False)
+        # Keep LoRA params on the same device/dtype as the base layer to avoid dtype mismatch.
+        self.A.to(device=self.base.weight.device, dtype=self.base.weight.dtype)
+        self.B.to(device=self.base.weight.device, dtype=self.base.weight.dtype)
         init.kaiming_normal_(self.A.weight, a=0.0, mode="fan_in", nonlinearity="relu")
         init.zeros_(self.B.weight)
         
