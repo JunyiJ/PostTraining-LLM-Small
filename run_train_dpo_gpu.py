@@ -39,7 +39,7 @@ LORA_CKPT = None
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
 NUM_TRAINING_DATA = 128
-MICRO_BATCH_SIZE = 8 
+MICRO_BATCH_SIZE = 4 
 # ACCUMULATION_STEPS: How many micro-batches to accumulate before updating weights
 # Effective Batch Size = MICRO_BATCH_SIZE * ACCUMULATION_STEPS
 ACCUMULATION_STEPS = 4
