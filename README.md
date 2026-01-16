@@ -93,7 +93,7 @@ The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
 
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
-* Baseline Model: Gemma 2B Instruct Total: 61% (on GSM8K_200), 
+* Baseline Model: Gemma 2B Instruct Total: 61% (on GSM8K_200), 60.25% (on GSM8K_800)
 * Best GRPO performance: 68.5% (on GSM8K_200), 66% (on GSM8K_800)
 * Best PPO performance: 64.5%
 * Best DPO performance: 71% (on GSM8K_200), 65.62% (on GSM8K_800)
