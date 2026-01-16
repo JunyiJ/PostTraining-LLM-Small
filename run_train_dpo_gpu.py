@@ -366,6 +366,6 @@ for epoch in range(1, NUM_EPOCHS + 1):
             running_time = 0.0
             running_mem_alloc = 0.0
             running_mem_reserved = 0.0
-        print(f"[timing] sample processed in {step_time:.2f}s")
+        # print(f"[timing] sample processed in {step_time:.2f}s")
     save_lora_checkpoint(model, optimizer, epoch, global_step, CHECKPOINT_DIR, prefix="dpo")
     print(f"==end-of-epoch {epoch}==")
