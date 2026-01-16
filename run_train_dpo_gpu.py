@@ -38,16 +38,16 @@ LORA_CKPT = None
 
 CHECKPOINT_DIR = Path(__file__).resolve().parent / "gemma-2-2b-checkpoints"
 # CHECKPOINT_DIR = Path(__file__).resolve().parent / "Qwen2.5-Math-1.5B-Instruct-checkpoints"
-NUM_TRAINING_DATA = 100
-MICRO_BATCH_SIZE = 2 
+NUM_TRAINING_DATA = 128
+MICRO_BATCH_SIZE = 8 
 # ACCUMULATION_STEPS: How many micro-batches to accumulate before updating weights
 # Effective Batch Size = MICRO_BATCH_SIZE * ACCUMULATION_STEPS
-ACCUMULATION_STEPS = 5
+ACCUMULATION_STEPS = 4
 NUM_EPOCHS = 50
 EVAL_EVERY = 10
 LOG_EVERY = 5
 MAX_INPUT_TOKENS = 512
-LR = 2e-5
+LR = 5e-6
 BETA = 0.1
 if IS_CUDA:
     MODEL_DTYPE = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
