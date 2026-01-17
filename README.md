@@ -51,10 +51,37 @@ where A with dimension input_dim * low_rank, B with dimension low_rank * output_
 A is usually initialized with normal distribution and B is initialized as 0 so that initially the delta is 0 
 and model learns from update.
 
+### Overview of KL divergency
+The KL (Kullback-Leibler) divergence term in RLHF (Reinforcement Learning from Human Feedback) is primarily designed to prevent reward hacking (by forcing the model to remain similar to the original model), maintaining diversity(avoid model collapse into a few high-score answers) and stability.
+
+In model post-training, KL divergence is a penalty added to the reward.
+`R' = R - beta * KL($$\pi_{policy} \| \pi_{ref})$$)`
+where the reference model is almost always the frozen copy of the base model of SFT model.
+
+There are different ways to estimate KL divergence $D_{KL}(q \| p)$ and the most commonly used method is the Shulman estimation($k_{3}$) in RLHF.
+
+* Let $r = \frac{p(x)}{q(x)}$
+
+* $k_{1}$: The Native Estimator (unbiased, high variance, can <0): $$k_1 = -\log r = \log q(x) - \log p(x)$$
+* $k_{2}$: The Squared Log-Ratio (biased, always >=0, low variance. It's stable when 2 distributions are close): $$k_2 = \frac{1}{2}(\log r)^2$$
+* $k_{3}$: Schulman Estimator(unbiased, always >=0, moderate variance): $$k_3 = r - 1 - \log r$$
+
+
 ### Overview of GRPO
-loss = - advantage * (prob_new / prob_old) + KL_weight * KL_divergency
-advantage = (reward - mean(reward)) / (std(reward) + 0.00001) for a group of answers (e.g. sample k answers)
-KL_divergency ~= sum(log_prob_new / log_prob_old) per token and then take the mean of all samples
+
+$$L_{GRPO}(\theta) = -\frac{1}{G} \sum_{i=1}^{G} \left( \sum_{t=1}^{T} \min \left( r_{i,t}(\theta) \hat{A}_i, \text{clip}(r_{i,t}(\theta), 1-\epsilon, 1+\epsilon) \hat{A}_i \right) - \beta D_{KL}(\pi_\theta \| \pi_{ref}) \right)$$
+
+And a simplified version is `loss = - advantage * (prob_new / prob_old) + KL_weight * KL_divergency`
+
+where
+* `advantage = (reward - mean(reward)) / (std(reward) + 0.00001)` for a group of answers (e.g. sample k answers)
+* KL_divergency is estimated by average over all effective tokens/sample and then average overall samples.
+
+
+#### Implementation details
+* Only take answer tokens (excluding prompt) into account - Basically one need to implement the answer_mask to mask out non-answer tokens for followup calculations.
+* Pay attention to the logit shift for logprobs and target tokens: input_token_0 -> produces logits_0 -> predicts target_token_1. In the shift, one usually need to discard the last logits because it's predict a target token that is meaningless and shift target_token by 1 like target = target[, 1:] to align the target token at index 1 with logits at index 0.
+* Gradient flow is through the `log_prob_new` used for r (important ratio) and KL divergence.
 
 ### Overview of PPO
 Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) and a value head (critic).
@@ -67,7 +94,7 @@ Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) an
 
 - **Actor / policy loss** (clipped surrogate):
 
-The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
+  The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
   ```
   r_t = exp(log P_new - log P_old)
   PolicyLoss = -min(r_t * Â_t, clip(r_t, 1-ε, 1+ε) * Â_t)
@@ -91,9 +118,27 @@ The Actor maximizes the Clipped Surrogate Objective to ensure stable training:
   ```
   Typically every token gets the KL penalty; only the final token gets the task reward (e.g., correctness/helpfulness) to handle sparse rewards and keep the policy near a reference model. A reference model is used for KL divergency: This prevents the model from drifting too far from a frozen reference model (the "base" or "SFT" model).
 
+#### Implementation details
+* It's common to save the rollout into a buffer and replay the buffer > 1 times to increase sample-efficiency, stable update by shuffling/mini-batching the same batch of experience and for memory control (store on CPU move to GPU per mini-batch to avoid VRAM spikes)
+* Global batch normalization: use the whole buffer to compute a single mean/std and scale to every token advantage to reduce variance, prevents a few high-reward episodes from dominating the gradient and keep a stable scale across epoches. Pay attention to only take answer tokens into account.
+* KL divergence is not explicit in the final loss, instead it's built into the reward (see above "Token-level rewards & KL penalty").
+* Gradient flow is through `log_prob_new` through r (importance ratio) and KL divergency and `V_new` through critic MSE loss.
+
+### Overview of DPO
+Unlike GRPO or PPO, DPO don't need a reward definition (LLM as the reward model), instead it directly train the base model with a pair of answers and maximize the probability of the choosen answer and minimize the probablity of the rejected answer.
+
+- ** Loss **:
+  ```
+  loss = -log_sigmoid(beta * log_prob(chosen_policy / chosen_ref) - beta * logprob(rejected_policy / rejected_ref))
+  ```
+  To optimize how well the policy model likes the chosen answer over the old model, over how much the policy model likes the rejected answer over the old model.
+
+#### implementation details
+* Need to make sure only the answer tokens is taken into account. It's easier to separate answer tokens from prompt if the model is right padded.
+
 ## Performance Comparison
 ### Gemma 2B Instruct as base model
-* Baseline Model: Gemma 2B Instruct Total: 61% (on GSM8K_200), 
+* Baseline Model: Gemma 2B Instruct Total: 61% (on GSM8K_200), 60.25% (on GSM8K_800)
 * Best GRPO performance: 68.5% (on GSM8K_200), 66% (on GSM8K_800)
 * Best PPO performance: 64.5%
 * Best DPO performance: 71% (on GSM8K_200), 65.62% (on GSM8K_800)
@@ -105,8 +150,6 @@ Below are from local mac mini run
 * PPO + Critic (single layer) + LORA(Actor) (Initial trial with 160 training examples, batch_size=8, VF_COEFF=0.01, EPS=0.1): Model: Gemma 2B Instruct + LoRA Total: 200 Correct: 126 Accuracy: 63.00%
 * DPO + LORA: Total: 200 Correct: 127 Accuracy: 63.5%
 
-### Qwen2.5-Math-1.5B-Instruct as base model
-* Baseline Model: Total: 200 Correct: 16 Accuracy: 8.00%
 
 ## Interesting Learnings
 ### Reward definition is key to the quality
