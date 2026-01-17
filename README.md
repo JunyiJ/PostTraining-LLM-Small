@@ -81,6 +81,7 @@ where
 #### Implementation details
 * Only take answer tokens (excluding prompt) into account - Basically one need to implement the answer_mask to mask out non-answer tokens for followup calculations.
 * Pay attention to the logit shift for logprobs and target tokens: input_token_0 -> produces logits_0 -> predicts target_token_1. In the shift, one usually need to discard the last logits because it's predict a target token that is meaningless and shift target_token by 1 like target = target[, 1:] to align the target token at index 1 with logits at index 0.
+* Gradient flow is through the `log_prob_new` used for r (important ratio) and KL divergence.
 
 ### Overview of PPO
 Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) and a value head (critic).
@@ -121,6 +122,7 @@ Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) an
 * It's common to save the rollout into a buffer and replay the buffer > 1 times to increase sample-efficiency, stable update by shuffling/mini-batching the same batch of experience and for memory control (store on CPU move to GPU per mini-batch to avoid VRAM spikes)
 * Global batch normalization: use the whole buffer to compute a single mean/std and scale to every token advantage to reduce variance, prevents a few high-reward episodes from dominating the gradient and keep a stable scale across epoches. Pay attention to only take answer tokens into account.
 * KL divergence is not explicit in the final loss, instead it's built into the reward (see above "Token-level rewards & KL penalty").
+* Gradient flow is through `log_prob_new` through r (importance ratio) and KL divergency and `V_new` through critic MSE loss.
 
 ### Overview of DPO
 Unlike GRPO or PPO, DPO don't need a reward definition (LLM as the reward model), instead it directly train the base model with a pair of answers and maximize the probability of the choosen answer and minimize the probablity of the rejected answer.
