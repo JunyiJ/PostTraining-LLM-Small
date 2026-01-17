@@ -125,7 +125,7 @@ Unlike GRPO, PPO is an actor–critic method: it trains both a policy (actor) an
 ### Overview of DPO
 Unlike GRPO or PPO, DPO don't need a reward definition (LLM as the reward model), instead it directly train the base model with a pair of answers and maximize the probability of the choosen answer and minimize the probablity of the rejected answer.
 
-- ** Loss ** -
+- ** Loss **:
   ```
   loss = -log_sigmoid(beta * log_prob(chosen_policy / chosen_ref) - beta * logprob(rejected_policy / rejected_ref))
   ```
